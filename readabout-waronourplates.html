@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>War on Our Plates: Rations, Scarcity and Survival - Not Your History Textbook</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet" />
+
+  <style>
+    @font-face {
+      font-family: "Poppins";
+      src: url("Poppins-BlackItalic.woff2") format("woff2"),
+           url("Poppins-BlackItalic.woff") format("woff");
+      font-weight: 900;
+      font-style: italic;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: "Poppins";
+      src: url("Poppins-ExtraBoldItalic.woff2") format("woff2"),
+           url("Poppins-ExtraBoldItalic.woff") format("woff");
+      font-weight: bold;
+      font-style: italic;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: "Poppins";
+      src: url("Poppins-ExtraBold.woff2") format("woff2"),
+           url("Poppins-ExtraBold.woff") format("woff");
+      font-weight: bold;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: "Poppins";
+      src: url("Poppins-Black.woff2") format("woff2"),
+           url("Poppins-Black.woff") format("woff");
+      font-weight: 900;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: "Poppins";
+      src: url("Poppins-Bold.woff2") format("woff2"),
+           url("Poppins-Bold.woff") format("woff");
+      font-weight: bold;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: "Poppins";
+      src: url("Poppins-BoldItalic.woff2") format("woff2"),
+           url("Poppins-BoldItalic.woff") format("woff");
+      font-weight: bold;
+      font-style: italic;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: "Poppins";
+      src: url("Poppins-Light.woff2") format("woff2"),
+           url("Poppins-Light.woff") format("woff");
+      font-weight: 300;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: "Poppins";
+      src: url("Poppins-LightItalic.woff2") format("woff2"),
+           url("Poppins-LightItalic.woff") format("woff");
+      font-weight: 300;
+      font-style: italic;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: "Poppins";
+      src: url("Poppins-ExtraLightItalic.woff2") format("woff2"),
+           url("Poppins-ExtraLightItalic.woff") format("woff");
+      font-weight: 200;
+      font-style: italic;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: "Poppins";
+      src: url("Poppins-Italic.woff2") format("woff2"),
+           url("Poppins-Italic.woff") format("woff");
+      font-weight: normal;
+      font-style: italic;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: "Poppins";
+      src: url("Poppins-ExtraLight.woff2") format("woff2"),
+           url("Poppins-ExtraLight.woff") format("woff");
+      font-weight: 200;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: "Poppins";
+      src: url("Poppins-Medium.woff2") format("woff2"),
+           url("Poppins-Medium.woff") format("woff");
+      font-weight: 500;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: "Poppins";
+      src: url("Poppins-Regular.woff2") format("woff2"),
+           url("Poppins-Regular.woff") format("woff");
+      font-weight: normal;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: "Poppins";
+      src: url("Poppins-SemiBoldItalic.woff2") format("woff2"),
+           url("Poppins-SemiBoldItalic.woff") format("woff");
+      font-weight: 600;
+      font-style: italic;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: "Poppins";
+      src: url("Poppins-ThinItalic.woff2") format("woff2"),
+           url("Poppins-ThinItalic.woff") format("woff");
+      font-weight: 100;
+      font-style: italic;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: "Poppins";
+      src: url("Poppins-Thin.woff2") format("woff2"),
+           url("Poppins-Thin.woff") format("woff");
+      font-weight: 100;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: "Poppins";
+      src: url("Poppins-MediumItalic.woff2") format("woff2"),
+           url("Poppins-MediumItalic.woff") format("woff");
+      font-weight: 500;
+      font-style: italic;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: "Poppins";
+      src: url("Poppins-SemiBold.woff2") format("woff2"),
+           url("Poppins-SemiBold.woff") format("woff");
+      font-weight: 600;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    :root{
+      --white:#F2F2EB;
+      --yellow:#FAE3AC;
+      --blue:#01344F;
+      --dark:#1A1A1A;
+      --light:#ABABAB;
+      --muted-button:#2A2A2A;
+      --muted-button-border:rgba(242,242,235,.14);
+      --story-width:920px;
+      --panel-border:rgba(242,242,235,.16);
+    }
+
+    *{
+      box-sizing:border-box;
+      margin:0;
+      padding:0;
+    }
+
+    html,body{
+      background:var(--dark);
+      color:var(--white);
+      font-family:"Lato",sans-serif;
+      min-height:100%;
+      overflow-x:hidden;
+    }
+
+    a{
+      text-decoration:none;
+      color:inherit;
+    }
+
+    button{
+      font:inherit;
+      background:none;
+      border:none;
+      color:inherit;
+      cursor:pointer;
+    }
+
+    .topbar{
+      padding:18px 20px 14px;
+    }
+
+    .brand{
+      font-family:"Poppins",sans-serif;
+      font-size:.92rem;
+      color:var(--yellow);
+      white-space:nowrap;
+    }
+
+    .divider{
+      height:1px;
+      background:rgba(242,242,235,.45);
+      width:100%;
+    }
+
+    .navbar{
+      display:flex;
+      gap:24px;
+      flex-wrap:wrap;
+      align-items:flex-start;
+      padding:18px 20px 0;
+      position:relative;
+      z-index:20;
+    }
+
+    .nav-link{
+      font-family:"Poppins",sans-serif;
+      font-size:1rem;
+      color:var(--white);
+      transition:.18s ease;
+      display:inline-block;
+    }
+
+    .nav-link:hover{
+      color:var(--light);
+    }
+
+    .nav-link:active,
+    .nav-link.active-link{
+      color:var(--yellow);
+    }
+
+    .page{
+      width:100%;
+      padding:58px 20px 120px;
+    }
+
+    .story-shell{
+      max-width:var(--story-width);
+      margin:0 auto;
+    }
+
+    .back-button-fixed{
+      position:fixed;
+      left:80px;
+      bottom:80px;
+      z-index:100;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:8px;
+      font-family:"Poppins",sans-serif;
+      font-size:.74rem;
+      font-weight:500;
+      letter-spacing:.05em;
+      text-transform:uppercase;
+      color:rgba(242,242,235,.82);
+      background:var(--muted-button);
+      border:1px solid var(--muted-button-border);
+      padding:10px 15px;
+      box-shadow:0 8px 24px rgba(0,0,0,.2);
+      transition:background .18s ease,color .18s ease,border-color .18s ease;
+    }
+
+    .back-button-fixed:hover{
+      background:#323232;
+      color:var(--white);
+      border-color:rgba(242,242,235,.24);
+    }
+
+    .story-hero{
+      margin-bottom:36px;
+      text-align:center;
+    }
+
+    .story-hero h1{
+      font-family:"Poppins",sans-serif;
+      color:var(--yellow);
+      font-size:clamp(2.2rem,4vw,3.45rem);
+      line-height:1.14;
+      margin:0 auto 14px;
+      max-width:22ch;
+      text-align:center;
+    }
+
+    .story-body{
+      display:block;
+    }
+
+    .story-body p{
+      font-size:1.04rem;
+      line-height:1.95;
+      color:rgba(242,242,235,.92);
+      text-align:justify;
+      margin-bottom:18px;
+    }
+
+    .story-body p.intro-italic{
+      font-style:italic;
+    }
+
+    .story-body p.story-credit{
+      font-style:italic;
+      color:var(--light);
+      margin-bottom:12px;
+    }
+
+    .story-subheading{
+      font-family:"Poppins",sans-serif;
+      font-size:1.45rem;
+      line-height:1.2;
+      color:var(--yellow);
+      font-weight:600;
+      margin:24px 0 14px;
+    }
+
+    .intro-box{
+      border:1px solid var(--yellow);
+      background:rgba(250,227,172,.12);
+      padding:18px 20px;
+      margin:0 0 28px;
+    }
+
+    .intro-box p:last-child{
+      margin-bottom:0;
+    }
+
+    .float-image{
+      width:260px;
+      max-width:42%;
+      margin:8px 0 14px 24px;
+      float:right;
+      border:1px solid rgba(242,242,235,.12);
+      background:rgba(242,242,235,.03);
+    }
+
+    .float-image.left{
+      float:left;
+      margin:8px 24px 14px 0;
+    }
+
+    .float-image img{
+      display:block;
+      width:100%;
+      height:auto;
+    }
+
+    .image-caption{
+      margin-top:8px;
+      font-size:.82rem;
+      line-height:1.5;
+      color:var(--light);
+      font-style:italic;
+      text-align:center;
+      padding:0 8px 10px;
+    }
+
+    .full-story-link-wrap{
+      margin-top:22px;
+      margin-bottom:24px;
+      display:flex;
+      justify-content:center;
+    }
+
+    .story-button{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:12px 24px;
+      font-family:"Poppins",sans-serif;
+      font-size:.92rem;
+      font-weight:600;
+      letter-spacing:.04em;
+      color:var(--dark);
+      background:var(--yellow);
+      border:1px solid var(--yellow);
+      transition:.18s ease;
+      text-align:center;
+      margin:0;
+    }
+
+    .story-button:hover,
+    .story-button:active{
+      background:transparent;
+      color:var(--yellow);
+      border-color:rgba(250,227,172,.75);
+    }
+
+    .references-end{
+      clear:both;
+      margin:44px auto 0;
+      width:100%;
+      max-width:var(--story-width);
+    }
+
+    .ref-toggle{
+      width:100%;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:14px;
+      font-family:"Poppins",sans-serif;
+      font-size:.8rem;
+      font-weight:600;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+      color:var(--white);
+      background:transparent;
+      border:1px solid var(--panel-border);
+      padding:10px 14px;
+      cursor:pointer;
+      transition:.18s ease;
+    }
+
+    .ref-toggle:hover{
+      border-color:rgba(250,227,172,.45);
+      color:var(--yellow);
+    }
+
+    .ref-toggle-icon{
+      font-size:.92rem;
+      line-height:1;
+      transition:transform .18s ease;
+    }
+
+    .references-end.open .ref-toggle-icon{
+      transform:rotate(180deg);
+    }
+
+    .ref-menu{
+      display:none;
+      margin-top:8px;
+      border:1px solid var(--panel-border);
+      background:var(--blue);
+      width:100%;
+      padding:0;
+    }
+
+    .references-end.open .ref-menu{
+      display:block;
+    }
+
+    .ref-item{
+      padding:12px 14px;
+      font-family:"Lato",sans-serif;
+      font-size:.92rem;
+      line-height:1.6;
+      color:var(--white);
+      border-bottom:1px solid rgba(242,242,235,.1);
+      word-break:break-word;
+    }
+
+    .ref-item:last-child{
+      border-bottom:none;
+    }
+
+    .ref-item a{
+      color:var(--white);
+      text-decoration:underline;
+      text-underline-offset:2px;
+    }
+
+    .ref-item a:hover{
+      color:var(--yellow);
+    }
+
+    @media (max-width: 900px){
+      .navbar{
+        gap:18px;
+      }
+
+      .back-button-fixed{
+        left:24px;
+      }
+    }
+
+    @media (max-width: 768px){
+     .topbar {
+  padding: 16px 16px 12px;
+}
+
+
+      .brand{
+        font-size:.8rem;
+      }
+
+      .navbar{
+        gap:14px;
+        padding:16px 16px 0;
+      }
+
+      .page{
+        padding:34px 16px 100px;
+      }
+
+      .story-hero h1{
+        max-width:100%;
+        font-size:clamp(1.8rem,7vw,2.7rem);
+      }
+
+      .story-body p{
+        font-size:1rem;
+        line-height:1.85;
+        text-align:left;
+      }
+
+      .story-subheading{
+        font-size:1.25rem;
+      }
+
+      .intro-box{
+        padding:16px 14px;
+      }
+
+      .float-image,
+      .float-image.left{
+        float:none;
+        width:100%;
+        max-width:100%;
+        margin:14px 0 18px;
+      }
+
+      .references-end{
+        max-width:100%;
+      }
+
+      .full-story-link-wrap{
+        justify-content:center;
+      }
+
+      .story-button{
+        width:100%;
+        max-width:320px;
+      }
+
+      .back-button-fixed{
+        left:24px;
+        bottom:24px;
+        font-size:.7rem;
+        padding:10px 13px;
+      }
+    }
+
+    @media (max-width: 560px){
+      .brand{
+        font-size:.78rem;
+      }
+
+      .navbar{
+        gap:12px;
+      }
+
+      .nav-link{
+        font-size:.95rem;
+      }
+
+      .back-button-fixed{
+        position:static;
+        margin:0 0 24px;
+      }
+
+      .page{
+        padding-top:28px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="index.html">not your History Textbook</a>
+  </header>
+
+  <div class="divider"></div>
+
+  <nav class="navbar">
+    <a href="index.html" class="nav-link">Home</a>
+    <a href="cornersofthepast.html" class="nav-link">Corners of the past</a>
+    <a href="memorywall-reddit.html" class="nav-link">Memory wall</a>
+    <a href="interactivetimeline.html" class="nav-link">Interactive timeline</a>
+    <a href="everydaylife.html" class="nav-link active-link">Everyday life</a>
+    <a href="silentheroes.html" class="nav-link">Our silent heroes</a>
+  </nav>
+
+  <main class="page">
+    <a href="everydaylife.html" class="back-button-fixed">Back</a>
+
+    <article class="story-shell">
+      <header class="story-hero">
+        <h1>War on Our Plates: Rations, Scarcity and Survival</h1>
+      </header>
+
+      <section class="story-body">
+        <div class="intro-box">
+          <p class="intro-italic">It’s probably a common practice amongst our grandparents to not waste a single grain of rice, have their fridge filled with leftovers, find bliss in simple meals even if its a small humble bowl of plain porridge, give us the biggest piece of meat on the dish even if it meant they only get to savour the head of the fish, and to always make sure we return home with a full feast waiting for us on the dining table.</p>
+
+          <p class="intro-italic">That’s probably because, for them, they are used to food being a form of survival, a need not a want, where a mere bowl of plain white rice is already more than enough for them. Seeing loved ones be able to eat freely and lavishly is already a reason to be content.</p>
+        </div>
+
+        <p>Life has just taken a turn. Just a few days back, the Japanese launched an attack on my very own home and just, the British took an L from the Japanese and surrendered a nation of lives to them for the unforeseeable future to come.</p>
+
+        <figure class="float-image">
+          <img src="03a_wartime.avif" alt="Wartime rationing and food scarcity during the Japanese Occupation" />
+          <figcaption class="image-caption">This sketch by the artist Liu Kang portrays the Japanese distribution system of essentials, which was widely seen as responsible for the black market, and the enrichment of the Japanese and unscrupulous businessmen. Image reproduced from Liu, K. 1946. <em>Chop Suey</em> Vol. I. Singapore: Eastern Art Co. Collection of the National Library Singapore, accession no. B02901746G.</figcaption>
+        </figure>
+
+        <p>As life turns increasingly harrowing day by day, the Japanese begin to seize the food stocks that were set aside by the British. Those stockpiles were reserved for Japanese military use with a smaller portion set aside for the general population.</p>
+
+        <p>Initially, the British defence strategy for Singapore was to hold out until naval ships came to the rescue. Part of this defence plan involved the stockpiling of food until help came, but futile as Singapore’s humid climate means that food supplies cannot be stored for long periods. In an attempt for survival, during the final days preceding the fall of Singapore, warehouses and shops were ransacked everywhere.</p>
+
+        <p>But now that the British surrendered, Japanese soldiers are going around conducting house-to-house searches; if I fail to hide my loot well, it shall be confiscated, and I’d most likely be beheaded right there and then.</p>
+
+        <p>… All my prior efforts and determination to hoard food are now wasted. During the months prior to the Japanese’s invasion, many were already aware of the impending doom awaiting our island. As such, everyone took matters into their own hands, including Ma Pa, who stockpiled on food, as also encouraged by the British authorities.</p>
+
+        <p>However, when prices began skyrocketing due to shortages and profiteering, the authorities tried to u-turn and discourage stockpiling, but it was already too late.</p>
+
+        <p>As long as there’s a house, there are cases and cases of sardines. No matter when I went, around the streets in the evening, on the way home in buses, everybody was holding onto parcels and baskets of provisions.</p>
+
+        <p>Anyway, besides those now wasted efforts, well unless one is ballsy enough, food import and export businesses in Singapore are already being monopolised by Japanese companies, as local suppliers of various commodities are being distributed into monopolies called <em>kumiai</em>. For instance, the import and distribution of rice was handled by Mitsubishi Shoji Corporation. The Cold Storage supermarket, which had a good refrigeration system and was a major importer of frozen meat, was made into a <em>butai</em>, a company linked to the military.</p>
+
+        <p>One day, mum gets handed a ration card, as part of a rationing system whereby members of all households have to be registered to receive ration cards, to exercise control over the population and the supply of food. My needs for survival feel like a puppet show, reduced to a ticket.</p>
+
+        <figure class="float-image left">
+          <img src="04_wartime.avif" alt="Ration cards and wartime controlled supplies during the Japanese Occupation" />
+          <figcaption class="image-caption">Top: A provisions purchasing card issued to households during the Japanese Occupation for the purchase of items such as cereal, soap, matches, meat, etc. except rice, sugar and salt distributed by the Syonan Tokubetsu Si Municipal Administration. Mak Kit Collection, courtesy of National Archives of Singapore. Bottom: A $10 bill in use during the Japanese Occupation. Known as banana money because of the motifs of banana trees on the bank notes, the currency became worthless due to runaway inflation coupled with black market practices. Courtesy of the National Museum of Singapore, National Heritage Board.</figcaption>
+        </figure>
+
+        <p>Food and other related essentials were sold at controlled prices that were published in the newspapers daily. The system is warped as theoretically, I could still buy their rations at fixed prices but, this is far from the case.</p>
+
+        <p>Say the shops open at 7a.m, I have to reach the shops before dawn as long queues for rations would already begin snaking hours before the shops even opened. Or high chance I’d have to walk back home empty handed. Even if today I were to be one of the lucky few, any hope that life is slowly getting better is quickly shattered because the rice I had just spent 3 hours queuing for is infested with weevils.</p>
+
+        <p>If the quality is already at an all time decline, and the quantity was never much to begin with anyway, I bet it could only go up from here. Sike! Unless I’m tripping, the rations are shrinking in quantity as well. Quite naked to the eye, example, the rice ration. It started at 20 katis (about 12 kg) a month per person, dropping to 8 katis for men, 6 katis for women and 4 katis per child towards the end of the Occupation. Even so, I am not allowed to buy the full month’s entitlement all at once, and instead, I have to queue for them weekly or whenever new supplies are available.</p>
+
+        <p>Unsurprisingly, with how valuable food is in the war economy, it forms a part of cash, that even wages consist of staff meals. Cold Storage, being a <em>butai</em>, is famous and especially generous in this regard. My neighbour, Uncle Tan, who works for Cold Storage often shares stories of such. Allegedly, daily lunches could be equivalent to that of the Commander-in-Chief of the Japanese Army in Singapore. Every day on each table, they enjoyed US-imported Rhode Island chicken, on top of however much and whatever much liver they wanted. They had four plates and one cup of soup each, with huge bowls of vegetables.</p>
+
+        <p>With that much food, it was a common occurrence for almost half of the workers there to be carrying home extras everyday. On top of generous lunches, uncle Tan gets 1 kg of rice to take home daily. Bags of rice are often prizes at competitive games and social functions as well as wages for work done. That’s more valuable than cash. That sounds like some utopian dream one could only dream of at this point.</p>
+
+        <p>But despite my own conscience and deep hatred toward the Japanese, a buried part quietly admits to questioning their goodwill. Though it is a thought I would never openly admit and suppress out of guilt. Hear me out. Uncle Tan has also shared other stories of how the Japanese are still some surprisingly generous people. Whenever Uncle Tan needs anything, the Japanese are usually open to helping him.</p>
+
+        <p>One story that remains etched in my mind was when Uncle Tan wanted some ham and butter for his sick brother. The Japanese charitably offered, “Okay, you go and cut as much as you like and then you can bring home. And butter, how many pieces you want you can take home.” So Uncle Tan managed to take home a pound of butter and another two pounds of ham, for free.</p>
+
+        <p>Oh, or when Uncle Tan was suffering from dandruff and an itchy scalp. He merely had to mention wanting some shampoo and viola, not only did he get to request for whatever brand of shampoo... coconut emulsified shampoo by the way, the Japanese even waited for his shift to end before personally passing him a bottle.</p>
+
+        <p class="story-credit">Excerpts of Uncle Tan were borrowed from an oral recount with Mr Tan Cheng Hwee. Oral History with Tan Cheng Hwee, n.d.</p>
+
+        <div class="full-story-link-wrap">
+          <a class="story-button" href="memorywall-TanChengHwee.html">Continue Reading Mr Tan's Story</a>
+        </div>
+
+        <p>If I am moved by the very own people who invaded my own home, killed my very own people, stripped my whole life and freedom away from me, am I just as bad as them? How can being a little charitable and giving away a few items even slightly, negate the weight of their war crimes?</p>
+
+        <p>Well, it’s not like I have much of an option anyway because as harsh as it sounds, Japanese language education is taking over too and unless I become conversational enough in Japanese, not only will I not be considered as being properly educated, my opportunities will be severely limited too.</p>
+
+        <p>I’ve heard that in their schools, they play games where the winners receive food, and sometimes even bananas. Bananas. Do you know how insane that sounds these days?</p>
+
+        <p>In ww2 stricken Singapore or Syonan-to, winning the jackpot means receiving vouchers for various things especially valuable are vouchers for cloth and clothing. Couples who register with the military government their intent to marry receive cloth vouchers that could be exchanged or sold for something else. This breeds informal barter trade that becomes increasingly common. For example, whenever mum harvests too much tapioca, that warrants enough to give away, she exchanges it with a friend or neighbour for sweet potatoes.</p>
+
+        <p>Given the shortages, what used to be the lively, loud and colourful celebrations of annual festivals and weddings are now kept low key. My family recently tried to host a reunion lunch during the mid-autumn festival, but since the Kempeitai frowned on large gatherings, they imposed a nightly curfew on us.</p>
+
+        <p>Several issues pose the lack of food sufficiency in Singapore. Few people have much knowledge about farming or keeping livestock and on top of that, the island’s soil for the most part is not rich in nutrients. Our human faeces and urine replace chemical fertilisers, though we are aware of the risks of contamination and the spread of intestinal parasites that could breed. My cousin had attempted to maintain his own livestock, but it was short-lived as there was no access to animal feed.</p>
+
+        <p>Even in moments of desperation, rummaging for food scraps gets one nowhere, as almost nothing is being thrown away. People now eat every last speck from their plates, leaving nothing behind.</p>
+
+        <figure class="float-image">
+          <img src="07_wartime.avif" alt="Vegetable cultivation and food self-sufficiency during the Japanese Occupation" />
+          <figcaption class="image-caption"><strong>Top: People were encouraged to grow vegetables, sweet potatoes and tapioca during the Japanese Occupation.</strong> Image reproduced from Lee, G.B. 2005. <em>The Syonan Years: Singapore Under Japanese Rule, 1942–1945</em>, p. 165. Singapore: National Archives of Singapore and Epigram. Call no. RSING q940.53957 LEE-WAR. <strong>Bottom: The ground in front of St Joseph’s Institution on Bras Basah Road was turned into a vegetable garden as was every spare bit of land in Singapore including the Padang.</strong> Image reproduced from Lee, G.B. 2005. <em>The Syonan Years: Singapore Under Japanese Rule, 1942–1945</em>, p. 163. Singapore: National Archives of Singapore and Epigram. Call no. RSING q940.53957 LEE-WAR.</figcaption>
+        </figure>
+
+        <p>In order to develop self-sufficiency, the Japanese administration began hosting exhibitions to teach people how to cultivate our own food talk about irony, you take over our entire livelihoods and deprive us of food, and now you give us a masterclass on how to grow food? Alongside the exhibitions, seeds for crops are sold inexpensively or given away. Radio Syonan broadcasted talks about food cultivation, and detailed instructions could be found in the daily newspaper, <em>The Syonan Shimbun</em>.</p>
+
+        <p>The school field opposite my home is now a vegetable plot and every morning, my view is filled with schoolchildren tending to rows of vegetable plots. Any piece of land that could be easily used to cultivate food crops are being made over. The best known of these conversions is the Padang fronting the Municipal Building, which has turned into a tapioca field. Other common crops are sweet potatoes, various types of beans, kangkong, spinach, mustard greens, and gourds such as bitter gourd and bottle gourd.</p>
+
+        <p>All fruits, even tropical varieties such as rambutans, durians and mangosteens, are considered a luxury as fruit trees took time to mature and when they produced fruit, it was only seasonally.</p>
+
+        <p>Necessity being the mother of invention, the brighter minds and stronger-willed harness their creativity in addressing these issues. One of them is mum’s god sister, aunty Lee, who constantly surprises me with her tenacity. She owns 20-30 fowls, like chickens, ducks. To find food for them, she goes down the drains with a candle to look for cockroaches. She traps them in a bottle overnight and that’s the chickens’ breakfast the next day. And whatever unpalatable food or leftovers are left, gets chopped up and fed to livestock along with duckweed to add bulk. Every time we visit her, her chickens only appear bigger and fatter, one could argue the chickens are happier than the rest of us.</p>
+
+        <p class="story-credit">Excerpts of Aunty Lee were borrowed from an oral recount with Lee Tian Soo. Oral History with Lee Tian Soo, n.d.</p>
+
+        <div class="full-story-link-wrap">
+          <a class="story-button" href="memorywall-LeeTianSoo.html">Continue Reading Mr Lee's Story</a>
+        </div>
+
+        <p>Maybe the Japanese are doing their mass killing spree to desensitise humans from goodbyes, because they are sure good at this. Ah Shay, my bestest friend and neighbour of years, is part of the military’s new campaign to return people from Malaya who were not originally from Syonan to their hometowns up north. Some residents from Singapore, with their own rare free will, are also travelling up north to stay with relatives in Malaya where there is wider access to homegrown food.</p>
+
+        <p>It is like opening a Labubu, a lucky draw to see where you’d end up, though it was quite apparent one gets relocated based on their ethnic group. Some end up in settlements with unfavourable conditions, for example, Bahau in Negeri Sembilan, Malaya. Bahau is an infamous unmitigated shitshow. The land there is terraneous, with poor soil with no ready access to water. Malaria is particularly rampant and kills off the very old and the very young. On top of malaria, the settlers know little to none about crop cultivation. Weakened by disease and malnutrition, farming becomes increasingly difficult and already, many have not survived there for long.</p>
+
+        <p>However, some settlements are doing fairly well themselves. Ah Shay, admittedly one of the lucky ones, is relocating to the Chinese settlement in Endau, Johor. In Endau, malaria is less prevalent of a problem and luckily, the community has leaders with some knowledge of agriculture. Ah Shay’s family enjoys a plethora of fruits and vegetables. They also have fish from the stream, pork, eggs and even a few ducks which they could just cut them up and eat anytime. Sweets were replaced with gula melaka cut into small portions.</p>
+
+        <p>But, one consistent plus point about moving up north to such settlements like Endau or Bahau, is the freedom from Kempeitai surveillance, despite opting for relatively uncertain lives as farmers.</p>
+
+        <h2 class="story-subheading">So what do we actually eat?</h2>
+
+        <p>Back here, with rice supplies drying up, tapioca, sweet potato and ragi similar to quinoa or oats, basically a substitute for rice are our default food staples. Tapioca and sweet potato are fairly easy to grow, and easy sources of carbohydrates, especially tapioca. But tapioca, in my opinion, is revolting to eat on its own. Tapioca made into noodles are rubbery when cooked and bread is made with non-wheat flours, which yields a tough loaf that sometimes requires to be fried to have it remotely edible.</p>
+
+        <p>I haven’t seen cooking oil in forever, as it is now mainly substituted by palm oil due to its scarcity. Sometimes, mum makes coconut oil by boiling down coconut milk, and uses palm oil rations for lighting our oil lamps.</p>
+
+        <p>The phrase “a tasty wartime meal” sounds like an oxymoron, but a tasty dish simply requires aromatic ingredients. Although shallots, onions and garlic are hardly used, there are other traditional aromatics that fare well with minimal fertilising. Among these are ginger, serai (lemongrass), lengkuas (greater galangal or blue ginger), limes, turmeric and chillies. Other typical Southeast Asian ingredients such as dried shrimps, ikan bilis (anchovies) and belacan (shrimp paste), are also still fairly accessible as both are produced in Malayan coastal fishing villages. Thankfully, salt is still abundant, with Singapore surrounded by sea water.</p>
+
+        <p>Palm sugar is commonly used as a sweetener and, in lieu of soya sauce, there is fish sauce, also easily made by allowing small fish and salt to ferment in barrels placed in the sun. However, at the end of the day, even if common and easily accessible, the availability of such food is, of course, still only for those with the ability to pay for them.</p>
+
+        <p>For most others, the wartime diet was wholly inadequate. Many people, especially children, suffered from diseases caused by malnutrition, such as rickets, beriberi, pellagra, scurvy and anaemia. On top of already weakening immune systems, malaria remains rampant, alongside water-borne diseases like typhoid and dysentery. As such, water has to be boiled, which then again is also if one manages to obtain enough fuel and matches.</p>
+
+        <div class="references-end" id="referencesBox">
+          <button class="ref-toggle" id="refToggle" type="button" aria-expanded="false" aria-controls="refMenu">
+            <span>References</span>
+            <span class="ref-toggle-icon">⌄</span>
+          </button>
+
+          <div class="ref-menu" id="refMenu">
+            <div class="ref-item">
+              Wartime Victuals: Surviving the Japanese Occupation. n.d.. BiblioAsia.
+              <a href="https://biblioasia.nlb.gov.sg/all-sections/vol-15/issue-1-apr-jun-2019/wartime-victuals/" target="_blank" rel="noopener noreferrer">https://biblioasia.nlb.gov.sg/all-sections/vol-15/issue-1-apr-jun-2019/wartime-victuals/</a>
+            </div>
+            <div class="ref-item">
+              Low, L.L. (Interviewer). (1984, April 12).
+              <a href="https://www.nas.gov.sg/archivesonline/flipviewer/publish/5/5dfa9ebc-115f-11e3-83d5-0050568939ad-OHC000416_009/web/html5/index.html" target="_blank" rel="noopener noreferrer">Oral history with Tan Cheng Hwee</a>
+              [Transcript of recording no. 000416/14/9, p. 112–113]. Retrieved from National Archives of Singapore website.
+            </div>
+            <div class="ref-item">
+              Low, L.L. (Interviewer). (1983, May 14).
+              <a href="https://www.nas.gov.sg/archivesonline/flipviewer/publish/e/e23b2285-115d-11e3-83d5-0050568939ad-OHC000265_003/web/html5/index.html" target="_blank" rel="noopener noreferrer">Oral history interview with Lee Tian Soo</a>
+              [Transcript of recording no. 000265/7/3, p. 31]. Retrieved from National Archives of Singapore website.
+            </div>
+            <div class="ref-item">
+              In their own voices: Preparing for war in Singapore. (n.d.). BiblioAsia.
+              <a href="https://biblioasia.nlb.gov.sg/all-sections/vol-18-issue-4-jan-mar-2023-preparing-war-singapore/" target="_blank" rel="noopener noreferrer">https://biblioasia.nlb.gov.sg/all-sections/vol-18-issue-4-jan-mar-2023-preparing-war-singapore/</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </article>
+  </main>
+
+  <script>
+    const refBox = document.getElementById("referencesBox");
+    const refToggle = document.getElementById("refToggle");
+
+    refToggle.addEventListener("click", function () {
+      const isOpen = refBox.classList.toggle("open");
+      refToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+    });
+  </script>
+</body>
+</html>

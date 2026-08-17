@@ -1,0 +1,1411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Interactive Timeline — Not Your History Textbook</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+
+  <style>
+    @font-face {
+      font-family: 'Poppins';
+      src: url('Poppins-BlackItalic.woff2') format('woff2'), url('Poppins-BlackItalic.woff') format('woff');
+      font-weight: 900; font-style: italic; font-display: swap;
+    }
+    @font-face {
+      font-family: 'Poppins';
+      src: url('Poppins-ExtraBoldItalic.woff2') format('woff2'), url('Poppins-ExtraBoldItalic.woff') format('woff');
+      font-weight: bold; font-style: italic; font-display: swap;
+    }
+    @font-face {
+      font-family: 'Poppins';
+      src: url('Poppins-ExtraBold.woff2') format('woff2'), url('Poppins-ExtraBold.woff') format('woff');
+      font-weight: bold; font-style: normal; font-display: swap;
+    }
+    @font-face {
+      font-family: 'Poppins';
+      src: url('Poppins-Black.woff2') format('woff2'), url('Poppins-Black.woff') format('woff');
+      font-weight: 900; font-style: normal; font-display: swap;
+    }
+    @font-face {
+      font-family: 'Poppins';
+      src: url('Poppins-Bold.woff2') format('woff2'), url('Poppins-Bold.woff') format('woff');
+      font-weight: bold; font-style: normal; font-display: swap;
+    }
+    @font-face {
+      font-family: 'Poppins';
+      src: url('Poppins-BoldItalic.woff2') format('woff2'), url('Poppins-BoldItalic.woff') format('woff');
+      font-weight: bold; font-style: italic; font-display: swap;
+    }
+    @font-face {
+      font-family: 'Poppins';
+      src: url('Poppins-Light.woff2') format('woff2'), url('Poppins-Light.woff') format('woff');
+      font-weight: 300; font-style: normal; font-display: swap;
+    }
+    @font-face {
+      font-family: 'Poppins';
+      src: url('Poppins-LightItalic.woff2') format('woff2'), url('Poppins-LightItalic.woff') format('woff');
+      font-weight: 300; font-style: italic; font-display: swap;
+    }
+    @font-face {
+      font-family: 'Poppins';
+      src: url('Poppins-ExtraLightItalic.woff2') format('woff2'), url('Poppins-ExtraLightItalic.woff') format('woff');
+      font-weight: 200; font-style: italic; font-display: swap;
+    }
+    @font-face {
+      font-family: 'Poppins';
+      src: url('Poppins-Italic.woff2') format('woff2'), url('Poppins-Italic.woff') format('woff');
+      font-weight: normal; font-style: italic; font-display: swap;
+    }
+    @font-face {
+      font-family: 'Poppins';
+      src: url('Poppins-ExtraLight.woff2') format('woff2'), url('Poppins-ExtraLight.woff') format('woff');
+      font-weight: 200; font-style: normal; font-display: swap;
+    }
+    @font-face {
+      font-family: 'Poppins';
+      src: url('Poppins-Medium.woff2') format('woff2'), url('Poppins-Medium.woff') format('woff');
+      font-weight: 500; font-style: normal; font-display: swap;
+    }
+    @font-face {
+      font-family: 'Poppins';
+      src: url('Poppins-Regular.woff2') format('woff2'), url('Poppins-Regular.woff') format('woff');
+      font-weight: normal; font-style: normal; font-display: swap;
+    }
+    @font-face {
+      font-family: 'Poppins';
+      src: url('Poppins-SemiBoldItalic.woff2') format('woff2'), url('Poppins-SemiBoldItalic.woff') format('woff');
+      font-weight: 600; font-style: italic; font-display: swap;
+    }
+    @font-face {
+      font-family: 'Poppins';
+      src: url('Poppins-ThinItalic.woff2') format('woff2'), url('Poppins-ThinItalic.woff') format('woff');
+      font-weight: 100; font-style: italic; font-display: swap;
+    }
+    @font-face {
+      font-family: 'Poppins';
+      src: url('Poppins-Thin.woff2') format('woff2'), url('Poppins-Thin.woff') format('woff');
+      font-weight: 100; font-style: normal; font-display: swap;
+    }
+    @font-face {
+      font-family: 'Poppins';
+      src: url('Poppins-MediumItalic.woff2') format('woff2'), url('Poppins-MediumItalic.woff') format('woff');
+      font-weight: 500; font-style: italic; font-display: swap;
+    }
+    @font-face {
+      font-family: 'Poppins';
+      src: url('Poppins-SemiBold.woff2') format('woff2'), url('Poppins-SemiBold.woff') format('woff');
+      font-weight: 600; font-style: normal; font-display: swap;
+    }
+
+    :root {
+      --white: #F2F2EB;
+      --yellow: #FAE3AC;
+      --blue: #01344F;
+      --dark: #1A1A1A;
+      --light: #ABABAB;
+
+      --tl-border: rgba(242,242,235,0.12);
+      --tl-border-strong: rgba(242,242,235,0.25);
+      --tl-card-bg: rgba(242,242,235,0.04);
+      --tl-card-hover: rgba(242,242,235,0.08);
+      --tl-card-active: rgba(242,242,235,0.11);
+
+      --dot-war: #c97d2a;
+      --dot-occupation: #1a8a6a;
+      --dot-violence: #8e4ec6;
+      --dot-liberation: #2e86c1;
+      --max-width: 1100px;
+
+      --tag-war-bg: rgba(201,125,42,0.18);
+      --tag-war-c: #f2bc7a;
+      --tag-occupation-bg: rgba(26,138,106,0.18);
+      --tag-occupation-c: #6fcfb0;
+      --tag-violence-bg: rgba(142,78,198,0.18);
+      --tag-violence-c: #c8a9ef;
+      --tag-liberation-bg: rgba(46,134,193,0.18);
+      --tag-liberation-c: #7ab8e8;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html, body {
+      background: var(--dark);
+      color: var(--white);
+      font-family: "Lato", sans-serif;
+      min-height: 100%;
+    }
+
+
+main{
+  padding-bottom: 160px;
+}
+
+
+    body {
+      overflow-x: hidden;
+    }
+
+    body.walkthrough-active {
+      overflow-x: hidden;
+    }
+
+    a { text-decoration: none; color: inherit; }
+
+    button {
+      font: inherit;
+      background: none;
+      border: none;
+      color: inherit;
+      cursor: pointer;
+    }
+
+    /* ===== TOPBAR & NAV — de-centered to match the rest of the site
+       (edge-padded, not constrained to a centered max-width column). ===== */
+    .topbar {
+      padding: 18px 20px 14px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      position: relative;
+      z-index: 80;
+    }
+
+   .brand{
+      font-family:"Poppins",sans-serif;
+      font-size:.92rem;
+      color:var(--yellow);
+      white-space:nowrap;
+    }
+    .divider { height: 1px; background: rgba(242,242,235,.45); width: 100%; }
+
+    .desktop-nav {
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+      align-items: flex-start;
+      padding: 18px 20px 0;
+      position: relative;
+      z-index: 20;
+    }
+
+    .nav-link, .dropdown-toggle {
+      font-family: "Poppins", sans-serif; font-size: 1rem;
+      color: var(--white); transition: .18s ease; display: inline-block;
+    }
+    .nav-link:hover, .dropdown-toggle:hover { color: var(--light); }
+    .nav-link:active, .nav-link.active-link,
+    .dropdown-toggle:active, .dropdown-toggle.active-link { color: var(--yellow); }
+
+    .nav-dropdown { position: relative; display: inline-block; }
+    .dropdown-toggle { cursor: pointer; }
+
+    .dropdown-menu {
+      position: absolute; top: calc(100% + 10px); left: 0; min-width: 290px;
+      background: var(--blue); border: 1px solid rgba(242,242,235,.18);
+      display: flex; flex-direction: column;
+      opacity: 0; visibility: hidden; transform: translateY(8px);
+      transition: opacity .18s ease, transform .18s ease, visibility .18s ease;
+      z-index: 30;
+    }
+
+    .memory-dropdown-menu { min-width: 200px; }
+
+    .nav-dropdown:hover .dropdown-menu,
+    .nav-dropdown:focus-within .dropdown-menu {
+      opacity: 1; visibility: visible; transform: translateY(0);
+    }
+
+    .dropdown-item {
+      font-family: "Poppins", sans-serif; font-size: .95rem;
+      color: var(--white); padding: 12px 16px; transition: .18s ease; font-weight: 400;
+    }
+    .dropdown-item:hover { background: var(--yellow); color: var(--light); }
+    .dropdown-item:active, .dropdown-item.active-dropdown {
+      background: var(--yellow); color: var(--light); font-weight: 600;
+    }
+
+    .menu-toggle {
+      width: 44px;
+      height: 44px;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 5px;
+      z-index: 90;
+    }
+
+    .menu-toggle span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--yellow);
+      transition: transform .2s ease, opacity .2s ease;
+    }
+
+    .menu-toggle.open span:nth-child(1) {
+      transform: translateY(7px) rotate(45deg);
+    }
+
+    .menu-toggle.open span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .menu-toggle.open span:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg);
+    }
+
+    .menu-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,.45);
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transition: opacity .22s ease, visibility .22s ease;
+      z-index: 70;
+    }
+
+    .menu-overlay.open {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+    }
+
+    .mobile-menu {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: min(82vw, 320px);
+      height: 100vh;
+      background: var(--blue);
+      border-left: 1px solid rgba(242,242,235,.16);
+      padding: 88px 22px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      transform: translateX(100%);
+      transition: transform .25s ease;
+      z-index: 80;
+    }
+
+    .mobile-menu.open {
+      transform: translateX(0);
+    }
+
+    .mobile-nav-link {
+      font-family: "Poppins", sans-serif;
+      font-size: 1rem;
+      color: var(--white);
+      padding: 14px 0;
+      border-bottom: 1px solid rgba(242,242,235,.12);
+      transition: .18s ease;
+    }
+
+    .mobile-nav-link:hover {
+      color: var(--yellow);
+    }
+
+    .mobile-nav-link.active-link {
+      color: var(--yellow);
+      font-weight: 600;
+    }
+
+    .progress-bar {
+      position: fixed;
+      top: 0; left: 0;
+      height: 2px;
+      background: var(--yellow);
+      transition: width 0.1s linear;
+      z-index: 999;
+      width: 0%;
+    }
+
+    .tl-hero {
+      text-align: center;
+      padding: 0 16px 42px;
+      border-bottom: 1px solid var(--tl-border);
+      transition: filter .25s ease, opacity .25s ease;
+      margin-top: 56px;
+    }
+
+    .tl-hero h1 {
+      font-family:"Poppins",sans-serif;
+      color: var(--yellow);
+      font-size: clamp(2.2rem, 4vw, 3.45rem);
+      line-height: 1.08;
+      margin-bottom: 16px;
+      font-weight: 700;
+    }
+
+    .tl-hero-sub {
+      max-width: 820px;
+      margin: 0 auto 40px;
+      font-size: 1.05rem;
+      line-height: 1.8;
+      color: var(--white);
+      opacity: .95;
+      transition: filter .25s ease, opacity .25s ease;
+    }
+
+    .tl-outer {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 70px 20px 120px;
+      position: relative;
+      transition: filter .25s ease, opacity .25s ease;
+    }
+
+    body.entry-open .tl-hero,
+    body.entry-open .tl-outer,
+    body.entry-open .tl-nav,
+    body.entry-open .desktop-nav {
+      filter: blur(4px);
+    }
+
+    .tl-spine {
+      position: relative;
+    }
+
+    .tl-spine::before {
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: 0; bottom: 0;
+      width: 1px;
+      background: var(--tl-border-strong);
+      transform: translateX(-50%);
+    }
+
+    .tl-year-marker {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      z-index: 2;
+      margin: 3rem 0 2rem;
+    }
+    .tl-year-marker:first-child { margin-top: 0; }
+
+    .tl-year-pill {
+      font-family: "Poppins", sans-serif;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--yellow);
+      background: var(--dark);
+      border: 1px solid rgba(250,227,172,0.35);
+      border-radius: 40px;
+      padding: 4px 18px;
+    }
+
+    .tl-event {
+      display: grid;
+      grid-template-columns: 1fr 48px 1fr;
+      margin-bottom: 2rem;
+      align-items: start;
+      position: relative;
+      transition: opacity .28s ease, filter .28s ease, transform .28s ease;
+      scroll-margin-top: 120px;
+    }
+
+    .tl-event.left  .tl-card-wrap { grid-column: 1; grid-row: 1; padding-right: 22px; text-align: right; }
+    .tl-event.left  .tl-dot-col   { grid-column: 2; grid-row: 1; }
+    .tl-event.left  .tl-spacer    { grid-column: 3; grid-row: 1; }
+
+    .tl-event.right .tl-spacer    { grid-column: 1; grid-row: 1; }
+    .tl-event.right .tl-dot-col   { grid-column: 2; grid-row: 1; }
+    .tl-event.right .tl-card-wrap { grid-column: 3; grid-row: 1; padding-left: 22px; }
+
+    .tl-spacer { min-height: 1px; }
+
+    .tl-dot-col {
+      display: flex;
+      justify-content: center;
+      padding-top: 16px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .tl-dot {
+      width: 13px;
+      height: 13px;
+      border-radius: 50%;
+      background: var(--dot-war);
+      border: 2px solid var(--dark);
+      flex-shrink: 0;
+      transition: transform 0.22s ease, box-shadow 0.22s ease;
+    }
+
+    .tl-event[data-type="war"] .tl-dot { background: var(--dot-war); }
+    .tl-event[data-type="occupation"] .tl-dot { background: var(--dot-occupation); }
+    .tl-event[data-type="violence"] .tl-dot { background: var(--dot-violence); }
+    .tl-event[data-type="liberation"] .tl-dot { background: var(--dot-liberation); }
+
+    .tl-event.active .tl-dot,
+    .tl-event:hover .tl-dot,
+    .tl-event.is-current .tl-dot {
+      transform: scale(1.5);
+      box-shadow: 0 0 0 3px rgba(250,227,172,0.18);
+    }
+
+    .tl-card {
+      background: var(--tl-card-bg);
+      border: 1px solid var(--tl-border);
+      padding: 16px 18px;
+      cursor: pointer;
+      width: 100%;
+      display: inline-block;
+      transition: background 0.22s ease, border-color 0.22s ease, transform 0.22s ease, box-shadow 0.22s ease;
+    }
+
+    .tl-card:hover {
+      background: var(--tl-card-hover);
+      border-color: var(--tl-border-strong);
+      transform: translateY(-3px);
+    }
+
+    .tl-event.active .tl-card,
+    .tl-event.is-current .tl-card {
+      background: var(--tl-card-active);
+      border-color: rgba(250,227,172,0.35);
+      transform: translateY(-3px);
+      box-shadow: 0 12px 28px rgba(0,0,0,0.22);
+    }
+
+    .tl-tag {
+      display: inline-block;
+      font-family: "Poppins", sans-serif;
+      font-size: 0.62rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 2px 8px;
+      border-radius: 2px;
+      margin-bottom: 7px;
+    }
+
+    .tag-war { background: var(--tag-war-bg); color: var(--tag-war-c); }
+    .tag-occupation { background: var(--tag-occupation-bg); color: var(--tag-occupation-c); }
+    .tag-violence { background: var(--tag-violence-bg); color: var(--tag-violence-c); }
+    .tag-liberation { background: var(--tag-liberation-bg); color: var(--tag-liberation-c); }
+
+    .tl-title {
+      font-family: "Poppins", sans-serif;
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: var(--white);
+      line-height: 1.35;
+      margin-bottom: 4px;
+    }
+
+    .tl-date {
+      font-family: "Lato", sans-serif;
+      font-size: 0.72rem;
+      color: var(--light);
+      letter-spacing: 0.05em;
+      margin-bottom: 7px;
+    }
+
+    .tl-desc {
+      font-family: "Lato", sans-serif;
+      font-size: 0.84rem;
+      color: rgba(242,242,235,0.72);
+      line-height: 1.7;
+    }
+
+    .tl-expand {
+      overflow: hidden;
+      max-height: 0;
+      transition: max-height 0.38s ease;
+    }
+
+    .tl-event.active .tl-expand,
+    .tl-event.is-current .tl-expand {
+      max-height: 320px;
+    }
+
+    .tl-expand-inner {
+      margin-top: 12px;
+      padding-top: 12px;
+      border-top: 1px solid var(--tl-border);
+    }
+
+    .tl-story {
+      font-family: "Lato", sans-serif;
+      font-size: 0.88rem;
+      font-style: italic;
+      color: var(--yellow);
+      line-height: 1.85;
+      opacity: 0.92;
+    }
+
+    .tl-read-more {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      margin-top: 12px;
+      font-family: "Poppins", sans-serif;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      color: var(--blue);
+      background: var(--yellow);
+      padding: 5px 12px;
+      border: none;
+      cursor: pointer;
+      transition: opacity 0.18s;
+      text-decoration: none;
+    }
+
+    .tl-read-more:hover { opacity: 0.8; }
+
+    @media (hover: hover) and (pointer: fine) {
+      .tl-event:hover .tl-expand {
+        max-height: 320px;
+      }
+
+      .tl-event:hover .tl-card {
+        background: var(--tl-card-active);
+        border-color: rgba(250,227,172,0.35);
+        transform: translateY(-3px);
+        box-shadow: 0 12px 28px rgba(0,0,0,0.22);
+      }
+    }
+
+    .tl-nav {
+      position: fixed;
+      bottom: 28px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 6px;
+      background: rgba(26,26,26,0.85);
+      border: 1px solid var(--tl-border-strong);
+      border-radius: 40px;
+      padding: 6px 12px;
+      z-index: 100;
+      backdrop-filter: blur(6px);
+      transition: filter .25s ease, opacity .25s ease;
+    }
+
+    .tl-nav-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: rgba(242,242,235,0.25);
+      cursor: pointer;
+      transition: background 0.18s, transform 0.18s;
+      border: none;
+      padding: 0;
+    }
+
+    .tl-nav-dot.on {
+      background: var(--yellow);
+      transform: scale(1.4);
+    }
+
+    .entry-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(15,15,15,0.58);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      z-index: 1200;
+    }
+
+    .entry-card {
+      width: min(460px, 100%);
+      border: 1px solid rgba(250,227,172,0.18);
+      background: rgba(26,26,26,0.78);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      padding: 24px 22px;
+      text-align: center;
+      box-shadow: 0 16px 40px rgba(0,0,0,0.32);
+    }
+
+    .entry-title {
+      font-family: "Poppins", sans-serif;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 8px;
+    }
+
+    .entry-text {
+      font-size: 0.9rem;
+      color: var(--light);
+      line-height: 1.7;
+      margin-bottom: 18px;
+    }
+
+    .entry-actions {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .entry-btn {
+      min-height: 42px;
+      padding: 10px 14px;
+      font-family: "Poppins", sans-serif;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      transition: .18s ease;
+      border: 1px solid transparent;
+    }
+
+    .entry-btn-primary {
+      background: var(--yellow);
+      color: var(--dark);
+    }
+
+    .entry-btn-primary:hover {
+      opacity: 0.88;
+    }
+
+    .entry-btn-secondary {
+      background: rgba(242,242,235,0.04);
+      color: var(--white);
+      border-color: var(--tl-border-strong);
+    }
+
+    .entry-btn-secondary:hover {
+      background: rgba(242,242,235,0.08);
+    }
+
+    .walkthrough-bar {
+      position: fixed;
+      left: 50%;
+      bottom: 24px;
+      transform: translateX(-50%);
+      width: min(520px, calc(100vw - 24px));
+      background: rgba(18,18,18,0.94);
+      border: 1px solid rgba(250,227,172,0.22);
+      backdrop-filter: blur(10px);
+      padding: 14px 16px;
+      z-index: 250;
+      display: none;
+      box-shadow: 0 16px 36px rgba(0,0,0,0.32);
+    }
+
+    .walkthrough-bar.is-visible {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .walkthrough-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+      width: 100%;
+    }
+
+    .walkthrough-btn {
+      min-height: 42px;
+      min-width: 96px;
+      padding: 10px 14px;
+      font-family: "Poppins", sans-serif;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      transition: .18s ease;
+    }
+
+    .walkthrough-btn-primary {
+      background: var(--yellow);
+      color: var(--dark);
+    }
+
+    .walkthrough-btn-secondary {
+      background: rgba(242,242,235,0.04);
+      color: var(--white);
+      border: 1px solid var(--tl-border-strong);
+    }
+
+    body.walkthrough-active .tl-event:not(.is-current) {
+      opacity: 0.32;
+      filter: blur(0.4px);
+    }
+
+    body.walkthrough-active .tl-event.is-current {
+      opacity: 1;
+      filter: none;
+      z-index: 5;
+    }
+
+    @media (max-width: 900px) {
+      .desktop-nav {
+        gap: 18px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .topbar {
+        padding: 16px 16px 12px;
+      }
+
+      .brand {
+        font-size: .8rem;
+      }
+
+      .desktop-nav {
+        display: none;
+      }
+
+      .menu-toggle {
+        display: flex;
+      }
+
+      .dropdown-menu { position: static; margin-top: 10px; min-width: unset; width: 100%; }
+      .memory-dropdown-menu { width: 100%; }
+
+      .tl-hero {
+        padding: 0 16px 34px;
+        margin-top: 40px;
+      }
+
+      .tl-hero-sub {
+        font-size: 1rem;
+        margin: 0 auto 32px;
+      }
+
+      .tl-outer {
+        padding: 42px 16px 110px;
+      }
+
+      .tl-spine::before {
+        left: 14px;
+        transform: none;
+      }
+
+      .tl-event {
+        grid-template-columns: 28px 1fr;
+        gap: 0 12px;
+      }
+
+      .tl-event.left .tl-dot-col,
+      .tl-event.right .tl-dot-col {
+        grid-column: 1;
+        grid-row: 1;
+        justify-content: flex-start;
+        padding-top: 12px;
+      }
+
+      .tl-event.left .tl-card-wrap,
+      .tl-event.right .tl-card-wrap {
+        grid-column: 2;
+        grid-row: 1;
+        padding: 0;
+        text-align: left;
+      }
+
+      .tl-event.left .tl-spacer,
+      .tl-event.right .tl-spacer {
+        display: none;
+      }
+
+      .tl-card {
+        display: block;
+      }
+
+      .walkthrough-bar {
+        width: calc(100vw - 16px);
+        bottom: 8px;
+        padding: 12px;
+      }
+
+      .walkthrough-actions {
+        justify-content: stretch;
+      }
+
+      .walkthrough-btn {
+        flex: 1 1 120px;
+      }
+    }
+
+    .follow-section{
+  padding-top:95px;
+  padding-bottom:0;
+}
+
+.follow-section h2{
+  font-family:"Poppins",sans-serif;
+  color:var(--white);
+  font-size:clamp(2rem,3.5vw,3rem);
+  line-height:1.15;
+  margin-bottom:20px;
+  text-align:center;
+}
+
+.social-banner{
+  margin-top:26px;
+  width:100vw;
+  margin-left:calc(50% - 50vw);
+  background:var(--yellow);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:18px;
+  padding:20px 0;
+}
+
+.social-icon{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.social-icon svg,
+.social-icon img{
+  display:block;
+  height:48px;
+  width:auto;
+  transition: opacity .18s ease, transform .18s ease;
+}
+
+@media (hover: hover){
+  .social-icon:hover svg,
+  .social-icon:hover img{
+    opacity:.82;
+    transform:translateY(-2px);
+  }
+}
+
+.social-icon:active svg,
+.social-icon:active img{
+  opacity:.88;
+  transform:scale(.96);
+}
+
+@media (hover: none){
+  .social-icon svg,
+  .social-icon img{
+    transition: opacity .15s ease, transform .15s ease;
+  }
+}
+
+@media (max-width:768px){
+  .follow-section{
+    padding-top:70px;
+  }
+
+  .social-banner{
+    gap:14px;
+    padding:16px 0;
+  }
+
+  .social-icon svg,
+  .social-icon img{
+    height:42px;
+  }
+}
+
+
+    @media (max-width: 560px) {
+      .mobile-menu {
+        width: min(86vw, 300px);
+      }
+
+      .tl-hero h1 {
+        font-size: 2.3rem;
+      }
+
+      .tl-hero-sub {
+        font-size: 0.98rem;
+        margin-bottom: 32px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="progress-bar" id="progress"></div>
+
+  <header class="topbar">
+    <a class="brand" href="index.html">not your History Textbook</a>
+
+    <button class="menu-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </header>
+
+  <div class="divider"></div>
+
+  <nav class="desktop-nav">
+    <a href="index.html" class="nav-link">Home</a>
+    <a href="cornersofthepast.html" class="nav-link">Corners of the past</a>
+    <a href="memorywall-reddit.html" class="nav-link">Memory wall</a>
+    <a href="interactivetimeline.html" class="nav-link active-link">Interactive timeline</a>
+    <a href="everydaylife.html" class="nav-link">Everyday life</a>
+    <a href="silentheroes.html" class="nav-link">Our silent heroes</a>
+  </nav>
+
+  <div class="menu-overlay" id="menu-overlay"></div>
+
+  <nav class="mobile-menu" id="mobile-menu" aria-label="Mobile navigation" aria-hidden="true">
+    <a href="index.html" class="mobile-nav-link">Home</a>
+    <a href="cornersofthepast.html" class="mobile-nav-link">Corners of the past</a>
+    <a href="memorywall-reddit.html" class="mobile-nav-link">Memory wall</a>
+    <a href="interactivetimeline.html" class="mobile-nav-link active-link">Interactive timeline</a>
+    <a href="everydaylife.html" class="mobile-nav-link">Everyday life</a>
+    <a href="silentheroes.html" class="mobile-nav-link">Our silent heroes</a>
+  </nav>
+
+  <main>
+    <section class="tl-hero">
+      <h1>Scroll Through History: A <br> Chronology of the Occupation</h1>
+      <p class="tl-hero-sub">
+        We often take today’s comforts for granted. Long before weekend café hopping and nights out with friends, each day was shaped by fear and survival. Scroll through the three and a half years of the Japanese Occupation.
+      </p>
+    </section>
+
+    <div class="tl-outer">
+      <div class="tl-spine" id="spine"></div>
+    </div>
+
+    <section class="follow-section">
+  <h2>Follow us</h2>
+
+  <div class="social-banner">
+    <a
+      href="https://www.tiktok.com/@noturhistorytextbook?_r=1&_t=ZS-98wrIT5HhTd"
+      aria-label="TikTok"
+      class="social-icon"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <svg width="48px" height="48px" viewBox="0 0 48 48" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+        <title>Tiktok</title>
+        <g id="Icon/Social/tiktok-color" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+          <g id="Group-7" transform="translate(8.000000, 6.000000)">
+            <path d="M29.5248245,9.44576327 C28.0821306,9.0460898 26.7616408,8.29376327 25.6826204,7.25637551 C25.5109469,7.09719184 25.3493143,6.92821224 25.1928245,6.75433469 C23.9066204,5.27833469 23.209151,3.38037551 23.2336408,1.42290612 L17.3560898,1.42290612 L17.3560898,23.7086204 C17.3560898,27.7935184 15.1520082,29.9535184 12.416498,29.9535184 C11.694049,29.9611102 10.9789469,29.8107429 10.3213959,29.5124571 C9.6636,29.2144163 9.07951837,28.7758041 8.60955918,28.2272327 C8.1398449,27.6789061 7.79551837,27.0340898 7.60180408,26.3385796 C7.4078449,25.6430694 7.36890612,24.9132735 7.48743673,24.2008653 C7.60596735,23.4884571 7.87902857,22.8105796 8.28751837,22.2154776 C8.69625306,21.6198857 9.23037551,21.1212735 9.85241633,20.7546612 C10.474702,20.3878041 11.1694776,20.1617633 11.8882531,20.0924571 C12.6070286,20.023151 13.3324163,20.1122939 14.0129878,20.3535184 L14.0129878,14.3584163 C13.4889061,14.2430694 12.9530694,14.1862531 12.416498,14.1894367 L12.3917633,14.1894367 C10.2542939,14.1943347 8.16604898,14.8325388 6.39127347,16.0234776 C4.61649796,17.2149061 3.23429388,18.9051918 2.41976327,20.8812735 C1.60523265,22.8578449 1.39486531,25.0310694 1.8151102,27.1269061 C2.2351102,29.2227429 3.2671102,31.1469061 4.78033469,32.6564571 C6.29380408,34.1660082 8.22066122,35.1933551 10.3174776,35.6082122 C12.4142939,36.0230694 14.5870286,35.8073143 16.561151,34.9878857 C18.5355184,34.1682122 20.2226204,32.7820898 21.409151,31.0041306 C22.5959265,29.2264163 23.2289878,27.136702 23.228498,24.9992327 L23.228498,12.8155592 C25.5036,14.392702 28.2244163,15.134498 31.1289061,15.1886204 L31.1289061,9.68551837 C30.5869469,9.66568163 30.049151,9.5851102 29.5248245,9.44576327" fill="#FE2C55"></path>
+            <path d="M25.195102,6.75428571 C24.7946939,6.47510204 24.4148571,6.1675102 24.0587755,5.83346939 C22.8210612,4.66016327 22.0062857,3.11020408 21.7420408,1.42530612 C21.6622041,0.954367347 21.6220408,0.47755102 21.6220408,0 L15.7444898,0 L15.7444898,22.6408163 C15.7444898,27.5069388 13.5404082,28.5183673 10.804898,28.5183673 C10.0829388,28.5262041 9.36783673,28.3758367 8.71028571,28.0773061 C8.0524898,27.7792653 7.46791837,27.3406531 6.99820408,26.7920816 C6.5282449,26.2437551 6.18440816,25.5989388 5.99044898,24.9034286 C5.7964898,24.2079184 5.75755102,23.4781224 5.87583673,22.7657143 C5.99461224,22.053551 6.26767347,21.3756735 6.67640816,20.7800816 C7.08489796,20.1847347 7.61902041,19.6861224 8.24106122,19.3195102 C8.86334694,18.952898 9.55787755,18.7266122 10.276898,18.6573061 C10.9959184,18.588 11.7208163,18.6773878 12.4016327,18.9183673 L12.4016327,12.9328163 C5.40489796,11.8236735 0,17.4783673 0,23.5760816 C0.00465306122,26.4426122 1.14514286,29.1898776 3.17191837,31.216898 C5.19869388,33.2434286 7.94595918,34.3839184 10.8124898,34.3885714 C16.7730612,34.3885714 21.6220408,30.7444898 21.6220408,23.5760816 L21.6220408,11.3924082 C23.8995918,12.9795918 26.6204082,13.7142857 29.524898,13.7632653 L29.524898,8.26040816 C27.9658776,8.18914286 26.4617143,7.66604082 25.195102,6.75428571" fill="#25F4EE"></path>
+            <path d="M21.6220653,23.5764245 L21.6220653,11.392751 C23.8996163,12.9794449 26.6204327,13.7141388 29.5251673,13.7633633 L29.5251673,9.44581224 C28.0822286,9.04613878 26.7617388,8.29381224 25.6824735,7.25617959 C25.5110449,7.09724082 25.3494122,6.92826122 25.1926776,6.75438367 C24.7922694,6.4752 24.4126776,6.16736327 24.056351,5.83356735 C22.8186367,4.66026122 22.0041061,3.11030204 21.7396163,1.42540408 L17.3730857,1.42540408 L17.3730857,23.7111184 C17.3730857,27.7957714 15.1690041,29.9560163 12.4334939,29.9560163 C11.6569224,29.9538122 10.8918612,29.7681796 10.2005143,29.414302 C9.50941224,29.0601796 8.91186122,28.5476082 8.45635102,27.9182204 C7.49071837,27.3946286 6.72712653,26.5636898 6.2865551,25.5571592 C5.84573878,24.5508735 5.75341224,23.4260571 6.02377959,22.3609959 C6.29390204,21.2959347 6.91177959,20.3516082 7.77896327,19.6771592 C8.64639184,19.0027102 9.71365714,18.6365878 10.8122694,18.6365878 C11.3564327,18.6412408 11.8961878,18.7362612 12.4090041,18.9182204 L12.4090041,14.1894857 C10.304351,14.1921796 8.24647347,14.8093224 6.48786122,15.9657306 C4.72924898,17.1221388 3.3470449,18.7666286 2.51047347,20.6978939 C1.67390204,22.6291592 1.41969796,24.7627102 1.77896327,26.8362612 C2.13822857,28.9098122 3.09553469,30.8334857 4.53308571,32.3704653 C6.36271837,33.6848327 8.55945306,34.3906286 10.8122694,34.3884296 C16.7730857,34.3884296 21.6220653,30.7445878 21.6220653,23.5764245" fill="#000000"></path>
+          </g>
+        </g>
+      </svg>
+    </a>
+
+    <a
+      href="https://www.instagram.com/noturhistorytextbook?igsh=NnpwYzZxMnJqMDhr&igsi=NnpwYzZxMnJqMDhr&utm_source=qr"
+      aria-label="Instagram"
+      class="social-icon"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <img src="Instagram_logo_2022.svg.png" alt="Instagram logo">
+    </a>
+  </div>
+</section>
+
+  </main>
+
+  <nav class="tl-nav" aria-label="Timeline navigation">
+    <div id="nav-dots" style="display:flex;gap:6px"></div>
+  </nav>
+
+  <div class="entry-overlay" id="entryOverlay">
+    <div class="entry-card">
+      <div class="entry-title">How would you like to explore?</div>
+      <p class="entry-text">Browse on your own, or take the guided walkthrough.</p>
+      <div class="entry-actions">
+        <button class="entry-btn entry-btn-secondary" id="browseBtn" type="button">Browse myself</button>
+        <button class="entry-btn entry-btn-primary" id="guideBtn" type="button">Guide me</button>
+      </div>
+    </div>
+  </div>
+
+  <section class="walkthrough-bar" id="walkthroughBar" aria-live="polite">
+    <div class="walkthrough-actions">
+      <button class="walkthrough-btn walkthrough-btn-secondary" id="backWalkthroughBtn" type="button">Back</button>
+      <button class="walkthrough-btn walkthrough-btn-secondary" id="exitWalkthroughBtn" type="button">Exit</button>
+      <button class="walkthrough-btn walkthrough-btn-primary" id="nextWalkthroughBtn" type="button">Next</button>
+    </div>
+  </section>
+
+  <script>
+    const events = [
+      {
+        year: 1941,
+        date: "8 Dec 1941, 4:15am",
+        type: "war",
+        title: "First Japanese air raids on Singapore",
+        desc: "A herd of 17 Japanese aircraft bomb Singapore city in the early hours. Tengah and Seletar take the first hits, and then Chinatown and Raffles Place. Reports of 61 people killed. 133 casualties.",
+        story: "The city sat lit up like a target, no blackout, no warning. The bombers spared no more time. It was just past 4am; while a few were already stirring, 61 people would never see the sunrise again.",
+        tag: "War begins",
+        tagClass: "war",
+        href: "timeline-airraids.html",
+        walkthrough: "The first shock arrives from the sky. Before many even understand the scale of war, ordinary life is interrupted by bombing."
+      },
+      {
+        year: 1942,
+        date: "8 Feb 1942, 10:30pm",
+        type: "war",
+        title: "Japanese troops set foot on Singapore",
+        desc: "The invasion of Japanese troops into Singapore was swift and merciless as they far outnumbered and outflanked the Australian troops. In just two hours, the Japanese successfully acquired yet another territory.",
+        story: "Concealed by darkness, Japanese soldiers crossed the Johor Strait towards Singapore on collapsible boats with gunnery.",
+        tag: "War begins",
+        tagClass: "war",
+        href: "timeline-invasion.html",
+        walkthrough: "War is no longer distant. Troops have landed, and the island becomes the battlefield."
+      },
+      {
+        year: 1942,
+        date: "13–14 Feb 1942",
+        type: "war",
+        title: "Battle of Opium Hill: Lt Adnan’s last stand",
+        desc: "Lt Adnan Saidi of the Malay Regiment holds Bukit Chandu ridge in Pasir Panjang against overwhelming Japanese forces and refuses to retreat.",
+        story: "Outnumbered, outgunned — but never outfought. In a crucial battle at Pasir Panjang, Lt Adnan fought with his life against the Japanese.",
+        tag: "War begins",
+        tagClass: "war",
+        href: "timeline-adnan.html",
+        walkthrough: "This is remembered as one of the most powerful examples of resistance and sacrifice."
+      },
+      {
+        year: 1942,
+        date: "14–15 Feb 1942",
+        type: "violence",
+        title: "Alexandra Hospital massacre",
+        desc: "Japanese soldiers raid the British Military Hospital and annihilate patients, nurses, and staff on medical grounds.",
+        story: "Meant to be healing grounds, a place where the wounded were kept safe. Until the Japanese soldiers turned it into their own slaughterhouse instead.",
+        tag: "Violence & loss",
+        tagClass: "violence",
+        href: "timeline-alexandra.html",
+        walkthrough: "Even a hospital is not spared. That makes this moment especially disturbing."
+      },
+      {
+        year: 1942,
+        date: "15 Feb 1942, 6:20pm",
+        type: "occupation",
+        title: "Britain surrenders Singapore",
+        desc: "Lt-General Arthur Percival surrenders to General Yamashita at the Ford Factory in Bukit Timah.",
+        story: "One would think the British had lost the war in Singapore due to the Japanese’s military and numerical prowess, but did you know that with just a little more confidence, they could have won?",
+        tag: "Occupation",
+        tagClass: "occupation",
+        href: "timeline-britishsurrender.html",
+        walkthrough: "This is the turning point where rule breaks and a new, harsher order begins."
+      },
+      {
+        year: 1942,
+        date: "15 Feb 1942",
+        type: "occupation",
+        title: "Singapore renamed Syonan-to",
+        desc: "Singapore is officially renamed Syonan-to under the new Japanese military administration. Other rules are also established.",
+        story: "They changed the clocks to Tokyo time. As if even the hours belonged to them now.",
+        tag: "Occupation",
+        tagClass: "occupation",
+        href: "timeline-syonanto.html",
+        walkthrough: "Occupation reaches into identity itself through language, symbols, and everyday control."
+      },
+      {
+        year: 1942,
+        date: "21 Feb – 4 Mar 1942",
+        type: "violence",
+        title: "Sook Ching massacres",
+        desc: "The Japanese military conducts systematic screening and execution of Chinese men across Singapore.",
+        story: "Some came home by nightfall. Some never came home at all.",
+        tag: "Violence & loss",
+        tagClass: "violence",
+        href: "timeline-sookching.html",
+        walkthrough: "This is among the darkest chapters of the occupation, marked by fear, loss, and trauma."
+      },
+      {
+        year: 1943,
+        date: "10 Oct 1943",
+        type: "violence",
+        title: "Double Tenth Massacre",
+        desc: "57 inmates at Changi Prison were tortured and forced to bear the consequences of an Allied attack on Japanese naval ships they had never carried out.",
+        story: "On 10 October 1943, Changi inmates paid the price for a mission they never knew existed. People were dragged in for questioning and many never emerged back out.",
+        tag: "Violence & loss",
+        tagClass: "violence",
+        href: "timeline-doubletenth.html",
+        walkthrough: "This moment shows how suspicion and punishment deepened during the occupation, reaching civilians as well as prisoners."
+      },
+      {
+        year: 1942,
+        date: "Apr 1942",
+        type: "occupation",
+        title: "First Japanese-medium schools open",
+        desc: "Japanese-medium schools begin operation across Syonan-to. Language, ritual, and ideology enter daily school life.",
+        story: "Every morning, we bowed east. Toward Tokyo. Toward someone we’d never seen.",
+        tag: "Occupation",
+        tagClass: "occupation",
+        href: "timeline-schools.html",
+        walkthrough: "This shows how occupation enters routine life, especially through children and schooling."
+      },
+      {
+        year: 1945,
+        date: "15 Aug 1945",
+        type: "liberation",
+        title: "Japan announces surrender",
+        desc: "Emperor Hirohito's voice crackles over the radio, announcing Japan's surrender. Three and a half years of terror, ending in a single broadcast few had dared imagine.",
+        story: "This moment felt like a fantasy. The nightmare, somehow, once seemingly impossible, was over.",
+        tag: "Liberation",
+        tagClass: "liberation",
+        href: "timeline-japsurrender.html",
+        walkthrough: "The occupation begins to unravel, but relief does not arrive all at once."
+      },
+      {
+        year: 1945,
+        date: "12 Sep 1945",
+        type: "liberation",
+        title: "Formal surrender signed in Singapore",
+        desc: "Japanese forces formally surrender in Singapore at the Municipal Building, now City Hall.",
+        story: "While some couldn’t quite believe they’d survived, some were also thinking about who hadn’t.",
+        tag: "Liberation",
+        tagClass: "liberation",
+        href: "timeline-sign.html",
+        walkthrough: "This is the formal ending that closes the occupation and fixes it in history."
+      }
+    ];
+
+    const spine = document.getElementById('spine');
+    const navDotsContainer = document.getElementById('nav-dots');
+    const progressBar = document.getElementById('progress');
+    const walkthroughBar = document.getElementById('walkthroughBar');
+    const backWalkthroughBtn = document.getElementById('backWalkthroughBtn');
+    const nextWalkthroughBtn = document.getElementById('nextWalkthroughBtn');
+    const exitWalkthroughBtn = document.getElementById('exitWalkthroughBtn');
+    const guideBtn = document.getElementById('guideBtn');
+    const browseBtn = document.getElementById('browseBtn');
+    const entryOverlay = document.getElementById('entryOverlay');
+
+    const menuToggle = document.querySelector('.menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const menuOverlay = document.getElementById('menu-overlay');
+    const mobileLinks = document.querySelectorAll('.mobile-nav-link');
+
+    let activeIdx = null;
+    let sideCounter = 0;
+    let walkthroughActive = false;
+    let currentIndex = 0;
+
+    function closeMenu() {
+      menuToggle.classList.remove('open');
+      mobileMenu.classList.remove('open');
+      menuOverlay.classList.remove('open');
+      menuToggle.setAttribute('aria-expanded', 'false');
+      mobileMenu.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+
+    function openMenu() {
+      menuToggle.classList.add('open');
+      mobileMenu.classList.add('open');
+      menuOverlay.classList.add('open');
+      menuToggle.setAttribute('aria-expanded', 'true');
+      mobileMenu.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    }
+
+    menuToggle.addEventListener('click', () => {
+      const isOpen = mobileMenu.classList.contains('open');
+      if (isOpen) {
+        closeMenu();
+      } else {
+        openMenu();
+      }
+    });
+
+    menuOverlay.addEventListener('click', closeMenu);
+
+    mobileLinks.forEach(link => {
+      link.addEventListener('click', closeMenu);
+    });
+
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 768) {
+        closeMenu();
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closeMenu();
+      }
+    });
+
+    const years = [...new Set(events.map(e => e.year))];
+
+    years.forEach(year => {
+      const ym = document.createElement('div');
+      ym.className = 'tl-year-marker';
+      ym.innerHTML = `<span class="tl-year-pill">${year}</span>`;
+      spine.appendChild(ym);
+
+      events.filter(e => e.year === year).forEach(ev => {
+        const idx = events.indexOf(ev);
+        const side = sideCounter % 2 === 0 ? 'left' : 'right';
+        sideCounter++;
+
+        const cardHTML = `
+          <div class="tl-card">
+            <span class="tl-tag tag-${ev.tagClass}">${ev.tag}</span>
+            <div class="tl-title">${ev.title}</div>
+            <div class="tl-date">${ev.date}</div>
+            <div class="tl-desc">${ev.desc}</div>
+            <div class="tl-expand">
+              <div class="tl-expand-inner">
+                <p class="tl-story">${ev.story}</p>
+                <a class="tl-read-more" href="${ev.href}" data-event-link="${idx}">Read more</a>
+              </div>
+            </div>
+          </div>
+        `;
+
+        const el = document.createElement('div');
+        el.className = `tl-event ${side}`;
+        el.dataset.type = ev.type;
+        el.dataset.idx = idx;
+
+        if (side === 'left') {
+          el.innerHTML = `
+            <div class="tl-card-wrap">${cardHTML}</div>
+            <div class="tl-dot-col"><div class="tl-dot"></div></div>
+            <div class="tl-spacer"></div>
+          `;
+        } else {
+          el.innerHTML = `
+            <div class="tl-spacer"></div>
+            <div class="tl-dot-col"><div class="tl-dot"></div></div>
+            <div class="tl-card-wrap">${cardHTML}</div>
+          `;
+        }
+
+        el.querySelector('.tl-card').addEventListener('click', (event) => {
+          if (event.target.closest('.tl-read-more')) return;
+          if (walkthroughActive) return;
+
+          if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
+
+          if (activeIdx === idx) {
+            el.classList.remove('active');
+            activeIdx = null;
+            updateNav(null);
+          } else {
+            document.querySelectorAll('.tl-event.active').forEach(e => e.classList.remove('active'));
+            el.classList.add('active');
+            activeIdx = idx;
+            updateNav(idx);
+          }
+        });
+
+        spine.appendChild(el);
+
+        const dot = document.createElement('button');
+        dot.className = 'tl-nav-dot';
+        dot.type = 'button';
+        dot.setAttribute('aria-label', ev.title);
+        dot.addEventListener('click', () => {
+          scrollToEvent(idx);
+        });
+        navDotsContainer.appendChild(dot);
+      });
+    });
+
+    const eventNodes = Array.from(document.querySelectorAll('.tl-event'));
+    const navDots = Array.from(document.querySelectorAll('.tl-nav-dot'));
+
+    function updateNav(idx) {
+      navDots.forEach((dot, i) => {
+        dot.classList.toggle('on', i === idx);
+      });
+    }
+
+    function scrollToEvent(idx) {
+      const target = eventNodes[idx];
+      if (!target) return;
+      target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      updateNav(idx);
+    }
+
+    function updateProgress() {
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+      progressBar.style.width = `${progress}%`;
+    }
+
+    function focusWalkthroughEvent(idx) {
+      eventNodes.forEach((node, i) => {
+        node.classList.toggle('is-current', i === idx);
+        node.classList.remove('active');
+      });
+      activeIdx = null;
+      updateNav(idx);
+      scrollToEvent(idx);
+      backWalkthroughBtn.disabled = idx === 0;
+      backWalkthroughBtn.style.opacity = idx === 0 ? "0.45" : "1";
+      nextWalkthroughBtn.textContent = idx === events.length - 1 ? 'Finish' : 'Next';
+    }
+
+    function startWalkthrough() {
+      walkthroughActive = true;
+      currentIndex = 0;
+      document.body.classList.add('walkthrough-active');
+      document.body.classList.remove('entry-open');
+      entryOverlay.style.display = 'none';
+      walkthroughBar.classList.add('is-visible');
+      focusWalkthroughEvent(currentIndex);
+    }
+
+    function endWalkthrough() {
+      walkthroughActive = false;
+      document.body.classList.remove('walkthrough-active');
+      walkthroughBar.classList.remove('is-visible');
+      eventNodes.forEach(node => node.classList.remove('is-current'));
+      updateNav(null);
+    }
+
+    guideBtn.addEventListener('click', startWalkthrough);
+
+    browseBtn.addEventListener('click', () => {
+      document.body.classList.remove('entry-open');
+      entryOverlay.style.display = 'none';
+    });
+
+    nextWalkthroughBtn.addEventListener('click', () => {
+      if (currentIndex < events.length - 1) {
+        currentIndex += 1;
+        focusWalkthroughEvent(currentIndex);
+      } else {
+        endWalkthrough();
+      }
+    });
+
+    backWalkthroughBtn.addEventListener('click', () => {
+      if (currentIndex > 0) {
+        currentIndex -= 1;
+        focusWalkthroughEvent(currentIndex);
+      }
+    });
+
+    exitWalkthroughBtn.addEventListener('click', endWalkthrough);
+
+    window.addEventListener('scroll', updateProgress);
+    updateProgress();
+
+    document.body.classList.add('entry-open');
+  </script>
+</body>
+</html>

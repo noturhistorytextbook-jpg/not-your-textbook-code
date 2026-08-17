@@ -1,0 +1,984 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Elizabeth Choy: Not Just Beauty and Brains - Not Your History Textbook</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap"
+    rel="stylesheet"
+  />
+
+  <style>
+    @font-face {
+      font-family: "Poppins";
+      src: url("Poppins-BlackItalic.woff2") format("woff2"),
+        url("Poppins-BlackItalic.woff") format("woff");
+      font-weight: 900;
+      font-style: italic;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: "Poppins";
+      src: url("Poppins-ExtraBoldItalic.woff2") format("woff2"),
+        url("Poppins-ExtraBoldItalic.woff") format("woff");
+      font-weight: bold;
+      font-style: italic;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: "Poppins";
+      src: url("Poppins-ExtraBold.woff2") format("woff2"),
+        url("Poppins-ExtraBold.woff") format("woff");
+      font-weight: bold;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: "Poppins";
+      src: url("Poppins-Black.woff2") format("woff2"),
+        url("Poppins-Black.woff") format("woff");
+      font-weight: 900;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: "Poppins";
+      src: url("Poppins-Bold.woff2") format("woff2"),
+        url("Poppins-Bold.woff") format("woff");
+      font-weight: bold;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: "Poppins";
+      src: url("Poppins-BoldItalic.woff2") format("woff2"),
+        url("Poppins-BoldItalic.woff") format("woff");
+      font-weight: bold;
+      font-style: italic;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: "Poppins";
+      src: url("Poppins-Light.woff2") format("woff2"),
+        url("Poppins-Light.woff") format("woff");
+      font-weight: 300;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: "Poppins";
+      src: url("Poppins-LightItalic.woff2") format("woff2"),
+        url("Poppins-LightItalic.woff") format("woff");
+      font-weight: 300;
+      font-style: italic;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: "Poppins";
+      src: url("Poppins-ExtraLightItalic.woff2") format("woff2"),
+        url("Poppins-ExtraLightItalic.woff") format("woff");
+      font-weight: 200;
+      font-style: italic;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: "Poppins";
+      src: url("Poppins-Italic.woff2") format("woff2"),
+        url("Poppins-Italic.woff") format("woff");
+      font-weight: normal;
+      font-style: italic;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: "Poppins";
+      src: url("Poppins-ExtraLight.woff2") format("woff2"),
+        url("Poppins-ExtraLight.woff") format("woff");
+      font-weight: 200;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: "Poppins";
+      src: url("Poppins-Medium.woff2") format("woff2"),
+        url("Poppins-Medium.woff") format("woff");
+      font-weight: 500;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: "Poppins";
+      src: url("Poppins-Regular.woff2") format("woff2"),
+        url("Poppins-Regular.woff") format("woff");
+      font-weight: normal;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: "Poppins";
+      src: url("Poppins-SemiBoldItalic.woff2") format("woff2"),
+        url("Poppins-SemiBoldItalic.woff") format("woff");
+      font-weight: 600;
+      font-style: italic;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: "Poppins";
+      src: url("Poppins-ThinItalic.woff2") format("woff2"),
+        url("Poppins-ThinItalic.woff") format("woff");
+      font-weight: 100;
+      font-style: italic;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: "Poppins";
+      src: url("Poppins-Thin.woff2") format("woff2"),
+        url("Poppins-Thin.woff") format("woff");
+      font-weight: 100;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: "Poppins";
+      src: url("Poppins-MediumItalic.woff2") format("woff2"),
+        url("Poppins-MediumItalic.woff") format("woff");
+      font-weight: 500;
+      font-style: italic;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: "Poppins";
+      src: url("Poppins-SemiBold.woff2") format("woff2"),
+        url("Poppins-SemiBold.woff") format("woff");
+      font-weight: 600;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    :root {
+      --white: #F2F2EB;
+      --yellow: #FAE3AC;
+      --blue: #01344F;
+      --dark: #1A1A1A;
+      --light: #ABABAB;
+      --muted-button: #2a2a2a;
+      --muted-button-border: rgba(242, 242, 235, 0.14);
+      --story-width: 920px;
+      --panel-border: rgba(242, 242, 235, 0.16);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html,
+    body {
+      background: var(--dark);
+      color: var(--white);
+      font-family: "Lato", sans-serif;
+      min-height: 100%;
+    }
+
+    body {
+      overflow-x: hidden;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .topbar {
+      padding: 18px 20px 14px;
+    }
+
+    .brand {
+      font-family: "Poppins", sans-serif;
+      font-size: 1.05rem;
+      color: var(--yellow);
+    }
+
+    .divider {
+      height: 1px;
+      background: rgba(242, 242, 235, 0.45);
+      width: 100%;
+    }
+
+    .navbar {
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+      align-items: flex-start;
+      padding: 18px 20px 0;
+      position: relative;
+      z-index: 20;
+    }
+
+    .nav-link,
+    .dropdown-toggle {
+      font-family: "Poppins", sans-serif;
+      font-size: 1rem;
+      color: var(--white);
+      transition: 0.18s ease;
+      display: inline-block;
+    }
+
+    .nav-link:hover,
+    .dropdown-toggle:hover {
+      color: var(--light);
+    }
+
+    .nav-link:active,
+    .nav-link.active-link,
+    .dropdown-toggle:active,
+    .dropdown-toggle.active-link {
+      color: var(--yellow);
+    }
+
+    .nav-dropdown {
+      position: relative;
+      display: inline-block;
+    }
+
+    .dropdown-toggle {
+      cursor: pointer;
+    }
+
+    .dropdown-menu {
+      position: absolute;
+      top: calc(100% + 10px);
+      left: 0;
+      min-width: 290px;
+      background: var(--blue);
+      border: 1px solid rgba(242, 242, 235, 0.18);
+      display: flex;
+      flex-direction: column;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(8px);
+      transition: opacity 0.18s ease, transform 0.18s ease, visibility 0.18s ease;
+      z-index: 30;
+    }
+
+    .memory-dropdown-menu {
+      min-width: 200px;
+    }
+
+    .nav-dropdown:hover .dropdown-menu,
+    .nav-dropdown:focus-within .dropdown-menu {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    .dropdown-item {
+      font-family: "Poppins", sans-serif;
+      font-size: 0.95rem;
+      color: var(--white);
+      padding: 12px 16px;
+      transition: 0.18s ease;
+      font-weight: 400;
+    }
+
+    .dropdown-item:hover {
+      background: var(--yellow);
+      color: var(--light);
+    }
+
+    .dropdown-item:active,
+    .dropdown-item.active-dropdown {
+      background: var(--yellow);
+      color: var(--light);
+      font-weight: 600;
+    }
+
+    .page {
+      width: 100%;
+      padding: 52px 20px 120px;
+    }
+
+    .story-shell {
+      max-width: var(--story-width);
+      margin: 0 auto;
+    }
+
+    .back-button-fixed {
+      position: fixed;
+      left: 80px;
+      bottom: 80px;
+      z-index: 100;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-family: "Poppins", sans-serif;
+      font-size: 0.74rem;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: rgba(242, 242, 235, 0.82);
+      background: var(--muted-button);
+      border: 1px solid var(--muted-button-border);
+      padding: 10px 15px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+      transition: background 0.18s ease, color 0.18s ease, border-color 0.18s ease;
+    }
+
+    .back-button-fixed:hover {
+      background: #323232;
+      color: var(--white);
+      border-color: rgba(242, 242, 235, 0.24);
+    }
+
+    .story-hero {
+      margin-bottom: 34px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) 250px;
+      gap: 24px;
+      align-items: center;
+    }
+
+    .hero-copy h1 {
+      font-family: "Poppins", sans-serif;
+      color: var(--yellow);
+      font-size: clamp(2.2rem, 4vw, 3.45rem);
+      line-height: 1.14;
+      margin-bottom: 10px;
+    }
+
+    .story-subtitle {
+      font-size: 1rem;
+      line-height: 1.6;
+      color: rgba(242, 242, 235, 0.92);
+      font-style: italic;
+    }
+
+    .hero-image {
+      width: 100%;
+      max-width: 250px;
+      justify-self: end;
+      border: 1px solid rgba(242, 242, 235, 0.12);
+      background: rgba(242, 242, 235, 0.03);
+    }
+
+    .hero-image img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .story-body {
+      display: block;
+    }
+
+    .story-body p {
+      font-size: 1.04rem;
+      line-height: 1.95;
+      color: rgba(242, 242, 235, 0.92);
+      text-align: justify;
+      margin-bottom: 18px;
+    }
+
+    .intro-box {
+      border: 1px solid var(--yellow);
+      background: rgba(250, 227, 172, 0.12);
+      padding: 18px 20px;
+      margin: 0 0 28px;
+    }
+
+    .awards-block {
+      margin-top: 18px;
+      display: grid;
+      gap: 14px;
+    }
+
+    .award-title {
+      display: inline-block;
+      font-family: "Poppins", sans-serif;
+      font-weight: 700;
+      color: var(--yellow);
+      margin-bottom: 4px;
+    }
+
+    .intro-box p:last-child {
+      margin-bottom: 0;
+    }
+
+    .float-image {
+      width: 260px;
+      max-width: 42%;
+      margin: 8px 0 14px 24px;
+      float: right;
+      border: 1px solid rgba(242, 242, 235, 0.12);
+      background: rgba(242, 242, 235, 0.03);
+    }
+
+    .float-image.left {
+      float: left;
+      margin: 8px 24px 14px 0;
+    }
+
+    .float-image img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border: 0;
+      background: rgba(242, 242, 235, 0.03);
+    }
+
+    .image-caption {
+      margin-top: 8px;
+      font-size: 0.82rem;
+      line-height: 1.5;
+      color: var(--light);
+      font-style: italic;
+      text-align: center;
+      padding: 0 8px 10px;
+    }
+
+    .story-button-wrap {
+      margin: 22px 0 24px;
+    }
+
+    .story-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-family: "Poppins", sans-serif;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: rgba(242, 242, 235, 0.88);
+      background: var(--muted-button);
+      border: 1px solid var(--muted-button-border);
+      padding: 11px 16px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+      transition: background 0.18s ease, color 0.18s ease, border-color 0.18s ease;
+    }
+
+    .story-button:hover {
+      background: #323232;
+      color: var(--white);
+      border-color: rgba(242, 242, 235, 0.24);
+    }
+
+    .references-end {
+      clear: both;
+      margin: 44px auto 0;
+      width: 100%;
+      max-width: var(--story-width);
+    }
+
+    .ref-toggle {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      font-family: "Poppins", sans-serif;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--white);
+      background: transparent;
+      border: 1px solid var(--panel-border);
+      padding: 10px 14px;
+      cursor: pointer;
+      transition: 0.18s ease;
+    }
+
+    .ref-toggle:hover {
+      border-color: rgba(250, 227, 172, 0.45);
+      color: var(--yellow);
+    }
+
+    .ref-toggle-icon {
+      font-size: 0.92rem;
+      line-height: 1;
+      transition: transform 0.18s ease;
+    }
+
+    .references-end.open .ref-toggle-icon {
+      transform: rotate(180deg);
+    }
+
+    .ref-menu {
+      display: none;
+      margin-top: 8px;
+      border: 1px solid var(--panel-border);
+      background: var(--blue);
+      width: 100%;
+      padding: 0;
+    }
+
+    .references-end.open .ref-menu {
+      display: block;
+    }
+
+    .ref-item {
+      padding: 12px 14px;
+      font-family: "Lato", sans-serif;
+      font-size: 0.92rem;
+      line-height: 1.6;
+      color: var(--white);
+      border-bottom: 1px solid rgba(242, 242, 235, 0.1);
+      word-break: break-word;
+    }
+
+    .ref-item:last-child {
+      border-bottom: none;
+    }
+
+    .ref-item a {
+      color: var(--white);
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+
+    .ref-item a:hover {
+      color: var(--yellow);
+    }
+
+    @media (max-width: 768px) {
+      .topbar {
+        padding: 16px 12px 12px;
+      }
+
+      .brand {
+        font-size: 1rem;
+        line-height: 1.25;
+      }
+
+      .navbar {
+        gap: 10px 16px;
+        padding: 16px 12px 0;
+      }
+
+      .nav-link,
+      .dropdown-toggle {
+        font-size: 0.95rem;
+        line-height: 1.3;
+      }
+
+      .nav-dropdown {
+        width: 100%;
+      }
+
+      .dropdown-menu {
+        position: static;
+        margin-top: 10px;
+        min-width: unset;
+        width: 100%;
+      }
+
+      .memory-dropdown-menu {
+        width: 100%;
+      }
+
+      .page {
+        padding: 34px 12px 110px;
+      }
+
+      .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 18px;
+      }
+
+      .hero-copy h1 {
+        font-size: clamp(1.9rem, 7vw, 2.8rem);
+        line-height: 1.16;
+      }
+
+      .story-subtitle {
+        font-size: 0.96rem;
+        line-height: 1.55;
+      }
+
+      .hero-image {
+        max-width: 210px;
+        justify-self: start;
+      }
+
+      .story-body p {
+        font-size: 1rem;
+        line-height: 1.85;
+        text-align: left;
+      }
+
+      .intro-box {
+        padding: 16px 14px;
+        margin-bottom: 22px;
+      }
+
+      .awards-block {
+        gap: 12px;
+      }
+
+      .float-image,
+      .float-image.left {
+        float: none;
+        width: 100%;
+        max-width: 100%;
+        margin: 14px 0 18px;
+      }
+
+      .story-button-wrap {
+        margin: 18px 0 22px;
+      }
+
+      .story-button {
+        width: 100%;
+        justify-content: center;
+        text-align: center;
+        line-height: 1.4;
+      }
+
+      .references-end {
+        max-width: 100%;
+        margin-top: 34px;
+      }
+
+      .back-button-fixed {
+        left: 16px;
+        bottom: 16px;
+        font-size: 0.7rem;
+        padding: 10px 13px;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .navbar {
+        gap: 8px 12px;
+      }
+
+      .nav-link,
+      .dropdown-toggle {
+        font-size: 0.92rem;
+      }
+
+      .page {
+        padding: 28px 12px 104px;
+      }
+
+      .story-hero {
+        margin-bottom: 24px;
+      }
+
+      .hero-grid {
+        gap: 14px;
+      }
+
+      .hero-copy h1 {
+        font-size: clamp(1.7rem, 8vw, 2.25rem);
+        margin-bottom: 8px;
+      }
+
+      .hero-image {
+        max-width: 180px;
+      }
+
+      .story-body p {
+        font-size: 0.97rem;
+        line-height: 1.75;
+        margin-bottom: 16px;
+      }
+
+      .intro-box {
+        padding: 14px 12px;
+      }
+
+      .image-caption {
+        font-size: 0.78rem;
+        line-height: 1.45;
+        padding: 0 8px 8px;
+      }
+
+      .story-button {
+        font-size: 0.72rem;
+        padding: 10px 12px;
+      }
+
+      .ref-toggle {
+        font-size: 0.74rem;
+        padding: 10px 12px;
+      }
+
+      .ref-item {
+        font-size: 0.88rem;
+        line-height: 1.55;
+        padding: 11px 12px;
+      }
+
+      .back-button-fixed {
+        left: 12px;
+        right: 12px;
+        bottom: 12px;
+        width: auto;
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="index.html">not your History Textbook</a>
+  </header>
+
+  <div class="divider"></div>
+
+  <nav class="navbar">
+    <a href="index.html" class="nav-link">Home</a>
+    <a href="cornersofthepast.html" class="nav-link">Corners of the past</a>
+
+    <div class="nav-dropdown">
+      <a href="memorywall-reddit.html" class="nav-link">Memory wall</a>
+    </div>
+
+    <a href="interactivetimeline.html" class="nav-link">Interactive timeline</a>
+    <a href="everydaylife.html" class="nav-link">Everyday life</a>
+    <a href="silentheroes.html" class="nav-link active-link">Our silent heroes</a>
+  </nav>
+
+  <a href="silentheroes.html" class="back-button-fixed">Back</a>
+
+  <main class="page">
+    <article class="story-shell">
+      <header class="story-hero">
+        <div class="hero-grid">
+          <div class="hero-copy">
+            <h1>Elizabeth Choy: Not Just Beauty and Brains</h1>
+            <p class="story-subtitle">29 November 1910 – 14 September 2006</p>
+          </div>
+
+          <figure class="hero-image">
+            <img src="LizChoy_with_medals.jpg" alt="Elizabeth Choy in 1989, wearing her medals." />
+          </figure>
+        </div>
+      </header>
+
+      <section class="story-body">
+        <div class="intro-box">
+          <p>If Choy had a Linkedin profile, she’d mog all the stacked, 500+ connections, ‘hey, i’m looking to connect’ profiles. Choy bagged many awards from adolescence to her final years.</p>
+
+          <div class="awards-block">
+            <p><span class="award-title">1. 1946 – Bronze Cross (Girl Guides Association)</span>
+            Awarded by Lady Baden-Powell, the Bronze Cross is the Girl Guides' highest award for gallantry.</p>
+
+            <p><span class="award-title">2. 1946 – Order of the Star of Sarawak</span>
+            Presented by Rajah Charles Vyner Brooke in recognition of her wartime bravery and humanitarian service.</p>
+
+            <p><span class="award-title">3. June 1946 – Officer of the Order of the British Empire (OBE)</span>
+            Conferred in the King's Birthday Honours, she was invited to England, where she met with Queen Elizabeth (later the Queen Mother) and then-Princess Elizabeth.</p>
+
+            <p><span class="award-title">4. 25 July 1946 – Private Audience with Queen Elizabeth (later the Queen Mother)</span>
+            While not an award, Elizabeth Choy was granted a rare half-hour private audience at St James's Palace in recognition of her wartime heroism.</p>
+
+            <p><span class="award-title">5. 2 June 1953 – Represented Singapore at the Coronation of Queen Elizabeth II</span>
+            As the only female member of Singapore's Legislative Council, Choy represented Singapore at Queen Elizabeth II's coronation in London, and subsequently undertook, for the Foreign Office, a lecture tour of North America to explain the aspirations of the people of Singapore and Malaya.</p>
+
+            <p><span class="award-title">6. 1973 – Pingat Bakti Setia (Long Service Medal), Singapore</span>
+            Awarded by the Singapore Government in recognition of her long and dedicated service as an educator, including her contributions to founding the Singapore School for the Blind.</p>
+
+            <p><span class="award-title">7. 1989 – Invited to a state dinner aboard the Royal Yacht Britannia</span>
+            Choy was invited to dine with Queen Elizabeth II and Prince Philip during their state visit to Singapore.</p>
+          </div>
+        </div>
+
+        <figure class="float-image">
+          <img src="LizChoy_with_medals.jpg" alt="Elizabeth Choy in 1989, wearing her medals." />
+          <figcaption class="image-caption">Elizabeth Choy in 1989, wearing her medals. She had been invited to dine on board the royal yacht, the Brittania, with Prince Philip and Queen Elizabeth II who were in Singapore on a state visit. She was advised to wear all the medals that had been awarded to her. Photo: Salt&amp;Light</figcaption>
+        </figure>
+
+        <p>But all these accolades and awards were not earned by chance. Elizabeth Choy dedicated her younger years to serving others, risking her life for the people during the war-stricken years and beyond.</p>
+
+        <p>In December 1929, Choy came to Singapore from North Borneo (today’s Sabah) to further her studies at the Convent of the Holy Infant Jesus (CHIJ) at Victoria Street. She excelled academically, obtaining the Prize of Honor in her first year of school, and resided with her fourth uncle in a double-storey shophouse at Selegie where he ran a music shop. However, the untimely death of her mother in 1931 and the Great Depression forced upon her the burden of raising her six younger siblings. As such, she took on the role of a breadwinner, giving up a college education, even a possible scholarship, to start work so she could finance the education of her younger siblings.</p>
+
+        <p>When Malaya fell into the hands of the Japanese, Choy volunteered as a nurse with the Medical Auxiliary Service.</p>
+
+        <p>And when Singapore eventually got attacked, Choy found her home damaged and soon looted. On top of that, she had lost her brother as part of the Sook Ching Massacre.</p>
+
+        <div class="story-button-wrap">
+          <a class="story-button" href="readabout-sookching.html">Read more about the Sook Ching massacre here.</a>
+        </div>
+
+        <figure class="float-image left">
+          <img src="LizChoy_wedding.jpg" alt="The Choys on their wedding day on August 16, 1941." />
+          <figcaption class="image-caption">The Choys on their wedding day on August 16, 1941. Photo: Salt&amp;Light</figcaption>
+        </figure>
+
+        <p>After her husband and herself had lost their jobs following the invasion, they were offered an opportunity to set up a canteen stall in Miyako hospital (the former mental institution), before they shifted to Tan Tock Seng Hospital later on. The hospital was running regular ambulance services between that and Changi Prison for the prisoners.</p>
+
+        <p>Coupling their bravery with a keen eye for opportunity, they made use of the ambulances to help the prisoners by passing them cash and parcels containing fresh clothing, medicine and letters during their daily deliveries. As though those acts were not already dangerous enough, they later also smuggled radio parts for hidden receivers which were strictly banned by the Japanese. (Radios provided channels for the people to receive allied news)</p>
+
+        <p>However, their dark undercover secrets were soon discovered and halted by the Japanese during the Double Tenth incident. On 27 September 1943, a joint Australian-British commando force launched Operation Jaywick, attacking seven Japanese shipping vessels in Singapore waters.</p>
+
+        <p>The Kempeitai had an inkling that the internees at Changi Prison were responsible, as the Johor Branch of the Kempeitai claimed that the foreign internees in Changi Gaol (prison) had transmitted news to the attackers. However in reality, they were not to be blamed, but allied forces from Australia and Britain. The Japanese had just undermined the allies’ abilities to carry out such substantial attacks with its geographical distances, thus pushing the blame onto local civilians.</p>
+
+        <p>Hence, in the early mornings of 10/10/1943, internees at Changi Gaol assembled at the courtyard while the cells were thoroughly searched. Several were arrested on suspicion of assisting the operation, the radio sets the Choys helped to smuggle in were seized too.</p>
+
+        <p>During investigations, an informant tattled on the Choys. As a result, Choy’s husband, Koon Heng, was arrested on 29 October. A Japanese car stopped outside the Choys’ tuckshop and asked Koon, "Oh, which is the road?... Come, show us the way." And as Koon followed, he was taken and never seen again.</p>
+
+        <p>This amounted to a total of 57 internees seized for interrogation. This incident remains remembered as the Double Tenth Massacre, as fifteen of the 57 died from torture.</p>
+
+        <div class="story-button-wrap">
+          <a class="story-button" href="timeline-doubletenth.html">Read more about the Double Tenth Massacre.</a>
+        </div>
+
+        <p>After several agonising days of Elizabeth searching for her husband’s whereabouts, her instincts told her he was captured by the Kemepeitai. Hence, Choy braved herself and made her way to the Kempeitai East District Branch (today’s YMCA) to ask about her husband’s whereabouts. Although the Japanese initially acted oblivious and denied all of her allegations, two to three weeks following Koon’s arrest, they eventually invited her back to the branch with promised access to see her husband, even asking her to bring a blanket along for him. Upon stepping into YMCA, she was immediately interrogated before confiscating all her belongings: her handbag, jewellery, everything. Nothing left. Only allowed to hold onto the blanket and clothes, she was then lured into a cell.</p>
+
+        <p>With their trap successfully sprung, they successfully imprisoned Elizabeth, which marked the beginning of what would become 193 of the darkest days of her life.</p>
+
+        <p>Thrown into a cramped cell of about 10 by 12 feet – barely any different than a standard parking space of 9 by 18 feet – she found herself stuck in a cell with 20 men (and another lady, albeit for a short period). The cell was claustrophobic, dirty, damp, dark, with only a single narrow air-vent and no windows to let in light. From dawn to dusk, she sat kneeling on the cold, hard wooden planks hungry, as bugs roamed around the inmates, treating them as food. “There's nothing but all the detainees, squatting there, kneeling there like dumbbells, nothing, couldn't move, couldn't talk, couldn't do anything, not allowed to.” The cell had only a single toilet shared among all 21 inmates, which formed the only furniture there. Three times a day, the inmates are fed with a pathetic portion of rice, with a little bit of meat and vegetables. And after each meal they passed a filthy, nasty mug, with a bucket of tea around. “... Starvation diet. Very effective. My waist line not more than 12 inches, eight inches or 13 inches.” In modern day, such conditions are barely fathomable that it’d be more believable as a 24-hour challenge video found on Youtube.</p>
+
+        <p>Unexpectedly, the blanket Elizabeth had been told to bring became a lifeline. She stuffed it into the toilet's drain to block the hole, creating a basin so she could wash herself. Soon, the only other female inmate, Lena Beck, and the male prisoners borrowed the blanket to do the same. Everyone respectfully looked away while one another bathed in the same cell, before putting their only set of clothes and garments back on.</p>
+
+        <p>Though stuck in such grim reality, she still made do with whatever she had. For instance, she had obtained a stone from the guards, she used it to scrub the cell’s toilet for everyone. A sliver of wood was repurposed into a shared, makeshift toothbrush for the inmates to clean their teeth.</p>
+
+        <p>In the cell, not only were the living conditions appalling, the rules imposed on them were just as sick for both the body and the mind.</p>
+
+        <p>Since talking was forbidden, innovation triumphed as the inmates constructed their own sign language to communicate with each other. This sign language served as a medium for trauma bonding amongst the prisoners as well. Elizabeth recounted, “Oh, the people were so depressed. They didn't know what to do. There was one, I remember, Mr Tan, whose son I taught in St Andrew's School. And he was so sad he was going mad. Of course we couldn't talk. We learnt the sign language. When the sentry was not looking we would use A, b, C, D with our sign language. And he told me, ‘oh, I don't know what to do. They're going to kill my wife and my children.’ ‘Oh,’ he said, ‘I think I'll go mad.’”</p>
+
+        <p>Almost routinely, an inmate would be taken away for interrogation. Only God could guess whether they’d make it back alive. Sleep was nearly impossible with the cries and screams of the tortured haunting the night as everyone laid right beside each other like sardines, staring at the ceiling, with the bright light on.</p>
+
+        <p>Through such abysmal conditions, a beacon of hope for her was her faith in Christianity. Her strong Christian faith and the classic texts that she learnt in school about moral values kept her strong.</p>
+
+        <p>In the adjoining cell was Bishop John Leonard Wilson, who had also been imprisoned by the Japanese. Elizabeth was determined to be ministered by him, so whenever she scrubbed his floors, she seized the opportunity. As she reached Bishop Wilson's cell and the guards looked away, she would quietly kneel beside the bars to receive his ministry.</p>
+
+        <p>Bishop Wilson consecrated some burnt grains of rice and water from the toilet and there, amid the filth, a grateful and tearful Elizabeth received Holy Communion.</p>
+
+        <p>And at this point, Elizabeth was still unaware of her family’s whereabouts. Her husband was still missing, or at least that’s what she believed, until 9 December 1943.</p>
+
+        <figure class="float-image">
+          <img src="elizabeth-choy-in-london-to-represent-singapore-at-the-v0-qt6hc9bynqx61.webp" alt="Elizabeth Choy in London to represent Singapore at the Coronation of Queen Elizabeth II in 1953." />
+          <figcaption class="image-caption">Elizabeth Choy in London to Represent Singapore at the Coronation of Queen Elizabeth II (1953). Photo: Reddit, r/Colorization</figcaption>
+        </figure>
+
+        <p>In an attempt to extract confessions from the Choys, the Japanese resorted to brutal and revolting measures – albeit to use such adjectives are already of mercy – Elizabeth was slapped, kicked, spat at and subjected to electric shock treatment, in front of her very own husband.</p>
+
+        <p>In a painful recount by Elizabeth, she described, “So one day they put some bars of wood on the floor and they tied me up, and I had to kneel on this wood, very rough wood. And they stripped me, the Topless really, topless. And they tied me to the woods so that I couldn't go forward, I couldn't go backward, I couldn't go sideways, and they applied electric shock to me… And there my husband... they brought my husband… I didn't know where he was before. They brought my husband. He was kneeling beside there watching me being tortured. They said, ‘Now, both of you confess, we'll let you go. If not, we'll execute both of you.’ My husband said, ‘I've nothing to tell you.’ They said, ‘All right.’ They tortured me. Oh, that was terrible. Unless you have gone through it you don't know what it's like. No clue... They're torturing you, of course you cry, and then your tears will come, your nose will be running.”</p>
+
+        <p>Koon also described, “She was tied up with hands and legs to a frame kneeling on firewood. They took out two leads from a generator and applied it to her body for 15 minutes. She was screaming all the time …”</p>
+
+        <p>Such horrors alone are enough to evoke a visceral reaction, but Elizabeth's lingering scars make this even more heartbreaking. The electrocution was so traumatic that she refused to touch any electrical appliances afterwards.</p>
+
+        <p>Up until this interrogation, Elizabeth had faced every day's questioning with her head held high, walking back to her cell with a quiet yet determined resolve. Apart from the screams forced from her and the tears that streamed down her face, she remained composed. She never confessed the names of anyone she had assisted, never caved in to the pain, never admitted to being pro-whichever-nationality, and held true to her conviction of just wanting to help others. R. H. Scott, a former director of the British Ministry of Information (Far Eastern Branch) and principal witness at the War Crimes Court in Singapore, later testified that he witnessed Elizabeth being stripped and severely beaten "on at least one occasion". Other torture methods she endured included being pumped with water as she would later recount suffering such pain that tears would roll down her face. However, this new level of torture shattered her breaking point, as when attempting to stand alone after, she could only collapse.</p>
+
+        <p>Elizabeth’s resilience beyond physical limits probably felt like a threat to the Japanese’s authority as they devised an even more barbaric method of torture. If physical torture had proved futile, surely her mind would falter instead. Thus, in that same torturous, already excruciating, session, they went all out on their final attempt to force a confession.</p>
+
+        <p>The Kempeitai issued an ultimatum: confess to her involvement in operation Jaywick, or both she and her husband would be sentenced to death. Taken to Johor and beheaded with her husband’s head rolling mere two hours later. And so, they were given one last goodbye to each other, in which, with tears streaming, they lovingly bade their last farewells to each other. Eventually, it was realised to be a sickening psychological ploy to break them.</p>
+
+        <p>On Elizabeth’s 193rd day of imprisonment, resilience and kindness eventually won. Even her character had moved the Japanese. Unable to get anything out of her, accompanied with unanimous testimonies of Elizebath’s kindness, the Kempeitai had released her, "Now, we have been everywhere asking people about you. And we have been told that you're very kind, very ready to help people… so we will let you go"</p>
+
+        <p>With that, she was finally released after 193 days, stepping out of the YMCA building in the very clothes that she entered wearing. On a post-war trial conducted on 18 March 1946 against 21 kempeitai members, one of the accused, Warrant Officer Monai Tadamori (who was eventually sentenced to death) remarked, “I … sent away Mrs Choy. She went back with no sign of pain, just in the same spirited condition as she came in.”</p>
+
+        <p>On the other hand, Koon was sentenced to a further 12 years in Outram Prison. Fate, however, had other plans. Japan's surrender less than two years later brought his imprisonment to an abrupt end. Until then, Elizabeth did not see him again, only reuniting after the war ended.</p>
+
+        <p>After the Japanese surrendered, Elizabeth was offered retribution against her torturers with execution, and asked to identify any Japanese who had tortured her. But she refused to name drop, “I don’t blame the soldiers… It was the war that was wicked… I shall not forget but I shall forgive”</p>
+
+        <p>Choy was subsequently invited, as part of a privileged few, to Britain to recuperate from the war. She eventually stayed there for four years. There, she devoted her time to education, studying Domestic Science at Northern Polytechnic and also teaching at a London Council School.</p>
+
+        <p>Even after her return to Singapore, Elizabeth resumed teaching at St Andrew’s and became involved in the political upturn preceding independence.</p>
+
+        <p>From 1951 to 1955, she was nominated by the Governor to the Legislative Council of Singapore, where she spoke on behalf of the poor and needy and campaigned for the development of social services and family planning. On top of that, she served as a second lieutenant in the women’s auxiliary of the Singapore Volunteer Corps, where she earned the nickname “Gunner Choy”.</p>
+
+        <figure class="float-image left">
+          <img src="Lizteaching.jpg" alt="Elizabeth with her students in St Andrew’s School." />
+          <figcaption class="image-caption">Elizabeth with her students in St Andrew’s School. Photo: Ministry of Information, Communication and the Arts, National Archives of Singapore.</figcaption>
+        </figure>
+
+        <p>In 1974, she decided to put a halt to her teaching career at St Andrew’s, and carry her invaluable work to head the work at the School for the Blind. She proceeded to take on the role of the first principal of the School for the Blind from 1956 to 1960.</p>
+
+        <p>“I used to go to the kampungs to find the blind children and try to persuade their parents or grandparents or guardians to let their children come into the school as boarders or attend the school to learn how to read and write. Of course, to them, the whole thing sounded absurd. How can they study when they have no sight? I remember how happy the blind children were. They took any challenge bravely and with determination.”</p>
+
+        <p>Even in her nineties, she continued with her social work and school visits.</p>
+
+        <p>She eventually passed away in a battle with pancreatic cancer, on 14 September 2006, at the age of 95.</p>
+
+        <p>Through all 90 years of her life, spanning close to a whole century, Elizabeth served as a role model for many generations, especially for women, with an unwavering passion to serve. Her service reigns eternal beyond mortality.</p>
+
+        <div class="references-end" id="referencesBox">
+          <button
+            class="ref-toggle"
+            id="refToggle"
+            type="button"
+            aria-expanded="false"
+            aria-controls="refMenu"
+          >
+            <span>References</span>
+            <span class="ref-toggle-icon">⌄</span>
+          </button>
+
+          <div class="ref-menu" id="refMenu">
+            <div class="ref-item">
+              Tan, B. (n.d.). Elizabeth Choy.
+              <a href="https://www.nlb.gov.sg/main/article-detail?cmsuuid=73f538cb-c39c-409d-b05e-f7c78480c606" target="_blank" rel="noopener noreferrer">https://www.nlb.gov.sg/main/article-detail?cmsuuid=73f538cb-c39c-409d-b05e-f7c78480c606</a>
+            </div>
+            <div class="ref-item">
+              Wong, Heng. (n.d.). Double Tenth incident.
+              <a href="https://www.nlb.gov.sg/main/article-detail?cmsuuid=9f82451d-2e94-4f73-be28-295636c6eb3b" target="_blank" rel="noopener noreferrer">https://www.nlb.gov.sg/main/article-detail?cmsuuid=9f82451d-2e94-4f73-be28-295636c6eb3b</a>
+            </div>
+            <div class="ref-item">
+              Shaw, J. (2019, March 7). “No one could help me, my only source of strength was God”: Tortured war heroine Elizabeth Choy. Salt&amp;Light.
+              <a href="https://saltandlight.sg/faith/no-one-could-help-me-my-only-source-of-strength-was-god-tortured-war-heroine-elizabeth-choy/" target="_blank" rel="noopener noreferrer">https://saltandlight.sg/faith/no-one-could-help-me-my-only-source-of-strength-was-god-tortured-war-heroine-elizabeth-choy/</a>
+            </div>
+            <div class="ref-item">
+              NUS Libraries record.
+              <a href="https://linc.nus.edu.sg/record=b2280970" target="_blank" rel="noopener noreferrer">https://linc.nus.edu.sg/record=b2280970</a>
+            </div>
+            <div class="ref-item">
+              Devaraj, S. (2024, November 14). Remembering Operation Jaywick: The WWII mission that sparked painful reprisals for S’poreans. The Straits Times.
+              <a href="https://www.straitstimes.com/singapore/remembering-operation-jaywick-the-wwii-mission-that-sparked-painful-reprisals-for-s-poreans" target="_blank" rel="noopener noreferrer">https://www.straitstimes.com/singapore/remembering-operation-jaywick-the-wwii-mission-that-sparked-painful-reprisals-for-s-poreans</a>
+            </div>
+            <div class="ref-item">
+              St Margaret’s Secondary School. Mrs Elizabeth Choy.
+              <a href="https://www.stmargaretssec.moe.edu.sg/files/02A%20Mrs%20Elizabeth%20Choy.pdf" target="_blank" rel="noopener noreferrer">https://www.stmargaretssec.moe.edu.sg/files/02A%20Mrs%20Elizabeth%20Choy.pdf</a>
+            </div>
+            <div class="ref-item">
+              Oral history interviews.
+              <a href="https://www.nas.gov.sg/archivesonline/flipviewer/publish/9/94edbbb2-115f-11e3-83d5-0050568939ad-OHC000597_002/web/html5/index.html?launchlogo=tablet/OralHistoryInterviews_brandingLogo_.png&pn=14" target="_blank" rel="noopener noreferrer">https://www.nas.gov.sg/archivesonline/flipviewer/publish/9/94edbbb2-115f-11e3-83d5-0050568939ad-OHC000597_002/web/html5/index.html?launchlogo=tablet/OralHistoryInterviews_brandingLogo_.png&pn=14</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </article>
+  </main>
+
+  <script>
+    const refBox = document.getElementById("referencesBox");
+    const refToggle = document.getElementById("refToggle");
+
+    refToggle.addEventListener("click", function () {
+      const isOpen = refBox.classList.toggle("open");
+      refToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+    });
+  </script>
+</body>
+</html>

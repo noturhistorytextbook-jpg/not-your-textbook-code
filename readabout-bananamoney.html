@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Banana Money: The Illusion of Wealth in Syonan-to | Not Your History Textbook</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+
+  <style>
+    @font-face {
+      font-family: 'Poppins';
+      src: url('Poppins-BlackItalic.woff2') format('woff2'),
+          url('Poppins-BlackItalic.woff') format('woff');
+      font-weight: 900;
+      font-style: italic;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: 'Poppins';
+      src: url('Poppins-ExtraBoldItalic.woff2') format('woff2'),
+          url('Poppins-ExtraBoldItalic.woff') format('woff');
+      font-weight: bold;
+      font-style: italic;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: 'Poppins';
+      src: url('Poppins-ExtraBold.woff2') format('woff2'),
+          url('Poppins-ExtraBold.woff') format('woff');
+      font-weight: bold;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: 'Poppins';
+      src: url('Poppins-Black.woff2') format('woff2'),
+          url('Poppins-Black.woff') format('woff');
+      font-weight: 900;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: 'Poppins';
+      src: url('Poppins-Bold.woff2') format('woff2'),
+          url('Poppins-Bold.woff') format('woff');
+      font-weight: bold;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: 'Poppins';
+      src: url('Poppins-BoldItalic.woff2') format('woff2'),
+          url('Poppins-BoldItalic.woff') format('woff');
+      font-weight: bold;
+      font-style: italic;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: 'Poppins';
+      src: url('Poppins-Light.woff2') format('woff2'),
+          url('Poppins-Light.woff') format('woff');
+      font-weight: 300;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: 'Poppins';
+      src: url('Poppins-LightItalic.woff2') format('woff2'),
+          url('Poppins-LightItalic.woff') format('woff');
+      font-weight: 300;
+      font-style: italic;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: 'Poppins';
+      src: url('Poppins-ExtraLightItalic.woff2') format('woff2'),
+          url('Poppins-ExtraLightItalic.woff') format('woff');
+      font-weight: 200;
+      font-style: italic;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: 'Poppins';
+      src: url('Poppins-Italic.woff2') format('woff2'),
+          url('Poppins-Italic.woff') format('woff');
+      font-weight: normal;
+      font-style: italic;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: 'Poppins';
+      src: url('Poppins-ExtraLight.woff2') format('woff2'),
+          url('Poppins-ExtraLight.woff') format('woff');
+      font-weight: 200;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: 'Poppins';
+      src: url('Poppins-Medium.woff2') format('woff2'),
+          url('Poppins-Medium.woff') format('woff');
+      font-weight: 500;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: 'Poppins';
+      src: url('Poppins-Regular.woff2') format('woff2'),
+          url('Poppins-Regular.woff') format('woff');
+      font-weight: normal;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: 'Poppins';
+      src: url('Poppins-SemiBoldItalic.woff2') format('woff2'),
+          url('Poppins-SemiBoldItalic.woff') format('woff');
+      font-weight: 600;
+      font-style: italic;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: 'Poppins';
+      src: url('Poppins-ThinItalic.woff2') format('woff2'),
+          url('Poppins-ThinItalic.woff') format('woff');
+      font-weight: 100;
+      font-style: italic;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: 'Poppins';
+      src: url('Poppins-Thin.woff2') format('woff2'),
+          url('Poppins-Thin.woff') format('woff');
+      font-weight: 100;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: 'Poppins';
+      src: url('Poppins-MediumItalic.woff2') format('woff2'),
+          url('Poppins-MediumItalic.woff') format('woff');
+      font-weight: 500;
+      font-style: italic;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: 'Poppins';
+      src: url('Poppins-SemiBold.woff2') format('woff2'),
+          url('Poppins-SemiBold.woff') format('woff');
+      font-weight: 600;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    :root{
+      --white:#F2F2EB;
+      --yellow:#FAE3AC;
+      --blue:#01344F;
+      --dark:#1A1A1A;
+      --light:#ABABAB;
+      --muted-button:#2a2a2a;
+      --muted-button-border:rgba(242,242,235,.14);
+      --story-width:920px;
+      --panel-border:rgba(242,242,235,.16);
+    }
+
+    *{
+      box-sizing:border-box;
+      margin:0;
+      padding:0;
+    }
+
+    html,body{
+      background:var(--dark);
+      color:var(--white);
+      font-family:"Lato",sans-serif;
+      min-height:100%;
+    }
+
+    body{
+      overflow-x:hidden;
+    }
+
+    a{
+      text-decoration:none;
+      color:inherit;
+    }
+
+    button{
+      font:inherit;
+      background:none;
+      border:none;
+      color:inherit;
+      cursor:pointer;
+    }
+
+    /* ===== TOPBAR & NAV — de-centered to match the rest of the site
+       (edge-padded, not constrained to a centered max-width column). ===== */
+    .topbar{
+      padding:18px 20px 14px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      position:relative;
+      z-index:80;
+    }
+
+    .brand{
+      font-family:"Poppins",sans-serif;
+      font-size:.92rem;
+      color:var(--yellow);
+      line-height:1.2;
+      white-space:nowrap;
+    }
+
+    .divider{
+      height:1px;
+      background:rgba(242,242,235,.45);
+      width:100%;
+    }
+
+    .desktop-nav{
+      display:flex;
+      gap:24px;
+      flex-wrap:wrap;
+      align-items:flex-start;
+      padding:18px 20px 0;
+      position:relative;
+      z-index:20;
+    }
+
+    .nav-link,
+    .dropdown-toggle{
+      font-family:"Poppins",sans-serif;
+      font-size:1rem;
+      color:var(--white);
+      transition:.18s ease;
+      display:inline-block;
+    }
+
+    .nav-link:hover,
+    .dropdown-toggle:hover{
+      color:var(--light);
+    }
+
+    .nav-link:active,
+    .nav-link.active-link,
+    .dropdown-toggle:active,
+    .dropdown-toggle.active-link{
+      color:var(--yellow);
+    }
+
+    .nav-dropdown{
+      position:relative;
+      display:inline-block;
+    }
+
+    .dropdown-toggle{
+      cursor:pointer;
+    }
+
+    .dropdown-menu{
+      position:absolute;
+      top:calc(100% + 10px);
+      left:0;
+      min-width:290px;
+      background:var(--blue);
+      border:1px solid rgba(242,242,235,.18);
+      display:flex;
+      flex-direction:column;
+      opacity:0;
+      visibility:hidden;
+      transform:translateY(8px);
+      transition:opacity .18s ease, transform .18s ease, visibility .18s ease;
+      z-index:30;
+    }
+
+    .memory-dropdown-menu{
+      min-width:200px;
+    }
+
+    .nav-dropdown:hover .dropdown-menu,
+    .nav-dropdown:focus-within .dropdown-menu{
+      opacity:1;
+      visibility:visible;
+      transform:translateY(0);
+    }
+
+    .dropdown-item{
+      font-family:"Poppins",sans-serif;
+      font-size:.95rem;
+      color:var(--white);
+      padding:12px 16px;
+      transition:.18s ease;
+      font-weight:400;
+    }
+
+    .dropdown-item:hover{
+      background:var(--yellow);
+      color:var(--light);
+    }
+
+    .dropdown-item:active,
+    .dropdown-item.active-dropdown{
+      background:var(--yellow);
+      color:var(--light);
+      font-weight:600;
+    }
+
+    .menu-toggle{
+      width:44px;
+      height:44px;
+      display:none;
+      align-items:center;
+      justify-content:center;
+      flex-direction:column;
+      gap:5px;
+      z-index:90;
+    }
+
+    .menu-toggle span{
+      display:block;
+      width:24px;
+      height:2px;
+      background:var(--yellow);
+      transition:transform .2s ease, opacity .2s ease;
+    }
+
+    .menu-toggle.open span:nth-child(1){
+      transform:translateY(7px) rotate(45deg);
+    }
+
+    .menu-toggle.open span:nth-child(2){
+      opacity:0;
+    }
+
+    .menu-toggle.open span:nth-child(3){
+      transform:translateY(-7px) rotate(-45deg);
+    }
+
+    .menu-overlay{
+      position:fixed;
+      inset:0;
+      background:rgba(0,0,0,.45);
+      opacity:0;
+      visibility:hidden;
+      pointer-events:none;
+      transition:opacity .22s ease, visibility .22s ease;
+      z-index:70;
+    }
+
+    .menu-overlay.open{
+      opacity:1;
+      visibility:visible;
+      pointer-events:auto;
+    }
+
+    .mobile-menu{
+      position:fixed;
+      top:0;
+      right:0;
+      width:min(82vw, 320px);
+      height:100vh;
+      background:var(--blue);
+      border-left:1px solid rgba(242,242,235,.16);
+      padding:88px 22px 24px;
+      display:flex;
+      flex-direction:column;
+      gap:6px;
+      transform:translateX(100%);
+      transition:transform .25s ease;
+      z-index:80;
+    }
+
+    .mobile-menu.open{
+      transform:translateX(0);
+    }
+
+    .mobile-nav-link{
+      font-family:"Poppins",sans-serif;
+      font-size:1rem;
+      color:var(--white);
+      padding:14px 0;
+      border-bottom:1px solid rgba(242,242,235,.12);
+      transition:.18s ease;
+    }
+
+    .mobile-nav-link:hover{
+      color:var(--yellow);
+    }
+
+    .mobile-nav-link.active-link{
+      color:var(--yellow);
+      font-weight:600;
+    }
+
+    .page{
+      width:100%;
+      padding:58px 20px 120px;
+    }
+
+    .story-shell{
+      max-width:var(--story-width);
+      margin:0 auto;
+    }
+
+    .back-button-fixed{
+      position:fixed;
+      left:80px;
+      bottom:80px;
+      z-index:100;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:8px;
+      font-family:"Poppins",sans-serif;
+      font-size:.74rem;
+      font-weight:500;
+      letter-spacing:.05em;
+      text-transform:uppercase;
+      color:rgba(242,242,235,.82);
+      background:var(--muted-button);
+      border:1px solid var(--muted-button-border);
+      padding:10px 15px;
+      box-shadow:0 8px 24px rgba(0,0,0,.2);
+      transition:background .18s ease, color .18s ease, border-color .18s ease;
+    }
+
+    .back-button-fixed:hover{
+      background:#323232;
+      color:var(--white);
+      border-color:rgba(242,242,235,.24);
+    }
+
+    .story-hero{
+      margin-bottom:36px;
+      text-align:center;
+    }
+
+    .story-hero h1{
+      font-family:"Poppins",sans-serif;
+      color:var(--yellow);
+      font-size:clamp(2.2rem,4vw,3.45rem);
+      line-height:1.14;
+      margin:0 auto 14px;
+      max-width:22ch;
+      text-align:center;
+    }
+
+    .story-subtitle{
+      max-width:860px;
+      margin:0 auto;
+      font-size:1.02rem;
+      line-height:1.9;
+      color:rgba(242,242,235,.95);
+      text-align:center;
+      font-style:italic;
+    }
+
+    .story-body{
+      display:block;
+    }
+
+    .story-body p{
+      font-size:1.04rem;
+      line-height:1.95;
+      color:rgba(242,242,235,.92);
+      text-align:justify;
+      margin-bottom:18px;
+    }
+
+    .float-image{
+      width:260px;
+      max-width:42%;
+      margin:8px 0 14px 24px;
+      float:right;
+      border:1px solid rgba(242,242,235,.12);
+      background:rgba(242,242,235,.03);
+    }
+
+    .float-image.left{
+      float:left;
+      margin:8px 24px 14px 0;
+    }
+
+    .float-image img{
+      display:block;
+      width:100%;
+      height:auto;
+    }
+
+    .image-caption{
+      margin-top:8px;
+      font-size:.82rem;
+      line-height:1.5;
+      color:var(--light);
+      font-style:italic;
+      text-align:center;
+    }
+
+    .references-end{
+      clear:both;
+      margin:44px auto 0;
+      width:100%;
+      max-width:var(--story-width);
+    }
+
+    .ref-toggle{
+      width:100%;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:14px;
+      font-family:"Poppins",sans-serif;
+      font-size:.8rem;
+      font-weight:600;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+      color:var(--white);
+      background:transparent;
+      border:1px solid var(--panel-border);
+      padding:10px 14px;
+      cursor:pointer;
+      transition:.18s ease;
+    }
+
+    .ref-toggle:hover{
+      border-color:rgba(250,227,172,.45);
+      color:var(--yellow);
+    }
+
+    .ref-toggle-icon{
+      font-size:.92rem;
+      line-height:1;
+      transition:transform .18s ease;
+    }
+
+    .references-end.open .ref-toggle-icon{
+      transform:rotate(180deg);
+    }
+
+    .ref-menu{
+      display:none;
+      margin-top:8px;
+      border:1px solid var(--panel-border);
+      background:var(--blue);
+      width:100%;
+      padding:0;
+    }
+
+    .references-end.open .ref-menu{
+      display:block;
+    }
+
+    .ref-item{
+      padding:12px 14px;
+      font-family:"Lato",sans-serif;
+      font-size:.92rem;
+      line-height:1.6;
+      color:var(--white);
+      border-bottom:1px solid rgba(242,242,235,.1);
+      word-break:break-word;
+    }
+
+    .ref-item:last-child{
+      border-bottom:none;
+    }
+
+    .ref-item a{
+      color:var(--white);
+      text-decoration:underline;
+      text-underline-offset:2px;
+    }
+
+    .ref-item a:hover{
+      color:var(--yellow);
+    }
+
+    @media (max-width: 900px){
+      .desktop-nav{
+        gap:18px;
+      }
+    }
+
+    @media (max-width: 768px){
+      .topbar{
+        padding:16px 16px 12px;
+      }
+
+      .brand{
+        font-size:.8rem;
+      }
+
+      .desktop-nav{
+        display:none;
+      }
+
+      .menu-toggle{
+        display:flex;
+      }
+
+      .page{
+        padding:34px 16px 100px;
+      }
+
+      .story-hero h1{
+        max-width:100%;
+      }
+
+      .story-subtitle{
+        max-width:100%;
+      }
+
+      .story-body p{
+        font-size:1rem;
+        line-height:1.85;
+      }
+
+      .float-image,
+      .float-image.left{
+        float:none;
+        width:100%;
+        max-width:100%;
+        margin:14px 0 18px;
+      }
+
+      .references-end{
+        max-width:100%;
+      }
+
+      .back-button-fixed{
+        left:20px;
+        bottom:20px;
+        font-size:.7rem;
+        padding:10px 13px;
+      }
+    }
+
+    @media (max-width: 560px){
+      .mobile-menu{
+        width:min(86vw, 300px);
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="index.html">not your History Textbook</a>
+
+    <button class="menu-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </header>
+
+  <div class="divider"></div>
+
+  <nav class="desktop-nav">
+    <a href="index.html" class="nav-link">Home</a>
+    <a href="cornersofthepast.html" class="nav-link">Corners of the past</a>
+    <a href="memorywall-reddit.html" class="nav-link">Memory wall</a>
+    <a href="interactivetimeline.html" class="nav-link">Interactive timeline</a>
+    <a href="everydaylife.html" class="nav-link active-link">Everyday life</a>
+    <a href="silentheroes.html" class="nav-link">Our silent heroes</a>
+  </nav>
+
+  <div class="menu-overlay" id="menu-overlay"></div>
+
+  <nav class="mobile-menu" id="mobile-menu" aria-label="Mobile navigation" aria-hidden="true">
+    <a href="index.html" class="mobile-nav-link">Home</a>
+    <a href="cornersofthepast.html" class="mobile-nav-link">Corners of the past</a>
+    <a href="memorywall-reddit.html" class="mobile-nav-link">Memory wall</a>
+    <a href="interactivetimeline.html" class="mobile-nav-link">Interactive timeline</a>
+    <a href="everydaylife.html" class="mobile-nav-link active-link">Everyday life</a>
+    <a href="silentheroes.html" class="mobile-nav-link">Our silent heroes</a>
+  </nav>
+
+  <a href="everydaylife.html" class="back-button-fixed">Back</a>
+
+  <main class="page">
+    <article class="story-shell">
+      <header class="story-hero">
+        <h1>Banana Money: The Illusion of Wealth in Syonan-to</h1>
+        <p class="story-subtitle">
+          Ever been a kid and wondered why the government can't just solve poverty by printing more money? Banana money reflects a classic example of hyperinflation, illustrating the consequences of excessive currency printing.
+        </p>
+      </header>
+
+      <section class="story-body">
+        <figure class="float-image">
+          <img src="bananamoney2.jpg" alt="Banana money used during the Japanese Occupation in Singapore">
+        </figure>
+
+        <p>It’s 1942. In the span of a year, life as I once knew has completely changed. I had to watch my homeland fall under Japanese Occupation. A new flag now hangs over the streets, Singapore has been renamed Syonan-to, and this uneasy grey atmosphere of fear follows wherever I go.</p>
+
+        <p>Almost immediately after, in an attempt to establish economic control, the Japanese introduced their own currency to replace British Malayan currency, officially termed the Japanese Government-issued dollar and nicknamed “Banana Money” because of the banana tree motif printed on the notes.</p>
+
+        <p>And quick enough, I suddenly find myself holding an abundance of notes, more than I’ve ever had before. I feel, for a brief moment, like the richest I’ve ever been. But that sense of “wealth” quickly dissipates as prices surge everywhere and basic necessities become increasingly difficult to obtain.</p>
+
+        <p>So, despite the Japanese military’s rapid expansion across multiple nations and its record of widespread atrocities, it still managed to overlook fundamental economic principles.</p>
+
+        <figure class="float-image left">
+          <img src="06_wartime.avif" alt="Wartime scene representing scarcity and daily survival during the Japanese Occupation">
+          <figcaption class="image-caption">
+            A newspaper notice listing the prices of basic food items at the start of the Japanese Occupation. The Syonan Times, 25 February 1942, p. 3.
+          </figcaption>
+        </figure>
+
+        <p>What happened? Banana Money was issued in large denominations without proper backing, leading to rampant hyperinflation. As the occupation progressed, excessive printing coupled with the rise of counterfeit money due to the lack of serial numbers on the notes diminished the currency’s value.</p>
+
+        <p>Businessman Chua Eng Cheow recalled that when the banana notes were first introduced, the value was on par with the Straits dollar. Pre-war an egg cost 3 cents, but at the end the Occupation it was $100. A kati (600 g) of pork went from 30 cents to $1,500.</p>
+
+        <p>With money now rendered almost worthless and trade systems breaking down everywhere, essential goods like rice, sugar, and salt are becoming increasingly scarce. What is available is often hoarded and resold at exorbitant prices. Turning to the black market becomes necessary just to obtain basic essentials, think medicine, tinned milk for infants, or more nutritious food for the sick.</p>
+
+        <p>Barter trade begins to replace the use of currency in everyday exchange, with people exchanging goods and services directly. Some even resort to quietly using pre-war Straits currency, or trading in gold and jewellery that has reappeared in the black market in place of the banana currency. But as currency continues to lose all meaning, even those who once hoarded supplies start to let them go, trading away their stockpiles in exchange for necessities they can no longer live without.</p>
+
+        <p>However, the current economic plight cannot even be solely blamed on the Japanese or greed. Even now, though the British propaganda has been remarkably strong in convincing many that the outbreak of World War II in Europe in 1939 will not reach Singapore, among the more far-sighted people I know, rampant hoarding has already begun, as they quietly stockpile essential goods in anticipation of what could become an even more difficult time ahead. Every man for themselves indeed.</p>
+
+        <p>But I am slightly comforted in my situation and put aside self-pity as I realise the relatively wealthier are also pissing their pants at this hyperinflation-hoarding-esque situation. Word goes around they are turning to asset hoarding, shifting their wealth into gold and jewellery, or converting fixed assets like property and land into gold or Straits dollars, which they keep carefully hidden until they need to use them.</p>
+
+        <p>With such a wide open secret of a loophole in the system, it was a no-brainer that the corrupt officials part of the Syonan administration allowed for it, as they themselves were hoarding and trading on the black market for personal gain.</p>
+
+        <p>Though it is clear that the Japanese are aware of, and even participating in, the black market. It was still dangerous and sacred territory. Whenever I manage to secure some rarity of food or medicines, it is second nature to carefully hide it otherwise a bunch of questions would come my way and trouble will be right at my doorstep.</p>
+
+        <p>And pro tip, beware to not become an enemy of public server as, cross your neighbour off, and your nasty, desperate neighbour might tattle on you about your sudden lavish food consumption or your unexplained availability of scarce medicine. Next thing you know, the dreaded headache of the Kempeitai pays you a visit after you see them drop off a bundle of cash and a bag of rice at your ugly loud-mouth of a neighbour’s doorstep.</p>
+
+        <p>If I have a gun pointed to my head and I am forced to cough up a silver lining from the war, and I manage to scratch my brain hard enough, one of my few possible answers might be the new job opportunities that even modern day AI wouldn’t be able to steal. The surreptitious nature of the black market allows for “runners”, or people who collect commissions by connecting buyers with sellers.</p>
+
+        <p>Anything of value, maybe a bundle of carrots or stretching as far as a gold bracelet, I’d first ask around in my circle whether anyone is interested. A “runner” may agree to help me sell it, and from there, the information spreads from person to person through their own contacts. Soon enough, what starts as a private arrangement between a few people can reach many others, until a buyer is eventually found.</p>
+
+        <p>Upon writing this, i think Singaporeans are quite cool because our forefathers are so tuff because u realise how though many of them had low level education and poor standards of living back then, they were still so ambitious and innovative in finding new creative ways to live and survive. Which is so cute thinking that they still held onto so much hope despite how bleak and precarious life was back then.</p>
+
+        <div class="references-end" id="referencesBox">
+          <button class="ref-toggle" id="refToggle" type="button" aria-expanded="false" aria-controls="refMenu">
+            <span>References</span>
+            <span class="ref-toggle-icon">▾</span>
+          </button>
+
+          <div class="ref-menu" id="refMenu">
+            <div class="ref-item">
+              Banana Money in Singapore: WWII currency and its enduring impact. (n.d.).
+              <a href="https://www.oldcoinonline.com/singapore-notes/banana-note-singapore.php" target="_blank" rel="noopener noreferrer">https://www.oldcoinonline.com/singapore-notes/banana-note-singapore.php</a>
+            </div>
+            <div class="ref-item">
+              Wartime Victuals: Surviving the Japanese Occupation. (n.d.). BiblioAsia.
+              <a href="https://biblioasia.nlb.gov.sg/all-sections/vol-15-issue-1-apr-jun-2019-wartime-victuals/" target="_blank" rel="noopener noreferrer">https://biblioasia.nlb.gov.sg/all-sections/vol-15-issue-1-apr-jun-2019-wartime-victuals/</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </article>
+  </main>
+
+  <script>
+    const refBox = document.getElementById('referencesBox');
+    const refToggle = document.getElementById('refToggle');
+
+    refToggle.addEventListener('click', function () {
+      const isOpen = refBox.classList.toggle('open');
+      refToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    });
+
+    const menuToggle = document.querySelector('.menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const menuOverlay = document.getElementById('menu-overlay');
+    const mobileLinks = document.querySelectorAll('.mobile-nav-link');
+
+    function closeMenu() {
+      menuToggle.classList.remove('open');
+      mobileMenu.classList.remove('open');
+      menuOverlay.classList.remove('open');
+      menuToggle.setAttribute('aria-expanded', 'false');
+      mobileMenu.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+
+    function openMenu() {
+      menuToggle.classList.add('open');
+      mobileMenu.classList.add('open');
+      menuOverlay.classList.add('open');
+      menuToggle.setAttribute('aria-expanded', 'true');
+      mobileMenu.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    }
+
+    menuToggle.addEventListener('click', () => {
+      const isOpen = mobileMenu.classList.contains('open');
+      if (isOpen) {
+        closeMenu();
+      } else {
+        openMenu();
+      }
+    });
+
+    menuOverlay.addEventListener('click', closeMenu);
+
+    mobileLinks.forEach(link => {
+      link.addEventListener('click', closeMenu);
+    });
+
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 768) {
+        closeMenu();
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closeMenu();
+      }
+    });
+  </script>
+</body>
+</html>

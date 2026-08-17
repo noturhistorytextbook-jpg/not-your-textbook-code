@@ -1,0 +1,1694 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Everyday Life | Not Your History Textbook</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Galindo&family=Gochi+Hand&family=Henny+Penny&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Vend+Sans:ital,wght@0,300..700;1,300..700&display=swap"
+    rel="stylesheet"
+  />
+
+  <style>
+    @font-face {
+      font-family: "Poppins";
+      src: url("Poppins-BlackItalic.woff2") format("woff2"),
+           url("Poppins-BlackItalic.woff") format("woff");
+      font-weight: 900;
+      font-style: italic;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: "Poppins";
+      src: url("Poppins-ExtraBoldItalic.woff2") format("woff2"),
+           url("Poppins-ExtraBoldItalic.woff") format("woff");
+      font-weight: 700;
+      font-style: italic;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: "Poppins";
+      src: url("Poppins-ExtraBold.woff2") format("woff2"),
+           url("Poppins-ExtraBold.woff") format("woff");
+      font-weight: 700;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: "Poppins";
+      src: url("Poppins-Black.woff2") format("woff2"),
+           url("Poppins-Black.woff") format("woff");
+      font-weight: 900;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: "Poppins";
+      src: url("Poppins-Bold.woff2") format("woff2"),
+           url("Poppins-Bold.woff") format("woff");
+      font-weight: 700;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: "Poppins";
+      src: url("Poppins-BoldItalic.woff2") format("woff2"),
+           url("Poppins-BoldItalic.woff") format("woff");
+      font-weight: 700;
+      font-style: italic;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: "Poppins";
+      src: url("Poppins-Light.woff2") format("woff2"),
+           url("Poppins-Light.woff") format("woff");
+      font-weight: 300;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: "Poppins";
+      src: url("Poppins-LightItalic.woff2") format("woff2"),
+           url("Poppins-LightItalic.woff") format("woff");
+      font-weight: 300;
+      font-style: italic;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: "Poppins";
+      src: url("Poppins-ExtraLightItalic.woff2") format("woff2"),
+           url("Poppins-ExtraLightItalic.woff") format("woff");
+      font-weight: 200;
+      font-style: italic;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: "Poppins";
+      src: url("Poppins-Italic.woff2") format("woff2"),
+           url("Poppins-Italic.woff") format("woff");
+      font-weight: 400;
+      font-style: italic;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: "Poppins";
+      src: url("Poppins-ExtraLight.woff2") format("woff2"),
+           url("Poppins-ExtraLight.woff") format("woff");
+      font-weight: 200;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: "Poppins";
+      src: url("Poppins-Medium.woff2") format("woff2"),
+           url("Poppins-Medium.woff") format("woff");
+      font-weight: 500;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: "Poppins";
+      src: url("Poppins-Regular.woff2") format("woff2"),
+           url("Poppins-Regular.woff") format("woff");
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: "Poppins";
+      src: url("Poppins-SemiBoldItalic.woff2") format("woff2"),
+           url("Poppins-SemiBoldItalic.woff") format("woff");
+      font-weight: 600;
+      font-style: italic;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: "Poppins";
+      src: url("Poppins-ThinItalic.woff2") format("woff2"),
+           url("Poppins-ThinItalic.woff") format("woff");
+      font-weight: 100;
+      font-style: italic;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: "Poppins";
+      src: url("Poppins-Thin.woff2") format("woff2"),
+           url("Poppins-Thin.woff") format("woff");
+      font-weight: 100;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: "Poppins";
+      src: url("Poppins-MediumItalic.woff2") format("woff2"),
+           url("Poppins-MediumItalic.woff") format("woff");
+      font-weight: 500;
+      font-style: italic;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: "Poppins";
+      src: url("Poppins-SemiBold.woff2") format("woff2"),
+           url("Poppins-SemiBold.woff") format("woff");
+      font-weight: 600;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    :root {
+      --white: #F2F2EB;
+      --yellow: #FAE3AC;
+      --blue: #01344F;
+      --dark: #1A1A1A;
+      --light: #ABABAB;
+      --card-blue: #013B5D;
+      --card-border: #CFB984;
+      --page-width: 1380px;
+      --muted-button: #2A2A2A;
+      --muted-button-border: rgba(242, 242, 235, 0.14);
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      background: var(--dark);
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      min-height: 100vh;
+      overflow-x: hidden;
+      background: var(--dark);
+      color: var(--white);
+      font-family: "Lato", sans-serif;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      border: none;
+      color: inherit;
+      font: inherit;
+      cursor: pointer;
+    }
+
+    .topbar {
+      padding: 18px 20px 14px;
+    }
+
+    .brand {
+      font-family: "Poppins", sans-serif;
+      font-size: 0.92rem;
+      color: var(--yellow);
+      white-space: nowrap;
+    }
+
+    .desktop-nav {
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+      align-items: flex-start;
+      padding: 18px 20px 0;
+      position: relative;
+      z-index: 20;
+    }
+
+    .divider {
+      width: 100%;
+      height: 1px;
+      background: rgba(242, 242, 235, 0.45);
+    }
+
+    .nav-link {
+      display: inline-block;
+      color: var(--white);
+      font-family: "Poppins", sans-serif;
+      font-size: 1rem;
+      transition: color 0.18s ease;
+    }
+
+    .nav-link:hover {
+      color: var(--light);
+    }
+
+    .nav-link:active,
+    .nav-link.active-link {
+      color: var(--yellow);
+    }
+
+    .menu-toggle {
+      width: 44px;
+      height: 44px;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 5px;
+      z-index: 100;
+    }
+
+    .menu-toggle span {
+      width: 24px;
+      height: 2px;
+      display: block;
+      background: var(--yellow);
+      transition:
+        transform 0.2s ease,
+        opacity 0.2s ease;
+    }
+
+    .menu-toggle.open span:nth-child(1) {
+      transform: translateY(7px) rotate(45deg);
+    }
+
+    .menu-toggle.open span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .menu-toggle.open span:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg);
+    }
+
+    .menu-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 70;
+      background: rgba(0, 0, 0, 0.5);
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transition:
+        opacity 0.22s ease,
+        visibility 0.22s ease;
+    }
+
+    .menu-overlay.open {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+    }
+
+    .mobile-menu {
+      position: fixed;
+      top: 0;
+      right: 0;
+      z-index: 80;
+      width: min(84vw, 320px);
+      height: 100vh;
+      padding: 88px 22px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      overflow-y: auto;
+      background: var(--blue);
+      border-left: 1px solid rgba(242, 242, 235, 0.18);
+      transform: translateX(100%);
+      transition: transform 0.25s ease;
+    }
+
+    .mobile-menu.open {
+      transform: translateX(0);
+    }
+
+    .mobile-nav-link {
+      padding: 14px 0;
+      color: var(--white);
+      font-family: "Poppins", sans-serif;
+      font-size: 1rem;
+      border-bottom: 1px solid rgba(242, 242, 235, 0.12);
+      transition: color 0.18s ease;
+    }
+
+    .mobile-nav-link:hover,
+    .mobile-nav-link.active-link {
+      color: var(--yellow);
+    }
+
+    .page {
+      width: 100%;
+      padding: 70px 20px 0;
+    }
+
+    .page-shell {
+      width: min(100%, var(--page-width));
+      margin: 0 auto;
+    }
+
+    .intro {
+      text-align: center;
+    }
+
+    .intro h1 {
+      margin-bottom: 22px;
+      color: var(--yellow);
+      font-family: "Poppins", sans-serif;
+      font-size: clamp(2.2rem, 4vw, 3.45rem);
+      line-height: 1.08;
+    }
+
+    .intro p {
+      max-width: 1120px;
+      margin: 0 auto;
+      color: var(--white);
+      font-size: 1.05rem;
+      line-height: 1.8;
+      margin-bottom: 12px;
+    }
+
+    .carousel-section {
+      position: relative;
+      min-height: 470px;
+      margin-top: 28px;
+    }
+
+    .carousel-track {
+      position: relative;
+      width: 100%;
+      height: 460px;
+    }
+
+    .topic-card {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 720px;
+      height: 290px;
+      transform: translate(-50%, -50%);
+      opacity: 0.3;
+      pointer-events: none;
+      z-index: 1;
+      isolation: isolate;
+      transition:
+        transform 1.05s ease,
+        opacity 1.05s ease;
+    }
+
+    .topic-card.is-center {
+      opacity: 1;
+      z-index: 5;
+      pointer-events: auto;
+    }
+
+    .topic-card.is-left,
+    .topic-card.is-right {
+      opacity: 0.58;
+      z-index: 2;
+      pointer-events: auto;
+      cursor: pointer;
+    }
+
+    .topic-card.is-hidden {
+      opacity: 0;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .topic-card__media {
+      position: absolute;
+      top: 20px;
+      left: 0;
+      width: 400px;
+      height: 238px;
+      overflow: visible;
+      background: var(--card-blue);
+      border: 1px solid var(--card-border);
+      z-index: 1;
+    }
+
+    .topic-card__copy {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 380px;
+      min-height: 290px;
+      padding: 26px 24px 22px;
+      background: var(--yellow);
+      color: var(--blue);
+      z-index: 2;
+    }
+
+    .topic-card__copy h2,
+    .topic-card__copy p {
+      position: relative;
+      z-index: 3;
+    }
+
+    .topic-card__copy h2 {
+      margin-bottom: 16px;
+      font-family: "Poppins", sans-serif;
+      font-size: 22px;
+      font-weight: 600;
+      line-height: 1.08;
+    }
+
+    .topic-card__copy p {
+      color: var(--blue);
+      font-size: 17px;
+      line-height: 1.28;
+      text-align: justify;
+    }
+
+    .topic-card__button {
+      position: absolute;
+      bottom: 54px;
+      left: 163px;
+      z-index: 5;
+      display: inline-block;
+      padding: 6px 14px;
+      color: var(--blue);
+      background: var(--yellow);
+      border: 1px solid transparent;
+      font-family: "Poppins", sans-serif;
+      font-size: 0.88rem;
+      font-weight: 400;
+      text-align: center;
+      white-space: nowrap;
+      transform: translateX(-50%);
+      transition:
+        color 0.18s ease,
+        border-color 0.18s ease;
+    }
+
+    .topic-card__button:hover {
+      color: var(--light);
+    }
+
+    .topic-card__button:active {
+      color: var(--blue);
+      border-color: var(--white);
+    }
+
+    .topic-card.is-side {
+      width: 650px;
+      height: 252px;
+    }
+
+    .topic-card.is-side .topic-card__media {
+      top: 18px;
+      width: 360px;
+      height: 214px;
+    }
+
+    .topic-card.is-side .topic-card__copy {
+      width: 350px;
+      min-height: 252px;
+      padding: 22px 22px 18px;
+    }
+
+    .topic-card.is-side .topic-card__copy h2 {
+      margin-bottom: 12px;
+      font-size: 18px;
+    }
+
+    .topic-card.is-side .topic-card__copy p {
+      font-size: 15px;
+      line-height: 1.24;
+    }
+
+    .topic-card.is-side .topic-card__button {
+      bottom: 48px;
+      left: 143px;
+      padding: 6px 14px;
+      font-size: 0.84rem;
+    }
+
+    .topic-card.is-center {
+      transform: translate(-50%, -50%) scale(1);
+    }
+
+    .topic-card.is-left {
+      transform: translate(calc(-50% - 390px), -39%) scale(0.86);
+    }
+
+    .topic-card.is-right {
+      transform: translate(calc(-50% + 390px), -39%) scale(0.86);
+    }
+
+    .topic-card.is-hidden.left-out {
+      transform: translate(calc(-50% - 620px), -35%) scale(0.72);
+    }
+
+    .topic-card.is-hidden.right-out {
+      transform: translate(calc(-50% + 620px), -35%) scale(0.72);
+    }
+
+    .topic-image {
+      position: absolute;
+      z-index: 4;
+      max-width: none;
+      user-select: none;
+      pointer-events: none;
+    }
+
+    .banana-ration {
+      top: 2px;
+      left: 110px;
+      width: 240px;
+      transform: rotate(8deg);
+    }
+
+    .banana-bill {
+      top: 64px;
+      left: 40px;
+      width: 265px;
+      transform: rotate(-5deg);
+    }
+
+    .war-plate {
+      top: -80px;
+      left: -10px;
+      width: 280px;
+    }
+
+    .war-potato {
+      top: 40px;
+      left: 156px;
+      width: 192px;
+    }
+
+    .school-book-back {
+      top: -16px;
+      left: -30px;
+      width: 305px;
+    }
+
+    .school-book-front {
+      top: -2px;
+      left: 162px;
+      width: 180px;
+      transform: rotate(3deg);
+    }
+
+    .school-flag {
+      top: -34px;
+      right: -50px;
+      width: 104px;
+    }
+
+    .sookching-stamp {
+      top: 20px;
+      left: 68px;
+      width: 202px;
+    }
+
+    .grid-section {
+      margin-top: 44px;
+    }
+
+    .topic-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 470px);
+      gap: 50px 100px;
+      justify-content: center;
+      align-items: start;
+    }
+
+    .grid-card {
+      width: 100%;
+      max-width: 470px;
+    }
+
+    .grid-card .topic-card {
+      position: relative;
+      top: auto;
+      left: auto;
+      width: 470px;
+      height: 262px;
+      transform: none;
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .grid-card .topic-card__media {
+      top: 20px;
+      width: 322px;
+      height: 220px;
+    }
+
+    .grid-card .topic-card__copy {
+      width: 270px;
+      min-height: 262px;
+      padding: 22px 20px 18px;
+    }
+
+    .grid-card .topic-card__copy h2 {
+      margin-bottom: 12px;
+      font-size: 18px;
+    }
+
+    .grid-card .topic-card__copy p {
+      font-size: 15px;
+      line-height: 1.22;
+    }
+
+    .grid-card .topic-card__button {
+      bottom: 46px;
+      left: 102px;
+      padding: 6px 14px;
+      font-size: 0.84rem;
+    }
+
+    .grid-card .banana-ration {
+      top: 10px;
+      left: 40px;
+      width: 160px;
+    }
+
+    .grid-card .banana-bill {
+      top: 80px;
+      left: 18px;
+      width: 186px;
+    }
+
+    .grid-card .war-plate {
+      top: -30px;
+      left: -4px;
+      width: 184px;
+    }
+
+    .grid-card .war-potato {
+      top: 60px;
+      left: 70px;
+      width: 152px;
+    }
+
+    .grid-card .school-book-back {
+      top: 14px;
+      left: -2px;
+      width: 205px;
+    }
+
+    .grid-card .school-book-front {
+      top: 18px;
+      left: 98px;
+      width: 112px;
+    }
+
+    .grid-card .school-flag {
+      top: -18px;
+      right: -8px;
+      width: 82px;
+    }
+
+    .grid-card .sookching-stamp {
+      top: 36px;
+      left: 18px;
+      width: 168px;
+    }
+
+    .bottom-note {
+      margin-top: 80px;
+      color: var(--light);
+      font-family: "Poppins", sans-serif;
+      font-size: 0.95rem;
+      font-style: italic;
+      text-align: center;
+    }
+
+    .follow-section {
+      margin-top: 80px;
+      padding-top: 0;
+      padding-bottom: 0;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .follow-section h2 {
+      font-family: "Poppins", sans-serif;
+      color: var(--white);
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      line-height: 1.15;
+      margin: 0 0 20px;
+    }
+
+    .social-banner {
+      margin-top: 26px;
+      margin-bottom: 0;
+      width: 100%;
+      background: var(--yellow);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 18px;
+      padding: 20px 0;
+    }
+
+    .social-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: opacity 0.18s ease, transform 0.18s ease;
+    }
+
+    .social-icon:hover {
+      opacity: 0.82;
+      transform: translateY(-2px);
+    }
+
+    .social-icon svg,
+    .social-icon img {
+      display: block;
+      height: 48px;
+      width: auto;
+    }
+
+    @media (max-width: 1240px) {
+      .carousel-section {
+        min-height: 830px;
+      }
+
+      .carousel-track {
+        height: 820px;
+      }
+
+      .topic-card,
+      .topic-card.is-side {
+        width: min(100%, 680px);
+      }
+
+      .topic-card.is-center {
+        transform: translate(-50%, -50%) scale(0.98);
+      }
+
+      .topic-card.is-left {
+        transform: translate(-50%, calc(-50% + 220px)) scale(0.84);
+      }
+
+      .topic-card.is-right {
+        transform: translate(-50%, calc(-50% - 220px)) scale(0.84);
+      }
+
+      .topic-card.is-hidden.left-out {
+        transform: translate(-50%, calc(-50% + 380px)) scale(0.72);
+      }
+
+      .topic-card.is-hidden.right-out {
+        transform: translate(-50%, calc(-50% - 380px)) scale(0.72);
+      }
+
+      .topic-grid {
+        grid-template-columns: 1fr;
+        gap: 34px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .desktop-nav {
+        display: none;
+      }
+
+      .menu-toggle {
+        display: flex;
+      }
+
+      .topbar {
+        padding: 16px 16px 12px;
+      }
+
+      .page {
+        padding: 36px 16px 0;
+      }
+
+      .intro h1 {
+        margin-bottom: 16px;
+        font-size: clamp(2rem, 9vw, 2.8rem);
+      }
+
+      .intro p {
+        font-size: 1rem;
+        line-height: 1.55;
+      }
+
+      .carousel-section {
+        min-height: 0;
+        margin-top: 26px;
+      }
+
+      .carousel-track {
+        height: auto;
+        display: grid;
+        gap: 24px;
+      }
+
+      .topic-card,
+      .topic-card.is-center,
+      .topic-card.is-left,
+      .topic-card.is-right,
+      .topic-card.is-hidden,
+      .topic-card.is-side,
+      .grid-card .topic-card {
+        position: relative;
+        top: auto;
+        left: auto;
+        width: 100%;
+        max-width: 420px;
+        height: 250px;
+        margin: 0 auto;
+        opacity: 1;
+        pointer-events: auto;
+        transform: none;
+      }
+
+      .topic-card__media,
+      .grid-card .topic-card__media {
+        top: 18px;
+        width: 280px;
+        height: 208px;
+      }
+
+      .topic-card__copy,
+      .grid-card .topic-card__copy {
+        width: 230px;
+        min-height: 250px;
+        padding: 20px 18px 16px;
+      }
+
+      .topic-card__copy h2,
+      .grid-card .topic-card__copy h2 {
+        margin-bottom: 12px;
+        font-size: 18px;
+      }
+
+      .topic-card__copy p,
+      .grid-card .topic-card__copy p {
+        font-size: 15px;
+        line-height: 1.22;
+      }
+
+      .topic-card__button,
+      .grid-card .topic-card__button {
+        bottom: 46px;
+        left: 98px;
+        padding: 6px 14px;
+        font-size: 0.84rem;
+      }
+
+      .grid-card {
+        width: 100%;
+        max-width: 420px;
+      }
+
+      .banana-ration,
+      .grid-card .banana-ration {
+        top: 0;
+        left: 4px;
+        width: 160px;
+      }
+
+      .banana-bill,
+      .grid-card .banana-bill {
+        top: 70px;
+        left: 24px;
+        width: 132px;
+      }
+
+      .war-plate,
+      .grid-card .war-plate {
+        top: 8px;
+        left: 18px;
+        width: 112px;
+      }
+
+      .war-potato,
+      .grid-card .war-potato {
+        top: 92px;
+        left: 96px;
+        width: 102px;
+      }
+
+      .school-book-back,
+      .grid-card .school-book-back {
+        top: -2px;
+        left: -6px;
+        width: 208px;
+      }
+
+      .school-book-front,
+      .grid-card .school-book-front {
+        top: 6px;
+        left: 88px;
+        width: 122px;
+      }
+
+      .school-flag,
+      .grid-card .school-flag {
+        top: -10px;
+        right: -6px;
+        width: 66px;
+      }
+
+      .sookching-stamp,
+      .grid-card .sookching-stamp {
+        top: 34px;
+        left: 76px;
+        width: 100px;
+      }
+
+      .follow-section {
+        margin-top: 70px;
+      }
+
+      .social-banner {
+        gap: 14px;
+        padding: 16px 0;
+      }
+
+      .social-icon svg,
+      .social-icon img {
+        height: 42px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .brand {
+        max-width: 220px;
+        font-size: 0.98rem;
+      }
+
+      .mobile-menu {
+        width: min(86vw, 300px);
+      }
+
+      .page {
+        padding-bottom: 0;
+      }
+
+      .topic-card,
+      .topic-card.is-center,
+      .topic-card.is-left,
+      .topic-card.is-right,
+      .topic-card.is-hidden,
+      .topic-card.is-side,
+      .grid-card .topic-card {
+        height: 300px;
+      }
+
+      .topic-card__media,
+      .grid-card .topic-card__media {
+        top: 46px;
+        width: 68%;
+        height: 208px;
+      }
+
+      .topic-card__copy,
+      .grid-card .topic-card__copy {
+        width: 58%;
+        min-height: 300px;
+        padding: 18px 14px 14px;
+      }
+
+      .topic-card__copy h2,
+      .grid-card .topic-card__copy h2 {
+        font-size: 16px;
+      }
+
+      .topic-card__copy p,
+      .grid-card .topic-card__copy p {
+        font-size: 14px;
+        line-height: 1.25;
+      }
+
+      .topic-card__button,
+      .grid-card .topic-card__button {
+        bottom: 30px;
+        left: 29%;
+        padding: 6px 10px;
+        font-size: 0.74rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="topbar">
+    <a class="brand" href="index.html">
+      not your History Textbook
+    </a>
+
+    <button
+      class="menu-toggle"
+      id="menuToggle"
+      type="button"
+      aria-label="Open menu"
+      aria-expanded="false"
+      aria-controls="mobileMenu"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </header>
+
+  <div class="divider"></div>
+
+  <nav class="desktop-nav" aria-label="Main navigation">
+    <a href="index.html" class="nav-link">Home</a>
+
+    <a href="cornersofthepast.html" class="nav-link">
+      Corners of the past
+    </a>
+
+    <a href="memorywall-reddit.html" class="nav-link">
+      Memory wall
+    </a>
+
+    <a href="interactivetimeline.html" class="nav-link">
+      Interactive timeline
+    </a>
+
+    <a
+      href="everydaylife.html"
+      class="nav-link active-link"
+      aria-current="page"
+    >
+      Everyday life
+    </a>
+
+    <a href="silentheroes.html" class="nav-link">
+      Our silent heroes
+    </a>
+  </nav>
+
+  <div class="menu-overlay" id="menuOverlay"></div>
+
+  <nav
+    class="mobile-menu"
+    id="mobileMenu"
+    aria-label="Mobile navigation"
+    aria-hidden="true"
+  >
+    <a href="index.html" class="mobile-nav-link">Home</a>
+
+    <a href="cornersofthepast.html" class="mobile-nav-link">
+      Corners of the past
+    </a>
+
+    <a href="memorywall-reddit.html" class="mobile-nav-link">
+      Memory wall
+    </a>
+
+    <a href="interactivetimeline.html" class="mobile-nav-link">
+      Interactive timeline
+    </a>
+
+    <a
+      href="everydaylife.html"
+      class="mobile-nav-link active-link"
+      aria-current="page"
+    >
+      Everyday life
+    </a>
+
+    <a href="silentheroes.html" class="mobile-nav-link">
+      Our silent heroes
+    </a>
+  </nav>
+
+  <main class="page">
+    <div class="page-shell">
+      <section class="intro">
+        <h1>Everyday Life</h1>
+
+        <p>
+          How was life like for the people beyond lived fear and grief?
+          Step into the world of a teenage boy in war-stricken Syonan-to
+          (Singapore) and discover what it meant to grow up during one of
+          the darkest chapters in Singapore's history.
+        </p>
+      </section>
+
+      <section
+        class="carousel-section"
+        aria-label="Everyday life stories carousel"
+      >
+        <div class="carousel-track" id="carouselTrack">
+          <article class="topic-card" data-index="0">
+            <div class="topic-card__media"></div>
+
+            <div class="topic-card__copy">
+              <h2>
+                Banana Money: The Illusion of Wealth in Syonan-to
+              </h2>
+
+              <p>
+                Ever been a kid and wondered why the government can't just
+                solve poverty by printing more money? Banana money reflects
+                a classic example of hyperinflation, illustrating the
+                consequences of excessive currency printing.
+              </p>
+            </div>
+
+            <img
+              class="topic-image banana-ration"
+              src="rationcard.png"
+              alt=""
+              aria-hidden="true"
+            />
+
+            <img
+              class="topic-image banana-bill"
+              src="bananacash.jpg"
+              alt=""
+              aria-hidden="true"
+            />
+
+            <a
+              class="topic-card__button"
+              href="readabout-bananamoney.html"
+            >
+              Read more
+            </a>
+          </article>
+
+          <article class="topic-card" data-index="1">
+            <div class="topic-card__media"></div>
+
+            <div class="topic-card__copy">
+              <h2>
+                War on Our Plates: Rations, Scarcity and Survival
+              </h2>
+
+              <p>
+                Why do our grandparents always save the biggest pieces of
+                meat for us instead of themselves? Why must they always nag
+                us to finish every grain of rice on our plates? And how do
+                they willingly savour the heads and bones of fish every time?
+                Love aside.
+              </p>
+            </div>
+
+            <img
+              class="topic-image war-plate"
+              src="83.png"
+              alt=""
+              aria-hidden="true"
+            />
+
+            <img
+              class="topic-image war-potato"
+              src="82.png"
+              alt=""
+              aria-hidden="true"
+            />
+
+            <a
+              class="topic-card__button"
+              href="readabout-waronourplates.html"
+            >
+              Read more
+            </a>
+          </article>
+
+          <article class="topic-card" data-index="2">
+            <div class="topic-card__media"></div>
+
+            <div class="topic-card__copy">
+              <h2>
+                School Life Under Japanese Rule: Education Reforms
+              </h2>
+
+              <p>
+                Our current school curriculum has evolved a long way from
+                what it used to be. During the Japanese Occupation, lessons
+                were worlds different. Hint: don't be surprised if your
+                grandparents secretly know a Japanese word or two.
+              </p>
+            </div>
+
+            <img
+              class="topic-image school-book-back"
+              src="japaneseconversationtb3.png"
+              alt=""
+              aria-hidden="true"
+            />
+
+            <img
+              class="topic-image school-book-front"
+              src="japaneseconversationtb1.png"
+              alt=""
+              aria-hidden="true"
+            />
+
+            <img
+              class="topic-image school-flag"
+              src="alculato (21).png"
+              alt=""
+              aria-hidden="true"
+            />
+
+            <a
+              class="topic-card__button"
+              href="readabout-schoollife.html"
+            >
+              Read more
+            </a>
+          </article>
+
+          <article class="topic-card" data-index="3">
+            <div class="topic-card__media"></div>
+
+            <div class="topic-card__copy">
+              <h2>
+                The Men Who Never Came Home: Sook Ching and the Kempeitai
+              </h2>
+
+              <p>
+                A modern day argument is whether guys have it better than
+                girls. Girls undergo monthly mensurations, pregnancy, and
+                guys? Their only conter is NS. But pre-modern days? The guys
+                might have arguably had the bigger leverage then.
+              </p>
+            </div>
+
+            <img
+              class="topic-image sookching-stamp"
+              src="sookchingstamp.avif"
+              alt=""
+              aria-hidden="true"
+            />
+
+            <a
+              class="topic-card__button"
+              href="readabout-sookching.html"
+            >
+              Read more
+            </a>
+          </article>
+        </div>
+      </section>
+
+      <section class="grid-section">
+        <div class="topic-grid">
+          <div class="grid-card">
+            <article class="topic-card">
+              <div class="topic-card__media"></div>
+
+              <div class="topic-card__copy">
+                <h2>
+                  Banana Money: The Illusion of Wealth in Syonan-to
+                </h2>
+
+                <p>
+                  Ever been a kid and wondered why the government can't just
+                  solve poverty by printing more money? Banana money reflects
+                  a classic example of hyperinflation, illustrating the
+                  consequences of excessive currency printing.
+                </p>
+              </div>
+
+              <img
+                class="topic-image banana-ration"
+                src="rationcard.png"
+                alt=""
+                aria-hidden="true"
+              />
+
+              <img
+                class="topic-image banana-bill"
+                src="bananacash.jpg"
+                alt=""
+                aria-hidden="true"
+              />
+
+              <a
+                class="topic-card__button"
+                href="readabout-bananamoney.html"
+              >
+                Read more
+              </a>
+            </article>
+          </div>
+
+          <div class="grid-card">
+            <article class="topic-card">
+              <div class="topic-card__media"></div>
+
+              <div class="topic-card__copy">
+                <h2>
+                  War on Our Plates: Rations, Scarcity and Survival
+                </h2>
+
+                <p>
+                  Why do our grandparents always save the biggest pieces of
+                  meat for us instead of themselves? Why must they always nag
+                  us to finish every grain of rice on our plates? And how do
+                  they willingly savour the heads and bones of fish every time?
+                  Love aside.
+                </p>
+              </div>
+
+              <img
+                class="topic-image war-plate"
+                src="83.png"
+                alt=""
+                aria-hidden="true"
+              />
+
+              <img
+                class="topic-image war-potato"
+                src="82.png"
+                alt=""
+                aria-hidden="true"
+              />
+
+              <a
+                class="topic-card__button"
+                href="readabout-waronourplates.html"
+              >
+                Read more
+              </a>
+            </article>
+          </div>
+
+          <div class="grid-card">
+            <article class="topic-card">
+              <div class="topic-card__media"></div>
+
+              <div class="topic-card__copy">
+                <h2>
+                  School Life Under Japanese Rule: Education Reforms
+                </h2>
+
+                <p>
+                  Our current school curriculum has evolved a long way from
+                  what it used to be. During the Japanese Occupation, lessons
+                  were worlds different. Hint: don't be surprised if your
+                  grandparents secretly know a Japanese word or two.
+                </p>
+              </div>
+
+              <img
+                class="topic-image school-book-back"
+                src="japaneseconversationtb3.png"
+                alt=""
+                aria-hidden="true"
+              />
+
+              <img
+                class="topic-image school-book-front"
+                src="japaneseconversationtb1.png"
+                alt=""
+                aria-hidden="true"
+              />
+
+              <img
+                class="topic-image school-flag"
+                src="alculato (21).png"
+                alt=""
+                aria-hidden="true"
+              />
+
+              <a
+                class="topic-card__button"
+                href="readabout-schoollife.html"
+              >
+                Read more
+              </a>
+            </article>
+          </div>
+
+          <div class="grid-card">
+            <article class="topic-card">
+              <div class="topic-card__media"></div>
+
+              <div class="topic-card__copy">
+                <h2>
+                  The Men Who Never Came Home: Sook Ching and the Kempeitai
+                </h2>
+
+                <p>
+                  A modern day argument is whether guys have it better than
+                  girls. Girls undergo monthly mensurations, pregnancy, and
+                  guys? Their only conter is NS. But pre-modern days? The guys
+                  might have arguably had the bigger leverage then.
+                </p>
+              </div>
+
+              <img
+                class="topic-image sookching-stamp"
+                src="sookchingstamp.avif"
+                alt=""
+                aria-hidden="true"
+              />
+
+              <a
+                class="topic-card__button"
+                href="readabout-sookching.html"
+              >
+                Read more
+              </a>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <div class="bottom-note">
+        constantly updating..
+      </div>
+    </div>
+
+    <section class="follow-section">
+      <h2>Follow us</h2>
+      <div class="social-banner">
+        <a
+          href="https://www.tiktok.com/@noturhistorytextbook?_r=1&_t=ZS-98wrIT5HhTd"
+          aria-label="TikTok"
+          class="social-icon"
+          target="_blank"
+          rel="noopener noreferrer">
+          <svg width="48px" height="48px" viewBox="0 0 48 48" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+            <title>Tiktok</title>
+            <g id="Icon/Social/tiktok-color" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+              <g id="Group-7" transform="translate(8.000000, 6.000000)">
+                <path d="M29.5248245,9.44576327 C28.0821306,9.0460898 26.7616408,8.29376327 25.6826204,7.25637551 C25.5109469,7.09719184 25.3493143,6.92821224 25.1928245,6.75433469 C23.9066204,5.27833469 23.209151,3.38037551 23.2336408,1.42290612 L17.3560898,1.42290612 L17.3560898,23.7086204 C17.3560898,27.7935184 15.1520082,29.9535184 12.416498,29.9535184 C11.694049,29.9611102 10.9789469,29.8107429 10.3213959,29.5124571 C9.6636,29.2144163 9.07951837,28.7758041 8.60955918,28.2272327 C8.1398449,27.6789061 7.79551837,27.0340898 7.60180408,26.3385796 C7.4078449,25.6430694 7.36890612,24.9132735 7.48743673,24.2008653 C7.60596735,23.4884571 7.87902857,22.8105796 8.28751837,22.2154776 C8.69625306,21.6198857 9.23037551,21.1212735 9.85241633,20.7546612 C10.474702,20.3878041 11.1694776,20.1617633 11.8882531,20.0924571 C12.6070286,20.023151 13.3324163,20.1122939 14.0129878,20.3535184 L14.0129878,14.3584163 C13.4889061,14.2430694 12.9530694,14.1862531 12.416498,14.1894367 L12.3917633,14.1894367 C10.2542939,14.1943347 8.16604898,14.8325388 6.39127347,16.0234776 C4.61649796,17.2149061 3.23429388,18.9051918 2.41976327,20.8812735 C1.60523265,22.8578449 1.39486531,25.0310694 1.8151102,27.1269061 C2.2351102,29.2227429 3.2671102,31.1469061 4.78033469,32.6564571 C6.29380408,34.1660082 8.22066122,35.1933551 10.3174776,35.6082122 C12.4142939,36.0230694 14.5870286,35.8073143 16.561151,34.9878857 C18.5355184,34.1682122 20.2226204,32.7820898 21.409151,31.0041306 C22.5959265,29.2264163 23.2289878,27.136702 23.228498,24.9992327 L23.228498,12.8155592 C25.5036,14.392702 28.2244163,15.134498 31.1289061,15.1886204 L31.1289061,9.68551837 C30.5869469,9.66568163 30.049151,9.5851102 29.5248245,9.44576327" id="Fill-1" fill="#FE2C55"></path>
+                <path d="M25.195102,6.75428571 C24.7946939,6.47510204 24.4148571,6.1675102 24.0587755,5.83346939 C22.8210612,4.66016327 22.0062857,3.11020408 21.7420408,1.42530612 C21.6622041,0.954367347 21.6220408,0.47755102 21.6220408,0 L15.7444898,0 L15.7444898,22.6408163 C15.7444898,27.5069388 13.5404082,28.5183673 10.804898,28.5183673 C10.0829388,28.5262041 9.36783673,28.3758367 8.71028571,28.0773061 C8.0524898,27.7792653 7.46791837,27.3406531 6.99820408,26.7920816 C6.5282449,26.2437551 6.18440816,25.5989388 5.99044898,24.9034286 C5.7964898,24.2079184 5.75755102,23.4781224 5.87583673,22.7657143 C5.99461224,22.053551 6.26767347,21.3756735 6.67640816,20.7800816 C7.08489796,20.1847347 7.61902041,19.6861224 8.24106122,19.3195102 C8.86334694,18.952898 9.55787755,18.7266122 10.276898,18.6573061 C10.9959184,18.588 11.7208163,18.6773878 12.4016327,18.9183673 L12.4016327,12.9328163 C5.40489796,11.8236735 0,17.4783673 0,23.5760816 C0.00465306122,26.4426122 1.14514286,29.1898776 3.17191837,31.216898 C5.19869388,33.2434286 7.94595918,34.3839184 10.8124898,34.3885714 C16.7730612,34.3885714 21.6220408,30.7444898 21.6220408,23.5760816 L21.6220408,11.3924082 C23.8995918,12.9795918 26.6204082,13.7142857 29.524898,13.7632653 L29.524898,8.26040816 C27.9658776,8.18914286 26.4617143,7.66604082 25.195102,6.75428571" id="Fill-3" fill="#25F4EE"></path>
+                <path d="M21.6220653,23.5764245 L21.6220653,11.392751 C23.8996163,12.9794449 26.6204327,13.7141388 29.5251673,13.7633633 L29.5251673,9.44581224 C28.0822286,9.04613878 26.7617388,8.29381224 25.6824735,7.25617959 C25.5110449,7.09724082 25.3494122,6.92826122 25.1926776,6.75438367 C24.7922694,6.4752 24.4126776,6.16736327 24.056351,5.83356735 C22.8186367,4.66026122 22.0041061,3.11030204 21.7396163,1.42540408 L17.3730857,1.42540408 L17.3730857,23.7111184 C17.3730857,27.7957714 15.1690041,29.9560163 12.4334939,29.9560163 C11.6569224,29.9538122 10.8918612,29.7681796 10.2005143,29.414302 C9.50941224,29.0601796 8.91186122,28.5476082 8.45635102,27.9182204 C7.49071837,27.3946286 6.72712653,26.5636898 6.2865551,25.5571592 C5.84573878,24.5508735 5.75341224,23.4260571 6.02377959,22.3609959 C6.29390204,21.2959347 6.91177959,20.3516082 7.77896327,19.6771592 C8.64639184,19.0027102 9.71365714,18.6365878 10.8122694,18.6365878 C11.3564327,18.6412408 11.8961878,18.7362612 12.4090041,18.9182204 L12.4090041,14.1894857 C10.304351,14.1921796 8.24647347,14.8093224 6.48786122,15.9657306 C4.72924898,17.1221388 3.3470449,18.7666286 2.51047347,20.6978939 C1.67390204,22.6291592 1.41969796,24.7627102 1.77896327,26.8362612 C2.13822857,28.9098122 3.09553469,30.8334857 4.53308571,32.3704653 C6.36271837,33.6848327 8.55945306,34.3906286 10.8122694,34.3884296 C16.7730857,34.3884296 21.6220653,30.7445878 21.6220653,23.5764245" id="Fill-5" fill="#000000"></path>
+              </g>
+            </g>
+          </svg>
+        </a>
+
+        <a
+          href="https://www.instagram.com/noturhistorytextbook?igsh=NnpwYzZxMnJqMDhr&igsi=NnpwYzZxMnJqMDhr&utm_source=qr"
+          aria-label="Instagram"
+          class="social-icon"
+          target="_blank"
+          rel="noopener noreferrer">
+          <img src="Instagram_logo_2022.svg.png" alt="Instagram logo">
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const cards = Array.from(
+      document.querySelectorAll("#carouselTrack .topic-card")
+    );
+
+    const menuToggle = document.getElementById("menuToggle");
+    const mobileMenu = document.getElementById("mobileMenu");
+    const menuOverlay = document.getElementById("menuOverlay");
+
+    let currentIndex = 0;
+    let carouselInterval;
+    let clickPauseTimeout;
+
+    const AUTO_DELAY = 3000;
+    const CLICK_DELAY = 8000;
+
+    function applyCarouselState() {
+      cards.forEach((card, index) => {
+        card.className = "topic-card";
+
+        const difference =
+          (index - currentIndex + cards.length) % cards.length;
+
+        if (difference === 0) {
+          card.classList.add("is-center");
+        } else if (difference === 1) {
+          card.classList.add("is-right", "is-side");
+        } else if (difference === cards.length - 1) {
+          card.classList.add("is-left", "is-side");
+        } else if (difference === 2) {
+          card.classList.add("is-hidden", "right-out");
+        } else {
+          card.classList.add("is-hidden", "left-out");
+        }
+      });
+    }
+
+    function startAutoCarousel() {
+      clearInterval(carouselInterval);
+
+      if (window.innerWidth <= 768) {
+        return;
+      }
+
+      carouselInterval = setInterval(() => {
+        currentIndex = (currentIndex + 1) % cards.length;
+        applyCarouselState();
+      }, AUTO_DELAY);
+    }
+
+    function pauseAfterClick() {
+      clearInterval(carouselInterval);
+      clearTimeout(clickPauseTimeout);
+
+      if (window.innerWidth <= 768) {
+        return;
+      }
+
+      clickPauseTimeout = setTimeout(() => {
+        startAutoCarousel();
+      }, CLICK_DELAY);
+    }
+
+    function goToSlide(index, fromClick = false) {
+      currentIndex = index;
+      applyCarouselState();
+
+      if (fromClick) {
+        pauseAfterClick();
+      }
+    }
+
+    cards.forEach((card, index) => {
+      card.addEventListener("click", (event) => {
+        if (window.innerWidth <= 768) {
+          return;
+        }
+
+        const clickedButton = event.target.closest(
+          ".topic-card__button"
+        );
+
+        if (clickedButton) {
+          return;
+        }
+
+        const isLeft = card.classList.contains("is-left");
+        const isRight = card.classList.contains("is-right");
+
+        if (isLeft || isRight) {
+          goToSlide(index, true);
+        }
+      });
+    });
+
+    function startCarousel() {
+      clearInterval(carouselInterval);
+      clearTimeout(clickPauseTimeout);
+
+      if (window.innerWidth <= 768) {
+        cards.forEach((card) => {
+          card.className = "topic-card";
+        });
+
+        return;
+      }
+
+      applyCarouselState();
+      startAutoCarousel();
+    }
+
+    function openMenu() {
+      mobileMenu.classList.add("open");
+      menuOverlay.classList.add("open");
+      menuToggle.classList.add("open");
+
+      mobileMenu.setAttribute("aria-hidden", "false");
+      menuToggle.setAttribute("aria-expanded", "true");
+      menuToggle.setAttribute("aria-label", "Close menu");
+
+      document.body.style.overflow = "hidden";
+    }
+
+    function closeMenu() {
+      mobileMenu.classList.remove("open");
+      menuOverlay.classList.remove("open");
+      menuToggle.classList.remove("open");
+
+      mobileMenu.setAttribute("aria-hidden", "true");
+      menuToggle.setAttribute("aria-expanded", "false");
+      menuToggle.setAttribute("aria-label", "Open menu");
+
+      document.body.style.overflow = "";
+    }
+
+    menuToggle.addEventListener("click", () => {
+      const isOpen = mobileMenu.classList.contains("open");
+
+      if (isOpen) {
+        closeMenu();
+      } else {
+        openMenu();
+      }
+    });
+
+    menuOverlay.addEventListener("click", closeMenu);
+
+    document.addEventListener("keydown", (event) => {
+      if (
+        event.key === "Escape" &&
+        mobileMenu.classList.contains("open")
+      ) {
+        closeMenu();
+      }
+    });
+
+    document.querySelectorAll(".mobile-nav-link").forEach((link) => {
+      link.addEventListener("click", closeMenu);
+    });
+
+    window.addEventListener("resize", () => {
+      startCarousel();
+
+      if (
+        window.innerWidth > 768 &&
+        mobileMenu.classList.contains("open")
+      ) {
+        closeMenu();
+      }
+    });
+
+    startCarousel();
+  </script>
+</body>
+</html>

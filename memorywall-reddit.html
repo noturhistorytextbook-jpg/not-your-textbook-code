@@ -42,7 +42,7 @@
 
       --worldW:1700;
       --worldH:1050;
-  --mobileMainW: 560px;
+  --mobileMainW: 760px;
 --mobileMainMinH: auto;
       --mobileFloatingW:280px;
       --mobileFloatingH:170px;
@@ -2417,7 +2417,8 @@ function getMobileFloatingIndexes(featured){
   if (storyLength > 900) cardWidth = 430;
 
 
-  const mainX = (1700 - cardWidth) / 2;
+  const mobileMainWidth = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--mobileMainW'));
+const mainX = (1700 - mobileMainWidth) / 2;
   const mainY = (1050 - 420) / 2;
 
   card.style.left = `${mainX}px`;

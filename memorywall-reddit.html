@@ -38,11 +38,12 @@
 
       --mobileChromeHeight: 220px;
       --mobileFooterReserve: 118px;
+      
 
       --worldW:1700;
       --worldH:1050;
-      --mobileMainW:760px;
-      --mobileMainMinH:420px;
+  --mobileMainW: 560px;
+--mobileMainMinH: auto;
       --mobileFloatingW:280px;
       --mobileFloatingH:170px;
     }
@@ -937,14 +938,17 @@
         overflow:hidden;
       }
 
-      .mobile-card--main{
-        width:var(--mobileMainW);
-        min-height:var(--mobileMainMinH);
-        background:var(--yellow);
-        color:var(--mainText);
-        padding:18px 20px 17px;
-        z-index:5;
-      }
+    .mobile-card--main{
+  width: clamp(300px, 38vw, 500px);
+  min-height: unset;
+  max-width: 500px;
+  background: var(--yellow);
+  color: var(--mainText);
+  padding: 18px 20px 17px;
+  z-index: 5;
+}
+
+
 
       .mobile-card--main .username{
         display:block;
@@ -1074,7 +1078,6 @@
          text-align:center;
         padding:20px 18px 18px;
       }
-
 
 
         .memory-help-dialog h2{

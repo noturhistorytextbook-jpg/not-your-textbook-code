@@ -2324,11 +2324,21 @@ He didn't return so I assume he died from Malaria. My great grandma and grandma 
       });
     }
 
-    function getMobileFloatingIndexes(featured){
-      const candidates = STORIES.map((_,i)=>i).filter(i=>i!==featured);
-      const count = Math.min(MOBILE_LAYOUT.length, candidates.length);
-      return candidates.slice(0, count);
-    }
+  function shuffleArray(arr){
+  const copy = [...arr];
+  for(let i = copy.length - 1; i > 0; i--){
+    const j = Math.floor(Math.random() * (i + 1));
+    [copy[i], copy[j]] = [copy[j], copy[i]];
+  }
+  return copy;
+}
+
+function getMobileFloatingIndexes(featured){
+  const candidates = STORIES.map((_, i) => i).filter(i => i !== featured);
+  const shuffled = shuffleArray(candidates);
+  return shuffled.slice(0, Math.min(MOBILE_LAYOUT.length, shuffled.length));
+}
+
 
     function createMobileFloatingCard(index, layout){
       const item = STORIES[index];

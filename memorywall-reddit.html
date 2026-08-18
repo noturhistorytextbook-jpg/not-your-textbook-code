@@ -42,9 +42,6 @@
       --mobileMainMinH:420px;
       --mobileFloatingW:280px;
       --mobileFloatingH:170px;
-
-      --muted-button:#222222;
-      --muted-button-border:rgba(242, 242, 235, 0.14);
     }
 
     *{
@@ -65,6 +62,11 @@
     }
 
     body.mobile-locked{
+      overflow:hidden;
+      height:100dvh;
+    }
+
+    body.mobile-nav-open{
       overflow:hidden;
       height:100dvh;
     }
@@ -95,6 +97,66 @@
       font-size:.92rem;
       color:var(--yellow);
       white-space:nowrap;
+    }
+
+    .mobile-menu-btn{
+      display:none;
+      width:44px;
+      height:44px;
+      align-items:center;
+      justify-content:center;
+      background:transparent;
+      border:none;
+      padding:0;
+      position:relative;
+      z-index:1100;
+      cursor:pointer;
+      -webkit-tap-highlight-color:transparent;
+    }
+
+    .mobile-menu-btn-bar{
+      position:absolute;
+      width:24px;
+      height:2px;
+      background:var(--yellow);
+      left:50%;
+      transform:translateX(-50%);
+      transition:
+        transform .22s ease,
+        opacity .22s ease,
+        background-color .22s ease,
+        top .22s ease,
+        bottom .22s ease;
+    }
+
+    .mobile-menu-btn-bar:nth-child(1){
+      top:14px;
+    }
+
+    .mobile-menu-btn-bar:nth-child(2){
+      top:21px;
+    }
+
+    .mobile-menu-btn-bar:nth-child(3){
+      top:28px;
+    }
+
+    .mobile-menu-btn[aria-expanded="true"] .mobile-menu-btn-bar{
+      background:var(--white);
+    }
+
+    .mobile-menu-btn[aria-expanded="true"] .mobile-menu-btn-bar:nth-child(1){
+      top:21px;
+      transform:translateX(-50%) rotate(45deg);
+    }
+
+    .mobile-menu-btn[aria-expanded="true"] .mobile-menu-btn-bar:nth-child(2){
+      opacity:0;
+    }
+
+    .mobile-menu-btn[aria-expanded="true"] .mobile-menu-btn-bar:nth-child(3){
+      top:21px;
+      transform:translateX(-50%) rotate(-45deg);
     }
 
     .divider{
@@ -192,6 +254,10 @@
       background:var(--yellow);
       color:var(--light);
       font-weight:600;
+    }
+
+    .mobile-nav-overlay{
+      display:none;
     }
 
     .page{
@@ -612,8 +678,7 @@
     }
 
     .mobile-world-shell,
-    .memory-help-overlay,
-    .mobile-menu-wrap{
+    .memory-help-overlay{
       display:none;
     }
 
@@ -625,11 +690,8 @@
 
     @media (max-width: 768px){
       :root{
-        --searchControlHeight:32px;
-        --searchButtonSize:32px;
-        --searchGap:6px;
-        --searchInputWidth:min(160px, 42vw);
-        --searchAreaWidth:calc(var(--searchButtonSize) + var(--searchGap) + var(--searchInputWidth));
+        --searchAreaWidth:100%;
+        --searchInputWidth:100%;
         --searchDropdownInset:12px;
       }
 
@@ -643,89 +705,106 @@
       }
 
       .brand{
-        font-size:.9rem;
+        font-size:1rem;
         line-height:1.25;
+      }
+
+      .mobile-menu-btn{
+        display:inline-flex;
+      }
+
+      .divider{
+        z-index:200;
       }
 
       .navbar{
         display:none;
       }
 
-      .mobile-menu-wrap{
-        display:block;
-        position:relative;
-        flex:0 0 auto;
-      }
-
-      .mobile-menu-toggle{
-        width:40px;
-        height:40px;
-        display:inline-flex;
-        align-items:center;
-        justify-content:center;
-        background:transparent;
-        border:none;
-        cursor:pointer;
-        padding:0;
-      }
-
-      .mobile-menu-toggle span{
-        display:block;
-        width:20px;
-        height:2px;
-        background:var(--yellow);
-        margin:2.5px 0;
-        transition:transform .18s ease, opacity .18s ease, background .18s ease;
-      }
-
-      .mobile-menu-wrap.open .mobile-menu-toggle span:nth-child(1){
-        transform:translateY(7px) rotate(45deg);
-      }
-
-      .mobile-menu-wrap.open .mobile-menu-toggle span:nth-child(2){
+      .mobile-nav-overlay{
+        position:fixed;
+        inset:0;
+        z-index:1200;
+        background:rgba(26,26,26,.98);
+        padding:88px 18px 28px;
+        overflow:auto;
         opacity:0;
+        visibility:hidden;
+        pointer-events:none;
+        transition:opacity .22s ease, visibility .22s ease;
       }
 
-      .mobile-menu-wrap.open .mobile-menu-toggle span:nth-child(3){
-        transform:translateY(-7px) rotate(-45deg);
+      .mobile-nav-overlay.open{
+        display:block;
+        opacity:1;
+        visibility:visible;
+        pointer-events:auto;
       }
 
-      .mobile-menu-panel{
-        position:absolute;
-        top:calc(100% + 10px);
-        right:0;
-        width:min(270px, calc(100vw - 24px));
-        background:var(--blue);
-        border:1px solid rgba(242,242,235,.18);
-        display:none;
-        flex-direction:column;
-        z-index:260;
+      .mobile-nav-group{
+        display:grid;
+        gap:10px;
       }
 
-      .mobile-menu-wrap.open .mobile-menu-panel{
+      .mobile-nav-link,
+      .mobile-nav-toggle{
+        width:100%;
         display:flex;
+        align-items:center;
+        justify-content:space-between;
+        font-family:"Poppins",sans-serif;
+        font-size:1rem;
+        line-height:1.35;
+        color:var(--white);
+        background:transparent;
+        border:1px solid rgba(242,242,235,.16);
+        min-height:50px;
+        padding:12px 14px;
+        text-align:left;
       }
 
-      .mobile-menu-link{
+      .mobile-nav-link.active-link{
+        color:var(--yellow);
+        border-color:rgba(250,227,172,.55);
+      }
+
+      .mobile-nav-toggle{
+        cursor:pointer;
+      }
+
+      .mobile-nav-chevron{
+        font-size:1rem;
+        line-height:1;
+        transition:transform .2s ease;
+      }
+
+      .mobile-nav-item.open .mobile-nav-chevron{
+        transform:rotate(180deg);
+      }
+
+      .mobile-submenu{
+        display:none;
+        margin-top:8px;
+        padding-left:10px;
+        gap:8px;
+      }
+
+      .mobile-nav-item.open .mobile-submenu{
+        display:grid;
+      }
+
+      .mobile-submenu a{
+        display:block;
         font-family:"Poppins",sans-serif;
         font-size:.95rem;
         color:var(--white);
-        padding:12px 16px;
-        border-bottom:1px solid rgba(242,242,235,.12);
-        transition:.18s ease;
+        border:1px solid rgba(242,242,235,.12);
+        padding:11px 12px;
       }
 
-      .mobile-menu-link:last-child{
-        border-bottom:none;
-      }
-
-      .mobile-menu-link:hover{
-        background:var(--yellow);
-        color:var(--light);
-      }
-
-      .mobile-menu-link.active-link{
+      .mobile-submenu a.active-dropdown{
         color:var(--yellow);
+        border-color:rgba(250,227,172,.45);
       }
 
       .memory-wall-page{
@@ -734,41 +813,34 @@
       }
 
       .search-row{
-        justify-content:flex-end;
-        margin:10px 0 10px;
+        justify-content:stretch;
+        margin:14px 0 12px;
+        z-index:205;
       }
 
       .search-panel{
-        width:var(--searchAreaWidth);
+        width:100%;
       }
 
       .search-box{
-        width:auto;
-        align-items:center;
-        justify-content:flex-end;
+        width:100%;
+        align-items:stretch;
       }
 
       .search-input{
-        width:var(--searchInputWidth);
-        font-size:13px;
-        padding:0 10px;
-      }
-
-      .search-btn{
-        width:var(--searchButtonSize);
-        height:var(--searchButtonSize);
-      }
-
-      .search-btn svg{
-        width:15px;
-        height:15px;
+        width:100%;
       }
 
       .search-dropdown{
-        left:auto;
-        right:12px;
-        width:min(320px, calc(100vw - 24px));
+        left:var(--searchDropdownInset);
+        right:var(--searchDropdownInset);
+        width:auto;
         max-height:min(50vh, 420px);
+        z-index:320;
+      }
+
+      body.mobile-nav-open .search-dropdown{
+        display:none !important;
       }
 
       .wall-stage{
@@ -997,7 +1069,6 @@
         border:1px solid rgba(1,52,79,.18);
         box-shadow:0 20px 50px rgba(0,0,0,.28);
         padding:20px 18px 18px;
-        text-align:center;
       }
 
       .memory-help-dialog h2{
@@ -1018,7 +1089,6 @@
         margin:14px 0 18px;
         display:grid;
         gap:9px;
-        text-align:center;
       }
 
       .memory-help-list li{
@@ -1029,64 +1099,45 @@
       }
 
       .memory-help-list li::before{
-        content:none;
-      }
-
-      .story-button-wrap{
-        margin:22px 0 24px;
+        content:"• ";
+        color:var(--blue);
+        font-weight:700;
       }
 
       .memory-help-cta{
-        display:inline-flex;
-        align-items:center;
-        justify-content:center;
-        gap:8px;
-        font-family:"Poppins", sans-serif;
-        font-size:0.78rem;
+        width:100%;
+        min-height:46px;
+        border:1px solid var(--blue);
+        background:var(--yellow);
+        color:#111;
+        font-family:"Poppins",sans-serif;
+        font-size:.95rem;
         font-weight:600;
-        letter-spacing:0.06em;
-        text-transform:uppercase;
-        color:rgba(242, 242, 235, 0.88);
-        background:var(--muted-button);
-        border:1px solid var(--muted-button-border);
-        padding:11px 16px;
-        box-shadow:0 8px 24px rgba(0, 0, 0, 0.18);
-        transition:background 0.18s ease, color 0.18s ease, border-color 0.18s ease;
-        margin-bottom:20px;
-      }
-
-      .memory-help-cta:hover{
-        background:#323232;
-        color:var(--white);
-        border-color:rgba(242, 242, 235, 0.24);
       }
     }
 
     @media (max-width: 520px){
       :root{
-        --searchControlHeight:28px;
-        --searchButtonSize:28px;
-        --searchGap:6px;
-        --searchInputWidth:min(132px, 38vw);
-        --mobileChromeHeight: 226px;
+        --searchControlHeight:42px;
+        --searchButtonSize:42px;
+        --searchGap:8px;
+        --mobileChromeHeight: 238px;
       }
 
-      .brand{
-        font-size:.84rem;
+      .search-box{
+        display:grid;
+        grid-template-columns:42px minmax(0, 1fr);
+        gap:8px;
       }
 
-      .search-row{
-        margin:8px 0 8px;
+      .search-btn,
+      .search-input{
+        height:42px;
       }
 
       .search-input{
-        font-size:12px;
-        padding:0 8px;
-      }
-
-      .search-btn svg{
-        width:14px;
-        height:14px;
+        font-size:16px;
+        padding:0 10px;
       }
 
       .search-option{
@@ -1126,22 +1177,18 @@
   <header class="topbar">
     <a class="brand" href="index.html">not your History Textbook</a>
 
-    <div class="mobile-menu-wrap" id="mobileMenuWrap">
-      <button class="mobile-menu-toggle" id="mobileMenuToggle" type="button" aria-label="Open menu" aria-expanded="false">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-
-      <div class="mobile-menu-panel" id="mobileMenuPanel">
-        <a href="index.html" class="mobile-menu-link">Home</a>
-        <a href="cornersofthepast.html" class="mobile-menu-link">Corners of the past</a>
-        <a href="memorywall-reddit.html" class="mobile-menu-link active-link">Memory wall</a>
-        <a href="interactivetimeline.html" class="mobile-menu-link">Interactive timeline</a>
-        <a href="everydaylife.html" class="mobile-menu-link">Everyday life</a>
-        <a href="silentheroes.html" class="mobile-menu-link">Our silent heroes</a>
-      </div>
-    </div>
+    <button
+      class="mobile-menu-btn"
+      id="mobileMenuBtn"
+      type="button"
+      aria-label="Open menu"
+      aria-expanded="false"
+      aria-controls="mobileNavOverlay"
+    >
+      <span class="mobile-menu-btn-bar"></span>
+      <span class="mobile-menu-btn-bar"></span>
+      <span class="mobile-menu-btn-bar"></span>
+    </button>
   </header>
 
   <div class="divider"></div>
@@ -1154,6 +1201,17 @@
     <a href="everydaylife.html" class="nav-link">Everyday life</a>
     <a href="silentheroes.html" class="nav-link">Our silent heroes</a>
   </nav>
+
+  <div class="mobile-nav-overlay" id="mobileNavOverlay" aria-hidden="true">
+    <div class="mobile-nav-group">
+      <a href="index.html" class="mobile-nav-link">Home</a>
+      <a href="cornersofthepast.html" class="mobile-nav-link">Corners of the past</a>
+      <a href="memorywall-reddit.html" class="mobile-nav-link active-link">Memory wall</a>
+      <a href="interactivetimeline.html" class="mobile-nav-link">Interactive timeline</a>
+      <a href="everydaylife.html" class="mobile-nav-link">Everyday life</a>
+      <a href="silentheroes.html" class="mobile-nav-link">Our silent heroes</a>
+    </div>
+  </div>
 
   <main class="page memory-wall-page">
     <div class="search-row">
@@ -1207,17 +1265,17 @@
 
   <div class="memory-help-overlay" id="memoryHelpOverlay" hidden>
     <div class="memory-help-dialog" role="dialog" aria-modal="true" aria-labelledby="memoryHelpTitle">
-      <p>Roam this memory wall of voices.</p>
-
+      <h2 id="memoryHelpTitle">How to explore the Memory Wall</h2>
+      <p>
+        On mobile, this wall works like a magnifying glass over a much larger canvas.
+      </p>
       <ul class="memory-help-list">
         <li>Drag with one finger to move around the wall.</li>
         <li>Pinch with two fingers to zoom in and out.</li>
-        <li>Tap any floating card.</li>
+        <li>Tap a floating card to feature it in the main card.</li>
+        <li>The top bar, menu, and search stay fixed while the wall moves underneath.</li>
       </ul>
-
-      <div class="story-button-wrap">
-        <button type="button" class="memory-help-cta" id="memoryHelpDismiss">Ok, I got it</button>
-      </div>
+      <button type="button" class="memory-help-cta" id="memoryHelpDismiss">Ok, I get it</button>
     </div>
   </div>
 
@@ -1236,6 +1294,7 @@
         story: `My grandma was a teacher in Singapore when the Japanese occupied Singapore. If I'm not wrong, she got a job during then teaching Japanese in schools. She also told me of how she purposely blackened her teeth then to try and make herself look ugly so that the Japanese soldiers wouldn't take her and rape her like they did to the other women.`,
         replies: []
       }
+      // keep the rest of your STORIES array here exactly as in your current file
     ];
 
     const backgroundLayer = document.getElementById("backgroundLayer");
@@ -1252,8 +1311,8 @@
     const memoryHelpOverlay = document.getElementById("memoryHelpOverlay");
     const memoryHelpDismiss = document.getElementById("memoryHelpDismiss");
 
-    const mobileMenuWrap = document.getElementById("mobileMenuWrap");
-    const mobileMenuToggle = document.getElementById("mobileMenuToggle");
+    const mobileMenuBtn = document.getElementById("mobileMenuBtn");
+    const mobileNavOverlay = document.getElementById("mobileNavOverlay");
 
     let featuredIndex       = 0;
     let featuredPinned      = false;
@@ -1263,9 +1322,6 @@
     let stableSlots         = [];
     let slotContents        = [];
     let lastLayoutSignature = "";
-
-    let mobileFloatingIndexes = [];
-    let mobileCardsByStory = new Map();
 
     const mobileView = {
       scale: 0.44,
@@ -1303,6 +1359,43 @@
     function isMobileWall(){
       return window.innerWidth <= 768;
     }
+
+    function openMobileMenu(){
+      mobileNavOverlay.classList.add("open");
+      mobileMenuBtn.setAttribute("aria-expanded", "true");
+      mobileMenuBtn.setAttribute("aria-label", "Close menu");
+      mobileNavOverlay.setAttribute("aria-hidden", "false");
+      document.body.classList.add("mobile-nav-open");
+      closeSearchDropdown();
+    }
+
+    function closeMobileMenu(){
+      mobileNavOverlay.classList.remove("open");
+      mobileMenuBtn.setAttribute("aria-expanded", "false");
+      mobileMenuBtn.setAttribute("aria-label", "Open menu");
+      mobileNavOverlay.setAttribute("aria-hidden", "true");
+      document.body.classList.remove("mobile-nav-open");
+    }
+
+    function toggleMobileMenu(){
+      const expanded = mobileMenuBtn.getAttribute("aria-expanded") === "true";
+      if(expanded) closeMobileMenu();
+      else openMobileMenu();
+    }
+
+    mobileMenuBtn?.addEventListener("click", toggleMobileMenu);
+
+    mobileNavOverlay?.addEventListener("click", (event)=>{
+      if(event.target === mobileNavOverlay){
+        closeMobileMenu();
+      }
+    });
+
+    document.addEventListener("keydown", (event)=>{
+      if(event.key === "Escape"){
+        closeMobileMenu();
+      }
+    });
 
     function escapeHtml(text){
       return String(text)
@@ -1676,6 +1769,7 @@
     }
 
     function openSearchDropdown(){
+      if(document.body.classList.contains("mobile-nav-open")) return;
       positionSearchDropdown();
       searchDropdown.classList.add("open");
     }
@@ -1790,17 +1884,14 @@
       if(!isMobileWall()) return;
 
       mobileWorld.innerHTML = "";
-      mobileCardsByStory.clear();
 
       const floating = getMobileFloatingIndexes(index);
-      mobileFloatingIndexes = floating;
 
       const mainCardEl = createMobileMainCard(index);
       mobileWorld.appendChild(mainCardEl);
 
       floating.forEach((storyIndex, i)=>{
         const card = createMobileFloatingCard(storyIndex, MOBILE_LAYOUT[i]);
-        mobileCardsByStory.set(storyIndex, card);
         mobileWorld.appendChild(card);
       });
 
@@ -1923,6 +2014,7 @@
     function onMobilePointerDown(e){
       if(!isMobileWall()) return;
       if(e.target.closest("a")) return;
+      if(document.body.classList.contains("mobile-nav-open")) return;
 
       mobileViewport.setPointerCapture(e.pointerId);
       mobileView.activePointers.set(e.pointerId, { clientX: e.clientX, clientY: e.clientY });
@@ -2079,25 +2171,16 @@
       }
     });
 
-    if(mobileMenuToggle){
-      mobileMenuToggle.addEventListener("click", ()=>{
-        const isOpen = mobileMenuWrap.classList.toggle("open");
-        mobileMenuToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
-      });
-
-      document.addEventListener("click", (e)=>{
-        if(!mobileMenuWrap.contains(e.target)){
-          mobileMenuWrap.classList.remove("open");
-          mobileMenuToggle.setAttribute("aria-expanded", "false");
-        }
-      });
-    }
-
     let resizeTimer=null;
     window.addEventListener("resize",()=>{
       clearTimeout(resizeTimer);
       resizeTimer=setTimeout(()=>{
         lastLayoutSignature="";
+
+        if(!isMobileWall()){
+          closeMobileMenu();
+        }
+
         if(isMobileWall()){
           setInitialMobileView();
           renderMobileWorld(featuredIndex);
@@ -2105,7 +2188,6 @@
         }else{
           document.body.classList.remove("mobile-locked");
           memoryHelpOverlay.hidden = true;
-          if(mobileMenuWrap) mobileMenuWrap.classList.remove("open");
           updateFloatingCards(true);
           scheduleAutoAdvance();
         }

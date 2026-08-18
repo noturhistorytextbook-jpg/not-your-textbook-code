@@ -1377,12 +1377,19 @@ main{
       updateNav(null);
     }
 
-    guideBtn.addEventListener('click', startWalkthrough);
 
-    browseBtn.addEventListener('click', () => {
+        guideBtn.addEventListener('click', () => {
+      try { localStorage.setItem('timelineEntrySeen', 'true'); } catch(e) {}
+      startWalkthrough();
+    });
+
+
+      browseBtn.addEventListener('click', () => {
       document.body.classList.remove('entry-open');
       entryOverlay.style.display = 'none';
+      try { localStorage.setItem('timelineEntrySeen', 'true'); } catch(e) {}
     });
+
 
     nextWalkthroughBtn.addEventListener('click', () => {
       if (currentIndex < events.length - 1) {
@@ -1405,7 +1412,14 @@ main{
     window.addEventListener('scroll', updateProgress);
     updateProgress();
 
-    document.body.classList.add('entry-open');
+        let _tlSeen = false;
+    try { _tlSeen = localStorage.getItem('timelineEntrySeen') === 'true'; } catch(e) {}
+    if (_tlSeen) {
+      entryOverlay.style.display = 'none';
+    } else {
+      document.body.classList.add('entry-open');
+    }
+
   </script>
 </body>
 </html>

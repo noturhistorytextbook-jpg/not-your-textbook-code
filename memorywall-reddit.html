@@ -940,14 +940,16 @@
 
     
 
-                .mobile-card--main{
-        min-height: unset;
-        max-width: none;
-        background: var(--yellow);
-        color: var(--mainText);
-        padding: 16px 18px 15px;
-        z-index: 5;
-        }
+        .mobile-card--main{
+  width: var(--mobileMainW);
+  min-height: unset;
+  max-width: none;
+  background: var(--yellow);
+  color: var(--mainText);
+  padding: 16px 18px 15px;
+  z-index: 5;
+}
+
 
 
 
@@ -2414,7 +2416,6 @@ function getMobileFloatingIndexes(featured){
   if (storyLength > 500) cardWidth = 400;
   if (storyLength > 900) cardWidth = 430;
 
-  card.style.width = `${cardWidth}px`;
 
   const mainX = (1700 - cardWidth) / 2;
   const mainY = (1050 - 420) / 2;

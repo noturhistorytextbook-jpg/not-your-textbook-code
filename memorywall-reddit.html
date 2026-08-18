@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Memory Wall — Reddit Stories</title>
 
-  <link rel="preconnect" href://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 
@@ -42,6 +42,9 @@
       --mobileMainMinH:420px;
       --mobileFloatingW:280px;
       --mobileFloatingH:170px;
+
+      --muted-button:#222222;
+      --muted-button-border:rgba(242, 242, 235, 0.14);
     }
 
     *{
@@ -609,7 +612,8 @@
     }
 
     .mobile-world-shell,
-    .memory-help-overlay{
+    .memory-help-overlay,
+    .mobile-menu-wrap{
       display:none;
     }
 
@@ -621,8 +625,11 @@
 
     @media (max-width: 768px){
       :root{
-        --searchAreaWidth:100%;
-        --searchInputWidth:100%;
+        --searchControlHeight:32px;
+        --searchButtonSize:32px;
+        --searchGap:6px;
+        --searchInputWidth:min(160px, 42vw);
+        --searchAreaWidth:calc(var(--searchButtonSize) + var(--searchGap) + var(--searchInputWidth));
         --searchDropdownInset:12px;
       }
 
@@ -636,34 +643,89 @@
       }
 
       .brand{
-        font-size:1rem;
+        font-size:.9rem;
         line-height:1.25;
       }
 
       .navbar{
-        gap:10px 16px;
-        padding:16px 12px 0;
+        display:none;
       }
 
-      .nav-link,
-      .dropdown-toggle{
+      .mobile-menu-wrap{
+        display:block;
+        position:relative;
+        flex:0 0 auto;
+      }
+
+      .mobile-menu-toggle{
+        width:40px;
+        height:40px;
+        display:inline-flex;
+        align-items:center;
+        justify-content:center;
+        background:transparent;
+        border:none;
+        cursor:pointer;
+        padding:0;
+      }
+
+      .mobile-menu-toggle span{
+        display:block;
+        width:20px;
+        height:2px;
+        background:var(--yellow);
+        margin:2.5px 0;
+        transition:transform .18s ease, opacity .18s ease, background .18s ease;
+      }
+
+      .mobile-menu-wrap.open .mobile-menu-toggle span:nth-child(1){
+        transform:translateY(7px) rotate(45deg);
+      }
+
+      .mobile-menu-wrap.open .mobile-menu-toggle span:nth-child(2){
+        opacity:0;
+      }
+
+      .mobile-menu-wrap.open .mobile-menu-toggle span:nth-child(3){
+        transform:translateY(-7px) rotate(-45deg);
+      }
+
+      .mobile-menu-panel{
+        position:absolute;
+        top:calc(100% + 10px);
+        right:0;
+        width:min(270px, calc(100vw - 24px));
+        background:var(--blue);
+        border:1px solid rgba(242,242,235,.18);
+        display:none;
+        flex-direction:column;
+        z-index:260;
+      }
+
+      .mobile-menu-wrap.open .mobile-menu-panel{
+        display:flex;
+      }
+
+      .mobile-menu-link{
+        font-family:"Poppins",sans-serif;
         font-size:.95rem;
-        line-height:1.3;
+        color:var(--white);
+        padding:12px 16px;
+        border-bottom:1px solid rgba(242,242,235,.12);
+        transition:.18s ease;
       }
 
-      .nav-dropdown{
-        width:100%;
+      .mobile-menu-link:last-child{
+        border-bottom:none;
       }
 
-      .dropdown-menu{
-        position:static;
-        margin-top:10px;
-        min-width:unset;
-        width:100%;
+      .mobile-menu-link:hover{
+        background:var(--yellow);
+        color:var(--light);
       }
 
-      .memory-dropdown-menu{
-        width:100%;
+      .mobile-menu-link.active-link{
+        color:var(--yellow);
       }
 
       .memory-wall-page{
@@ -672,27 +734,40 @@
       }
 
       .search-row{
-        justify-content:stretch;
-        margin:14px 0 12px;
+        justify-content:flex-end;
+        margin:10px 0 10px;
       }
 
       .search-panel{
-        width:100%;
+        width:var(--searchAreaWidth);
       }
 
       .search-box{
-        width:100%;
-        align-items:stretch;
+        width:auto;
+        align-items:center;
+        justify-content:flex-end;
       }
 
       .search-input{
-        width:100%;
+        width:var(--searchInputWidth);
+        font-size:13px;
+        padding:0 10px;
+      }
+
+      .search-btn{
+        width:var(--searchButtonSize);
+        height:var(--searchButtonSize);
+      }
+
+      .search-btn svg{
+        width:15px;
+        height:15px;
       }
 
       .search-dropdown{
-        left:var(--searchDropdownInset);
-        right:var(--searchDropdownInset);
-        width:auto;
+        left:auto;
+        right:12px;
+        width:min(320px, calc(100vw - 24px));
         max-height:min(50vh, 420px);
       }
 
@@ -922,6 +997,7 @@
         border:1px solid rgba(1,52,79,.18);
         box-shadow:0 20px 50px rgba(0,0,0,.28);
         padding:20px 18px 18px;
+        text-align:center;
       }
 
       .memory-help-dialog h2{
@@ -942,6 +1018,7 @@
         margin:14px 0 18px;
         display:grid;
         gap:9px;
+        text-align:center;
       }
 
       .memory-help-list li{
@@ -952,54 +1029,64 @@
       }
 
       .memory-help-list li::before{
-        content:"• ";
-        color:var(--blue);
-        font-weight:700;
+        content:none;
+      }
+
+      .story-button-wrap{
+        margin:22px 0 24px;
       }
 
       .memory-help-cta{
-        width:100%;
-        min-height:46px;
-        border:1px solid var(--blue);
-        background:var(--yellow);
-        color:#111;
-        font-family:"Poppins",sans-serif;
-        font-size:.95rem;
+        display:inline-flex;
+        align-items:center;
+        justify-content:center;
+        gap:8px;
+        font-family:"Poppins", sans-serif;
+        font-size:0.78rem;
         font-weight:600;
+        letter-spacing:0.06em;
+        text-transform:uppercase;
+        color:rgba(242, 242, 235, 0.88);
+        background:var(--muted-button);
+        border:1px solid var(--muted-button-border);
+        padding:11px 16px;
+        box-shadow:0 8px 24px rgba(0, 0, 0, 0.18);
+        transition:background 0.18s ease, color 0.18s ease, border-color 0.18s ease;
+        margin-bottom:20px;
+      }
+
+      .memory-help-cta:hover{
+        background:#323232;
+        color:var(--white);
+        border-color:rgba(242, 242, 235, 0.24);
       }
     }
 
     @media (max-width: 520px){
       :root{
-        --searchControlHeight:42px;
-        --searchButtonSize:42px;
-        --searchGap:8px;
-        --mobileChromeHeight: 238px;
+        --searchControlHeight:28px;
+        --searchButtonSize:28px;
+        --searchGap:6px;
+        --searchInputWidth:min(132px, 38vw);
+        --mobileChromeHeight: 226px;
       }
 
-      .navbar{
-        gap:8px 12px;
+      .brand{
+        font-size:.84rem;
       }
 
-      .nav-link,
-      .dropdown-toggle{
-        font-size:.92rem;
-      }
-
-      .search-box{
-        display:grid;
-        grid-template-columns:42px minmax(0, 1fr);
-        gap:8px;
-      }
-
-      .search-btn,
-      .search-input{
-        height:42px;
+      .search-row{
+        margin:8px 0 8px;
       }
 
       .search-input{
-        font-size:16px;
-        padding:0 10px;
+        font-size:12px;
+        padding:0 8px;
+      }
+
+      .search-btn svg{
+        width:14px;
+        height:14px;
       }
 
       .search-option{
@@ -1038,6 +1125,23 @@
 <body>
   <header class="topbar">
     <a class="brand" href="index.html">not your History Textbook</a>
+
+    <div class="mobile-menu-wrap" id="mobileMenuWrap">
+      <button class="mobile-menu-toggle" id="mobileMenuToggle" type="button" aria-label="Open menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <div class="mobile-menu-panel" id="mobileMenuPanel">
+        <a href="index.html" class="mobile-menu-link">Home</a>
+        <a href="cornersofthepast.html" class="mobile-menu-link">Corners of the past</a>
+        <a href="memorywall-reddit.html" class="mobile-menu-link active-link">Memory wall</a>
+        <a href="interactivetimeline.html" class="mobile-menu-link">Interactive timeline</a>
+        <a href="everydaylife.html" class="mobile-menu-link">Everyday life</a>
+        <a href="silentheroes.html" class="mobile-menu-link">Our silent heroes</a>
+      </div>
+    </div>
   </header>
 
   <div class="divider"></div>
@@ -1103,17 +1207,17 @@
 
   <div class="memory-help-overlay" id="memoryHelpOverlay" hidden>
     <div class="memory-help-dialog" role="dialog" aria-modal="true" aria-labelledby="memoryHelpTitle">
-      <h2 id="memoryHelpTitle">How to explore the Memory Wall</h2>
-      <p>
-        On mobile, this wall works like a magnifying glass over a much larger canvas.
-      </p>
+      <p>Roam this memory wall of voices.</p>
+
       <ul class="memory-help-list">
         <li>Drag with one finger to move around the wall.</li>
         <li>Pinch with two fingers to zoom in and out.</li>
-        <li>Tap a floating card to feature it in the main card.</li>
-        <li>The top bar, menu, and search stay fixed while the wall moves underneath.</li>
+        <li>Tap any floating card.</li>
       </ul>
-      <button type="button" class="memory-help-cta" id="memoryHelpDismiss">Ok, I get it</button>
+
+      <div class="story-button-wrap">
+        <button type="button" class="memory-help-cta" id="memoryHelpDismiss">Ok, I got it</button>
+      </div>
     </div>
   </div>
 
@@ -1131,113 +1235,6 @@
         url: "https://www.reddit.com/r/singapore/comments/dlrr4p/sharing_stories_about_ww2_japanese_occupation_in/",
         story: `My grandma was a teacher in Singapore when the Japanese occupied Singapore. If I'm not wrong, she got a job during then teaching Japanese in schools. She also told me of how she purposely blackened her teeth then to try and make herself look ugly so that the Japanese soldiers wouldn't take her and rape her like they did to the other women.`,
         replies: []
-      },
-      {
-        username: "velvetmotel",
-        url: "https://www.reddit.com/r/singapore/comments/9xlseu/what_is_your_familys_story_on_the_japanese/",
-        story: `My great-grandfather was working as a Morse code operator during the 1940s.
-When the war hit, the Japanese spared his life due to his skill set. He carried on working for the Japanese through the war.
-One day, as he was riding his bicycle to work, his bicycle got looted, and caused him to arrive to work late. When asked why he was late, he told his superiors that his bicycle got stolen. His boss, a Japanese military officer, excused him and proceeded to investigate the theft.
-The next day, he went to the office, and saw his bike next to a man, who was kneeling....
-The officer asked, "Is this your bike?"
-My great-grandfather nodded.
-The officer asked again, "Is this the man who stole your bike?"
-He nodded again.
-They interrogated the thief, who denied stealing the bike.
-They asked him one last time, and he denied it yet again.
-On the third time, the officer drew his sword, and promptly chopped the thief's head off.
-My great-grandfather fainted, and landed in the hospital for three days.`,
-        replies: []
-      },
-      {
-        username: "[Deleted user]",
-        url: null,
-        story: `My great-grandfather was a stepbrother of Lim Bo Seng. During the first year of the Japanese occupation, he was approached by the Kempeitai in the middle of the night and asked if he knew the whereabouts of Lim Bo Seng.
-Nobody really knows for sure what happened to him afterwards, but what I was told is that after he refused to provide any information, he was arrested and then drowned somewhere in Punggol.
-Somehow, the rest of his family (including my grandfather, who was 9 at the time) managed to escape detection and maintained a low profile throughout the occupation period.`,
-        replies: []
-      },
-      {
-        username: "pjayaredee",
-        url: "https://www.reddit.com/r/singapore/comments/9xlseu/what_is_your_familys_story_on_the_japanese/",
-        story: `My grandma & her sisters were shipped off to the Bahau commune. Both her sisters died there from malaria. Her father & uncle were sent to work on the railway and never came back, mother died before WWII began.... She only got to know how her Father died years later when her uncle came back. He was already crippled & ill with dysentery when they decided to wrap him up in straw sheets and just bury him alive with those who recently died or who were about to die from disease.`,
-        replies: []
-      },
-      {
-        username: "sl0thcakes",
-        url: "https://www.reddit.com/r/singapore/comments/9xlseu/what_is_your_familys_story_on_the_japanese/",
-        story: `Elizabeth Choy was my great-grand aunt!... I do know that after my great-grand Aunt was released from being imprisoned, a lot of people who knew her avoided her and pretended that they didn't because they feared they would be interrogated/captured as a POW too.`,
-        replies: []
-      },
-      {
-        username: "microtek789",
-        url: "https://www.reddit.com/r/singapore/comments/9xlseu/what_is_your_familys_story_on_the_japanese/",
-        story: `My grandfather was in Malacca during the Japanese invasion. There were hardly any shots fired because all the British troops had already fled to Singapore. Some looters were caught and had their heads chopped off and stuck on poles at the bridge of the town centre as a grim reminder to not mess around. Eurasian girls were rounded up and brutally raped.`,
-        replies: []
-      },
-      {
-        username: "YWHJ",
-        url: "https://www.reddit.com/r/singapore/comments/9xlseu/what_is_your_familys_story_on_the_japanese/",
-        story: `The Japanese army was super sadistic. They pretended to offer job for the citizen but those who volunteered were brought to a place to be gunned down. My father escaped because he was told not to volunteer as it was a hoax.`,
-        replies: []
-      },
-      {
-        username: "Koufas",
-        url: "https://www.reddit.com/r/singapore/comments/9xlseu/what_is_your_familys_story_on_the_japanese/",
-        story: `My grandma was 16 when the bombing of SG happened. She said they first happened at night when everyone was asleep, the air raid alarms woke them up first. Awhile after that there were bombings that started.... Most of the time she was indoors since it was at night, but once they came during the day in 42. It was a mad scramble for shelter, and every time after a bombing. There would be bloody bodies that lined the street.... Some of the houses in her kampong were destroyed, and some of her neighbours were gone as well.`,
-        replies: []
-      },
-      {
-        username: "Theanstolifeis42",
-        url: "https://www.reddit.com/r/singapore/comments/9xlseu/what_is_your_familys_story_on_the_japanese/",
-        story: `My grandpa was pretty young in the war. When he saw Chinese men boarding the lorries, he wanted to get on too because he thought they were off to work. Grandpa wanted to earn a bit of cash for the family, so he tried to climb up. But these were the Chinese men selected for execution - the Japs would herd them up, drive them to the beaches and gun them down en masse. The Japs had a special hatred for the Chinese cos of their strong resistance against the Jap attacks in China.
-
-Fortunately a Jap soldier spotted him, pulled him off and gave him a good thrashing. Our other family members weren't so lucky though - two granduncles were selected and never seen again.
-
-Our family ate a lot of tapioca to survive. The women would darken their faces with dirt just to avoid being targeted by the Jap soldiers. One grandaunt on my in-law's side wasn't so fortunate. She killed herself by running into a wall to avoid a rape.... An old family friend told us stories of his family in Malaya. His dad was a businessman (a grocer I think?) and the Japs forced him to work with them. A fellow businessman was jealous of how the amount of business he was getting, and told the Japs he was a China sympathiser. Family friend's dad was arrested and interrogated for a month. Fortunately no torture was involved, but the moment he came out of jail, he packed his bags and fled to Singapore. A year later when he visited Malaya, he found out the Japs had executed the informer and his entire family for false information.`,
-        replies: []
-      },
-      {
-        username: "veryfascinating",
-        url: "https://www.reddit.com/r/singapore/comments/9xlseu/what_is_your_familys_story_on_the_japanese/",
-        story: `My grandfather was a young boy during the occupation. One day he was walking on the streets, came across a Japanese soldier but for some reason he didn't bow. Maybe it was just the start of the occupation so he didn't know he was supposed to bow or something.... The Japanese soldier called him over and gave him one tight slap on his left side of his head. The slap was so hard, it made him permanently deaf in his left ear.`,
-        replies: []
-      },
-      {
-        username: "bryansng",
-        url: "https://www.reddit.com/r/singapore/comments/9xlseu/what_is_your_familys_story_on_the_japanese/",
-        story: `My grandparents had tapioca and sweet potatoes for almost every meal`,
-        replies: []
-      },
-      {
-        username: "amightymouse",
-        url: "https://www.reddit.com/r/singapore/comments/9xlseu/what_is_your_familys_story_on_the_japanese/",
-        story: `Grandfather was rounded up with a bunch of men as part of Sook Ching and placed on the back of a lorry. As they reached the destination, where they knew they were going to be shot, he jumped off the back of the lorry and ran for his life with some other men.... He made it.`,
-        replies: []
-      },
-      {
-        username: "[Deleted user]",
-        url: null,
-        story: `I remember my grandma telling me how a Japanese Soldier use to come by my great grandfather's house to play with my grandma as a child because she reminds him of her daughter about her age back home in Japan. He brought rations and food to the family when he had enough.. for them.
-
-I agree with you, not all occupiers/aggressors are monsters. They're just there because they have been thrown into it without much choice.`,
-        replies: []
-      },
-      {
-        username: "Notaplum",
-        url: "https://www.reddit.com/r/singapore/comments/9xlseu/what_is_your_familys_story_on_the_japanese/",
-        story: `When my Dad was about 7-ish he was chased after by a Japanese soldier for wearing a pair of shorts that had the number "77" on it, he told me that its because the date 7/7 had some significance to China's history, but I never clarified with him about this. He also told me "Heng AH I fast runner".
-
-He also lived through bombings from air raids, he recalled that one of his grandaunts was hit by an explosion and her body flew over the roof.
-
-Everyone then was especially battling hunger, he witnessed his uncle picking up a rotting chicken which had been dead for days and then eating it.`,
-        replies: []
-      },
-      {
-        username: "Adingding90",
-        url: "https://www.reddit.com/r/singapore/comments/9xlseu/what_is_your_familys_story_on_the_japanese/",
-        story: `The year was 1944. Grandpa was a villager and failed to step off the road and bow to a group of Japanese soldiers (mandatory at the time) because he didn't see them coming. He got several ribs and teeth broken, and after they were done, they tossed him two corpses and made him bury them at the side of the road. In another incident, Grandma was literally dragged off the road on the way home from school by a group of Japanese soldiers. They were about to rape her but, fortunately, left in disgust when they discovered she was on her period at the time.`,
-        replies: []
       }
     ];
 
@@ -1254,6 +1251,9 @@ Everyone then was especially battling hunger, he witnessed his uncle picking up 
     const mobileWorld      = document.getElementById("mobileWorld");
     const memoryHelpOverlay = document.getElementById("memoryHelpOverlay");
     const memoryHelpDismiss = document.getElementById("memoryHelpDismiss");
+
+    const mobileMenuWrap = document.getElementById("mobileMenuWrap");
+    const mobileMenuToggle = document.getElementById("mobileMenuToggle");
 
     let featuredIndex       = 0;
     let featuredPinned      = false;
@@ -2079,6 +2079,20 @@ Everyone then was especially battling hunger, he witnessed his uncle picking up 
       }
     });
 
+    if(mobileMenuToggle){
+      mobileMenuToggle.addEventListener("click", ()=>{
+        const isOpen = mobileMenuWrap.classList.toggle("open");
+        mobileMenuToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+      });
+
+      document.addEventListener("click", (e)=>{
+        if(!mobileMenuWrap.contains(e.target)){
+          mobileMenuWrap.classList.remove("open");
+          mobileMenuToggle.setAttribute("aria-expanded", "false");
+        }
+      });
+    }
+
     let resizeTimer=null;
     window.addEventListener("resize",()=>{
       clearTimeout(resizeTimer);
@@ -2091,6 +2105,7 @@ Everyone then was especially battling hunger, he witnessed his uncle picking up 
         }else{
           document.body.classList.remove("mobile-locked");
           memoryHelpOverlay.hidden = true;
+          if(mobileMenuWrap) mobileMenuWrap.classList.remove("open");
           updateFloatingCards(true);
           scheduleAutoAdvance();
         }

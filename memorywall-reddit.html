@@ -1281,21 +1281,530 @@
 
   <script>
     const STORIES = [
-      {
-        username: "inmyheadundermybed",
-        url: "https://www.reddit.com/r/singapore/comments/am5be8/comment/efkvoan/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button",
-        story: `1. Grandma told me that her house was taken over by Japanese soldiers, since her family had a plot of land planting sweet potatoes and stuff. She said that the lower ranked soldiers were actually very nice. The soldiers often sneaked extra food for her family to eat, and even taught her how to ride on their horses. When higher ranking officers visit, the soldiers would warn my grandma's family beforehand, and tell them to hide under the beds too. She said that the higher ranking officers were the actual "bad" ones. The soldiers weren't all bad, and were just taking orders....
+     {
+       username: "inmyheadundermybed",
+       url: "https://www.reddit.com/r/singapore/comments/am5be8/comment/efkvoan/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button",
+       story: `1. Grandma told me that her house was taken over by Japanese soldiers, since her family had a plot of land planting sweet potatoes and stuff. She said that the lower ranked soldiers were actually very nice. The soldiers often sneaked extra food for her family to eat, and even taught her how to ride on their horses. When higher ranking officers visit, the soldiers would warn my grandma's family beforehand, and tell them to hide under the beds too. She said that the higher ranking officers were the actual "bad" ones. The soldiers weren't all bad, and were just taking orders....
 2. Grandma told me that her uncle was caught and imprisoned by the Japanese soldiers, but was released some time after. On the day he was released, as he was walking away, he turned back and said "thank you so much, thank you" in dialect. The soldiers there called him back. And they shot him. Grandma said the soldiers thought her uncle was scolding them, and hence had him killed....`,
-        replies: []
-      },
-      {
-        username: "HiroAnobei",
-        url: "https://www.reddit.com/r/singapore/comments/dlrr4p/sharing_stories_about_ww2_japanese_occupation_in/",
-        story: `My grandma was a teacher in Singapore when the Japanese occupied Singapore. If I'm not wrong, she got a job during then teaching Japanese in schools. She also told me of how she purposely blackened her teeth then to try and make herself look ugly so that the Japanese soldiers wouldn't take her and rape her like they did to the other women.`,
-        replies: []
-      }
-      // keep the rest of your STORIES array here exactly as in your current file
-    ];
+       replies: []
+     },
+     {
+       username: "HiroAnobei",
+       url: "https://www.reddit.com/r/singapore/comments/dlrr4p/sharing_stories_about_ww2_japanese_occupation_in/",
+       story: `My grandma was a teacher in Singapore when the Japanese occupied Singapore. If I'm not wrong, she got a job during then teaching Japanese in schools. She also told me of how she purposely blackened her teeth then to try and make herself look ugly so that the Japanese soldiers wouldn't take her and rape her like they did to the other women.`,
+       replies: []
+     },
+     {
+       username: "velvetmotel",
+       url: "https://www.reddit.com/r/singapore/comments/9xlseu/what_is_your_familys_story_on_the_japanese/",
+       story: `My great-grandfather was working as a Morse code operator during the 1940s.
+When the war hit, the Japanese spared his life due to his skill set. He carried on working for the Japanese through the war.
+One day, as he was riding his bicycle to work, his bicycle got looted, and caused him to arrive to work late. When asked why he was late, he told his superiors that his bicycle got stolen. His boss, a Japanese military officer, excused him and proceeded to investigate the theft.
+The next day, he went to the office, and saw his bike next to a man, who was kneeling....
+The officer asked, "Is this your bike?"
+My great-grandfather nodded.
+The officer asked again, "Is this the man who stole your bike?"
+He nodded again.
+They interrogated the thief, who denied stealing the bike.
+They asked him one last time, and he denied it yet again.
+On the third time, the officer drew his sword, and promptly chopped the thief's head off.
+My great-grandfather fainted, and landed in the hospital for three days.`,
+       replies: []
+     },
+     {
+       username: "[Deleted user]",
+       url: null,
+       story: `My great-grandfather was a stepbrother of Lim Bo Seng. During the first year of the Japanese occupation, he was approached by the Kempeitai in the middle of the night and asked if he knew the whereabouts of Lim Bo Seng.
+Nobody really knows for sure what happened to him afterwards, but what I was told is that after he refused to provide any information, he was arrested and then drowned somewhere in Punggol.
+Somehow, the rest of his family (including my grandfather, who was 9 at the time) managed to escape detection and maintained a low profile throughout the occupation period.`,
+       replies: []
+     },
+     {
+       username: "pjayaredee",
+       url: "https://www.reddit.com/r/singapore/comments/9xlseu/what_is_your_familys_story_on_the_japanese/",
+       story: `My grandma & her sisters were shipped off to the Bahau commune. Both her sisters died there from malaria. Her father & uncle were sent to work on the railway and never came back, mother died before WWII began.... She only got to know how her Father died years later when her uncle came back. He was already crippled & ill with dysentery when they decided to wrap him up in straw sheets and just bury him alive with those who recently died or who were about to die from disease.`,
+       replies: []
+     },
+     {
+       username: "sl0thcakes",
+       url: "https://www.reddit.com/r/singapore/comments/9xlseu/what_is_your_familys_story_on_the_japanese/",
+       story: `Elizabeth Choy was my great-grand aunt!... I do know that after my great-grand Aunt was released from being imprisoned, a lot of people who knew her avoided her and pretended that they didn't because they feared they would be interrogated/captured as a POW too.`,
+       replies: []
+     },
+     {
+       username: "microtek789",
+       url: "https://www.reddit.com/r/singapore/comments/9xlseu/what_is_your_familys_story_on_the_japanese/",
+       story: `My grandfather was in Malacca during the Japanese invasion. There were hardly any shots fired because all the British troops had already fled to Singapore. Some looters were caught and had their heads chopped off and stuck on poles at the bridge of the town centre as a grim reminder to not mess around. Eurasian girls were rounded up and brutally raped.`,
+       replies: []
+     },
+     {
+       username: "YWHJ",
+       url: "https://www.reddit.com/r/singapore/comments/9xlseu/what_is_your_familys_story_on_the_japanese/",
+       story: `The Japanese army was super sadistic. They pretended to offer job for the citizen but those who volunteered were brought to a place to be gunned down. My father escaped because he was told not to volunteer as it was a hoax.`,
+       replies: []
+     },
+     {
+       username: "Koufas",
+       url: "https://www.reddit.com/r/singapore/comments/9xlseu/what_is_your_familys_story_on_the_japanese/",
+       story: `My grandma was 16 when the bombing of SG happened. She said they first happened at night when everyone was asleep, the air raid alarms woke them up first. Awhile after that there were bombings that started.... Most of the time she was indoors since it was at night, but once they came during the day in 42. It was a mad scramble for shelter, and every time after a bombing. There would be bloody bodies that lined the street.... Some of the houses in her kampong were destroyed, and some of her neighbours were gone as well.`,
+       replies: []
+     },
+     {
+       username: "Theanstolifeis42",
+       url: "https://www.reddit.com/r/singapore/comments/9xlseu/what_is_your_familys_story_on_the_japanese/",
+       story: `My grandpa was pretty young in the war. When he saw Chinese men boarding the lorries, he wanted to get on too because he thought they were off to work. Grandpa wanted to earn a bit of cash for the family, so he tried to climb up. But these were the Chinese men selected for execution - the Japs would herd them up, drive them to the beaches and gun them down en masse. The Japs had a special hatred for the Chinese cos of their strong resistance against the Jap attacks in China.
+Fortunately a Jap soldier spotted him, pulled him off and gave him a good thrashing. Our other family members weren't so lucky though - two granduncles were selected and never seen again.
+Our family ate a lot of tapioca to survive. The women would darken their faces with dirt just to avoid being targeted by the Jap soldiers. One grandaunt on my in-law's side wasn't so fortunate. She killed herself by running into a wall to avoid a rape.... An old family friend told us stories of his family in Malaya. His dad was a businessman (a grocer I think?) and the Japs forced him to work with them. A fellow businessman was jealous of how the amount of business he was getting, and told the Japs he was a China sympathiser. Family friend's dad was arrested and interrogated for a month. Fortunately no torture was involved, but the moment he came out of jail, he packed his bags and fled to Singapore. A year later when he visited Malaya, he found out the Japs had executed the informer and his entire family for false information.`,
+       replies: []
+     },
+     {
+       username: "veryfascinating",
+       url: "https://www.reddit.com/r/singapore/comments/9xlseu/what_is_your_familys_story_on_the_japanese/",
+       story: `My grandfather was a young boy during the occupation. One day he was walking on the streets, came across a Japanese soldier but for some reason he didn't bow. Maybe it was just the start of the occupation so he didn't know he was supposed to bow or something.... The Japanese soldier called him over and gave him one tight slap on his left side of his head. The slap was so hard, it made him permanently deaf in his left ear.`,
+       replies: []
+     },
+     {
+       username: "bryansng",
+       url: "https://www.reddit.com/r/singapore/comments/9xlseu/what_is_your_familys_story_on_the_japanese/",
+       story: `My grandparents had tapioca and sweet potatoes for almost every meal`,
+       replies: []
+     },
+     {
+       username: "amightymouse",
+       url: "https://www.reddit.com/r/singapore/comments/9xlseu/what_is_your_familys_story_on_the_japanese/",
+       story: `Grandfather was rounded up with a bunch of men as part of Sook Ching and placed on the back of a lorry. As they reached the destination, where they knew they were going to be shot, he jumped off the back of the lorry and ran for his life with some other men.... He made it.`,
+       replies: []
+     },
+     {
+       username: "[Deleted user]",
+       url: null,
+       story: `I remember my grandma telling me how a Japanese Soldier use to come by my great grandfather's house to play with my grandma as a child because she reminds him of her daughter about her age back home in Japan. He brought rations and food to the family when he had enough.. for them.
+I agree with you, not all occupiers/aggressors are monsters. They're just there because they have been thrown into it without much choice.`,
+       replies: []
+     },
+     {
+       username: "Notaplum",
+       url: "https://www.reddit.com/r/singapore/comments/9xlseu/what_is_your_familys_story_on_the_japanese/",
+       story: `When my Dad was about 7-ish he was chased after by a Japanese soldier for wearing a pair of shorts that had the number "77" on it, he told me that its because the date 7/7 had some significance to China's history, but I never clarified with him about this. He also told me "Heng AH I fast runner".
+He also lived through bombings from air raids, he recalled that one of his grandaunts was hit by an explosion and her body flew over the roof.
+Everyone then was especially battling hunger, he witnessed his uncle picking up a rotting chicken which had been dead for days and then eating it.`,
+       replies: []
+     },
+     {
+       username: "Adingding90",
+       url: "https://www.reddit.com/r/singapore/comments/9xlseu/what_is_your_familys_story_on_the_japanese/",
+       story: `The year was 1944. Grandpa was a villager and failed to step off the road and bow to a group of Japanese soldiers (mandatory at the time) because he didn't see them coming. He got several ribs and teeth broken, and after they were done, they tossed him two corpses and made him bury them at the side of the road. In another incident, Grandma was literally dragged off the road on the way home from school by a group of Japanese soldiers. They were about to rape her but, fortunately, left in disgust when they discovered she was on her period at the time.`,
+       replies: []
+     },
+     {
+       username: "jaslyn__",
+       url: "https://www.reddit.com/r/askSingapore/comments/1mo10c1/what_were_some_lesser_known_facts_observations/",
+       story: `Grandmother chopped off all hair and pretended to be boy
+Tapioca. Tapioca everyday.
+Grandfather went and looted machinery instead of rice. Set up sugar cane factory or something after that... Apparently lots of food disappeared and those born in those era had no idea what they were. (One of my grandparents idk who thought that chocolate was shit because they were born and grew up never seeing it due to rationing)`,
+       replies: []
+     },
+     {
+       username: "yusoffb01",
+       url: "https://www.reddit.com/r/askSingapore/comments/1mo10c1/what_were_some_lesser_known_facts_observations/",
+       story: `my late grandfather had a scar. he was shot on his thigh for not bowing properly. lived to 92`,
+       replies: []
+     },
+     {
+       username: "hugthispanda",
+       url: "https://www.reddit.com/r/askSingapore/comments/1mo10c1/what_were_some_lesser_known_facts_observations/",
+       story: `Grandparents worked on death railway. They saw many people drop dead. The stories of ethnic chinese dressing up as malays were true. WW2 era Imperial Japanese soldiers preferred east asian looking women. My grandmother did it to avoid getting raped, and thankfully she wasn't.`,
+       replies: []
+     },
+     {
+       username: "Alert-Fan-5991",
+       url: "https://www.reddit.com/r/askSingapore/comments/1mo10c1/what_were_some_lesser_known_facts_observations/",
+       story: `Heard from my mum my grandpa was just trying to put food on the table by selling small items on the street but was caught and severely beaten by the Japanese soldiers and he died a few days later`,
+       replies: []
+     },
+     {
+       username: "Ambitious_Bet_9932",
+       url: "https://www.reddit.com/r/askSingapore/comments/1mo10c1/what_were_some_lesser_known_facts_observations/",
+       story: `Old family lore: Family was historically very wealthy, but Japanese compulsorily acquired the family timber business. Grand-uncle then turned to Japanese resistance fighting. Grandmother, who was renowned for her beauty, helped his resistance fighters by smuggling guns under her petticoat (!!) across the causeway and got away with it because she charmed the Jap soldiers guarding the borders.... Later on, grandmother remarried a man whose 1st wife had been Lim Bo Seng's sister, a very cultured and refined heiress. LBS' sister had sadly gone mad during war because the Japs had tortured her to find out details of LBS' whereabouts (hence, post-war, her husband remarried grandmother). Grandmother always cared for the 1st wife, even long after after her 2nd husband passed. She said it was the right thing to do given how much the Lims had sacrificed for Singapore.... Grandmother's children (ie my parent's gen) grew up with the 1st wife in the house, and said that the only time she showed some semblance of her former cultured self was when she was playing the piano, which she would do beautifully albeit at all odd hours of the night.`,
+       replies: []
+     },
+     {
+       username: "LORD-SOTH-",
+       url: "https://www.reddit.com/r/askSingapore/comments/1mo10c1/what_were_some_lesser_known_facts_observations/",
+       story: `My late grandma told me various stories about the Japanese occupation.
+When you see any Japanese soldier, regardless of rank, you have to bow to them , otherwise they will slap you hard.
+Offhand, other interesting stories with supernatural elements....
+1. The Chinese believe in Mediums. During the initial aerial bombardment of Singapore, the God Nezha, through his medium promised to protect his followers. So the building housing his followers was miraculously safe whilst all the surrounding buildings were levelled by Japanese bombers . If I recall correctly, the bomb that fell into the deity protected building was a dud, so it did not go off.
+2. Indian Hero There was the case of some evil Japanese officer who raped many women in Malaysia. An Indian man stepped up, attacked the soldiers at night whilst they were sleeping, killed them all, including the Japanese officer, and beheaded the officer with his sword. The hero then wrote down his own name and confessed to the killings, so that the Japanese would not punish others for his act. He then fled south to Singapore.
+He claimed that the ghost of the Japanese officer pursued him every night , and asked for the return of his head.`,
+       replies: []
+     },
+     {
+       username: "Personal-Shallot1014",
+       url: "https://www.reddit.com/r/askSingapore/comments/1mo10c1/what_were_some_lesser_known_facts_observations/",
+       story: `My grandfather told me his very own story before....
+He and his father were born in China, … both of them took a boat and fled to a fishing village in Malaysia.`,
+       replies: [
+         {
+           username: "Calkch1986",
+           url: "https://www.reddit.com/r/askSingapore/comments/1mo10c1/what_were_some_lesser_known_facts_observations/",
+           story: `The fishing village was key to their survival, because it was a predominantly Malay population (they were the only two Chinese families hiding in the village after fleeing China - and my grandmother was from that other family). When the Japanese arrived to the village to search for Chinese people, he said both of the families had to seek refuge in Malay homes, and tear down any signs of their empty house being Chinese e.g. calligraphy, or any items that has Chinese words.
+Not in Singapore or Malaysia, at least not until much later in my grandmother's life.... Both my grandmother and her sister were still in China when the Japanese invasion occurred. Their relatives managed to hide them in a hidden part of the house, but my great-grandfather was killed, and my great-grandmother was gang-raped before being murdered. All witnessed by both of them while they were hidden. I believe this trauma is one of the reasons they struggled with understanding and expressing familial love, as such things were taken from them at a young age.
+After the ordeal, they didn't even have time to bury their parents. They gathered whatever they could and fled the country. In an attempt to increase their chances of survival, a group of relatives took my grandmother's sister to Malaysia, while my grandmother escaped to Hong Kong. Sadly, both places were later occupied by the Japanese as well. Of course luckily both groups survived the war.... To this day, my grandmother still occasionally cries at night.`
+         }
+       ]
+     },
+     {
+       username: "lokcer79",
+       url: "https://www.reddit.com/r/askSingapore/comments/1mo10c1/what_were_some_lesser_known_facts_observations/",
+       story: `This happened when I was quite young. My grandfather was having his nightly beer and started to talk about old days. He suddenly sang something in an unknown language. All while singing, he had tears in his eyes. When he finished the song, he explained that it was the Japanese anthem that he was forced to memorize during that time.`,
+       replies: []
+     },
+     {
+       username: "Disastrous-Bench5543",
+       url: "https://www.reddit.com/r/askSingapore/comments/1mo10c1/what_were_some_lesser_known_facts_observations/",
+       story: `my grandmother was a young teen during ww2. she shared w me that the japanese soldiers raped many women, and she was once chased by a japanese soldier (who probably intended to rape her). she ran into a huge forest with very long grass and hid somewhere. the soldier took out his bayonet and stabbed randomly into the grass for quite a while but miraculously missed her, and she escaped by the skin of her teeth.`,
+       replies: []
+     },
+     {
+       username: "Bike_Hunt",
+       url: "https://www.reddit.com/r/askSingapore/comments/1mo10c1/what_were_some_lesser_known_facts_observations/",
+       story: `My grandfather was about 9 when they invaded.
+One night the Japanese stormed a home in his kampong to interrogate people. He happened to be hiding there, and he took to climbing into the roof rafters to hide. Being a skinny small boy he managed to evade being spotted up in the roof along with some other kids.... He saw men have wooden splinters shoved up under their fingernails for failing to give answers the Japanese were after. He saw others get beaten to pulp.
+He was up there for so many hours, unable to sleep for fear he'd snore or give himself away. Finally they left, but he remained for a long while more before coming down.
+The upside was that one of the other kids hiding later became my grandmother.`,
+       replies: []
+     },
+     {
+       username: "Newez",
+       url: "https://www.reddit.com/r/askSingapore/comments/1mo10c1/what_were_some_lesser_known_facts_observations/",
+       story: `Grandfather was not involved in any rebel activities but was brought in for questioning by Japanese soldiers. They used cigarettes to burn his face and slap his ears but couldn't get anything . I supposed he got off lightly relative to other horror stories.`,
+       replies: []
+     },
+     {
+       username: "Individual_Sir_4638",
+       url: "https://www.reddit.com/r/askSingapore/comments/1mo10c1/what_were_some_lesser_known_facts_observations/",
+       story: `My grandfather's village was occupied and according to him the occupying jap officer was chinese speaking. According to that officer, his sword would have to see blood once unsheathed and at that time, a wild dog walked past and that officer chose to slay that doggo instead and spared the village but in return the villagers had to provide their crops to the soldiers.`,
+       replies: []
+     },
+     {
+       username: "hantanemahuta",
+       url: "https://www.reddit.com/r/askSingapore/comments/1mo10c1/what_were_some_lesser_known_facts_observations/",
+       story: `Grandma was a toddler then and she said that she sometimes dressed like a boy while most of the time she was hidden inside the rice grain container under the house whenever the Japanese patrols comes.`,
+       replies: []
+     },
+     {
+       username: "wildseas7788",
+       url: "https://www.reddit.com/r/askSingapore/comments/1mo10c1/what_were_some_lesser_known_facts_observations/",
+       story: `My great grandmother shared with me about grabbing her toddler (my eldest grand aunt) in 1 hand and carrying my infant grandma in another, sneaking out of the house and hiding in the tall grass while trying to keep my infant grandma from crying. All the anxiety because she was also very worried about accidently suffocating my grandma while trying to keep her quiet.`,
+       replies: []
+     },
+     {
+       username: "Grey_Sky_Morning",
+       url: "https://www.reddit.com/r/askSingapore/comments/1mo10c1/what_were_some_lesser_known_facts_observations/",
+       story: `Grandparents were realists. Grandma dressed like a boy and put dirt and crap all over herself when she went out to avoid getting raped. Grandpa swallowed pride and learnt Japanese to work. Both pretended to be Malay. Easy since they were Peranakan.`,
+       replies: []
+     },
+     {
+       username: "TheFearlessCow",
+       url: "https://www.reddit.com/r/askSingapore/comments/1mo10c1/what_were_some_lesser_known_facts_observations/",
+       story: `The only story that I've heard about my grandfather from my aunt. I've never seen him before because he passed away before all of his grandchildren was born except for the oldest.... When the Japanese came to Singapore, he decided to self-learn Japanese because he knew that they were here to stay whether he liked it or not.... One time he got into some trouble (not sure what it was but he was in danger) and he had his business and land taken away from him by the soldiers. He tried to communicate with them using his self-learnt Japanese and apparently it was decent enough to the point where they gave back what they took from him and gave him a job as a Japanese translator.`,
+       replies: []
+     },
+     {
+       username: "Cytokine-Alpha",
+       url: "https://www.reddit.com/r/askSingapore/comments/1mo10c1/what_were_some_lesser_known_facts_observations/",
+       story: `I am Malay. My maternal grandmother and great grandmother were chinese Teochew refugees who chose to flee Yunnan to Singapore early to avoid the growing tensions between Japan and China in 1934… When the Japanese arrived a few years later, they mistook them as malay natives (since they learnt to speak malay) and left them alone. My grandmother could sing Aikoku Kōshinkyoku at her old age now since she studied in the era of imperial japanese rule in Singapore.... My great grandfather (technically step greatgrandad) sheltered chinese civilians in their kampung house and disguised them as javanese/malays to help them avoid persecution. One of the malays who protected my grandmother ended up becoming my maternal grandfather.`,
+       replies: []
+     },
+     {
+       username: "gamnolia",
+       url: "https://www.reddit.com/r/askSingapore/comments/1mo10c1/what_were_some_lesser_known_facts_observations/",
+       story: `My grandma recounted that she was a very young girl and when the bombs came and japs were shooting, they all ran and put thick blankets on themselves hoping to shield from the stray bullets. She said 1 japanese soldier caught them but only took their blankets while allowing them to go. She also talked about girls having to dirty their faces so the japanese won't rape them.`,
+       replies: []
+     },
+     {
+       username: "Express-Pineapple-49",
+       url: "https://www.reddit.com/r/askSingapore/comments/1mo10c1/what_were_some_lesser_known_facts_observations/",
+       story: `Heard from my grandfather who was around 6/7 years old at the time. He grew up in a rich peranakan family and someway or another my great grandmother managed to get hold of a pass or permit from the Japanese that allowed their house to be skipped over during spot checks. As such, they helped to hide all the Chinese girls upstairs.`,
+       replies: []
+     },
+     {
+       username: "Austenland332",
+       url: "https://www.reddit.com/r/askSingapore/comments/1mo10c1/what_were_some_lesser_known_facts_observations/",
+       story: `My grandmother was a young woman at that time and had memories of a Japanese officer who was kind to her and had given the family additional ration of rice .... Her most painful vivid memory of losing her dad was when he climbed into the truck with other men and was never seen again. He together with the others were killled by the Japanese soldiers.`,
+       replies: []
+     },
+     {
+       username: "Tubbybeefy",
+       url: "https://www.reddit.com/r/askSingapore/comments/1mo10c1/what_were_some_lesser_known_facts_observations/",
+       story: `My grandpa always told the story of how my great grandpa saved our family by accident.
+Apparently my family received a notification informing them to report to a certain location for "registration". On the day they wanted to go, my grand uncle had gone out for the day and not yet returned home. When it was time to go for the registration, my great grandpa said, "it's getting dark, let's go tomorrow instead."
+Later on, they learned that of their neighbours who went to get registered, the men didn't come back. They put 2 and 2 together and spent the rest of the Occupation in hiding.... My grandpa loved to embellish a little, so take his story with a pinch of salt, but whenever he told this story, he would tear a little.`,
+       replies: []
+     },
+     {
+       username: "Intentionallyabadger",
+       url: "https://www.reddit.com/r/singapore/comments/9xlseu/what_is_your_familys_story_on_the_japanese/",
+       story: `My great grandfather (or is it great great) worked for the British army doing menial chores.
+Needless to say their house got searched and the japs found some British memorabilia.
+He got taken away at night. They fled and hid in drains for about 6-7 months.
+Ate sweet potatoes and some kind strangers did help them out.`,
+       replies: []
+     },
+     {
+       username: "vickytsc",
+       url: "https://www.reddit.com/r/singapore/comments/9xlseu/what_is_your_familys_story_on_the_japanese/",
+       story: `my grandma had a somewhat easier time during ww2. a high ranking jap officer lived near her kampong and 1 of her neighbors spoke jap, thus neighbor went to visit jap officer & asked for peace. jap officer agreed. so that was how she managed to survive the war without a scratch.`,
+       replies: []
+     },
+     {
+       username: "normificator",
+       url: "https://www.reddit.com/r/singapore/comments/9xlseu/what_is_your_familys_story_on_the_japanese/",
+       story: `Grandma said they used to throw babies in the air and bayoneted them when they fell.`,
+       replies: []
+     },
+     {
+       username: "PM_ME_TRUE_LOVE_PLS",
+       url: "https://www.reddit.com/r/singapore/comments/9xlseu/what_is_your_familys_story_on_the_japanese/",
+       story: `I heard from dad, whom was not born at that time, that my grandmother brought my uncle and aunt to hide in the forest. Living on just sweet potatoes. Rice was a sacred item then.`,
+       replies: []
+     },
+     {
+       username: "[Deleted user]",
+       url: null,
+       story: `Heard from my mom that my grandmother had to marry my grandfather or she (grandma) would have been raped and possibly murdered by the Japanese soldiers.`,
+       replies: []
+     },
+     {
+       username: "4wardobserver",
+       url: "https://www.reddit.com/r/singapore/comments/9xlseu/what_is_your_familys_story_on_the_japanese/",
+       story: `In the "ulu" areas the Japanese soldiers would often walk down the streets. Whatever the reason they were there for, every single female from young teens through mid twenties would run for and hide in case the Japanese soldiers decided they wanted to have some fun and the girls would only come out after the soldiers were gone.`,
+       replies: []
+     },
+     {
+       username: "KenryuuT",
+       url: "https://www.reddit.com/r/singapore/comments/9xlseu/what_is_your_familys_story_on_the_japanese/",
+       story: `Granddad on mom's side was taken for Sook Ching and shot on a beach. Chest wound, but the bullet miraculously missed his vitals. He was saved by people observing the beach later on. Apparently there were quite a lot of survivors as the Japanese weren't quite as thorough at finishing off the dying as our history books suggest.`,
+       replies: []
+     },
+     {
+       username: "thehillshavetits",
+       url: "https://www.reddit.com/r/singapore/comments/9xlseu/what_is_your_familys_story_on_the_japanese/",
+       story: `Granduncle fought against the japs when he was 18. No idea which unit but he's Malay so i'm assuming Malay Regiment? Got captured and almost beheaded but they decided he was too young and sent him to a japanese school. Post WW2, fought against the commies and eventually retired as a Captain.`,
+       replies: []
+     },
+     {
+       username: "theoracleofosiris",
+       url: "https://www.reddit.com/r/singapore/comments/9xlseu/what_is_your_familys_story_on_the_japanese/",
+       story: `Grandma said the japs were atrocious. They would throw babies up in the air then bayonet them as they fall back down.
+Grandpa learnt Japanese in school and can still recite the Japanese alphabets.`,
+       replies: []
+     },
+     {
+       username: "fishRfriendsNOTfud",
+       url: "https://www.reddit.com/r/singapore/comments/9xlseu/what_is_your_familys_story_on_the_japanese/",
+       story: `My great-grandparents (paternal grandfather's parents) got a plot of land in Endau, Johor after Singapore was invaded. They felt Singapore was too small, populated and unsafe. Often subjected to bombings and raids by the Japanese. They lived off the land there and did some farming and opened a provision store to sell simple goods. After WW2 they returned back to their house around where Bukit Batok is today and found it relatively intact. However I sometimes wonder what would have happened if they stayed in Malaysia and didn't come home...`,
+       replies: []
+     },
+     {
+       username: "[Deleted user]",
+       url: null,
+       story: `Have some recollection of my great grandma (maternal grandma's mum) telling us stories of hiding in huge flower pots to hide from the Japanese solders. Also rubbed soot from the kitchen on their faces and cut their hair really short to look ugly/dirty so they wouldn't get raped or something. She was quickly married off around the time of the Japanese occupation when she was around 18 so that she had a husband for protection. She passed away 1.5 years ago RIP.`,
+       replies: []
+     },
+     {
+       username: "avi6274",
+       url: "https://www.reddit.com/r/singapore/comments/9xlseu/what_is_your_familys_story_on_the_japanese/",
+       story: `I will share 2 anecdotes from my grandmother....
+1. Apparently the Japanese targeted Chinese people so there were multiple Chinese people that asked to seek refuge in her house (she is Indian) to escape the wrath of the Japanese.
+2. One time she saw the Japanese had a lorry filled with British prisoners and one of them asked for water but when she tried to give him some she was told off by a Japanese soldier.`,
+       replies: []
+     },
+     {
+       username: "LordBurntSienna",
+       url: "https://www.reddit.com/r/singapore/comments/9xlseu/what_is_your_familys_story_on_the_japanese/",
+       story: `My Grandpa was from a small malayan village in malaysia. So one day he went fishing with his friends quite a distance away, and they heard an explosion. They rushed back to see their village was a sea of red, and lots of screaming and shouting in the area. There were japanese soldiers chasing the villagers, shooting and cutting them down with bayonets. Upon seeing that, my frightened grandpa ran away into the forest along with a few others. However they were not safe, some Japanese soldiers chased after them while they were running. One of them caught up close with my grandpa and made a deep cut on the lower part of his leg with a bayonet. My grandpa only managed to escape from the ordeal because a villager threw a bucket at the soldier, and he half ran half drag himself towards a bush among the trees and lay flat. So he spend alot of time lying flat the sky turn more dark, before wrapping his wound and making his way through the woods for a long time`,
+       replies: []
+     },
+     {
+       username: "cdf",
+       url: "https://www.reddit.com/r/singapore/comments/9xlseu/what_is_your_familys_story_on_the_japanese/",
+       story: `Mother was in Malaysia, early teens then, went to school during Japanese occupation, wished they stayed a few years later so she could have mastered Japanese. Loved the Japanese soldiers who handed out dolls. Totally encouraged me to pick up Japanese. Yeah, what alternate reality that was...
+Even my father didnt have anything bad to say. Life sucked then, Japanese or British. Less crime under the Japanese though...`,
+       replies: []
+     },
+     {
+       username: "agedpotatojuice",
+       url: "https://www.reddit.com/r/singapore/comments/9xlseu/what_is_your_familys_story_on_the_japanese/",
+       story: `My great grandma worked for a Japanese family as a domestic helper. She think they're great because they gave her a job (enable her to provide for the family). They were apparently very nice to her. She said they would give her meat on my great grand dad's birthday, asking her to cook a nice meal to celebrate his birthday`,
+       replies: []
+     },
+     {
+       username: "idevilledeggs",
+       url: "https://www.reddit.com/r/singapore/comments/9xlseu/what_is_your_familys_story_on_the_japanese/",
+       story: `This one is passed down from my mother from my maternal grandfather, so very much oral history.
+● when the Japanese first landed, my grandfather was working in a charcoal shop. When the soldiers came, everyone worked together to provide them with hospitality (food, rest etc.). In exchange, the soldiers wrote for the workers there a letter to say they were "safe". That letter probably saved him during the Sook Ching massacre. that letter was ripped up by another group later in an unrelated incident....
+● when things got bad, he moved to work and live in a kelong around Punggol. He thought that he could fish so he wouldn't starve. His job was to pick up/drop of batteries they used for lights. The kelong later collapsed during a storm since they couldn't get the wood to repair, but he managed to survive with some cuts.
+● One time, when he was cycling past some Japanese Soldiers, he had to stop to bow to them. Another guy who didn't was stopped and beaten.`,
+       replies: []
+     },
+     {
+       username: "gacocle",
+       url: "https://www.reddit.com/r/singapore/comments/9xlseu/what_is_your_familys_story_on_the_japanese/",
+       story: `Heard these from my grandma. she was singled out by the japanese soldiers to be brought into their camp. even though she pretend to be a boy by cutting her hair and wearing male clothes when she abt 10yrs old. Fortunately, the senior soldier in the group let her go.
+Her family was a supporter of the UK troops and lim bo seng supplying them some food in the jungle. Was given some letter of commendation but they burn it after UK surrender for fear of reprisals.
+Heard bowing to them at roadblocks and saying some Japanese words of greeting is the norm. Thus she remembers some Japanese greeting even in her seventies.`,
+       replies: []
+     },
+     {
+       username: "KirinHayune",
+       url: "https://www.reddit.com/r/singapore/comments/9xlseu/what_is_your_familys_story_on_the_japanese/",
+       story: `my great grandpa escaped sook ching. he was marked as anti japanese during the screening and carted away in a truck/lorry with other 'anti japanese' men, but they stopped for the night & housed them somewhere (like a temporary stop over point, I think). The japanese asked if anyone could cook-- my great gramps (who had never cooked a day in his life) volunteered, and went to gather firewood, where he proceeded to run away and not turn back. He was lucky enough to find a small hut in the forest where the inhabitants took him in & hid him until morning where he returned to the kampong. I'm lucky enough to exist because of his courage & wit.`,
+       replies: []
+     },
+     {
+       username: "noobmook",
+       url: "https://www.reddit.com/r/askSingapore/comments/1iqndgv/what_are_some_ww2_experiences_in_singapore/",
+       story: `Grandfather was distributing candles and was arrested. For some context, the Japanese rationed out electricity very sparingly as a way to control the people. Power was turned off at night, and people had to resort to using candles and oil lamps. But these items were contraband, and the Japanese arrested my grandfather when someone whistleblew on him. On hindsight, maybe the Japanese just wanted to make an example out of people who stood out.
+They beat him up and subjected him to the infamous "water torture" - where they shoved a water hose in his mouth and turned on the tap. Apparently there were others who died this way, when their stomachs get kicked or were stomped in when full of water. Fortunately that did not happen to my grandfather.
+After days of inhumane treatment, they brought the entire group of prisoners together in a room with 2 doors. They made each prisoner choose which door to go through. Apparently, one led to freedom, the other led to the firing squad or something.
+My grandfather prayed and picked one at random. But just as he was about to walk towards that door, a Japanese soldier shouted something very aggressively at him and gave him a hard slap across his face. This diverted him to the other door, which he was shoved into. Initially, my grandfather thought he was slapped because he was walking too slowly. But the door he was diverted into turned out to be the safe path. He was kicked out of the holding station, and managed to make his way home.
+Nobody knew for sure why that particular Japanese soldier did what he did. Perhaps he was sick of all the killing and torture, and this was his way of saving some of the prisoners. He can't openly disobey orders after all. Whatever the case, i guess i have to thank him for us being around today.
+As for the grandfather on the other side of the family, he was lucky as he was a cook and had good culinary skills. The Japanese made him the personal chef for one of their army officers. They would make him taste every dish before it was served to the VIPs. He would purposely take huge portions of the better tasting dishes to "test"`,
+       replies: []
+     },
+     {
+       username: "ieatbreadrolls",
+       url: "https://www.reddit.com/r/askSingapore/comments/1iqndgv/what_are_some_ww2_experiences_in_singapore/",
+       story: `My grandma shared about digging for Tapioca/ sweet potato to eat. Their kampung was near a large forested area, at bukit brown. So they still could get tropical fruits when it was in season.
+She had an older brother who went out to collect rations, but never returned.
+Her mum gave all the girls crewcuts and rubbed charcoal on their faces to make them look unattractive.
+The Malay neighbours in the kampung also helped to "hide" the Chinese kids at their homes when the Japanese troops came round to spot check/ raid. Apparently the Japanese troops really disliked the Chinese folks, but were okay with the Malay and Indian folks.
+Years after the war, they found an unexploded bomb near the kampung. The men brought it deep into the forested area and buried it with lots of salt.`,
+       replies: []
+     },
+     {
+       username: "Financial_Language34",
+       url: "https://www.reddit.com/r/askSingapore/comments/1iqndgv/what_are_some_ww2_experiences_in_singapore/",
+       story: `My great grandfather was put into forced labor for the jap train line.
+He was presumed dead and my great grandmother remarried... The sad part is, he didnt die. He came back after the war but i was told by my grandmother he look sickly and died a few weeks later.`,
+       replies: []
+     },
+     {
+       username: "ChocolateAlert19",
+       url: "https://www.reddit.com/r/askSingapore/comments/1iqndgv/what_are_some_ww2_experiences_in_singapore/",
+       story: `My grandma was adopted into British parents (family full of adoptees) who settled in Singapore so she had lots of siblings. 2 of her brothers ran a restaurant together and Japanese soldiers would go in and eat regularly, and would make one of the brothers dance/sing for their entertainment. They'd be sooo cruel because if the food/performance wasn't "up to their standards", they would beat the brothers up.
+My granddad on the other side of the family (not married to above grandma) was a cobbler/carpenter earning what my mom called "banana money" during the Occupation. He earned quite a hefty sum but it all became useless cause I think it was over printed?`,
+       replies: []
+     },
+     {
+       username: "Ok_Comparison_2635",
+       url: "https://www.reddit.com/r/askSingapore/comments/1iqndgv/what_are_some_ww2_experiences_in_singapore/",
+       story: `My MiL from HK came over recently and was telling me about how they had babies thrown in the air and bayoneted as well.
+And I read about how 2 japanese officers were in competition to see how many people they could behead and it was even covered and followed closely by the japanese newspapers at the time. Truly disgusting.`,
+       replies: []
+     },
+     {
+       username: "sfw_sfw_sfw_sfw",
+       url: "https://www.reddit.com/r/askSingapore/comments/1iqndgv/what_are_some_ww2_experiences_in_singapore/",
+       story: `Grandma stayed with an Indian family for a short while. Picked up their language while staying with them. But from snippets with my talk with her, she could play mahjong and the Japanese soldiers would just walk in and watch them play. She always said they were fierce but mostly left them alone. She would always remember the phrase bakayarou as she heard them the often. My uncle was made to sit on the roof of tall building and look out for allies plane. It helped my family to get some rice.`,
+       replies: []
+     },
+     {
+       username: "lansig_chan",
+       url: "https://www.reddit.com/r/askSingapore/comments/1iqndgv/what_are_some_ww2_experiences_in_singapore/",
+       story: `My Granddad basically pretended to teach the Japanese martial arts, since he was known for it, got paid decently and managed to build a wealth that has lasted pretty well till today.`,
+       replies: []
+     },
+     {
+       username: "xoxy8z",
+       url: "https://www.reddit.com/r/askSingapore/comments/1iqndgv/what_are_some_ww2_experiences_in_singapore/",
+       story: `My grandma taught me a few Japanese words she remembered from attending school during the occupation when Japanese was part of the curriculum. At the same time, she shared stories of the fear of Japanese soldiers, escaping to kampungs, hiding in pigsties, and witnessing gruesome deaths displayed in the streets. One of our relatives even had a Japanese soldier as a boyfriend, to the horror of the family.`,
+       replies: []
+     },
+     {
+       username: "OkProject9657",
+       url: "https://www.reddit.com/r/askSingapore/comments/1mo10c1/what_were_some_lesser_known_facts_observations/",
+       story: `Idk if it's true or not but my grandmother who was born after the war said that her father, brother and grand uncle were taken by the japs probably to be executed but miraculously the japs sent them back.
+Also she said that her elder siblings saw a group of soldiers tie a woman to a tree and stab the poor soul to death with their bayonets and allegedly that tree is still standing and is haunted near Joo Chiat Lane`,
+       replies: []
+     },
+     {
+       username: "EarthwormJane",
+       url: "https://www.reddit.com/r/askSingapore/comments/1fh1ct8/comment/lnctqig/",
+       story: `I honestly cannot remember if this occured in Singapore or Malaysia because its one big blur. But..
+During this time, my grandfather lost his first wife. My grandpa held some administrative position with British government I believe. Someone was being accused of being a double agent between the Chinese Communists and the Government and that person lied and said it was my grandpa.
+They came to the house and shot his wife and some of their other family members. My aunt and uncle were very young children at the time. My uncle was kidnapped (managed to be found after everything was over) and my aunt escaped with her aunt.... Eventually, the truth came out and the original accused was also killed. However if not for this, my grandpa wouldn't have married his second wife (my grandma) and I wouldn't have been born so..`,
+       replies: []
+     },
+     {
+       username: "Zenobiya",
+       url: "https://www.reddit.com/r/SingaporeRaw/comments/1f0jk7l/how_did_some_people_surviv_the_japanese/",
+       story: `WW2 was hard for my great-grandparents. My great-grandmother married young, only 13 years old and she had a few children when the Japanese army invaded. Her eldest was an 8 year old child, followed by a boy and a baby girl. She was terrified they would take her eldest daughter away to be a comfort girl, so she used to roll her daughter up in a bedroll and hide her under the bed everytime Japanese soldiers were spotted lingering near her kampung. She would also colour her face with charcoal to make herself as unattractive as possible so she wouldn't be taken away to be a comfort woman too.
+My grandaunt wasn't quite the same after repeatedly being hidden in this manner for hours on end. Mentally, it traumatised her and until she was older, she was afraid of leaving her house alone. This was told to me by my great-grandmother, she lived until she was 100 but the memories were painful for her to talk about.
+I had a relative who was in the back kitchen helping her mom to cook when a bomb was dropped on her street. She described the devastation of the house next door but her house was luckily mostly spared.
+My uncle described how there were dead bodies everywhere on the streets unclaimed during the invasion, many were Indonesian origin where he lived, in Geylang. When the smoke cleared, the Arabs (who were more well to do) living there would take the bodies away for washing and burial in the traditional Muslim way. Apparently there were shortages of burial shrouds, so they used whatever cloth they had on hand.`,
+       replies: []
+     },
+     {
+       username: "ranmafan0281",
+       url: "https://www.reddit.com/r/SingaporeRaw/comments/1f0jk7l/how_did_some_people_surviv_the_japanese/",
+       story: `My grandmother in law used to gather her siblings of ALL ages and hide in the latrine pits whenever they heard Japanese troops coming around. Everyone even the babies understood the assignment and would keep absolutely quiet so they weren't found and kidnapped/killed.
+One thing I find that is not talked about enough is how the teachers and anyone who wore glasses was identified as academics were arrested and killed for to their assumed activism for China.
+My grandfather lost one of his brothers this way. Caught for being a teacher, sent away and never to be seen again. I think he mentioned that people then threw away their glasses simply due to this reason.`,
+       replies: []
+     },
+     {
+       username: "Past-War6269",
+       url: "https://www.reddit.com/r/askSingapore/comments/1mo10c1/what_were_some_lesser_known_facts_observations/",
+       story: `My grandma was 6 when the war started and she had to cut off all hair and disguise as a boy and hide during the initial part of the war. Her mother (my great grandmother) owned an eatery / restaurant but I'm not sure whether the business remained open after her husband (my great grandfather died). My great grandfather passed in the war due to malaria / food poisoning - without proper medication he died in 3 days according to my grandma. She mentioned in the early days of the occupation she hid in the jungle with a bunch of other young girls and ate grass to survive. The rest of the occupation I suppose she kept a low profile and continued dressing as a boy (though I can't be certain).
+My grandfather was a young teenager and during the war and specifically during the time when they were rounding up people to be "registered", my grand father had an injury and could not walk / was in hospital and evaded certain death (as he later found out).`,
+       replies: []
+     },
+     {
+       username: "ryanridi",
+       url: "https://www.reddit.com/r/askSingapore/comments/1mo10c1/what_were_some_lesser_known_facts_observations/",
+       story: `I'm not super clear on the details but I know that my family planned on throwing my grandma away (I think I remember the idea being to leave her in a dumpster or something) because she cried a lot as a baby and was born 2 or 4 years before the war ended. They worried about her bringing Japanese attention whenever they'd hide.... I know an uncle of hers and I think some older cousin were killed. The uncle was forced to drink water to the point of throwing up then had his stomach jumped on over and over until he died…
+The reason they ended up not throwing her away is because her great grandma owned a farm out in the country and took her in instead. She ended up living in the country during the rest of occupation and then until it was time for her to go to school.
+She remembers the war ending and planes flying overhead dropping colorful pamphlets signaling the end of the war(I don't think she could read at this time though so adults must have explained to her what they said). Her and the other kids in the neighboring farmhouses apparently ran around collecting them for fun since they were supposedly pretty to them.`,
+       replies: []
+     },
+     {
+       username: "HelicopterAware491",
+       url: "https://www.reddit.com/r/askSingapore/comments/1mo10c1/what_were_some_lesser_known_facts_observations/",
+       story: `My great grandpa went to somewhere in JB called Bahau with a lot of other Catholics and Teochews because the bishop at the time negotiated for a space where they could start a new settlement.
+Many died there from Malaria because it was a swampy area and not an ideal location at all for what they wanted to do. Many who went there first wrote letters back that were coded (like if they wrote in pencil means situation is good and if they wrote in pen means situation is bad) so that their families in Singapore would know whether to make the journey there or not.
+He didn't return so I assume he died from Malaria. My great grandma and grandma (just a kid at the time) stayed in Singapore and idk how they survived..`,
+       replies: []
+     },
+     {
+       username: "youmehelp",
+       url: "https://www.reddit.com/r/askSingapore/comments/1mo10c1/what_were_some_lesser_known_facts_observations/",
+       story: `My grandma told me that there were soldiers gathering females around in the neighbourhood. My great grandma went through multiple assaults to protect one of my grandma's sister from being taken away while the others hid. Lucky both of them were spared, since that incident my grandma said my great grandmother had to constantly shave their heads and dress them up as boys to have a higher chance of safety.`,
+       replies: []
+     },
+     {
+       username: "Historical_Rich8658",
+       url: "https://www.reddit.com/r/askSingapore/comments/1mo10c1/what_were_some_lesser_known_facts_observations/",
+       story: `my late grandpa used to be a farmer and he had a small plot of land to grow his tapioca. whole family survived on chilli + tapioca. White rice was considered a luxury at that time.`,
+       replies: []
+     },
+     {
+       username: "Author",
+       url: null,
+       story: `When I asked my ahma about her recollection of ww2, she explained that she had spent her childhood in a kampong in Malaysia when ww2 stricken. (This was before she moved to sg) She was 7 then. Their kampong was by a river/lake of sorts. Her older brother was fishing alone there as the rest of the family were in the house. Suddenly, they heard a gunshot. Great grandmother ran out to find her own son lying motionless on the ground, with his ear shot off. She sat there holding her son, weeping non stop. My ahma recited this in her 90s, how traumatising and brain-altering was that moment for her to be able to still recount it so vividly even 80+ years later.`,
+       replies: []
+     },
+     {
+       username: "Flor Leow DHenrychan",
+       url: "https://www.facebook.com/National.Museum.of.Singapore/posts/onthisday-in-1941-the-first-air-raid-on-singapore-was-carried-out-by-17-japanese/985098748217504/",
+       story: `My mum is right! She used to tell me the Japanese military planes flew into Singapore that night on Dec 8th, 1941. She was a small girl back then. When they heard the planes whirring from afar, her family quickly ran out into the thick vegetation forested area and hid in deep holes dug into the ground. Each person would crawl quickly into the hole and then cover it atop with a wooden board. My mum told me no one dare to light fires at night in the open. (They used to light fires at times to do cooking at the outside of houses). Becos if the Jepun bomber planes sighted flames on the ground...ah, they would drop bombs immediately.`,
+       replies: []
+     }
+   ];
+
+
 
     const backgroundLayer = document.getElementById("backgroundLayer");
     const mainCard        = document.getElementById("mainCard");

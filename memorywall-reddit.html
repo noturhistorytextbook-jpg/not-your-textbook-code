@@ -1072,12 +1072,14 @@
       }
 
       .memory-help-dialog h2{
-        font-family:"Poppins",sans-serif;
-        font-size:1.05rem;
-        line-height:1.25;
-        color:var(--blue);
-        margin-bottom:12px;
-      }
+  font-family:"Poppins",sans-serif;
+  font-size:1.05rem;
+  line-height:1.25;
+  color:var(--blue);
+  margin-bottom:12px;
+  text-align:center;
+}
+
 
       .memory-help-dialog p{
         font-size:14px;
@@ -1117,28 +1119,30 @@
     }
 
     @media (max-width: 520px){
-      :root{
-        --searchControlHeight:42px;
-        --searchButtonSize:42px;
-        --searchGap:8px;
-        --mobileChromeHeight: 238px;
-      }
+    :root{
+  --searchControlHeight:36px;
+  --searchButtonSize:36px;
+  --searchGap:8px;
+  --safeFooterHeight:182px;
+}
 
-      .search-box{
-        display:grid;
-        grid-template-columns:42px minmax(0, 1fr);
-        gap:8px;
-      }
 
-      .search-btn,
-      .search-input{
-        height:42px;
-      }
+     .search-box{
+  display:grid;
+  grid-template-columns:36px minmax(0, 1fr);
+  gap:8px;
+}
 
-      .search-input{
-        font-size:16px;
-        padding:0 10px;
-      }
+.search-btn,
+.search-input{
+  height:36px;
+}
+
+.search-input{
+  font-size:14px;
+  padding:0 10px;
+}
+
 
       .search-option{
         padding:12px 14px;
@@ -1267,13 +1271,12 @@
     <div class="memory-help-dialog" role="dialog" aria-modal="true" aria-labelledby="memoryHelpTitle">
       <h2 id="memoryHelpTitle">How to explore the Memory Wall</h2>
       <p>
-        On mobile, this wall works like a magnifying glass over a much larger canvas.
+       Roam this memory wall
       </p>
       <ul class="memory-help-list">
-        <li>Drag with one finger to move around the wall.</li>
-        <li>Pinch with two fingers to zoom in and out.</li>
-        <li>Tap a floating card to feature it in the main card.</li>
-        <li>The top bar, menu, and search stay fixed while the wall moves underneath.</li>
+        <p>Drag with one finger to move around the wall.</p>
+        <p>Pinch with two fingers to zoom in and out.</p>
+        <p>Tap any floating card.</p>
       </ul>
       <button type="button" class="memory-help-cta" id="memoryHelpDismiss">Ok, I get it</button>
     </div>

@@ -938,16 +938,15 @@
         overflow:hidden;
       }
 
-    .mobile-card--main{
-  width: clamp(300px, 38vw, 500px);
-  min-height: unset;
-  max-width: 500px;
-  background: var(--yellow);
-  color: var(--mainText);
-  padding: 18px 20px 17px;
-  z-index: 5;
-}
-
+        .mobile-card--main{
+        width: clamp(260px, 32vw, 420px);
+        min-height: unset;
+        max-width: 420px;
+        background: var(--yellow);
+        color: var(--mainText);
+        padding: 16px 18px 15px;
+        z-index: 5;
+        }
 
 
       .mobile-card--main .username{
@@ -2409,6 +2408,19 @@ function getMobileFloatingIndexes(featured){
       const mainY = (1050 - 420) / 2;
       card.style.left = `${mainX}px`;
       card.style.top = `${mainY}px`;
+
+      const storyLength = (item.story || "").length;
+
+if (storyLength < 180) {
+  card.style.width = "320px";
+} else if (storyLength < 420) {
+  card.style.width = "380px";
+} else if (storyLength < 900) {
+  card.style.width = "430px";
+} else {
+  card.style.width = "480px";
+}
+
 
       card.innerHTML = `
         ${createUsernameHTML(item.username,item.url,"username")}

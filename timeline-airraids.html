@@ -781,45 +781,33 @@
 </head>
 
 <body>
-<header class="topbar">
-  <a class="brand" href="index.html">not your History Textbook</a>
+  <header class="topbar">
+    <a class="brand" href="index.html">not your History Textbook</a>
 
-  <button
-    class="mobile-menu-btn"
-    id="mobileMenuBtn"
-    type="button"
-    aria-label="Open menu"
-    aria-expanded="false"
-    aria-controls="mobileNavOverlay"
-  >
-    <span class="mobile-menu-btn-bar"></span>
-    <span class="mobile-menu-btn-bar"></span>
-    <span class="mobile-menu-btn-bar"></span>
-  </button>
-</header>
+    <button
+      class="menu-toggle"
+      id="menuToggle"
+      aria-label="Open menu"
+      aria-expanded="false"
+      aria-controls="mobileMenu"
+      type="button"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </header>
 
-<div class="divider"></div>
+  <div class="divider"></div>
 
-<nav class="navbar">
-  <a href="index.html" class="nav-link">Home</a>
-  <a href="cornersofthepast.html" class="nav-link">Corners of the past</a>
-  <a href="memorywall-reddit.html" class="nav-link">Memory wall</a>
-  <a href="interactivetimeline.html" class="nav-link active-link">Interactive timeline</a>
-  <a href="everydaylife.html" class="nav-link">Everyday life</a>
-  <a href="silentheroes.html" class="nav-link">Our silent heroes</a>
-</nav>
-
-<div class="mobile-nav-overlay" id="mobileNavOverlay" aria-hidden="true">
-  <div class="mobile-nav-group">
-    <a href="index.html" class="mobile-nav-link">Home</a>
-    <a href="cornersofthepast.html" class="mobile-nav-link">Corners of the past</a>
-    <a href="memorywall-reddit.html" class="mobile-nav-link">Memory wall</a>
-    <a href="interactivetimeline.html" class="mobile-nav-link active-link">Interactive timeline</a>
-    <a href="everydaylife.html" class="mobile-nav-link">Everyday life</a>
-    <a href="silentheroes.html" class="mobile-nav-link">Our silent heroes</a>
-  </div>
-</div>
-
+  <nav class="desktop-nav">
+    <a href="index.html" class="nav-link">Home</a>
+    <a href="cornersofthepast.html" class="nav-link">Corners of the past</a>
+    <a href="memorywall-reddit.html" class="nav-link">Memory wall</a>
+    <a href="interactivetimeline.html" class="nav-link active-link">Interactive timeline</a>
+    <a href="everydaylife.html" class="nav-link">Everyday life</a>
+    <a href="silentheroes.html" class="nav-link">Our silent heroes</a>
+  </nav>
 
   <div class="menu-overlay" id="menuOverlay"></div>
 
@@ -1136,7 +1124,14 @@
           build air raid shelters.”
         </p>
 
-    
+        <a
+          class="story-button"
+          href="https://www.nlb.gov.sg/main/article-detail?cmsuuid=2f893232-e511-49f8-a017-0fd3eb8591b0"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Read more about Lee Tian Soo’s recounts here.
+        </a>
 
         <div class="clear"></div>
 

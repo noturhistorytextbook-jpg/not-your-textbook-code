@@ -307,15 +307,16 @@
       z-index: 200;
     }
 
-    .desktop-nav {
-      display: flex;
-      gap: 24px;
-      flex-wrap: wrap;
-      align-items: flex-start;
-      padding: 18px 20px 0;
-      position: relative;
-      z-index: 20;
-    }
+   .navbar {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  padding: 18px 20px 0;
+  position: relative;
+  z-index: 20;
+}
+
 
     .nav-link,
     .dropdown-toggle {
@@ -665,149 +666,199 @@
       color: var(--yellow);
     }
 
-    @media (max-width: 900px) {
-      .desktop-nav {
-        gap: 18px;
-      }
+   @media (max-width: 900px) {
+  .navbar {
+    gap: 18px;
+  }
 
-      .back-button-fixed {
-        left: 24px;
-      }
-    }
+  .back-button-fixed {
+    left: 24px;
+  }
+}
 
-    @media (max-width: 768px) {
-      .topbar {
-        padding: 16px 12px 12px;
-        position: relative;
-      }
+@media (max-width: 768px) {
+  .topbar {
+    padding: 16px 12px 12px;
+    position: relative;
+  }
 
-      .brand {
-        font-size: 1rem;
-        line-height: 1.25;
-      }
+  .brand {
+    font-size: 1rem;
+    line-height: 1.25;
+  }
 
-      .mobile-menu-btn {
-        display: inline-flex;
-      }
+  .mobile-menu-btn {
+    display: inline-flex;
+  }
 
-      .divider {
-        z-index: 200;
-      }
+  .divider {
+    z-index: 200;
+  }
 
-      .desktop-nav {
-        display: none;
-      }
+  .navbar {
+    display: none;
+  }
 
-      .mobile-nav-overlay {
-        position: fixed;
-        inset: 0;
-        z-index: 1200;
-        background: rgba(26, 26, 26, 0.98);
-        padding: 88px 18px 28px;
-        overflow: auto;
-        opacity: 0;
-        visibility: hidden;
-        pointer-events: none;
-        transition: opacity 0.22s ease, visibility 0.22s ease;
-      }
+  .mobile-nav-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 1200;
+    background: rgba(26, 26, 26, 0.98);
+    padding: 88px 18px 28px;
+    overflow: auto;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.22s ease, visibility 0.22s ease;
+  }
 
-      .mobile-nav-overlay.open {
-        display: block;
-        opacity: 1;
-        visibility: visible;
-        pointer-events: auto;
-      }
+  .mobile-nav-overlay.open {
+    display: block;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+  }
 
-      .mobile-nav-group {
-        display: grid;
-        gap: 10px;
-      }
+  .mobile-nav-group {
+    display: grid;
+    gap: 10px;
+  }
 
-      .mobile-nav-link {
-        width: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        font-family: "Poppins", sans-serif;
-        font-size: 1rem;
-        line-height: 1.35;
-        color: var(--white);
-        background: transparent;
-        border: 1px solid rgba(242, 242, 235, 0.16);
-        min-height: 50px;
-        padding: 12px 14px;
-        text-align: left;
-      }
+  .mobile-nav-link {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-family: "Poppins", sans-serif;
+    font-size: 1rem;
+    line-height: 1.35;
+    color: var(--white);
+    background: transparent;
+    border: 1px solid rgba(242, 242, 235, 0.16);
+    min-height: 50px;
+    padding: 12px 14px;
+    text-align: left;
+  }
 
-      .mobile-nav-link.active-link {
-        color: var(--yellow);
-        border-color: rgba(250, 227, 172, 0.55);
-      }
+  .mobile-nav-link.active-link {
+    color: var(--yellow);
+    border-color: rgba(250, 227, 172, 0.55);
+  }
 
-      .page {
-        padding: 34px 16px 100px;
-      }
+  .page {
+    padding: 34px 12px 110px;
+  }
 
-      .hero-grid {
-        grid-template-columns: 1fr;
-        gap: 18px;
-      }
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
 
-      .hero-image {
-        max-width: 210px;
-        justify-self: start;
-      }
+  .hero-copy h1 {
+    font-size: clamp(1.9rem, 7vw, 2.8rem);
+    line-height: 1.16;
+  }
 
-      .story-body p {
-        font-size: 1rem;
-        line-height: 1.85;
-      }
+  .story-subtitle {
+    font-size: 0.96rem;
+    line-height: 1.55;
+  }
 
-      .intro-box {
-        padding: 16px 14px;
-      }
+  .hero-image {
+    max-width: 210px;
+    justify-self: start;
+  }
 
-      .float-image,
-      .float-image.left {
-        float: none;
-        width: 100%;
-        max-width: 100%;
-        margin: 14px 0 18px;
-      }
+  .story-body p {
+    font-size: 1rem;
+    line-height: 1.85;
+    text-align: left;
+  }
 
+  .intro-box {
+    padding: 16px 14px;
+    margin-bottom: 22px;
+  }
 
-      .story-button-wrap {
-        margin: 18px 0 22px;
-      }
+  .float-image,
+  .float-image.left {
+    float: none;
+    width: 100%;
+    max-width: 100%;
+    margin: 14px 0 18px;
+  }
 
-      .story-button {
-        width: 100%;
-        justify-content: center;
-        text-align: center;
-        line-height: 1.4;
-      }
+  .references-end {
+    max-width: 100%;
+    margin-top: 34px;
+  }
 
-      .pdf-frame {
-        min-height: 420px;
-      }
+  .back-button-fixed {
+    left: 16px;
+    bottom: 16px;
+    font-size: 0.7rem;
+    padding: 10px 13px;
+  }
+}
 
-      .references-end {
-        max-width: 100%;
-      }
+@media (max-width: 520px) {
+  .page {
+    padding: 28px 12px 104px;
+  }
 
-      .back-button-fixed {
-        left: 24px;
-        bottom: 24px;
-        font-size: 0.7rem;
-        padding: 10px 13px;
-      }
-    }
+  .story-hero {
+    margin-bottom: 24px;
+  }
 
-    @media (max-width: 560px) {
-      .page {
-        padding: 28px 12px 104px;
-      }
-    }
+  .hero-grid {
+    gap: 14px;
+  }
+
+  .hero-copy h1 {
+    font-size: clamp(1.7rem, 8vw, 2.25rem);
+    margin-bottom: 8px;
+  }
+
+  .hero-image {
+    max-width: 180px;
+  }
+
+  .story-body p {
+    font-size: 0.97rem;
+    line-height: 1.75;
+    margin-bottom: 16px;
+  }
+
+  .intro-box {
+    padding: 14px 12px;
+  }
+
+  .image-caption {
+    font-size: 0.78rem;
+    line-height: 1.45;
+    padding: 0 8px 8px;
+  }
+
+  .ref-toggle {
+    font-size: 0.74rem;
+    padding: 10px 12px;
+  }
+
+  .ref-item {
+    font-size: 0.88rem;
+    line-height: 1.55;
+    padding: 11px 12px;
+  }
+
+  .back-button-fixed {
+    left: 12px;
+    right: 12px;
+    bottom: 12px;
+    width: auto;
+    justify-content: center;
+  }
+}
+
   </style>
 </head>
 <body>
@@ -830,25 +881,26 @@
 
   <div class="divider"></div>
 
-  <nav class="desktop-nav">
-    <a href="index.html" class="nav-link">Home</a>
-    <a href="cornersofthepast.html" class="nav-link">Corners of the past</a>
-    <a href="memorywall-reddit.html" class="nav-link">Memory wall</a>
-    <a href="interactivetimeline.html" class="nav-link">Interactive timeline</a>
-    <a href="everydaylife.html" class="nav-link">Everyday life</a>
-    <a href="silentheroes.html" class="nav-link active-link">Our silent heroes</a>
-  </nav>
+ <nav class="navbar">
+  <a href="index.html" class="nav-link">Home</a>
+  <a href="cornersofthepast.html" class="nav-link">Corners of the past</a>
+  <a href="memorywall-reddit.html" class="nav-link">Memory wall</a>
+  <a href="interactivetimeline.html" class="nav-link">Interactive timeline</a>
+  <a href="everydaylife.html" class="nav-link">Everyday life</a>
+  <a href="silentheroes.html" class="nav-link active-link">Our silent heroes</a>
+</nav>
 
-  <div class="mobile-nav-overlay" id="mobileNavOverlay" aria-hidden="true">
-    <div class="mobile-nav-group">
-      <a href="index.html" class="mobile-nav-link">Home</a>
-      <a href="cornersofthepast.html" class="mobile-nav-link">Corners of the past</a>
-      <a href="memorywall-reddit.html" class="mobile-nav-link">Memory wall</a>
-      <a href="interactivetimeline.html" class="mobile-nav-link">Interactive timeline</a>
-      <a href="everydaylife.html" class="mobile-nav-link">Everyday life</a>
-      <a href="silentheroes.html" class="mobile-nav-link active-link">Our silent heroes</a>
-    </div>
+<div class="mobile-nav-overlay" id="mobileNavOverlay" aria-hidden="true">
+  <div class="mobile-nav-group">
+    <a href="index.html" class="mobile-nav-link">Home</a>
+    <a href="cornersofthepast.html" class="mobile-nav-link">Corners of the past</a>
+    <a href="memorywall-reddit.html" class="mobile-nav-link">Memory wall</a>
+    <a href="interactivetimeline.html" class="mobile-nav-link">Interactive timeline</a>
+    <a href="everydaylife.html" class="mobile-nav-link">Everyday life</a>
+    <a href="silentheroes.html" class="mobile-nav-link active-link">Our silent heroes</a>
   </div>
+</div>
+
 
   <a href="silentheroes.html" class="back-button-fixed">Back</a>
 

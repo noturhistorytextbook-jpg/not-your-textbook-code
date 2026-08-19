@@ -203,20 +203,14 @@
     }
 
     body {
-  min-height: 100vh;
-  overflow-x: hidden;
-}
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
 
-body.mobile-nav-open {
-  overflow: hidden;
-  height: 100dvh;
-}
-
-a {
-  text-decoration: none;
-  color: inherit;
-}
-
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
 
     button {
       font: inherit;
@@ -226,15 +220,8 @@ a {
       cursor: pointer;
     }
 
-   .topbar {
+    .topbar {
   padding: 18px 20px 14px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-  position: relative;
-  z-index: 200;
-  background: var(--dark);
 }
 
 .brand {
@@ -242,57 +229,9 @@ a {
   font-size: 0.92rem;
   color: var(--yellow);
   white-space: nowrap;
-  line-height: 1.2;
 }
 
-.mobile-menu-btn {
-  display: none;
-  width: 44px;
-  height: 44px;
-  align-items: center;
-  justify-content: center;
-  background: transparent;
-  border: none;
-  padding: 0;
-  position: relative;
-  z-index: 1100;
-  cursor: pointer;
-  -webkit-tap-highlight-color: transparent;
-}
-
-.mobile-menu-btn-bar {
-  position: absolute;
-  width: 24px;
-  height: 2px;
-  background: var(--yellow);
-  left: 50%;
-  transform: translateX(-50%);
-  transition: transform 0.22s ease, opacity 0.22s ease, background-color 0.22s ease, top 0.22s ease, bottom 0.22s ease;
-}
-
-.mobile-menu-btn-bar:nth-child(1) { top: 14px; }
-.mobile-menu-btn-bar:nth-child(2) { top: 21px; }
-.mobile-menu-btn-bar:nth-child(3) { top: 28px; }
-
-.mobile-menu-btn[aria-expanded="true"] .mobile-menu-btn-bar {
-  background: var(--white);
-}
-
-.mobile-menu-btn[aria-expanded="true"] .mobile-menu-btn-bar:nth-child(1) {
-  top: 21px;
-  transform: translateX(-50%) rotate(45deg);
-}
-
-.mobile-menu-btn[aria-expanded="true"] .mobile-menu-btn-bar:nth-child(2) {
-  opacity: 0;
-}
-
-.mobile-menu-btn[aria-expanded="true"] .mobile-menu-btn-bar:nth-child(3) {
-  top: 21px;
-  transform: translateX(-50%) rotate(-45deg);
-}
-
-.navbar {
+.desktop-nav {
   display: flex;
   gap: 24px;
   flex-wrap: wrap;
@@ -302,164 +241,542 @@ a {
   z-index: 20;
 }
 
-.mobile-nav-overlay {
-  display: none;
+
+    .divider {
+      height: 1px;
+      background: rgba(242, 242, 235, 0.45);
+      width: 100%;
+    }
+
+   
+
+    .nav-link,
+    .dropdown-toggle {
+      font-family: "Poppins", sans-serif;
+      font-size: 1rem;
+      color: var(--white);
+      transition: 0.18s ease;
+      display: inline-block;
+    }
+
+    .nav-link:hover,
+    .dropdown-toggle:hover {
+      color: var(--light);
+    }
+
+    .nav-link:active,
+    .nav-link.active-link,
+    .dropdown-toggle:active,
+    .dropdown-toggle.active-link {
+      color: var(--yellow);
+    }
+
+    .nav-dropdown {
+      position: relative;
+      display: inline-block;
+    }
+
+    .dropdown-toggle {
+      cursor: pointer;
+    }
+
+    .dropdown-menu {
+      position: absolute;
+      top: calc(100% + 10px);
+      left: 0;
+      min-width: 290px;
+      background: var(--blue);
+      border: 1px solid rgba(242, 242, 235, 0.18);
+      display: flex;
+      flex-direction: column;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(8px);
+      transition: opacity 0.18s ease, transform 0.18s ease, visibility 0.18s ease;
+      z-index: 30;
+    }
+
+    .memory-dropdown-menu {
+      min-width: 200px;
+    }
+
+    .nav-dropdown:hover .dropdown-menu,
+    .nav-dropdown:focus-within .dropdown-menu {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    .dropdown-item {
+      font-family: "Poppins", sans-serif;
+      font-size: 0.95rem;
+      color: var(--white);
+      padding: 12px 16px;
+      transition: 0.18s ease;
+      font-weight: 400;
+    }
+
+    .dropdown-item:hover {
+      background: var(--yellow);
+      color: var(--light);
+    }
+
+    .dropdown-item:active,
+    .dropdown-item.active-dropdown {
+      background: var(--yellow);
+      color: var(--light);
+      font-weight: 600;
+    }
+
+    .menu-toggle {
+      width: 44px;
+      height: 44px;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 5px;
+      z-index: 90;
+    }
+
+    .menu-toggle span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--yellow);
+      transition: transform 0.2s ease, opacity 0.2s ease;
+    }
+
+    .menu-toggle.open span:nth-child(1) {
+      transform: translateY(7px) rotate(45deg);
+    }
+
+    .menu-toggle.open span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .menu-toggle.open span:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg);
+    }
+
+    .menu-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.45);
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transition: opacity 0.22s ease, visibility 0.22s ease;
+      z-index: 70;
+    }
+
+    .menu-overlay.open {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+    }
+
+    .mobile-menu {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: min(82vw, 320px);
+      height: 100vh;
+      background: var(--blue);
+      border-left: 1px solid rgba(242, 242, 235, 0.16);
+      padding: 88px 22px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      transform: translateX(100%);
+      transition: transform 0.25s ease;
+      z-index: 80;
+      overflow-y: auto;
+    }
+
+    .mobile-menu.open {
+      transform: translateX(0);
+    }
+
+    .mobile-nav-link {
+      font-family: "Poppins", sans-serif;
+      font-size: 1rem;
+      color: var(--white);
+      padding: 14px 0;
+      border-bottom: 1px solid rgba(242, 242, 235, 0.12);
+      transition: 0.18s ease;
+    }
+
+    .mobile-nav-link:hover {
+      color: var(--yellow);
+    }
+
+    .mobile-nav-link.active-link {
+      color: var(--yellow);
+      font-weight: 600;
+    }
+
+    .page {
+      width: 100%;
+      padding: 58px 20px 140px;
+    }
+
+    .story-shell {
+      max-width: var(--story-width);
+      margin: 0 auto;
+    }
+
+    .back-button-fixed,
+    .next-button-fixed {
+      position: fixed;
+      bottom: 80px;
+      z-index: 100;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-family: "Poppins", sans-serif;
+      font-size: 0.74rem;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: rgba(242, 242, 235, 0.82);
+      background: var(--muted-button);
+      border: 1px solid var(--muted-button-border);
+      padding: 10px 15px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+      transition: background 0.18s ease, color 0.18s ease, border-color 0.18s ease;
+      backdrop-filter: blur(8px);
+    }
+
+    .back-button-fixed {
+      left: 80px;
+    }
+
+    .next-button-fixed {
+      right: 80px;
+    }
+
+    .back-button-fixed:hover,
+    .next-button-fixed:hover {
+      background: #323232;
+      color: var(--white);
+      border-color: rgba(242, 242, 235, 0.24);
+    }
+
+    .story-hero {
+      margin-bottom: 36px;
+      text-align: center;
+    }
+
+ .story-hero h1 {
+  font-family: "Poppins", sans-serif;
+  color: var(--yellow);
+  font-size: clamp(2.2rem, 4vw, 3.45rem);
+  line-height: 1.14;
+  margin: 0 auto 14px;
+  text-align: center;
+  max-width: 32ch;
+  padding: 0;
 }
 
-@media (max-width: 900px) {
-  .navbar {
-    gap: 18px;
-  }
 
-  .back-button-fixed {
-    left: 24px;
-  }
+    .story-hero .title-main {
+      display: block;
+      font-size: clamp(2.2rem, 4vw, 3.45rem);
+      font-weight: 720;
+      line-height: 1.08;
+    }
 
-  .next-button-fixed {
-    right: 24px;
-  }
+    .story-hero .title-sub {
+      display: block;
+      margin-top: 8px;
+      font-size: clamp(1.05rem, 1.8vw, 1.55rem);
+      font-weight: 500;
+      line-height: 1.2;
+      color: rgba(250, 227, 172, 0.9);
+    }
+
+    .story-subtitle {
+      max-width: 980px;
+      margin: 0 auto;
+      font-size: 1.02rem;
+      line-height: 1.9;
+      color: rgba(242, 242, 235, 0.95);
+      text-align: center;
+      font-style: italic;
+    }
+
+    .section-heading {
+      font-family: "Poppins", sans-serif;
+      color: var(--yellow);
+      font-size: clamp(1.5rem, 2vw, 2rem);
+      line-height: 1.2;
+      margin: 40px 0 18px;
+    }
+
+    .story-body {
+      display: block;
+    }
+
+    .story-body p {
+      font-size: 1.04rem;
+      line-height: 1.95;
+      color: rgba(242, 242, 235, 0.92);
+      text-align: justify;
+      margin-bottom: 18px;
+    }
+
+    .intro-box {
+      border: 1px solid var(--yellow);
+      background: rgba(250, 227, 172, 0.12);
+      padding: 18px 20px;
+      margin: 0 0 28px;
+    }
+
+    .intro-box p:last-child {
+      margin-bottom: 0;
+    }
+
+    .float-image {
+      width: 260px;
+      max-width: 42%;
+      margin: 8px 0 14px 24px;
+      float: right;
+      border: 1px solid rgba(242, 242, 235, 0.12);
+      background: rgba(242, 242, 235, 0.03);
+    }
+
+    .float-image.left {
+      float: left;
+      margin: 8px 24px 14px 0;
+    }
+
+    .float-image img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .image-caption {
+      margin-top: 8px;
+      font-size: 0.82rem;
+      line-height: 1.5;
+      color: var(--light);
+      font-style: italic;
+      text-align: center;
+      padding: 0 8px 10px;
+    }
+
+    .story-button {
+      font-family: "Poppins", sans-serif;
+      display: inline-block;
+      margin: 18px 0 24px;
+      padding: 13px 20px;
+      border-radius: 0;
+      transition: 0.18s ease;
+      font-size: 1rem;
+      font-weight: 400;
+      letter-spacing: 0;
+      text-transform: none;
+      color: var(--blue);
+      background: var(--yellow);
+      border: 1px solid transparent;
+    }
+
+    .story-button:hover {
+      color: var(--light);
+      background: var(--yellow);
+    }
+
+    .story-button:active {
+      color: var(--blue);
+      border: 1px solid var(--white);
+    }
+
+    .references-end {
+      clear: both;
+      margin: 44px auto 0;
+      width: 100%;
+      max-width: var(--story-width);
+    }
+
+    .ref-toggle {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      font-family: "Poppins", sans-serif;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--white);
+      background: transparent;
+      border: 1px solid var(--panel-border);
+      padding: 10px 14px;
+      cursor: pointer;
+      transition: 0.18s ease;
+    }
+
+    .ref-toggle:hover {
+      border-color: rgba(250, 227, 172, 0.45);
+      color: var(--yellow);
+    }
+
+    .ref-toggle-icon {
+      font-size: 0.92rem;
+      line-height: 1;
+      transition: transform 0.18s ease;
+    }
+
+    .references-end.open .ref-toggle-icon {
+      transform: rotate(180deg);
+    }
+
+    .ref-menu {
+      display: none;
+      margin-top: 8px;
+      border: 1px solid var(--panel-border);
+      background: var(--blue);
+      width: 100%;
+      padding: 0;
+    }
+
+    .references-end.open .ref-menu {
+      display: block;
+    }
+
+    .ref-item {
+      padding: 12px 14px;
+      font-family: "Lato", sans-serif;
+      font-size: 0.92rem;
+      line-height: 1.6;
+      color: var(--white);
+      border-bottom: 1px solid rgba(242, 242, 235, 0.1);
+      word-break: break-word;
+    }
+
+    .ref-item:last-child {
+      border-bottom: none;
+    }
+
+    .ref-item a {
+      color: var(--white);
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+
+    .ref-item a:hover {
+      color: var(--yellow);
+    }
+
+    .clear {
+      clear: both;
+    }
+
+    @media (max-width: 900px) {
+      .desktop-nav {
+        gap: 18px;
+      }
+
+      .back-button-fixed {
+        left: 24px;
+      }
+
+      .next-button-fixed {
+        right: 24px;
+      }
+    }
+
+    @media (max-width: 768px) {
+     .topbar {
+  padding: 16px 16px 12px;
 }
 
-@media (max-width: 768px) {
-  .topbar {
-    padding: 16px 12px 12px;
-    position: relative;
-  }
 
-  .brand {
-    font-size: 1rem;
-    line-height: 1.25;
-  }
+      .desktop-nav {
+        display: none;
+      }
 
-  .mobile-menu-btn {
-    display: inline-flex;
-  }
+      .menu-toggle {
+        display: flex;
+      }
 
-  .divider {
-    z-index: 200;
-  }
+      .page {
+        padding: 34px 16px 120px;
+      }
 
-  .navbar {
-    display: none;
-  }
+      .story-hero h1 {
+        max-width: 100%;
+      }
 
-  .mobile-nav-overlay {
-    position: fixed;
-    inset: 0;
-    z-index: 1200;
-    background: rgba(26, 26, 26, 0.98);
-    padding: 88px 18px 28px;
-    overflow: auto;
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
-    transition: opacity 0.22s ease, visibility 0.22s ease;
-  }
+      .story-hero .title-main {
+        font-size: clamp(1.95rem, 8vw, 2.7rem);
+      }
 
-  .mobile-nav-overlay.open {
-    display: block;
-    opacity: 1;
-    visibility: visible;
-    pointer-events: auto;
-  }
+      .story-hero .title-sub {
+        font-size: clamp(0.98rem, 4.3vw, 1.2rem);
+      }
 
-  .mobile-nav-group {
-    display: grid;
-    gap: 10px;
-  }
+      .story-subtitle {
+        max-width: 100%;
+      }
 
-  .mobile-nav-link {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    font-family: "Poppins", sans-serif;
-    font-size: 1rem;
-    line-height: 1.35;
-    color: var(--white);
-    background: transparent;
-    border: 1px solid rgba(242, 242, 235, 0.16);
-    min-height: 50px;
-    padding: 12px 14px;
-    text-align: left;
-  }
+      .story-body p {
+        font-size: 1rem;
+        line-height: 1.85;
+      }
 
-  .mobile-nav-link.active-link {
-    color: var(--yellow);
-    border-color: rgba(250, 227, 172, 0.55);
-    font-weight: 400;
-  }
+      .intro-box {
+        padding: 16px 14px;
+      }
 
-  .page {
-    padding: 34px 16px 120px;
-  }
+      .float-image,
+      .float-image.left {
+        float: none;
+        width: 100%;
+        max-width: 100%;
+        margin: 14px 0 18px;
+      }
 
-  .story-hero h1 {
-    max-width: 100%;
-  }
+      .references-end {
+        max-width: 100%;
+      }
 
-  .story-hero .title-main {
-    font-size: clamp(1.95rem, 8vw, 2.7rem);
-  }
+      .back-button-fixed,
+      .next-button-fixed {
+        bottom: 18px;
+        font-size: 0.68rem;
+        padding: 10px 12px;
+      }
 
-  .story-hero .title-sub {
-    font-size: clamp(0.98rem, 4.3vw, 1.2rem);
-  }
+      .back-button-fixed {
+        left: 16px;
+      }
 
-  .story-subtitle {
-    max-width: 100%;
-  }
+      .next-button-fixed {
+        right: 16px;
+      }
+    }
 
-  .story-body p {
-    font-size: 1rem;
-    line-height: 1.85;
-  }
-
-  .intro-box {
-    padding: 16px 14px;
-  }
-
-  .float-image,
-  .float-image.left {
-    float: none;
-    width: 100%;
-    max-width: 100%;
-    margin: 14px 0 18px;
-  }
-
-  .references-end {
-    max-width: 100%;
-  }
-
-  .back-button-fixed,
-  .next-button-fixed {
-    bottom: 18px;
-    font-size: 0.68rem;
-    padding: 10px 12px;
-  }
-
-  .back-button-fixed {
-    left: 16px;
-  }
-
-  .next-button-fixed {
-    right: 16px;
-  }
-}
-
-@media (max-width: 520px) {
-  .brand {
-    font-size: 0.8rem;
-  }
-
-  .back-button-fixed,
-  .next-button-fixed {
-    bottom: 14px;
-    padding: 9px 11px;
-  }
+    @media (max-width: 560px) {
+     .brand {
+  font-size: 0.8rem;
 }
 
 
+      .mobile-menu {
+        width: min(86vw, 300px);
+      }
+
+      .back-button-fixed,
+      .next-button-fixed {
+        bottom: 14px;
+        padding: 9px 11px;
+      }
+    }
   </style>
 </head>
 
@@ -503,6 +820,17 @@ a {
   </div>
 </div>
 
+
+  <div class="menu-overlay" id="menuOverlay"></div>
+
+  <nav class="mobile-menu" id="mobileMenu" aria-label="Mobile navigation" aria-hidden="true">
+    <a href="index.html" class="mobile-nav-link">Home</a>
+    <a href="cornersofthepast.html" class="mobile-nav-link">Corners of the past</a>
+    <a href="memorywall-reddit.html" class="mobile-nav-link">Memory wall</a>
+    <a href="interactivetimeline.html" class="mobile-nav-link active-link">Interactive timeline</a>
+    <a href="everydaylife.html" class="mobile-nav-link">Everyday life</a>
+    <a href="silentheroes.html" class="mobile-nav-link">Our silent heroes</a>
+  </nav>
 
   <a href="interactivetimeline.html" class="back-button-fixed">Back</a>
   <a href="timeline-invasion.html" class="next-button-fixed">Next</a>

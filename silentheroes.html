@@ -1,320 +1,377 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Silent Heroes</title>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Galindo&family=Gochi+Hand&family=Henny+Penny&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Vend+Sans:ital,wght@0,300..700;1,300..700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Galindo&family=Gochi+Hand&family=Henny+Penny&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Vend+Sans:ital,wght@0,300..700;1,300..700&display=swap" rel="stylesheet" />
 
   <style>
     @font-face {
-      font-family: 'Poppins';
-      src: url('Poppins-BlackItalic.woff2') format('woff2'),
-          url('Poppins-BlackItalic.woff') format('woff');
+      font-family: "Poppins";
+      src: url("Poppins-BlackItalic.woff2") format("woff2"),
+           url("Poppins-BlackItalic.woff") format("woff");
       font-weight: 900;
       font-style: italic;
       font-display: swap;
     }
-
     @font-face {
-      font-family: 'Poppins';
-      src: url('Poppins-ExtraBoldItalic.woff2') format('woff2'),
-          url('Poppins-ExtraBoldItalic.woff') format('woff');
+      font-family: "Poppins";
+      src: url("Poppins-ExtraBoldItalic.woff2") format("woff2"),
+           url("Poppins-ExtraBoldItalic.woff") format("woff");
       font-weight: bold;
       font-style: italic;
       font-display: swap;
     }
-
     @font-face {
-      font-family: 'Poppins';
-      src: url('Poppins-ExtraBold.woff2') format('woff2'),
-          url('Poppins-ExtraBold.woff') format('woff');
+      font-family: "Poppins";
+      src: url("Poppins-ExtraBold.woff2") format("woff2"),
+           url("Poppins-ExtraBold.woff") format("woff");
       font-weight: bold;
       font-style: normal;
       font-display: swap;
     }
-
     @font-face {
-      font-family: 'Poppins';
-      src: url('Poppins-Black.woff2') format('woff2'),
-          url('Poppins-Black.woff') format('woff');
+      font-family: "Poppins";
+      src: url("Poppins-Black.woff2") format("woff2"),
+           url("Poppins-Black.woff") format("woff");
       font-weight: 900;
       font-style: normal;
       font-display: swap;
     }
-
     @font-face {
-      font-family: 'Poppins';
-      src: url('Poppins-Bold.woff2') format('woff2'),
-          url('Poppins-Bold.woff') format('woff');
+      font-family: "Poppins";
+      src: url("Poppins-Bold.woff2") format("woff2"),
+           url("Poppins-Bold.woff") format("woff");
       font-weight: bold;
       font-style: normal;
       font-display: swap;
     }
-
     @font-face {
-      font-family: 'Poppins';
-      src: url('Poppins-BoldItalic.woff2') format('woff2'),
-          url('Poppins-BoldItalic.woff') format('woff');
+      font-family: "Poppins";
+      src: url("Poppins-BoldItalic.woff2") format("woff2"),
+           url("Poppins-BoldItalic.woff") format("woff");
       font-weight: bold;
       font-style: italic;
       font-display: swap;
     }
-
     @font-face {
-      font-family: 'Poppins';
-      src: url('Poppins-Light.woff2') format('woff2'),
-          url('Poppins-Light.woff') format('woff');
+      font-family: "Poppins";
+      src: url("Poppins-Light.woff2") format("woff2"),
+           url("Poppins-Light.woff") format("woff");
       font-weight: 300;
       font-style: normal;
       font-display: swap;
     }
-
     @font-face {
-      font-family: 'Poppins';
-      src: url('Poppins-LightItalic.woff2') format('woff2'),
-          url('Poppins-LightItalic.woff') format('woff');
+      font-family: "Poppins";
+      src: url("Poppins-LightItalic.woff2") format("woff2"),
+           url("Poppins-LightItalic.woff") format("woff");
       font-weight: 300;
       font-style: italic;
       font-display: swap;
     }
-
     @font-face {
-      font-family: 'Poppins';
-      src: url('Poppins-ExtraLightItalic.woff2') format('woff2'),
-          url('Poppins-ExtraLightItalic.woff') format('woff');
+      font-family: "Poppins";
+      src: url("Poppins-ExtraLightItalic.woff2") format("woff2"),
+           url("Poppins-ExtraLightItalic.woff") format("woff");
       font-weight: 200;
       font-style: italic;
       font-display: swap;
     }
-
     @font-face {
-      font-family: 'Poppins';
-      src: url('Poppins-Italic.woff2') format('woff2'),
-          url('Poppins-Italic.woff') format('woff');
+      font-family: "Poppins";
+      src: url("Poppins-Italic.woff2") format("woff2"),
+           url("Poppins-Italic.woff") format("woff");
       font-weight: normal;
       font-style: italic;
       font-display: swap;
     }
-
     @font-face {
-      font-family: 'Poppins';
-      src: url('Poppins-ExtraLight.woff2') format('woff2'),
-          url('Poppins-ExtraLight.woff') format('woff');
+      font-family: "Poppins";
+      src: url("Poppins-ExtraLight.woff2") format("woff2"),
+           url("Poppins-ExtraLight.woff") format("woff");
       font-weight: 200;
       font-style: normal;
       font-display: swap;
     }
-
     @font-face {
-      font-family: 'Poppins';
-      src: url('Poppins-Medium.woff2') format('woff2'),
-          url('Poppins-Medium.woff') format('woff');
+      font-family: "Poppins";
+      src: url("Poppins-Medium.woff2") format("woff2"),
+           url("Poppins-Medium.woff") format("woff");
       font-weight: 500;
       font-style: normal;
       font-display: swap;
     }
-
     @font-face {
-      font-family: 'Poppins';
-      src: url('Poppins-Regular.woff2') format('woff2'),
-          url('Poppins-Regular.woff') format('woff');
+      font-family: "Poppins";
+      src: url("Poppins-Regular.woff2") format("woff2"),
+           url("Poppins-Regular.woff") format("woff");
       font-weight: normal;
       font-style: normal;
       font-display: swap;
     }
-
     @font-face {
-      font-family: 'Poppins';
-      src: url('Poppins-SemiBoldItalic.woff2') format('woff2'),
-          url('Poppins-SemiBoldItalic.woff') format('woff');
+      font-family: "Poppins";
+      src: url("Poppins-SemiBoldItalic.woff2") format("woff2"),
+           url("Poppins-SemiBoldItalic.woff") format("woff");
       font-weight: 600;
       font-style: italic;
       font-display: swap;
     }
-
     @font-face {
-      font-family: 'Poppins';
-      src: url('Poppins-ThinItalic.woff2') format('woff2'),
-          url('Poppins-ThinItalic.woff') format('woff');
+      font-family: "Poppins";
+      src: url("Poppins-ThinItalic.woff2") format("woff2"),
+           url("Poppins-ThinItalic.woff") format("woff");
       font-weight: 100;
       font-style: italic;
       font-display: swap;
     }
-
     @font-face {
-      font-family: 'Poppins';
-      src: url('Poppins-Thin.woff2') format('woff2'),
-          url('Poppins-Thin.woff') format('woff');
+      font-family: "Poppins";
+      src: url("Poppins-Thin.woff2") format("woff2"),
+           url("Poppins-Thin.woff") format("woff");
       font-weight: 100;
       font-style: normal;
       font-display: swap;
     }
-
     @font-face {
-      font-family: 'Poppins';
-      src: url('Poppins-MediumItalic.woff2') format('woff2'),
-          url('Poppins-MediumItalic.woff') format('woff');
+      font-family: "Poppins";
+      src: url("Poppins-MediumItalic.woff2") format("woff2"),
+           url("Poppins-MediumItalic.woff") format("woff");
       font-weight: 500;
       font-style: italic;
       font-display: swap;
     }
-
     @font-face {
-      font-family: 'Poppins';
-      src: url('Poppins-SemiBold.woff2') format('woff2'),
-          url('Poppins-SemiBold.woff') format('woff');
+      font-family: "Poppins";
+      src: url("Poppins-SemiBold.woff2") format("woff2"),
+           url("Poppins-SemiBold.woff") format("woff");
       font-weight: 600;
       font-style: normal;
       font-display: swap;
     }
 
-    :root{
-      --white:#F2F2EB;
-      --yellow:#FAE3AC;
-      --blue:#01344F;
-      --dark:#1A1A1A;
-      --light:#ABABAB;
-      --cream:#f1eee5;
-      --cream-border:#ece2cb;
-      --cream-text:#153f66;
+    :root {
+      --white: #F2F2EB;
+      --yellow: #FAE3AC;
+      --blue: #01344F;
+      --dark: #1A1A1A;
+      --light: #ABABAB;
+      --cream: #f1eee5;
+      --cream-border: #ece2cb;
+      --cream-text: #153f66;
     }
 
-    *{
-      box-sizing:border-box;
-      margin:0;
-      padding:0;
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
 
-    html,body{
-      background:var(--dark);
-      color:var(--white);
-      font-family:"Lato",sans-serif;
-      min-height:100%;
+    html,
+    body {
+      background: var(--dark);
+      color: var(--white);
+      font-family: Lato, sans-serif;
+      min-height: 100%;
     }
 
-    body{
-      overflow-x:hidden;
+    body {
+      overflow-x: hidden;
     }
 
-    a{
-      text-decoration:none;
-      color:inherit;
+    body.mobile-nav-open {
+      overflow: hidden;
+      height: 100dvh;
     }
 
-    .topbar{
-      padding:18px 20px 14px;
+    a {
+      text-decoration: none;
+      color: inherit;
     }
 
-    .brand{
-      font-family:"Poppins",sans-serif;
-      font-size:.92rem;
-      color:var(--yellow);
-      white-space:nowrap;
+    .topbar {
+      padding: 18px 20px 14px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      position: relative;
+      z-index: 200;
+      background: var(--dark);
     }
 
-    .divider{
-      height:1px;
-      background:rgba(242,242,235,.45);
-      width:100%;
+    .brand {
+      font-family: Poppins, sans-serif;
+      font-size: 0.92rem;
+      color: var(--yellow);
+      white-space: nowrap;
     }
 
-    .navbar{
-      display:flex;
-      gap:24px;
-      flex-wrap:wrap;
-      align-items:flex-start;
-      padding:18px 20px 0;
-      margin-bottom:56px;
-      position:relative;
-      z-index:20;
+    .mobile-menu-btn {
+      display: none;
+      width: 44px;
+      height: 44px;
+      align-items: center;
+      justify-content: center;
+      background: transparent;
+      border: none;
+      padding: 0;
+      position: relative;
+      z-index: 1100;
+      cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .mobile-menu-btn-bar {
+      position: absolute;
+      width: 24px;
+      height: 2px;
+      background: var(--yellow);
+      left: 50%;
+      transform: translateX(-50%);
+      transition: transform 0.22s ease, opacity 0.22s ease, background-color 0.22s ease, top 0.22s ease, bottom 0.22s ease;
+    }
+
+    .mobile-menu-btn-bar:nth-child(1) {
+      top: 14px;
+    }
+
+    .mobile-menu-btn-bar:nth-child(2) {
+      top: 21px;
+    }
+
+    .mobile-menu-btn-bar:nth-child(3) {
+      top: 28px;
+    }
+
+    .mobile-menu-btn[aria-expanded="true"] .mobile-menu-btn-bar {
+      background: var(--white);
+    }
+
+    .mobile-menu-btn[aria-expanded="true"] .mobile-menu-btn-bar:nth-child(1) {
+      top: 21px;
+      transform: translateX(-50%) rotate(45deg);
+    }
+
+    .mobile-menu-btn[aria-expanded="true"] .mobile-menu-btn-bar:nth-child(2) {
+      opacity: 0;
+    }
+
+    .mobile-menu-btn[aria-expanded="true"] .mobile-menu-btn-bar:nth-child(3) {
+      top: 21px;
+      transform: translateX(-50%) rotate(-45deg);
+    }
+
+    .divider {
+      height: 1px;
+      background: rgba(242, 242, 235, 0.45);
+      width: 100%;
+      position: relative;
+      z-index: 200;
+    }
+
+    .navbar {
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+      align-items: flex-start;
+      padding: 18px 20px 0;
+      margin-bottom: 56px;
+      position: relative;
+      z-index: 20;
     }
 
     .nav-link,
-    .dropdown-toggle{
-      font-family:"Poppins",sans-serif;
-      font-size:1rem;
-      color:var(--white);
-      transition:.18s ease;
-      display:inline-block;
+    .dropdown-toggle {
+      font-family: Poppins, sans-serif;
+      font-size: 1rem;
+      color: var(--white);
+      transition: 0.18s ease;
+      display: inline-block;
     }
 
     .nav-link:hover,
-    .dropdown-toggle:hover{
-      color:var(--light);
+    .dropdown-toggle:hover {
+      color: var(--light);
     }
 
     .nav-link:active,
     .nav-link.active-link,
     .dropdown-toggle:active,
-    .dropdown-toggle.active-link{
-      color:var(--yellow);
+    .dropdown-toggle.active-link {
+      color: var(--yellow);
     }
 
-    .nav-dropdown{
-      position:relative;
-      display:inline-block;
+    .nav-dropdown {
+      position: relative;
+      display: inline-block;
     }
 
-    .dropdown-toggle{
-      cursor:pointer;
+    .dropdown-toggle {
+      cursor: pointer;
     }
 
-    .dropdown-menu{
-      position:absolute;
-      top:calc(100% + 10px);
-      left:0;
-      min-width:290px;
-      background:var(--blue);
-      border:1px solid rgba(242,242,235,.18);
-      display:flex;
-      flex-direction:column;
-      opacity:0;
-      visibility:hidden;
-      transform:translateY(8px);
-      transition:opacity .18s ease, transform .18s ease, visibility .18s ease;
-      z-index:30;
+    .dropdown-menu {
+      position: absolute;
+      top: calc(100% + 10px);
+      left: 0;
+      min-width: 290px;
+      background: var(--blue);
+      border: 1px solid rgba(242, 242, 235, 0.18);
+      display: flex;
+      flex-direction: column;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(8px);
+      transition: opacity 0.18s ease, transform 0.18s ease, visibility 0.18s ease;
+      z-index: 30;
     }
 
     .nav-dropdown:hover .dropdown-menu,
-    .nav-dropdown:focus-within .dropdown-menu{
-      opacity:1;
-      visibility:visible;
-      transform:translateY(0);
+    .nav-dropdown:focus-within .dropdown-menu {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
     }
 
-    .dropdown-item{
-      font-family:"Poppins",sans-serif;
-      font-size:.95rem;
-      color:var(--white);
-      padding:12px 16px;
-      transition:.18s ease;
-      font-weight:400;
+    .dropdown-item {
+      font-family: Poppins, sans-serif;
+      font-size: 0.95rem;
+      color: var(--white);
+      padding: 12px 16px;
+      transition: 0.18s ease;
+      font-weight: 400;
     }
 
-    .dropdown-item:hover{
-      background:var(--yellow);
-      color:var(--light);
+    .dropdown-item:hover {
+      background: var(--yellow);
+      color: var(--light);
     }
 
     .dropdown-item:active,
-    .dropdown-item.active-dropdown{
-      background:var(--yellow);
-      color:var(--light);
-      font-weight:600;
+    .dropdown-item.active-dropdown {
+      background: var(--yellow);
+      color: var(--light);
+      font-weight: 600;
     }
 
-    .memory-dropdown .dropdown-menu{
-      min-width:200px;
+    .memory-dropdown .dropdown-menu {
+      min-width: 200px;
+    }
+
+    .mobile-nav-overlay {
+      display: none;
     }
 
     .page {
       width: 100%;
       min-height: 100vh;
-      padding: 0 0 0;
+      padding: 0;
     }
 
     .hero-section {
@@ -323,7 +380,7 @@
     }
 
     .hero-section h1 {
-      font-family:"Poppins",sans-serif;
+      font-family: Poppins, sans-serif;
       color: var(--yellow);
       font-size: clamp(2.2rem, 4vw, 3.45rem);
       line-height: 1.08;
@@ -336,7 +393,7 @@
       font-size: 1.05rem;
       line-height: 1.8;
       color: var(--white);
-      opacity: .95;
+      opacity: 0.95;
     }
 
     .heroes-grid {
@@ -360,10 +417,10 @@
     }
 
     .hero-card--bottom {
-      grid-column: 1 / 2;
+      grid-column: 1 / span 2;
     }
 
-    .hero-card__frame {
+    .hero-cardframe {
       position: relative;
       width: 164px;
       border: 1px solid var(--cream-border);
@@ -372,7 +429,7 @@
       background: #171717;
     }
 
-    .hero-card__image {
+    .hero-cardimage {
       width: 100%;
       height: 228px;
       object-fit: cover;
@@ -381,7 +438,7 @@
       transition: transform 0.35s ease;
     }
 
-    .hero-card__title-box {
+    .hero-cardtitle-box {
       width: 164px;
       min-height: 82px;
       background: var(--cream);
@@ -393,21 +450,21 @@
       text-align: center;
     }
 
-    .hero-card__title {
-      font-family:"Poppins",sans-serif;
+    .hero-cardtitle {
+      font-family: Poppins, sans-serif;
       font-size: 0.82rem;
       line-height: 1.28;
       font-weight: 600;
       color: var(--cream-text);
     }
 
-    .hero-card__title-main {
+    .hero-cardtitle-main {
       display: block;
       font-weight: 600;
       line-height: 1.2;
     }
 
-    .hero-card__title-sub {
+    .hero-cardtitle-sub {
       display: block;
       margin-top: 3px;
       font-size: 0.74rem;
@@ -417,7 +474,7 @@
       opacity: 0.92;
     }
 
-    .hero-card__overlay {
+    .hero-cardoverlay {
       position: absolute;
       inset: 0;
       display: flex;
@@ -428,7 +485,7 @@
       pointer-events: none;
     }
 
-    .hero-card__info {
+    .hero-cardinfo {
       width: 100%;
       background: #f1eee5;
       border-top: 1px solid #ece2cb;
@@ -439,44 +496,44 @@
       transition: transform 0.28s ease, background 0.22s ease, color 0.22s ease;
     }
 
-    .hero-card__info h3 {
-      font-family:"Poppins",sans-serif;
+    .hero-cardinfo h3 {
+      font-family: Poppins, sans-serif;
       font-size: 0.92rem;
       line-height: 1;
       margin-bottom: 4px;
       font-weight: 600;
     }
 
-    .hero-card__info p {
+    .hero-cardinfo p {
       margin: 0;
       font-size: 0.77rem;
       line-height: 1.28;
       color: #1f1f1f;
     }
 
-    .hero-card:hover .hero-card__overlay,
-    .hero-card:focus-visible .hero-card__overlay,
-    .hero-card.is-active .hero-card__overlay {
+    .hero-card:hover .hero-cardoverlay,
+    .hero-card:focus-visible .hero-cardoverlay,
+    .hero-card.is-active .hero-cardoverlay {
       opacity: 1;
     }
 
-    .hero-card:hover .hero-card__info,
-    .hero-card:focus-visible .hero-card__info,
-    .hero-card.is-active .hero-card__info {
+    .hero-card:hover .hero-cardinfo,
+    .hero-card:focus-visible .hero-cardinfo,
+    .hero-card.is-active .hero-cardinfo {
       transform: translateY(0);
     }
 
-    .hero-card:hover .hero-card__image,
-    .hero-card:focus-visible .hero-card__image {
+    .hero-card:hover .hero-cardimage,
+    .hero-card:focus-visible .hero-cardimage {
       transform: scale(1.03);
     }
 
-    .hero-card.is-active .hero-card__info {
+    .hero-card.is-active .hero-cardinfo {
       background: #dfb64c;
       color: #143654;
     }
 
-    .hero-card.is-active .hero-card__info p {
+    .hero-card.is-active .hero-cardinfo p {
       color: #1f1f1f;
     }
 
@@ -492,73 +549,72 @@
       line-height: 1.2;
       text-align: center;
       font-style: italic;
-      font-family: "Poppins", sans-serif;
+      font-family: Poppins, sans-serif;
     }
 
-    .follow-section{
-      padding-top:95px;
-      padding-bottom:0;
+    .follow-section {
+      padding-top: 95px;
+      padding-bottom: 0;
     }
 
-    .follow-section h2{
-      font-family:"Poppins",sans-serif;
-      color:var(--white);
-      font-size:clamp(2rem,3.5vw,3rem);
-      line-height:1.15;
-      margin-bottom:20px;
-      text-align:center;
+    .follow-section h2 {
+      font-family: Poppins, sans-serif;
+      color: var(--white);
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      line-height: 1.15;
+      margin-bottom: 20px;
+      text-align: center;
     }
 
-    .social-banner{
-      margin-top:26px;
-      width:100vw;
-      margin-left:calc(50% - 50vw);
-      background:var(--yellow);
-      display:flex;
-      justify-content:center;
-      align-items:center;
-      gap:18px;
-      padding:20px 0;
+    .social-banner {
+      margin-top: 26px;
+      width: 100vw;
+      margin-left: calc(50% - 50vw);
+      background: var(--yellow);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 18px;
+      padding: 20px 0;
     }
 
-  .social-icon{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-}
+    .social-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
 
-.social-icon svg,
-.social-icon img{
-  display:block;
-  height:48px;
-  width:auto;
-  transition: opacity .18s ease, transform .18s ease;
-}
+    .social-icon svg,
+    .social-icon img {
+      display: block;
+      height: 48px;
+      width: auto;
+      transition: opacity 0.18s ease, transform 0.18s ease;
+    }
 
-.social-icon:hover svg,
-.social-icon:hover img{
-  opacity:.82;
-  transform: translateY(-2px);
-}
+    .social-icon:hover svg,
+    .social-icon:hover img {
+      opacity: 0.82;
+      transform: translateY(-2px);
+    }
 
-.social-icon:active svg,
-.social-icon:active img{
-  opacity:1;
-  transform: translateY(0);
-}
-
+    .social-icon:active svg,
+    .social-icon:active img {
+      opacity: 1;
+      transform: translateY(0);
+    }
 
     @media (hover: none) {
-      .hero-card__overlay {
+      .hero-cardoverlay {
         opacity: 1;
         background: linear-gradient(to top, rgba(0, 0, 0, 0.08), rgba(0, 0, 0, 0) 55%);
       }
 
-      .hero-card__info {
+      .hero-cardinfo {
         transform: translateY(0);
       }
 
-      .hero-card__image {
+      .hero-cardimage {
         transform: none !important;
       }
     }
@@ -575,37 +631,113 @@
       }
     }
 
-    @media (max-width: 768px){
-      .topbar{
-        padding:16px 12px 12px;
+    @media (max-width: 768px) {
+      .topbar {
+        padding: 16px 12px 12px;
+        position: relative;
       }
 
-      .brand{
-        font-size:1rem;
-        line-height:1.25;
+      .brand {
+        font-size: 1rem;
+        line-height: 1.25;
       }
 
-      .navbar{
-        gap:10px 16px;
-        padding:16px 12px 0;
-        margin-bottom:40px;
+      .mobile-menu-btn {
+        display: inline-flex;
       }
 
-      .nav-link,
-      .dropdown-toggle{
-        font-size:.95rem;
-        line-height:1.3;
+      .divider {
+        z-index: 200;
       }
 
-      .nav-dropdown{
-        width:100%;
+      .navbar {
+        display: none;
       }
 
-      .dropdown-menu{
-        position:static;
-        margin-top:10px;
-        min-width:unset;
-        width:100%;
+      .mobile-nav-overlay {
+        position: fixed;
+        inset: 0;
+        z-index: 1200;
+        background: rgba(26, 26, 26, 0.98);
+        padding: 88px 18px 28px;
+        overflow: auto;
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        transition: opacity 0.22s ease, visibility 0.22s ease;
+      }
+
+      .mobile-nav-overlay.open {
+        display: block;
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+      }
+
+      .mobile-nav-group {
+        display: grid;
+        gap: 10px;
+      }
+
+      .mobile-nav-link,
+      .mobile-nav-toggle {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        font-family: Poppins, sans-serif;
+        font-size: 1rem;
+        line-height: 1.35;
+        color: var(--white);
+        background: transparent;
+        border: 1px solid rgba(242, 242, 235, 0.16);
+        min-height: 50px;
+        padding: 12px 14px;
+        text-align: left;
+      }
+
+      .mobile-nav-link.active-link {
+        color: var(--yellow);
+        border-color: rgba(250, 227, 172, 0.55);
+      }
+
+      .mobile-nav-toggle {
+        cursor: pointer;
+      }
+
+      .mobile-nav-chevron {
+        font-size: 1rem;
+        line-height: 1;
+        transition: transform 0.2s ease;
+      }
+
+      .mobile-nav-item.open .mobile-nav-chevron {
+        transform: rotate(180deg);
+      }
+
+      .mobile-submenu {
+        display: none;
+        margin-top: 8px;
+        padding-left: 10px;
+        gap: 8px;
+      }
+
+      .mobile-nav-item.open .mobile-submenu {
+        display: grid;
+      }
+
+      .mobile-submenu a {
+        display: block;
+        font-family: Poppins, sans-serif;
+        font-size: 0.95rem;
+        color: var(--white);
+        border: 1px solid rgba(242, 242, 235, 0.12);
+        padding: 11px 12px;
+      }
+
+      .mobile-submenu a.active-dropdown {
+        color: var(--yellow);
+        border-color: rgba(250, 227, 172, 0.45);
       }
 
       .hero-section {
@@ -624,31 +756,22 @@
         margin-bottom: 32px;
       }
 
-      .follow-section{
-        padding-top:70px;
+      .follow-section {
+        padding-top: 70px;
       }
 
-      .social-banner{
-        gap:14px;
-        padding:16px 0;
+      .social-banner {
+        gap: 14px;
+        padding: 16px 0;
       }
 
       .social-icon svg,
-      .social-icon img{
-        height:42px;
+      .social-icon img {
+        height: 42px;
       }
     }
 
     @media (max-width: 560px) {
-      .navbar{
-        gap:8px 12px;
-      }
-
-      .nav-link,
-      .dropdown-toggle{
-        font-size:.92rem;
-      }
-
       .hero-section h1 {
         font-size: clamp(1.75rem, 8vw, 2.3rem);
       }
@@ -666,12 +789,12 @@
       }
 
       .hero-card,
-      .hero-card__frame,
-      .hero-card__title-box {
+      .hero-cardframe,
+      .hero-cardtitle-box {
         width: min(220px, 100%);
       }
 
-      .hero-card__image {
+      .hero-cardimage {
         height: 290px;
       }
 
@@ -692,20 +815,20 @@
       }
 
       .hero-card,
-      .hero-card__frame,
-      .hero-card__title-box {
+      .hero-cardframe,
+      .hero-cardtitle-box {
         width: min(210px, 100%);
       }
 
-      .hero-card__image {
+      .hero-cardimage {
         height: 276px;
       }
 
-      .hero-card__title {
+      .hero-cardtitle {
         font-size: 0.79rem;
       }
 
-      .hero-card__title-sub {
+      .hero-cardtitle-sub {
         font-size: 0.71rem;
       }
     }
@@ -713,7 +836,20 @@
 </head>
 <body>
   <header class="topbar">
-    <a class="brand" href="./index.html">not your History Textbook</a>
+    <a class="brand" href="index.html">not your History Textbook</a>
+
+    <button
+      class="mobile-menu-btn"
+      id="mobileMenuBtn"
+      type="button"
+      aria-label="Open menu"
+      aria-expanded="false"
+      aria-controls="mobileNavOverlay"
+    >
+      <span class="mobile-menu-btn-bar"></span>
+      <span class="mobile-menu-btn-bar"></span>
+      <span class="mobile-menu-btn-bar"></span>
+    </button>
   </header>
 
   <div class="divider"></div>
@@ -721,93 +857,97 @@
   <nav class="navbar">
     <a href="index.html" class="nav-link">Home</a>
     <a href="cornersofthepast.html" class="nav-link">Corners of the past</a>
-
-    <div class="nav-dropdown memory-dropdown">
-      <a href="memorywall-reddit.html" class="nav-link">Memory wall</a>
-    </div>
-
+    <a href="memorywall-reddit.html" class="nav-link">Memory wall</a>
     <a href="interactivetimeline.html" class="nav-link">Interactive timeline</a>
     <a href="everydaylife.html" class="nav-link">Everyday life</a>
     <a href="silentheroes.html" class="nav-link active-link">Our silent heroes</a>
   </nav>
 
+  <div class="mobile-nav-overlay" id="mobileNavOverlay" aria-hidden="true">
+    <div class="mobile-nav-group">
+      <a href="index.html" class="mobile-nav-link">Home</a>
+      <a href="cornersofthepast.html" class="mobile-nav-link">Corners of the past</a>
+      <a href="memorywall-reddit.html" class="mobile-nav-link">Memory wall</a>
+      <a href="interactivetimeline.html" class="mobile-nav-link">Interactive timeline</a>
+      <a href="everydaylife.html" class="mobile-nav-link">Everyday life</a>
+      <a href="silentheroes.html" class="mobile-nav-link active-link">Our silent heroes</a>
+    </div>
+  </div>
+
   <main class="page">
     <section class="hero-section">
       <h1>Silent Heroes</h1>
-      <p>
-        Not your usual big names, but those who made a quiet, yet profound impact in trying to preserve
-        the land we now call home. This section is dedicated to those small giants.
-      </p>
+      <p>Not your usual big names, but those who made a quiet, yet profound impact in trying to preserve the land we now call home. This section is dedicated to those small giants.</p>
 
       <div class="heroes-grid">
-        <a class="hero-card" href="./adnan.html">
-          <div class="hero-card__frame">
-            <img src="Adnan_Saidi_1942.jpg" alt="Lieutenant Adnan Saidi" class="hero-card__image" loading="lazy">
-            <div class="hero-card__overlay">
-              <div class="hero-card__info">
+        <a class="hero-card" href="adnan.html">
+          <div class="hero-cardframe">
+            <img src="AdnanSaidi1942.jpg" alt="Lieutenant Adnan Saidi" class="hero-cardimage" loading="lazy" />
+            <div class="hero-cardoverlay">
+              <div class="hero-cardinfo">
                 <h3>Lieutenant Adnan Saidi</h3>
-                <p>14 August 1915 –<br>14 February 1942</p>
+                <p>14 August 1915<br />14 February 1942</p>
               </div>
             </div>
           </div>
-          <div class="hero-card__title-box">
-            <div class="hero-card__title">
-              <span class="hero-card__title-main">Lieutenant Adnan Saidi</span>
-              <span class="hero-card__title-sub">A Japanese’s Nightmare</span>
+          <div class="hero-cardtitle-box">
+            <div class="hero-cardtitle">
+              <span class="hero-cardtitle-main">Lieutenant Adnan Saidi</span>
+              <span class="hero-cardtitle-sub">A Japanese’s Nightmare</span>
             </div>
           </div>
         </a>
 
-        <a class="hero-card" href="./limboseng.html">
-          <div class="hero-card__frame">
-            <img src="LimBoSeng-1930s.jpg" alt="Lim Bo Seng" class="hero-card__image" loading="lazy">
-            <div class="hero-card__overlay">
-              <div class="hero-card__info">
+        <a class="hero-card" href="limboseng.html">
+          <div class="hero-cardframe">
+            <img src="LimBoSeng-1930s.jpg" alt="Lim Bo Seng" class="hero-cardimage" loading="lazy" />
+            <div class="hero-cardoverlay">
+              <div class="hero-cardinfo">
                 <h3>Lim Bo Seng</h3>
-                <p>27 April 1909 –<br>29 June 1944</p>
+                <p>27 April 1909<br />29 June 1944</p>
               </div>
             </div>
           </div>
-          <div class="hero-card__title-box">
-            <div class="hero-card__title">
-              <span class="hero-card__title-main">Mr Lim Bo Seng</span>
-              <span class="hero-card__title-sub">A Rare Nepo Baby Done Right</span>
+          <div class="hero-cardtitle-box">
+            <div class="hero-cardtitle">
+              <span class="hero-cardtitle-main">Mr Lim Bo Seng</span>
+              <span class="hero-cardtitle-sub">A Rare Nepo Baby Done Right</span>
             </div>
           </div>
         </a>
 
-        <a class="hero-card" href="./shino.html">
-          <div class="hero-card__frame">
-            <img src="Shinozaki_Mamoru.jpg" alt="Mamoru Shinozaki" class="hero-card__image" loading="lazy">
-            <div class="hero-card__overlay">
-              <div class="hero-card__info">
+        <a class="hero-card" href="shino.html">
+          <div class="hero-cardframe">
+            <img src="ShinozakiMamoru.jpg" alt="Mamoru Shinozaki" class="hero-cardimage" loading="lazy" />
+            <div class="hero-cardoverlay">
+              <div class="hero-cardinfo">
                 <h3>Mamoru Shinozaki</h3>
                 <p>1908 – 1991</p>
               </div>
             </div>
           </div>
-          <div class="hero-card__title-box">
-            <div class="hero-card__title">
-              <span class="hero-card__title-main">Mamoru Shinozaki</span>
-              <span class="hero-card__title-sub">The Guy Who Did Not Follow the Script</span>
+          <div class="hero-cardtitle-box">
+            <div class="hero-cardtitle">
+              <span class="hero-cardtitle-main">Mamoru Shinozaki</span>
+              <span class="hero-cardtitle-sub">The Guy Who Did Not Follow the Script</span>
             </div>
           </div>
         </a>
 
-        <a class="hero-card hero-card--bottom" href="./elizabeth.html">
-          <div class="hero-card__frame">
-            <img src="1_IieLvEs1Zo5I6tWoSvKmNA.jpg" alt="Elizabeth Choy" class="hero-card__image" loading="lazy">
-            <div class="hero-card__overlay">
-              <div class="hero-card__info">
+        <a class="hero-card hero-card--bottom" href="elizabeth.html">
+          <div class="hero-cardframe">
+            <img src="1IieLvEs1Zo5I6tWoSvKmNA.jpg" alt="Elizabeth Choy" class="hero-cardimage" loading="lazy" />
+            <div class="hero-cardoverlay">
+              <div class="hero-cardinfo">
                 <h3>Elizabeth Choy</h3>
-                <p>29 November 1910 –<br>14 September 2006</p>
+                <p>29 November 1910<br />14 September 2006</p>
               </div>
             </div>
           </div>
-          <div class="hero-card__title-box">
-            <div class="hero-card__title">
-              <span class="hero-card__title-main">Elizabeth Choy</span>
-              <span class="hero-card__title-sub">Not Just Beauty and Brains</span>
+          <div class="hero-cardtitle-box">
+            <div class="hero-cardtitle">
+              <span class="hero-cardtitle-main">Elizabeth Choy</span>
+              <span class="hero-cardtitle-sub">Not Just Beauty and Brains</span>
             </div>
           </div>
         </a>
@@ -818,9 +958,10 @@
 
     <section class="follow-section">
       <h2>Follow us</h2>
+
       <div class="social-banner">
         <a
-          href="https://www.tiktok.com/@noturhistorytextbook?_r=1&_t=ZS-98wrIT5HhTd"
+          href="https://www.tiktok.com/@noturhistorytextbook?_r=1&_t=ZS-8wrIT5HhTdE"
           aria-label="TikTok"
           class="social-icon"
           target="_blank"
@@ -839,46 +980,100 @@
         </a>
 
         <a
-          href="https://www.instagram.com/noturhistorytextbook?igsh=NnpwYzZxMnJqMDhr&igsi=NnpwYzZxMnJqMDhr&utm_source=qr"
+          href="https://www.instagram.com/noturhistorytextbook?igsh=NnpwYzZxMnJqMDhr&utm_source=qr"
           aria-label="Instagram"
           class="social-icon"
           target="_blank"
           rel="noopener noreferrer"
         >
-          <img src="Instagram_logo_2022.svg.png" alt="Instagram logo">
+          <img src="Instagram_logo_2022.svg.png" alt="Instagram logo" />
         </a>
       </div>
     </section>
   </main>
 
   <script>
-    const heroCards = document.querySelectorAll('.hero-card');
+    const heroCards = document.querySelectorAll(".hero-card");
 
-    heroCards.forEach(card => {
-      card.addEventListener('pointerdown', () => {
-        heroCards.forEach(otherCard => {
-          if (otherCard !== card) {
-            otherCard.classList.remove('is-active');
-          }
+    heroCards.forEach((card) => {
+      card.addEventListener("pointerdown", () => {
+        heroCards.forEach((otherCard) => {
+          if (otherCard !== card) otherCard.classList.remove("is-active");
         });
-        card.classList.add('is-active');
+        card.classList.add("is-active");
       });
 
-      card.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter' || e.key === ' ') {
-          heroCards.forEach(otherCard => {
-            if (otherCard !== card) {
-              otherCard.classList.remove('is-active');
-            }
+      card.addEventListener("keydown", (e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          heroCards.forEach((otherCard) => {
+            if (otherCard !== card) otherCard.classList.remove("is-active");
           });
-          card.classList.add('is-active');
+          card.classList.add("is-active");
         }
       });
 
-      card.addEventListener('blur', () => {
-        card.classList.remove('is-active');
+      card.addEventListener("blur", () => {
+        card.classList.remove("is-active");
       });
     });
+
+    const mobileMenuBtn = document.getElementById("mobileMenuBtn");
+    const mobileNavOverlay = document.getElementById("mobileNavOverlay");
+
+    if (mobileMenuBtn && mobileNavOverlay) {
+      const closeMobileMenu = () => {
+        mobileNavOverlay.classList.remove("open");
+        mobileNavOverlay.setAttribute("aria-hidden", "true");
+        mobileMenuBtn.setAttribute("aria-expanded", "false");
+        mobileMenuBtn.setAttribute("aria-label", "Open menu");
+        document.body.classList.remove("mobile-nav-open");
+      };
+
+      const openMobileMenu = () => {
+        mobileNavOverlay.style.display = "block";
+        requestAnimationFrame(() => {
+          mobileNavOverlay.classList.add("open");
+          mobileNavOverlay.setAttribute("aria-hidden", "false");
+          mobileMenuBtn.setAttribute("aria-expanded", "true");
+          mobileMenuBtn.setAttribute("aria-label", "Close menu");
+          document.body.classList.add("mobile-nav-open");
+        });
+      };
+
+      mobileMenuBtn.addEventListener("click", () => {
+        const isOpen = mobileNavOverlay.classList.contains("open");
+        if (isOpen) {
+          closeMobileMenu();
+        } else {
+          openMobileMenu();
+        }
+      });
+
+      mobileNavOverlay.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", () => {
+          closeMobileMenu();
+        });
+      });
+
+      mobileNavOverlay.addEventListener("click", (event) => {
+        if (event.target === mobileNavOverlay) {
+          closeMobileMenu();
+        }
+      });
+
+      window.addEventListener("resize", () => {
+        if (window.innerWidth > 768) {
+          mobileNavOverlay.style.display = "";
+          closeMobileMenu();
+        }
+      });
+
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape" && mobileNavOverlay.classList.contains("open")) {
+          closeMobileMenu();
+        }
+      });
+    }
   </script>
 </body>
 </html>

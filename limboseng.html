@@ -68,6 +68,11 @@
       overflow-x: hidden;
     }
 
+    body.mobile-nav-open {
+      overflow: hidden;
+      height: 100dvh;
+    }
+
     a {
       text-decoration: none;
       color: inherit;
@@ -75,18 +80,83 @@
 
     .topbar {
       padding: 18px 20px 14px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      position: relative;
+      z-index: 200;
+      background: var(--dark);
     }
 
     .brand {
       font-family: "Poppins", sans-serif;
       font-size: 1.05rem;
       color: var(--yellow);
+      white-space: nowrap;
+    }
+
+    .mobile-menu-btn {
+      display: none;
+      width: 44px;
+      height: 44px;
+      align-items: center;
+      justify-content: center;
+      background: transparent;
+      border: none;
+      padding: 0;
+      position: relative;
+      z-index: 1100;
+      cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .mobile-menu-btn-bar {
+      position: absolute;
+      width: 24px;
+      height: 2px;
+      background: var(--yellow);
+      left: 50%;
+      transform: translateX(-50%);
+      transition: transform 0.22s ease, opacity 0.22s ease, background-color 0.22s ease, top 0.22s ease, bottom 0.22s ease;
+    }
+
+    .mobile-menu-btn-bar:nth-child(1) {
+      top: 14px;
+    }
+
+    .mobile-menu-btn-bar:nth-child(2) {
+      top: 21px;
+    }
+
+    .mobile-menu-btn-bar:nth-child(3) {
+      top: 28px;
+    }
+
+    .mobile-menu-btn[aria-expanded="true"] .mobile-menu-btn-bar {
+      background: var(--white);
+    }
+
+    .mobile-menu-btn[aria-expanded="true"] .mobile-menu-btn-bar:nth-child(1) {
+      top: 21px;
+      transform: translateX(-50%) rotate(45deg);
+    }
+
+    .mobile-menu-btn[aria-expanded="true"] .mobile-menu-btn-bar:nth-child(2) {
+      opacity: 0;
+    }
+
+    .mobile-menu-btn[aria-expanded="true"] .mobile-menu-btn-bar:nth-child(3) {
+      top: 21px;
+      transform: translateX(-50%) rotate(-45deg);
     }
 
     .divider {
       height: 1px;
       background: rgba(242, 242, 235, 0.45);
       width: 100%;
+      position: relative;
+      z-index: 200;
     }
 
     .navbar {
@@ -175,6 +245,10 @@
       background: var(--yellow);
       color: var(--light);
       font-weight: 600;
+    }
+
+    .mobile-nav-overlay {
+      display: none;
     }
 
     .page {
@@ -389,6 +463,7 @@
     @media (max-width: 768px) {
       .topbar {
         padding: 16px 12px 12px;
+        position: relative;
       }
 
       .brand {
@@ -396,30 +471,62 @@
         line-height: 1.25;
       }
 
+      .mobile-menu-btn {
+        display: inline-flex;
+      }
+
+      .divider {
+        z-index: 200;
+      }
+
       .navbar {
-        gap: 10px 16px;
-        padding: 16px 12px 0;
+        display: none;
       }
 
-      .nav-link,
-      .dropdown-toggle {
-        font-size: 0.95rem;
-        line-height: 1.3;
+      .mobile-nav-overlay {
+        position: fixed;
+        inset: 0;
+        z-index: 1200;
+        background: rgba(26, 26, 26, 0.98);
+        padding: 88px 18px 28px;
+        overflow: auto;
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        transition: opacity 0.22s ease, visibility 0.22s ease;
       }
 
-      .nav-dropdown {
+      .mobile-nav-overlay.open {
+        display: block;
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+      }
+
+      .mobile-nav-group {
+        display: grid;
+        gap: 10px;
+      }
+
+      .mobile-nav-link {
         width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        font-family: "Poppins", sans-serif;
+        font-size: 1rem;
+        line-height: 1.35;
+        color: var(--white);
+        background: transparent;
+        border: 1px solid rgba(242, 242, 235, 0.16);
+        min-height: 50px;
+        padding: 12px 14px;
+        text-align: left;
       }
 
-      .dropdown-menu {
-        position: static;
-        margin-top: 10px;
-        min-width: unset;
-        width: 100%;
-      }
-
-      .memory-dropdown-menu {
-        width: 100%;
+      .mobile-nav-link.active-link {
+        color: var(--yellow);
+        border-color: rgba(250, 227, 172, 0.55);
       }
 
       .page {
@@ -479,15 +586,6 @@
     }
 
     @media (max-width: 520px) {
-      .navbar {
-        gap: 8px 12px;
-      }
-
-      .nav-link,
-      .dropdown-toggle {
-        font-size: 0.92rem;
-      }
-
       .page {
         padding: 28px 12px 104px;
       }
@@ -549,6 +647,19 @@
 <body>
   <header class="topbar">
     <a class="brand" href="index.html">not your History Textbook</a>
+
+    <button
+      class="mobile-menu-btn"
+      id="mobileMenuBtn"
+      type="button"
+      aria-label="Open menu"
+      aria-expanded="false"
+      aria-controls="mobileNavOverlay"
+    >
+      <span class="mobile-menu-btn-bar"></span>
+      <span class="mobile-menu-btn-bar"></span>
+      <span class="mobile-menu-btn-bar"></span>
+    </button>
   </header>
 
   <div class="divider"></div>
@@ -566,165 +677,7 @@
     <a href="silentheroes.html" class="nav-link active-link">Our silent heroes</a>
   </nav>
 
-  <a href="silentheroes.html" class="back-button-fixed">Back</a>
-
-  <main class="page">
-    <article class="story-shell">
-      <header class="story-hero">
-        <div class="hero-grid">
-          <div class="hero-copy">
-            <h1>Mr Lim Bo Seng: A Rare Nepo Baby Done Right</h1>
-            <p class="story-subtitle">27 April 1909–29 June 1944</p>
-          </div>
-
-          <figure class="hero-image">
-            <img src="LimBoSeng-1930s.jpg" alt="Portrait of Lim Bo Seng in the 1930s" />
-          </figure>
-        </div>
-      </header>
-
-      <section class="story-body">
-        <div class="intro-box">
-          <p>Mr Lim Bo Seng.. rings a bell? Pretty sure you recognise the white octagonal pagoda at the Esplanade park. That’s the Lim Bo Seng Memorial. A memorial dedicated to the war hero who endured inhumane torture by the Japanese, so that the people in Singapore then, and people like you today, could live the lives we have now.</p>
-
-          <p>Imagine the last memory of your children, being their teary-eyed naive faces as they unknowingly bid goodbye to their father for the last time. That was Mr Lim Bo Seng’s last memory and recollection of his children as he walked away to defend his country, and the very family he loved within it.</p>
-        </div>
-
-        <p>Lim was a Fujian-born Chinese businessman who led a life that, while privileged, was not especially uncommon among well-educated Straits Chinese of his time. He attended the reputable Raffles Institution and then Anglo-Chinese School, later inheriting multiple family businesses across different industries, marrying, and raising eight children.. Yes, he’s a nepo baby.</p>
-
-        <p>Prior to the war in Singapore, Lim was an active volunteer in anti-Japanese activities in the 1930s, donating money to the Chinese Relief Fund and boycotting against Japanese goods. He also organised fundraising activities, and asked people to go on the streets and sell flowers to raise money to send back to China. At one point, his children hardly saw him, as he was always out until quite the wee hours of the night.</p>
-
-        <p>Lim knew that the Japanese were after his ass, well aware he was helping the British and supporting China in their anti-Japanese fight. And coupled with the Japanese rapidly closing in on Singapore, he knew he was in imminent danger.</p>
-
-        <p>At one point, when the Japanese were acquiring neighbouring countries like Thanos’ infinity stones, Lim was given a chance to leave Singapore with his family, along with places offered for himself and his family to flee Singapore. However, he decided not to go ahead with the offers, as "accommodation was insufficient for everyone and their families."</p>
-
-        <p>Japanese forces were sinking evacuating ships, and the situation was only growing grimmer and more desperate, and so he made a hard, yet the bravest decision he could make: keep his family in Singapore, and flee alone without them. He believed this gave stronger chances for his family’s survival. Arguably selfish, some may say.. But that was Lim’s last resort as a father, husband, and a Singaporean.</p>
-
-        <p>Lim’s brother was the last to see him before he had left, and during that farewell, his last few words were simple: stay and look after the family. He departed with some peace of mind, believing the British government's promise that his wife and children would soon be evacuated. But as the Japanese advanced far more quickly than expected, that promise never came to fruition.</p>
-
-        <p>In Lim’s now-published diary, he penned a sad yet tender reflection of the anguish and sense of duty that defined life in those turbulent times. He expressed his pain at parting from his family and his conscience wrestling between protecting them and serving his nation.</p>
-
-        <p>“To leave the dear Mrs behind at the mercy of the enemy would go very hard against my own conscience. On the other hand, to remain with the family in the event of enemy occupation, would not in any way improve the situation but my presence may even make their lot very much harder.”</p>
-
-        <figure class="float-image">
-          <img src="diary_lim.png" alt="A page in Lim Bo Seng’s diary entry" />
-          <figcaption class="image-caption">A page in Lim Bo Seng’s diary entry. PHOTO: National Archives Singapore</figcaption>
-        </figure>
-
-        <p>“I decided to take a chance, hoping that the enemy would not go to the extreme of venting their wrath on defenceless women &amp; children. We then took leave of each other. The children were too stupified (stupefied] to realise what was happening. Each of them in turn kissed me good-bye. I shall never forget the tear-stained faces as long as I live. If there is anything I could do to make up for what they were”</p>
-
-        <p>These paragraphs poignantly demonstrate the hopeless and precarious plight that generation had to go through, for adults and innocent kids alike. Some knew that their lives were hanging by the thread by the Japanese, others still too clueless to grasp the situation.. Is ignorance really bliss here? Family, safety, everything was indefinite. And yet, despite all the wrath and guilt Lim went through, he still marched on with hope, something that should have most likely been rare at that point. To think how many others died pitifully clinging onto such a fragile belief then?</p>
-
-        <p>Lim took his leave quickly, a few days before the Japanese’s eventual invasion, afraid of prolonging the agony of separation, and made his way through Riau Island and Sumatra and eventually to India and joined Force 136. Think of Force 136 as your secret spy intelligence. Tucked in India behind enemy lines, their mission involved training local guerrillas, organising an underground spy network, and gathering vital intelligence to aid the British's planned liberation of Japanese-occupied Malaya.</p>
-
-        <p>Meanwhile, back at home, now renamed Syonan-to, the Japanese were searching high and low for Lim. Barely a few days after the Japanese invaded, 200 soldiers made their way to Lim’s brother’s house and tried to sieve out any information on Lim’s whereabouts.</p>
-
-        <p>After months of training in India, Force 136 returned to Malaya. However, this was the start to Force 136’s subsequent downfall. In March 1944, Force 136 had set up an underground network, hiding behind different business fronts.</p>
-
-        <p>Yet fate turned against them. Mistaking a Japanese submarine for their own, an agent made a fatal approach. Though he escaped, two of his men were seized and, under pressure, divulged vital intelligence that led to the arrest of several members of Force 136.</p>
-
-        <p>Lim was among those captured at the Gopeng checkpoint. He had left the Bukit Bidor camp prior, to secure funds and gather intelligence in Ipoh with the alias of an uncle of a Force 136 agent, hiding out in a two-storey house in Ipoh. Taken with other agents to the Kempeitai headquarter in Ipoh, now replaced with St. Michael’s Institution, Malaysia, he was brutally tortured by the Kempeitai for information.</p>
-
-        <figure class="float-image left">
-          <img src="fd9161aa4572291a5806090795301fec05815f31fa43f26780a1555ddd366d71.webp" alt="Lim Bo Seng’s hideout in Ipoh prior to his capture" />
-          <figcaption class="image-caption">Lim Bo Seng’s hideout in Ipoh prior to his capture. PHOTO: Lim Kok Meng</figcaption>
-        </figure>
-
-        <p>What’s Kempetai? Feared across Asia, Kempetai were the Japanese military police, who were infamously known for their egregiously inhumane and indiscriminate execution methods, in the name of eradicating anti-Japanese sentiments.</p>
-
-        <p>However, Lim saved millions of lives today, as he refused to divulge any information about the Force. Despite his whole physical being deteriorating, he still stood resolute in his resolve to keep mum.</p>
-
-        <p>A classroom at St Michael’s Institution, where Lim Bo Seng was subjected to questioning and torture. Following months of unwillingness to cooperate with the Japanese, he was soon transferred to Batu Gajah Prison (or Batu Gajah Gaol) in Perak where he was tortured and starved by the Kempeitai.</p>
-
-        <figure class="float-image">
-          <img src="classroomLim.webp" alt="A classroom at St Michael’s Institution where Lim Bo Seng was questioned and tortured" />
-          <figcaption class="image-caption">A classroom at St Michael’s Institution, where Lim Bo Seng was subjected to questioning and torture.</figcaption>
-        </figure>
-
-        <p>During those days, he was at his helpless, weakest and most vulnerable state, and yet Lim was still remembered by fellow prisoners for his kindness that didn’t waver in spite of such circumstances. They shared that he had shared his pathetic portions of food rations with them despite being “reduced to a bag of bones” and even begged the guards to distribute the food meant for him to the rest of the prisoners.</p>
-
-        <p>So selfish and benevolent, that his actions in his last few days touched the hearts of the guards too. Eventually, Lim succumbed to his injuries on the 29th of June, 1944, and passed from malnutrition, dysentry and torture at the age of 35. Wrapped in a torn blanket, he was carted away and buried among many others in a mass grave by the prison. His legacy, his contributions, his life, reduced to mere dirt. His soul rested at the grounds of many other humiliated, and innocent victims, buried beside the very grounds of their suffering. Not a single dignity spared to them even in their afterlives.</p>
-
-        <p>In Singapore, the Japanese, fueled by vengeance and some unhinged brutality, tracked down and killed eight of Lim’s relatives who were living at 855 Serangoon Road. Lim’s wife, however, managed to evade capture, constantly moving the family between different hideouts and even finding temporary refuge on St John’s Island. Imagine having so much free time that you hunt down a random victim's family when he's just one among thousands killed. Peak unemployment behaviour.</p>
-
-        <p>Following the Japanese's surrender, one of Lim's friends came back to Singapore and relayed the piece of news to Lim's brother, "Your brother died in June (19)44 in prison, Perak, Batu Gajah."</p>
-
-        <p>In December 1945, Lim’s now-widowed wife, Gan Choo Neo, and their eldest son, Lim Leong Geok, travelled there in search of his mortal remains, which were later repatriated to Singapore, where he was laid to rest. Honouring Lim’s legacy and contributions, a funeral was held at City Hall, after which he was laid to rest with full military honours on a hill overlooking MacRitchie Reservoir, where he held fond memories of his courtship days with his wife. In 1946, the Chinese Nationalist government posthumously promoted him to the rank of major-general.</p>
-
-        <figure class="float-image">
-          <img src="img0099.jpeg" alt="Gan Choo Neo during Lim Bo Seng’s funeral service" />
-          <figcaption class="image-caption">Gan Choo Neo, wife of Lim Bo Seng, on the far right in black during his funeral service. IMAGE FROM the Tham Sien Yen Collection courtesy of the National Archives of Singapore</figcaption>
-        </figure>
-
-        <p>An entry from Lim’s personal diary left for his heartbroken wife reads: “You must not grieve for me. On the other hand, you should take pride in my sacrifice and devote yourself to the upbringing of the children. Tell them what happened to me and direct them along my footsteps.”</p>
-
-        <p>A devoted family man, who held his family close to his heart till the very end, and a patriotic man of conviction who gave his all in protecting our nation. A piece of our history that deserves to transcend through generations to come.</p>
-
-        <p>Dear Lim, in your next life, may both sides of your pillow always be cold, you date the prettiest and kindest version of your wife in this life, and live a life where war doesn’t exist.</p>
-
-        <div class="references-end" id="referencesBox">
-          <button
-            class="ref-toggle"
-            id="refToggle"
-            type="button"
-            aria-expanded="false"
-            aria-controls="refMenu"
-          >
-            <span>References</span>
-            <span class="ref-toggle-icon">⌄</span>
-          </button>
-
-          <div class="ref-menu" id="refMenu">
-            <div class="ref-item">
-              Lim Bo Seng. (n.d.).
-              <a href="https://www.nlb.gov.sg/main/article-detail?cmsuuid=18b892a1-9b32-4f8c-a72a-6ad72122bdd4" target="_blank" rel="noopener noreferrer">https://www.nlb.gov.sg/main/article-detail?cmsuuid=18b892a1-9b32-4f8c-a72a-6ad72122bdd4</a>
-            </div>
-            <div class="ref-item">
-              Lim Bo Seng. (n.d.).
-              <a href="https://www.roots.gov.sg/stories-landing/stories/lim-bo-seng/story" target="_blank" rel="noopener noreferrer">https://www.roots.gov.sg/stories-landing/stories/lim-bo-seng/story</a>
-            </div>
-            <div class="ref-item">
-              Beng, M. T. C. (2024, December 27). Heart and Soul: Retracing war hero Lim Bo Seng’s final journey. The Star.
-              <a href="https://www.thestar.com.my/lifestyle/living/2024/12/27/heart-and-soul-retracing-war-hero-lim-bo-seng039s-final-journey" target="_blank" rel="noopener noreferrer">https://www.thestar.com.my/lifestyle/living/2024/12/27/heart-and-soul-retracing-war-hero-lim-bo-seng039s-final-journey</a>
-            </div>
-            <div class="ref-item">
-              Tan, L. (2024, June 24). I retraced the final footsteps of my great-granduncle Lim Bo Seng in Malaysia. The Straits Times.
-              <a href="https://www.straitstimes.com/life/travel/i-retraced-the-final-footsteps-of-my-great-granduncle-lim-bo-seng-in-malaysia" target="_blank" rel="noopener noreferrer">https://www.straitstimes.com/life/travel/i-retraced-the-final-footsteps-of-my-great-granduncle-lim-bo-seng-in-malaysia</a>
-            </div>
-            <div class="ref-item">
-              Tan, L. (2024, June 24). How a war historian tracked down Lim Bo Seng’s secret residence in Ipoh. The Straits Times.
-              <a href="https://www.straitstimes.com/life/travel/how-a-war-historian-tracked-down-lim-bo-seng-s-secret-residence-in-ipoh?ref=more-on-this-topic" target="_blank" rel="noopener noreferrer">https://www.straitstimes.com/life/travel/how-a-war-historian-tracked-down-lim-bo-seng-s-secret-residence-in-ipoh?ref=more-on-this-topic</a>
-            </div>
-            <div class="ref-item">
-              Oral history interviews. (n.d.).
-              <a href="https://www.nas.gov.sg/archivesonline/flipviewer/publish/5/5901b317-115f-11e3-83d5-0050568939ad-OHC000314_004/web/html5/index.html?launchlogo=tablet/OralHistoryInterviews_brandingLogo_.png&pn=13" target="_blank" rel="noopener noreferrer">https://www.nas.gov.sg/archivesonline/flipviewer/publish/5/5901b317-115f-11e3-83d5-0050568939ad-OHC000314_004/web/html5/index.html?launchlogo=tablet/OralHistoryInterviews_brandingLogo_.png&pn=13</a>
-            </div>
-            <div class="ref-item">
-              Oral history interviews. (n.d.).
-              <a href="https://www.nas.gov.sg/archivesonline/flipviewer/publish/e/e25848f3-115d-11e3-83d5-0050568939ad-OHC000314_007/web/html5/index.html?launchlogo=tablet/OralHistoryInterviews_brandingLogo_.png&pn=15" target="_blank" rel="noopener noreferrer">https://www.nas.gov.sg/archivesonline/flipviewer/publish/e/e25848f3-115d-11e3-83d5-0050568939ad-OHC000314_007/web/html5/index.html?launchlogo=tablet/OralHistoryInterviews_brandingLogo_.png&pn=15</a>
-            </div>
-            <div class="ref-item">
-              Private records. (n.d.).
-              <a href="https://www.nas.gov.sg/archivesonline/private_records/flipviewer/prism_publish/d/df94e1d1-115b-11e3-83d5-0050568939ad-Diary_of_Lim_Bo_Seng_c_1942/web/html5/index.html?launchlogo=tablet/PrivateRecords_brandingLogo_.png&pn=87" target="_blank" rel="noopener noreferrer">https://www.nas.gov.sg/archivesonline/private_records/flipviewer/prism_publish/d/df94e1d1-115b-11e3-83d5-0050568939ad-Diary_of_Lim_Bo_Seng_c_1942/web/html5/index.html?launchlogo=tablet/PrivateRecords_brandingLogo_.png&pn=87</a>
-            </div>
-            <div class="ref-item">
-              Xinjuan, W. (n.d.). Memory of Singapore’s anti-Japanese hero kept alive 75 years after WWII - China Military.
-              <a href="http://eng.chinamil.com.cn/2020special/2020-09/10/content_9900448.htm" target="_blank" rel="noopener noreferrer">http://eng.chinamil.com.cn/2020special/2020-09/10/content_9900448.htm</a>
-            </div>
-          </div>
-        </div>
-      </section>
-    </article>
-  </main>
-
-  <script>
-    const refBox = document.getElementById("referencesBox");
-    const refToggle = document.getElementById("refToggle");
-
-    refToggle.addEventListener("click", function () {
-      const isOpen = refBox.classList.toggle("open");
-      refToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
-    });
-  </script>
-</body>
-</html>
+  <div class="mobile-nav-overlay" id="mobileNavOverlay" aria-hidden="true">
+    <div class="mobile-nav-group">
+      <a href="index.html" class="mobile-nav-link">Home</a>
+      <a href="cornersofthepast.html" c

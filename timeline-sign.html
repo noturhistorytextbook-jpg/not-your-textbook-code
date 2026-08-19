@@ -207,6 +207,11 @@
       overflow-x: hidden;
     }
 
+    body.mobile-nav-open {
+      overflow: hidden;
+      height: 100dvh;
+    }
+
     a {
       text-decoration: none;
       color: inherit;
@@ -222,6 +227,13 @@
 
   .topbar {
   padding: 18px 20px 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  position: relative;
+  z-index: 200;
+  background: var(--dark);
 }
 
 .brand {
@@ -328,92 +340,98 @@
       font-weight: 600;
     }
 
-    .menu-toggle {
+    .mobile-menu-btn {
+      display: none;
       width: 44px;
       height: 44px;
-      display: none;
       align-items: center;
       justify-content: center;
-      flex-direction: column;
-      gap: 5px;
-      z-index: 90;
+      background: transparent;
+      border: none;
+      padding: 0;
+      position: relative;
+      z-index: 1100;
+      cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
     }
 
-    .menu-toggle span {
-      display: block;
+    .mobile-menu-btn-bar {
+      position: absolute;
       width: 24px;
       height: 2px;
       background: var(--yellow);
-      transition: transform 0.2s ease, opacity 0.2s ease;
+      left: 50%;
+      transform: translateX(-50%);
+      transition: transform 0.22s ease, opacity 0.22s ease, background-color 0.22s ease, top 0.22s ease, bottom 0.22s ease;
     }
 
-    .menu-toggle.open span:nth-child(1) {
-      transform: translateY(7px) rotate(45deg);
+    .mobile-menu-btn-bar:nth-child(1) {
+      top: 14px;
     }
 
-    .menu-toggle.open span:nth-child(2) {
+    .mobile-menu-btn-bar:nth-child(2) {
+      top: 21px;
+    }
+
+    .mobile-menu-btn-bar:nth-child(3) {
+      top: 28px;
+    }
+
+    .mobile-menu-btn[aria-expanded="true"] .mobile-menu-btn-bar {
+      background: var(--white);
+    }
+
+    .mobile-menu-btn[aria-expanded="true"] .mobile-menu-btn-bar:nth-child(1) {
+      top: 21px;
+      transform: translateX(-50%) rotate(45deg);
+    }
+
+    .mobile-menu-btn[aria-expanded="true"] .mobile-menu-btn-bar:nth-child(2) {
       opacity: 0;
     }
 
-    .menu-toggle.open span:nth-child(3) {
-      transform: translateY(-7px) rotate(-45deg);
+    .mobile-menu-btn[aria-expanded="true"] .mobile-menu-btn-bar:nth-child(3) {
+      top: 21px;
+      transform: translateX(-50%) rotate(-45deg);
     }
 
-    .menu-overlay {
-      position: fixed;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.45);
-      opacity: 0;
-      visibility: hidden;
-      pointer-events: none;
-      transition: opacity 0.22s ease, visibility 0.22s ease;
-      z-index: 70;
+    .mobile-nav-overlay {
+      display: none;
     }
 
-    .menu-overlay.open {
-      opacity: 1;
-      visibility: visible;
-      pointer-events: auto;
+    .mobile-nav-close {
+      display: none;
+      position: absolute;
+      top: 18px;
+      right: 18px;
+      width: 40px;
+      height: 40px;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
     }
 
-    .mobile-menu {
-      position: fixed;
-      top: 0;
-      right: 0;
-      width: min(82vw, 320px);
-      height: 100vh;
-      background: var(--blue);
-      border-left: 1px solid rgba(242, 242, 235, 0.16);
-      padding: 88px 22px 24px;
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-      transform: translateX(100%);
-      transition: transform 0.25s ease;
-      z-index: 80;
-      overflow-y: auto;
+    .mobile-nav-close-bar {
+      position: absolute;
+      width: 22px;
+      height: 2px;
+      background: var(--white);
+      left: 50%;
+      top: 50%;
+      transition: background-color 0.18s ease;
     }
 
-    .mobile-menu.open {
-      transform: translateX(0);
+    .mobile-nav-close-bar:nth-child(1) {
+      transform: translate(-50%, -50%) rotate(45deg);
     }
 
-    .mobile-nav-link {
-      font-family: "Poppins", sans-serif;
-      font-size: 1rem;
-      color: var(--white);
-      padding: 14px 0;
-      border-bottom: 1px solid rgba(242, 242, 235, 0.12);
-      transition: 0.18s ease;
+    .mobile-nav-close-bar:nth-child(2) {
+      transform: translate(-50%, -50%) rotate(-45deg);
     }
 
-    .mobile-nav-link:hover {
-      color: var(--yellow);
-    }
-
-    .mobile-nav-link.active-link {
-      color: var(--yellow);
-      font-weight: 600;
+    .mobile-nav-close.closing .mobile-nav-close-bar {
+      background: var(--yellow);
     }
 
     .page {
@@ -662,15 +680,70 @@
 
     @media (max-width: 768px) {
       .topbar {
-  padding: 16px 16px 12px;
-}
+        padding: 16px 16px 12px;
+        position: relative;
+      }
 
       .desktop-nav {
         display: none;
       }
 
-      .menu-toggle {
+      .mobile-menu-btn {
+        display: inline-flex;
+      }
+
+      .divider {
+        z-index: 200;
+      }
+
+      .mobile-nav-overlay {
+        position: fixed;
+        inset: 0;
+        z-index: 1200;
+        background: rgba(26, 26, 26, 0.98);
+        padding: 88px 18px 28px;
+        overflow: auto;
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        transition: opacity 0.22s ease, visibility 0.22s ease;
+      }
+
+      .mobile-nav-overlay.open {
+        display: block;
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+      }
+
+      .mobile-nav-close {
         display: flex;
+      }
+
+      .mobile-nav-group {
+        display: grid;
+        gap: 10px;
+      }
+
+      .mobile-nav-link {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        font-family: "Poppins", sans-serif;
+        font-size: 1rem;
+        line-height: 1.35;
+        color: var(--white);
+        background: transparent;
+        border: 1px solid rgba(242, 242, 235, 0.16);
+        min-height: 50px;
+        padding: 12px 14px;
+        text-align: left;
+      }
+
+      .mobile-nav-link.active-link {
+        color: var(--yellow);
+        border-color: rgba(250, 227, 172, 0.55);
       }
 
       .page {
@@ -736,10 +809,6 @@
         max-width: 220px;
       }
 
-      .mobile-menu {
-        width: min(86vw, 300px);
-      }
-
       .back-button-fixed {
         left: 14px;
         bottom: 14px;
@@ -755,16 +824,16 @@
     <a class="brand" href="index.html">not your History Textbook</a>
 
     <button
-      class="menu-toggle"
-      id="menuToggle"
+      class="mobile-menu-btn"
+      id="mobileMenuBtn"
+      type="button"
       aria-label="Open menu"
       aria-expanded="false"
-      aria-controls="mobileMenu"
-      type="button"
+      aria-controls="mobileNavOverlay"
     >
-      <span></span>
-      <span></span>
-      <span></span>
+      <span class="mobile-menu-btn-bar"></span>
+      <span class="mobile-menu-btn-bar"></span>
+      <span class="mobile-menu-btn-bar"></span>
     </button>
   </header>
 
@@ -779,16 +848,26 @@
     <a href="silentheroes.html" class="nav-link">Our silent heroes</a>
   </nav>
 
-  <div class="menu-overlay" id="menuOverlay"></div>
+  <div class="mobile-nav-overlay" id="mobileNavOverlay" aria-hidden="true">
+    <button
+      class="mobile-nav-close"
+      id="mobileNavClose"
+      type="button"
+      aria-label="Close menu"
+    >
+      <span class="mobile-nav-close-bar"></span>
+      <span class="mobile-nav-close-bar"></span>
+    </button>
 
-  <nav class="mobile-menu" id="mobileMenu" aria-label="Mobile navigation" aria-hidden="true">
-    <a href="index.html" class="mobile-nav-link">Home</a>
-    <a href="cornersofthepast.html" class="mobile-nav-link">Corners of the past</a>
-    <a href="memorywall-reddit.html" class="mobile-nav-link">Memory wall</a>
-    <a href="interactivetimeline.html" class="mobile-nav-link active-link">Interactive timeline</a>
-    <a href="everydaylife.html" class="mobile-nav-link">Everyday life</a>
-    <a href="silentheroes.html" class="mobile-nav-link">Our silent heroes</a>
-  </nav>
+    <div class="mobile-nav-group">
+      <a href="index.html" class="mobile-nav-link">Home</a>
+      <a href="cornersofthepast.html" class="mobile-nav-link">Corners of the past</a>
+      <a href="memorywall-reddit.html" class="mobile-nav-link">Memory wall</a>
+      <a href="interactivetimeline.html" class="mobile-nav-link active-link">Interactive timeline</a>
+      <a href="everydaylife.html" class="mobile-nav-link">Everyday life</a>
+      <a href="silentheroes.html" class="mobile-nav-link">Our silent heroes</a>
+    </div>
+  </div>
 
   <a href="timeline-japsurrender.html" class="back-button-fixed">Back</a>
 
@@ -931,55 +1010,68 @@
   <script>
     const refBox = document.getElementById("referencesBox");
     const refToggle = document.getElementById("refToggle");
-    const menuToggle = document.getElementById("menuToggle");
-    const mobileMenu = document.getElementById("mobileMenu");
-    const menuOverlay = document.getElementById("menuOverlay");
 
     refToggle.addEventListener("click", function () {
       const isOpen = refBox.classList.toggle("open");
       refToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
     });
 
-    function openMenu() {
-      mobileMenu.classList.add("open");
-      menuOverlay.classList.add("open");
-      menuToggle.classList.add("open");
-      menuToggle.setAttribute("aria-expanded", "true");
-      mobileMenu.setAttribute("aria-hidden", "false");
-      document.body.style.overflow = "hidden";
+    const mobileMenuBtn = document.getElementById("mobileMenuBtn");
+    const mobileNavOverlay = document.getElementById("mobileNavOverlay");
+    const mobileNavClose = document.getElementById("mobileNavClose");
+
+    if (mobileMenuBtn && mobileNavOverlay) {
+      const closeMobileNav = function () {
+        mobileNavOverlay.classList.remove("open");
+        mobileNavOverlay.setAttribute("aria-hidden", "true");
+        mobileMenuBtn.setAttribute("aria-expanded", "false");
+        mobileMenuBtn.setAttribute("aria-label", "Open menu");
+        document.body.classList.remove("mobile-nav-open");
+      };
+
+      const openMobileNav = function () {
+        mobileNavOverlay.classList.add("open");
+        mobileNavOverlay.setAttribute("aria-hidden", "false");
+        mobileMenuBtn.setAttribute("aria-expanded", "true");
+        mobileMenuBtn.setAttribute("aria-label", "Close menu");
+        document.body.classList.add("mobile-nav-open");
+      };
+
+      mobileMenuBtn.addEventListener("click", function () {
+        const isOpen = mobileNavOverlay.classList.contains("open");
+        if (isOpen) {
+          closeMobileNav();
+        } else {
+          openMobileNav();
+        }
+      });
+
+      mobileNavOverlay.querySelectorAll(".mobile-nav-link").forEach(function (link) {
+        link.addEventListener("click", closeMobileNav);
+      });
+
+      if (mobileNavClose) {
+        mobileNavClose.addEventListener("click", function () {
+          mobileNavClose.classList.add("closing");
+          setTimeout(function () {
+            closeMobileNav();
+            mobileNavClose.classList.remove("closing");
+          }, 150);
+        });
+      }
+
+      document.addEventListener("keydown", function (event) {
+        if (event.key === "Escape" && mobileNavOverlay.classList.contains("open")) {
+          closeMobileNav();
+        }
+      });
+
+      window.addEventListener("resize", function () {
+        if (window.innerWidth > 768) {
+          closeMobileNav();
+        }
+      });
     }
-
-    function closeMenu() {
-      mobileMenu.classList.remove("open");
-      menuOverlay.classList.remove("open");
-      menuToggle.classList.remove("open");
-      menuToggle.setAttribute("aria-expanded", "false");
-      mobileMenu.setAttribute("aria-hidden", "true");
-      document.body.style.overflow = "";
-    }
-
-    menuToggle.addEventListener("click", function () {
-      const isOpen = mobileMenu.classList.contains("open");
-      if (isOpen) {
-        closeMenu();
-      } else {
-        openMenu();
-      }
-    });
-
-    menuOverlay.addEventListener("click", closeMenu);
-
-    document.addEventListener("keydown", function (event) {
-      if (event.key === "Escape" && mobileMenu.classList.contains("open")) {
-        closeMenu();
-      }
-    });
-
-    window.addEventListener("resize", function () {
-      if (window.innerWidth > 768 && mobileMenu.classList.contains("open")) {
-        closeMenu();
-      }
-    });
   </script>
 </body>
 </html>

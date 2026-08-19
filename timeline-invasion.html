@@ -443,9 +443,9 @@
       margin: 0 auto;
     }
 
-    .back-button-fixed {
+    .back-button-fixed,
+    .next-button-fixed {
       position: fixed;
-      left: 80px;
       bottom: 80px;
       z-index: 100;
       display: inline-flex;
@@ -466,7 +466,16 @@
       backdrop-filter: blur(8px);
     }
 
-    .back-button-fixed:hover {
+    .back-button-fixed {
+      left: 80px;
+    }
+
+    .next-button-fixed {
+      right: 80px;
+    }
+
+    .back-button-fixed:hover,
+    .next-button-fixed:hover {
       background: #323232;
       color: var(--white);
       border-color: rgba(242, 242, 235, 0.24);
@@ -700,6 +709,10 @@
       .back-button-fixed {
         left: 24px;
       }
+
+      .next-button-fixed {
+        right: 24px;
+      }
     }
 
     @media (max-width: 768px) {
@@ -813,11 +826,19 @@
         max-width: 100%;
       }
 
-      .back-button-fixed {
-        left: 16px;
+      .back-button-fixed,
+      .next-button-fixed {
         bottom: 18px;
         font-size: 0.68rem;
         padding: 10px 12px;
+      }
+
+      .back-button-fixed {
+        left: 16px;
+      }
+
+      .next-button-fixed {
+        right: 16px;
       }
     }
 
@@ -827,7 +848,8 @@
         max-width: 220px;
       }
 
-      .back-button-fixed {
+      .back-button-fixed,
+      .next-button-fixed {
         bottom: 14px;
         padding: 9px 11px;
       }
@@ -885,7 +907,8 @@
     </div>
   </div>
 
-  <a href="interactivetimeline.html" class="back-button-fixed">Back</a>
+  <a href="timeline-airraids.html" class="back-button-fixed">Back</a>
+  <a href="timeline-adnan.html" class="next-button-fixed">Next</a>
 
   <main class="page">
     <article class="story-shell">
@@ -910,12 +933,7 @@
           </p>
         </div>
 
-        <figure class="float-image">
-          <img src="Lieutenant_General_Arthur_Percival.jpg" alt="Lieutenant General Arthur Percival portrait" />
-          <figcaption class="image-caption">
-            Lieutenant General Arthur E. Percival, overall commander of the Allied troops.
-          </figcaption>
-        </figure>
+
 
         <p>
           The allied forces were expecting the Japanese to infiltrate Singapore

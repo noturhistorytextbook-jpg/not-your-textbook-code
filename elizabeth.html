@@ -205,6 +205,11 @@
       overflow-x: hidden;
     }
 
+    body.mobile-nav-open {
+      overflow: hidden;
+      height: 100dvh;
+    }
+
     a {
       text-decoration: none;
       color: inherit;
@@ -212,18 +217,83 @@
 
     .topbar {
       padding: 18px 20px 14px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      position: relative;
+      z-index: 200;
+      background: var(--dark);
     }
 
     .brand {
       font-family: "Poppins", sans-serif;
       font-size: 1.05rem;
       color: var(--yellow);
+      white-space: nowrap;
+    }
+
+    .mobile-menu-btn {
+      display: none;
+      width: 44px;
+      height: 44px;
+      align-items: center;
+      justify-content: center;
+      background: transparent;
+      border: none;
+      padding: 0;
+      position: relative;
+      z-index: 1100;
+      cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .mobile-menu-btn-bar {
+      position: absolute;
+      width: 24px;
+      height: 2px;
+      background: var(--yellow);
+      left: 50%;
+      transform: translateX(-50%);
+      transition: transform 0.22s ease, opacity 0.22s ease, background-color 0.22s ease, top 0.22s ease, bottom 0.22s ease;
+    }
+
+    .mobile-menu-btn-bar:nth-child(1) {
+      top: 14px;
+    }
+
+    .mobile-menu-btn-bar:nth-child(2) {
+      top: 21px;
+    }
+
+    .mobile-menu-btn-bar:nth-child(3) {
+      top: 28px;
+    }
+
+    .mobile-menu-btn[aria-expanded="true"] .mobile-menu-btn-bar {
+      background: var(--white);
+    }
+
+    .mobile-menu-btn[aria-expanded="true"] .mobile-menu-btn-bar:nth-child(1) {
+      top: 21px;
+      transform: translateX(-50%) rotate(45deg);
+    }
+
+    .mobile-menu-btn[aria-expanded="true"] .mobile-menu-btn-bar:nth-child(2) {
+      opacity: 0;
+    }
+
+    .mobile-menu-btn[aria-expanded="true"] .mobile-menu-btn-bar:nth-child(3) {
+      top: 21px;
+      transform: translateX(-50%) rotate(-45deg);
     }
 
     .divider {
       height: 1px;
       background: rgba(242, 242, 235, 0.45);
       width: 100%;
+      position: relative;
+      z-index: 200;
     }
 
     .navbar {
@@ -312,6 +382,10 @@
       background: var(--yellow);
       color: var(--light);
       font-weight: 600;
+    }
+
+    .mobile-nav-overlay {
+      display: none;
     }
 
     .page {
@@ -570,6 +644,7 @@
     @media (max-width: 768px) {
       .topbar {
         padding: 16px 12px 12px;
+        position: relative;
       }
 
       .brand {
@@ -577,30 +652,62 @@
         line-height: 1.25;
       }
 
+      .mobile-menu-btn {
+        display: inline-flex;
+      }
+
+      .divider {
+        z-index: 200;
+      }
+
       .navbar {
-        gap: 10px 16px;
-        padding: 16px 12px 0;
+        display: none;
       }
 
-      .nav-link,
-      .dropdown-toggle {
-        font-size: 0.95rem;
-        line-height: 1.3;
+      .mobile-nav-overlay {
+        position: fixed;
+        inset: 0;
+        z-index: 1200;
+        background: rgba(26, 26, 26, 0.98);
+        padding: 88px 18px 28px;
+        overflow: auto;
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        transition: opacity 0.22s ease, visibility 0.22s ease;
       }
 
-      .nav-dropdown {
+      .mobile-nav-overlay.open {
+        display: block;
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+      }
+
+      .mobile-nav-group {
+        display: grid;
+        gap: 10px;
+      }
+
+      .mobile-nav-link {
         width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        font-family: "Poppins", sans-serif;
+        font-size: 1rem;
+        line-height: 1.35;
+        color: var(--white);
+        background: transparent;
+        border: 1px solid rgba(242, 242, 235, 0.16);
+        min-height: 50px;
+        padding: 12px 14px;
+        text-align: left;
       }
 
-      .dropdown-menu {
-        position: static;
-        margin-top: 10px;
-        min-width: unset;
-        width: 100%;
-      }
-
-      .memory-dropdown-menu {
-        width: 100%;
+      .mobile-nav-link.active-link {
+        color: var(--yellow);
+        border-color: rgba(250, 227, 172, 0.55);
       }
 
       .page {
@@ -675,15 +782,6 @@
     }
 
     @media (max-width: 520px) {
-      .navbar {
-        gap: 8px 12px;
-      }
-
-      .nav-link,
-      .dropdown-toggle {
-        font-size: 0.92rem;
-      }
-
       .page {
         padding: 28px 12px 104px;
       }
@@ -750,6 +848,19 @@
 <body>
   <header class="topbar">
     <a class="brand" href="index.html">not your History Textbook</a>
+
+    <button
+      class="mobile-menu-btn"
+      id="mobileMenuBtn"
+      type="button"
+      aria-label="Open menu"
+      aria-expanded="false"
+      aria-controls="mobileNavOverlay"
+    >
+      <span class="mobile-menu-btn-bar"></span>
+      <span class="mobile-menu-btn-bar"></span>
+      <span class="mobile-menu-btn-bar"></span>
+    </button>
   </header>
 
   <div class="divider"></div>
@@ -766,6 +877,17 @@
     <a href="everydaylife.html" class="nav-link">Everyday life</a>
     <a href="silentheroes.html" class="nav-link active-link">Our silent heroes</a>
   </nav>
+
+  <div class="mobile-nav-overlay" id="mobileNavOverlay" aria-hidden="true">
+    <div class="mobile-nav-group">
+      <a href="index.html" class="mobile-nav-link">Home</a>
+      <a href="cornersofthepast.html" class="mobile-nav-link">Corners of the past</a>
+      <a href="memorywall-reddit.html" class="mobile-nav-link">Memory wall</a>
+      <a href="interactivetimeline.html" class="mobile-nav-link">Interactive timeline</a>
+      <a href="everydaylife.html" class="mobile-nav-link">Everyday life</a>
+      <a href="silentheroes.html" class="mobile-nav-link active-link">Our silent heroes</a>
+    </div>
+  </div>
 
   <a href="silentheroes.html" class="back-button-fixed">Back</a>
 
@@ -979,6 +1101,52 @@
       const isOpen = refBox.classList.toggle("open");
       refToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
     });
+
+    const mobileMenuBtn = document.getElementById("mobileMenuBtn");
+    const mobileNavOverlay = document.getElementById("mobileNavOverlay");
+
+    if (mobileMenuBtn && mobileNavOverlay) {
+      const closeMobileNav = function () {
+        mobileNavOverlay.classList.remove("open");
+        mobileNavOverlay.setAttribute("aria-hidden", "true");
+        mobileMenuBtn.setAttribute("aria-expanded", "false");
+        mobileMenuBtn.setAttribute("aria-label", "Open menu");
+        document.body.classList.remove("mobile-nav-open");
+      };
+
+      const openMobileNav = function () {
+        mobileNavOverlay.classList.add("open");
+        mobileNavOverlay.setAttribute("aria-hidden", "false");
+        mobileMenuBtn.setAttribute("aria-expanded", "true");
+        mobileMenuBtn.setAttribute("aria-label", "Close menu");
+        document.body.classList.add("mobile-nav-open");
+      };
+
+      mobileMenuBtn.addEventListener("click", function () {
+        const isOpen = mobileNavOverlay.classList.contains("open");
+        if (isOpen) {
+          closeMobileNav();
+        } else {
+          openMobileNav();
+        }
+      });
+
+      mobileNavOverlay.querySelectorAll(".mobile-nav-link").forEach(function (link) {
+        link.addEventListener("click", closeMobileNav);
+      });
+
+      window.addEventListener("resize", function () {
+        if (window.innerWidth > 768) {
+          closeMobileNav();
+        }
+      });
+
+      document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape" && mobileNavOverlay.classList.contains("open")) {
+          closeMobileNav();
+        }
+      });
+    }
   </script>
 </body>
 </html>

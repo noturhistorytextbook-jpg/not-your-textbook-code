@@ -23,7 +23,6 @@
       font-style: italic;
       font-display: swap;
     }
-
     @font-face {
       font-family: "Poppins";
       src: url("Poppins-ExtraBoldItalic.woff2") format("woff2"),
@@ -32,7 +31,6 @@
       font-style: italic;
       font-display: swap;
     }
-
     @font-face {
       font-family: "Poppins";
       src: url("Poppins-ExtraBold.woff2") format("woff2"),
@@ -41,7 +39,6 @@
       font-style: normal;
       font-display: swap;
     }
-
     @font-face {
       font-family: "Poppins";
       src: url("Poppins-Black.woff2") format("woff2"),
@@ -50,7 +47,6 @@
       font-style: normal;
       font-display: swap;
     }
-
     @font-face {
       font-family: "Poppins";
       src: url("Poppins-Bold.woff2") format("woff2"),
@@ -59,7 +55,6 @@
       font-style: normal;
       font-display: swap;
     }
-
     @font-face {
       font-family: "Poppins";
       src: url("Poppins-BoldItalic.woff2") format("woff2"),
@@ -68,7 +63,6 @@
       font-style: italic;
       font-display: swap;
     }
-
     @font-face {
       font-family: "Poppins";
       src: url("Poppins-Light.woff2") format("woff2"),
@@ -77,7 +71,6 @@
       font-style: normal;
       font-display: swap;
     }
-
     @font-face {
       font-family: "Poppins";
       src: url("Poppins-LightItalic.woff2") format("woff2"),
@@ -86,7 +79,6 @@
       font-style: italic;
       font-display: swap;
     }
-
     @font-face {
       font-family: "Poppins";
       src: url("Poppins-ExtraLightItalic.woff2") format("woff2"),
@@ -95,7 +87,6 @@
       font-style: italic;
       font-display: swap;
     }
-
     @font-face {
       font-family: "Poppins";
       src: url("Poppins-Italic.woff2") format("woff2"),
@@ -104,7 +95,6 @@
       font-style: italic;
       font-display: swap;
     }
-
     @font-face {
       font-family: "Poppins";
       src: url("Poppins-ExtraLight.woff2") format("woff2"),
@@ -113,7 +103,6 @@
       font-style: normal;
       font-display: swap;
     }
-
     @font-face {
       font-family: "Poppins";
       src: url("Poppins-Medium.woff2") format("woff2"),
@@ -122,7 +111,6 @@
       font-style: normal;
       font-display: swap;
     }
-
     @font-face {
       font-family: "Poppins";
       src: url("Poppins-Regular.woff2") format("woff2"),
@@ -131,7 +119,6 @@
       font-style: normal;
       font-display: swap;
     }
-
     @font-face {
       font-family: "Poppins";
       src: url("Poppins-SemiBoldItalic.woff2") format("woff2"),
@@ -140,7 +127,6 @@
       font-style: italic;
       font-display: swap;
     }
-
     @font-face {
       font-family: "Poppins";
       src: url("Poppins-ThinItalic.woff2") format("woff2"),
@@ -149,7 +135,6 @@
       font-style: italic;
       font-display: swap;
     }
-
     @font-face {
       font-family: "Poppins";
       src: url("Poppins-Thin.woff2") format("woff2"),
@@ -158,7 +143,6 @@
       font-style: normal;
       font-display: swap;
     }
-
     @font-face {
       font-family: "Poppins";
       src: url("Poppins-MediumItalic.woff2") format("woff2"),
@@ -167,7 +151,6 @@
       font-style: italic;
       font-display: swap;
     }
-
     @font-face {
       font-family: "Poppins";
       src: url("Poppins-SemiBold.woff2") format("woff2"),
@@ -212,6 +195,11 @@
       font-family: "Lato", sans-serif;
     }
 
+    body.mobile-nav-open {
+      overflow: hidden;
+      height: 100dvh;
+    }
+
     img {
       max-width: 100%;
       height: auto;
@@ -229,8 +217,17 @@
       cursor: pointer;
     }
 
+    /* ===== Topbar / nav (matches index.html) ===== */
+
     .topbar {
       padding: 18px 20px 14px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      position: relative;
+      z-index: 200;
+      background: var(--dark);
     }
 
     .brand {
@@ -240,7 +237,63 @@
       white-space: nowrap;
     }
 
-    .desktop-nav {
+    .mobile-menu-btn {
+      display: none;
+      width: 44px;
+      height: 44px;
+      align-items: center;
+      justify-content: center;
+      background: transparent;
+      border: none;
+      padding: 0;
+      position: relative;
+      z-index: 1100;
+      cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .mobile-menu-btn-bar {
+      position: absolute;
+      width: 24px;
+      height: 2px;
+      background: var(--yellow);
+      left: 50%;
+      transform: translateX(-50%);
+      transition: transform 0.22s ease, opacity 0.22s ease,
+        background-color 0.22s ease, top 0.22s ease, bottom 0.22s ease;
+    }
+
+    .mobile-menu-btn-bar:nth-child(1) { top: 14px; }
+    .mobile-menu-btn-bar:nth-child(2) { top: 21px; }
+    .mobile-menu-btn-bar:nth-child(3) { top: 28px; }
+
+    .mobile-menu-btn[aria-expanded="true"] .mobile-menu-btn-bar {
+      background: var(--white);
+    }
+
+    .mobile-menu-btn[aria-expanded="true"] .mobile-menu-btn-bar:nth-child(1) {
+      top: 21px;
+      transform: translateX(-50%) rotate(45deg);
+    }
+
+    .mobile-menu-btn[aria-expanded="true"] .mobile-menu-btn-bar:nth-child(2) {
+      opacity: 0;
+    }
+
+    .mobile-menu-btn[aria-expanded="true"] .mobile-menu-btn-bar:nth-child(3) {
+      top: 21px;
+      transform: translateX(-50%) rotate(-45deg);
+    }
+
+    .divider {
+      height: 1px;
+      background: rgba(242, 242, 235, 0.45);
+      width: 100%;
+      position: relative;
+      z-index: 200;
+    }
+
+    .navbar {
       display: flex;
       gap: 24px;
       flex-wrap: wrap;
@@ -250,17 +303,11 @@
       z-index: 20;
     }
 
-    .divider {
-      width: 100%;
-      height: 1px;
-      background: rgba(242, 242, 235, 0.45);
-    }
-
     .nav-link {
       display: inline-block;
-      color: var(--white);
       font-family: "Poppins", sans-serif;
       font-size: 1rem;
+      color: var(--white);
       transition: color 0.18s ease;
     }
 
@@ -273,93 +320,37 @@
       color: var(--yellow);
     }
 
-    .menu-toggle {
-      width: 44px;
-      height: 44px;
+    .mobile-nav-overlay {
       display: none;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-      gap: 5px;
-      z-index: 100;
     }
 
-    .menu-toggle span {
-      width: 24px;
-      height: 2px;
-      display: block;
-      background: var(--yellow);
-      transition:
-        transform 0.2s ease,
-        opacity 0.2s ease;
-    }
-
-    .menu-toggle.open span:nth-child(1) {
-      transform: translateY(7px) rotate(45deg);
-    }
-
-    .menu-toggle.open span:nth-child(2) {
-      opacity: 0;
-    }
-
-    .menu-toggle.open span:nth-child(3) {
-      transform: translateY(-7px) rotate(-45deg);
-    }
-
-    .menu-overlay {
-      position: fixed;
-      inset: 0;
-      z-index: 70;
-      background: rgba(0, 0, 0, 0.5);
-      opacity: 0;
-      visibility: hidden;
-      pointer-events: none;
-      transition:
-        opacity 0.22s ease,
-        visibility 0.22s ease;
-    }
-
-    .menu-overlay.open {
-      opacity: 1;
-      visibility: visible;
-      pointer-events: auto;
-    }
-
-    .mobile-menu {
-      position: fixed;
-      top: 0;
-      right: 0;
-      z-index: 80;
-      width: min(84vw, 320px);
-      height: 100vh;
-      padding: 88px 22px 24px;
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-      overflow-y: auto;
-      background: var(--blue);
-      border-left: 1px solid rgba(242, 242, 235, 0.18);
-      transform: translateX(100%);
-      transition: transform 0.25s ease;
-    }
-
-    .mobile-menu.open {
-      transform: translateX(0);
+    .mobile-nav-group {
+      display: grid;
+      gap: 10px;
     }
 
     .mobile-nav-link {
-      padding: 14px 0;
-      color: var(--white);
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
       font-family: "Poppins", sans-serif;
       font-size: 1rem;
-      border-bottom: 1px solid rgba(242, 242, 235, 0.12);
-      transition: color 0.18s ease;
+      line-height: 1.35;
+      color: var(--white);
+      background: transparent;
+      border: 1px solid rgba(242, 242, 235, 0.16);
+      min-height: 50px;
+      padding: 12px 14px;
+      text-align: left;
     }
 
-    .mobile-nav-link:hover,
     .mobile-nav-link.active-link {
       color: var(--yellow);
+      border-color: rgba(250, 227, 172, 0.55);
     }
+
+    /* ===== Page layout ===== */
 
     .page {
       width: 100%;
@@ -392,6 +383,8 @@
       margin-bottom: 12px;
     }
 
+    /* ===== Carousel ===== */
+
     .carousel-section {
       position: relative;
       min-height: 470px;
@@ -415,9 +408,8 @@
       pointer-events: none;
       z-index: 1;
       isolation: isolate;
-      transition:
-        transform 1.05s ease,
-        opacity 1.05s ease;
+      transition: transform 1.05s ease, opacity 1.05s ease, width 0.3s ease,
+        height 0.3s ease;
     }
 
     .topic-card.is-center {
@@ -440,12 +432,16 @@
       pointer-events: none;
     }
 
+    /* Media / copy / button use percentages of the card box so that
+       every scaled-down version (tablet, mobile, is-side) keeps the
+       exact same relative layout as the desktop design. */
+
     .topic-card__media {
       position: absolute;
-      top: 20px;
+      top: 6.9%;
       left: 0;
-      width: 400px;
-      height: 238px;
+      width: 55.56%;
+      height: 82.07%;
       overflow: visible;
       background: var(--card-blue);
       border: 1px solid var(--card-border);
@@ -456,12 +452,13 @@
       position: absolute;
       top: 0;
       right: 0;
-      width: 380px;
-      min-height: 290px;
+      width: 52.78%;
+      height: 100%;
       padding: 26px 24px 22px;
       background: var(--yellow);
       color: var(--blue);
       z-index: 2;
+      overflow: hidden;
     }
 
     .topic-card__copy h2,
@@ -483,71 +480,45 @@
       font-size: 17px;
       line-height: 1.28;
       text-align: justify;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 7;
+      overflow: hidden;
     }
 
     .topic-card__button {
-      position: absolute;
-      bottom: 54px;
-      left: 163px;
-      z-index: 5;
-      display: inline-block;
-      padding: 6px 14px;
-      color: var(--blue);
-      background: var(--yellow);
-      border: 1px solid transparent;
-      font-family: "Poppins", sans-serif;
-      font-size: 0.88rem;
-      font-weight: 400;
-      text-align: center;
-      white-space: nowrap;
-      transform: translateX(-50%);
-      transition:
-        color 0.18s ease,
-        border-color 0.18s ease;
-    }
+  position: absolute;
+  bottom: 18.62%;
+  left: 23.61%;
+  z-index: 5;
+  display: inline-block;
+  padding: 6px 14px;
+  color: rgba(242, 242, 235, 0.88);
+  background: var(--muted-button);
+  border: 1px solid var(--muted-button-border);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+  font-family: "Poppins", sans-serif;
+  font-size: 0.88rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-align: center;
+  white-space: nowrap;
+  transform: translateX(-50%);
+  transition: background 0.18s ease, color 0.18s ease, border-color 0.18s ease;
+}
 
-    .topic-card__button:hover {
-      color: var(--light);
-    }
+.topic-card__button:hover {
+  background: #323232;
+  color: var(--white);
+  border-color: rgba(242, 242, 235, 0.24);
+}
 
-    .topic-card__button:active {
-      color: var(--blue);
-      border-color: var(--white);
-    }
-
-    .topic-card.is-side {
-      width: 650px;
-      height: 252px;
-    }
-
-    .topic-card.is-side .topic-card__media {
-      top: 18px;
-      width: 360px;
-      height: 214px;
-    }
-
-    .topic-card.is-side .topic-card__copy {
-      width: 350px;
-      min-height: 252px;
-      padding: 22px 22px 18px;
-    }
-
-    .topic-card.is-side .topic-card__copy h2 {
-      margin-bottom: 12px;
-      font-size: 18px;
-    }
-
-    .topic-card.is-side .topic-card__copy p {
-      font-size: 15px;
-      line-height: 1.24;
-    }
-
-    .topic-card.is-side .topic-card__button {
-      bottom: 48px;
-      left: 143px;
-      padding: 6px 14px;
-      font-size: 0.84rem;
-    }
+.topic-card__button:active {
+  background: #323232;
+  color: var(--white);
+  border-color: rgba(242, 242, 235, 0.24);
+}
 
     .topic-card.is-center {
       transform: translate(-50%, -50%) scale(1);
@@ -569,64 +540,91 @@
       transform: translate(calc(-50% + 620px), -35%) scale(0.72);
     }
 
+    .topic-card.is-side {
+      width: 650px;
+      height: 252px;
+    }
+
+    .topic-card.is-side .topic-card__copy {
+      padding: 22px 18px 16px;
+    }
+
+    .topic-card.is-side .topic-card__copy h2 {
+      margin-bottom: 12px;
+      font-size: 18px;
+    }
+
+    .topic-card.is-side .topic-card__copy p {
+      font-size: 15px;
+      line-height: 1.24;
+      -webkit-line-clamp: 7;
+    }
+
+    /* Images: positioned as percentages of the card box (based on the
+       720x290 desktop reference), so they land in the same relative
+       spot on the main card, the side cards, and every mobile size. */
+
     .topic-image {
       position: absolute;
       z-index: 4;
       max-width: none;
+      width: auto;
       user-select: none;
       pointer-events: none;
     }
 
     .banana-ration {
-      top: 2px;
-      left: 110px;
-      width: 240px;
+      top: 16%;
+      left: 13.28%;
+      width: 33.33%;
       transform: rotate(8deg);
     }
 
     .banana-bill {
-      top: 64px;
-      left: 40px;
-      width: 265px;
+      top: 38.07%;
+      left: 3.56%;
+      width: 36.81%;
       transform: rotate(-5deg);
     }
 
     .war-plate {
-      top: -80px;
-      left: -10px;
-      width: 280px;
+      top: 4.59%;
+      left: -1.39%;
+      width: 38.89%;
     }
 
     .war-potato {
-      top: 40px;
-      left: 156px;
-      width: 192px;
+      top: 35.79%;
+      left: 21.67%;
+      width: 26.67%;
     }
 
     .school-book-back {
-      top: -16px;
-      left: -30px;
-      width: 305px;
+      top: 13.52%;
+      left: -4.17%;
+      width: 42.36%;
     }
 
     .school-book-front {
-      top: -2px;
-      left: 162px;
-      width: 180px;
+      top: 9.69%;
+      left: 22.5%;
+      width: 25%;
       transform: rotate(3deg);
     }
 
     .school-flag {
-      top: -34px;
-      right: -50px;
-      width: 104px;
+      top: -11.72%;
+      right: -6.94%;
+      width: 14.44%;
     }
 
     .sookching-stamp {
-      top: 20px;
-      left: 68px;
-      width: 202px;
+      top: 19%;
+      left: 9.44%;
+      width: 28.06%;
     }
+
+    /* ===== Grid section (uses its own 470x262 reference, same idea) ===== */
 
     .grid-section {
       margin-top: 44px;
@@ -657,14 +655,13 @@
     }
 
     .grid-card .topic-card__media {
-      top: 20px;
-      width: 322px;
-      height: 220px;
+      top: 7.63%;
+      width: 68.51%;
+      height: 83.97%;
     }
 
     .grid-card .topic-card__copy {
-      width: 270px;
-      min-height: 262px;
+      width: 57.45%;
       padding: 22px 20px 18px;
     }
 
@@ -679,58 +676,58 @@
     }
 
     .grid-card .topic-card__button {
-      bottom: 46px;
-      left: 102px;
+      bottom: 17.56%;
+      left: 21.28%;
       padding: 6px 14px;
       font-size: 0.84rem;
     }
 
     .grid-card .banana-ration {
-      top: 10px;
-      left: 40px;
-      width: 160px;
+      top: 3.82%;
+      left: 8.51%;
+      width: 34.04%;
     }
 
     .grid-card .banana-bill {
-      top: 80px;
-      left: 18px;
-      width: 186px;
+      top: 30.53%;
+      left: 3.83%;
+      width: 39.57%;
     }
 
     .grid-card .war-plate {
-      top: -30px;
-      left: -4px;
-      width: 184px;
+      top: -11.45%;
+      left: -0.85%;
+      width: 39.15%;
     }
 
     .grid-card .war-potato {
-      top: 60px;
-      left: 70px;
-      width: 152px;
+      top: 22.9%;
+      left: 14.89%;
+      width: 32.34%;
     }
 
     .grid-card .school-book-back {
-      top: 14px;
-      left: -2px;
-      width: 205px;
+      top: 5.34%;
+      left: -0.43%;
+      width: 43.62%;
     }
 
     .grid-card .school-book-front {
-      top: 18px;
-      left: 98px;
-      width: 112px;
+      top: 6.87%;
+      left: 20.85%;
+      width: 23.83%;
     }
 
     .grid-card .school-flag {
-      top: -18px;
-      right: -8px;
-      width: 82px;
+      top: -6.87%;
+      right: -1.7%;
+      width: 17.45%;
     }
 
     .grid-card .sookching-stamp {
-      top: 36px;
-      left: 18px;
-      width: 168px;
+      top: 13.74%;
+      left: 3.83%;
+      width: 35.74%;
     }
 
     .bottom-note {
@@ -789,6 +786,8 @@
       width: auto;
     }
 
+    /* ===== Tablet ===== */
+
     @media (max-width: 1240px) {
       .carousel-section {
         min-height: 830px;
@@ -827,19 +826,56 @@
         grid-template-columns: 1fr;
         gap: 34px;
       }
+
+      .grid-card {
+        max-width: 470px;
+        margin: 0 auto;
+      }
+
+      .grid-card .topic-card {
+        width: 100%;
+      }
     }
 
+    /* ===== Mobile ===== */
+
     @media (max-width: 768px) {
-      .desktop-nav {
+      .navbar {
         display: none;
       }
 
-      .menu-toggle {
-        display: flex;
+      .mobile-menu-btn {
+        display: inline-flex;
       }
 
       .topbar {
-        padding: 16px 16px 12px;
+        padding: 16px 12px 12px;
+        position: relative;
+      }
+
+      .brand {
+        font-size: 1rem;
+        line-height: 1.25;
+      }
+
+      .mobile-nav-overlay {
+        position: fixed;
+        inset: 0;
+        z-index: 1200;
+        background: rgba(26, 26, 26, 0.98);
+        padding: 88px 18px 28px;
+        overflow: auto;
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        transition: opacity 0.22s ease, visibility 0.22s ease;
+      }
+
+      .mobile-nav-overlay.open {
+        display: block;
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
       }
 
       .page {
@@ -856,129 +892,117 @@
         line-height: 1.55;
       }
 
+      /* Real carousel, just scaled down — same media/copy/button/image
+         percentages apply automatically to the smaller box. Side cards
+         are allowed to run off the edge of the screen, same as how the
+         desktop version overlaps its neighbours. */
+
       .carousel-section {
-        min-height: 0;
+        min-height: 260px;
         margin-top: 26px;
       }
 
       .carousel-track {
-        height: auto;
-        display: grid;
-        gap: 24px;
-      }
-
-      .topic-card,
-      .topic-card.is-center,
-      .topic-card.is-left,
-      .topic-card.is-right,
-      .topic-card.is-hidden,
-      .topic-card.is-side,
-      .grid-card .topic-card {
-        position: relative;
-        top: auto;
-        left: auto;
-        width: 100%;
-        max-width: 420px;
         height: 250px;
+      }
+
+      .topic-card {
+        width: min(88vw, 340px);
+        height: 230px;
+      }
+
+      .topic-card.is-side {
+        width: min(78vw, 300px);
+        height: 205px;
+      }
+
+      .topic-card__copy {
+        padding: 18px 16px 14px;
+      }
+
+      .topic-card__copy h2 {
+        margin-bottom: 10px;
+        font-size: 16px;
+      }
+
+      .topic-card__copy p {
+        font-size: 13px;
+        line-height: 1.2;
+        -webkit-line-clamp: 6;
+      }
+
+      .topic-card__button {
+        padding: 5px 12px;
+        font-size: 0.78rem;
+      }
+
+      .topic-card.is-side .topic-card__copy {
+        padding: 16px 14px 12px;
+      }
+
+      .topic-card.is-side .topic-card__copy h2 {
+        margin-bottom: 8px;
+        font-size: 14px;
+      }
+
+      .topic-card.is-side .topic-card__copy p {
+        font-size: 12px;
+        line-height: 1.16;
+        -webkit-line-clamp: 6;
+      }
+
+      .topic-card.is-center {
+        transform: translate(-50%, -50%) scale(1);
+      }
+
+      .topic-card.is-left {
+        transform: translate(calc(-50% - 184px), -39%) scale(0.86);
+      }
+
+      .topic-card.is-right {
+        transform: translate(calc(-50% + 184px), -39%) scale(0.86);
+      }
+
+      .topic-card.is-hidden.left-out {
+        transform: translate(calc(-50% - 293px), -35%) scale(0.72);
+      }
+
+      .topic-card.is-hidden.right-out {
+        transform: translate(calc(-50% + 293px), -35%) scale(0.72);
+      }
+
+      /* Grid cards below the carousel: box size only — media, copy,
+         buttons and images all inherit the same percentages, so they
+         line up exactly as on desktop. */
+
+      .grid-card .topic-card {
+        width: 100%;
+        max-width: 380px;
+        height: 210px;
         margin: 0 auto;
-        opacity: 1;
-        pointer-events: auto;
-        transform: none;
       }
 
-      .topic-card__media,
-      .grid-card .topic-card__media {
-        top: 18px;
-        width: 280px;
-        height: 208px;
-      }
-
-      .topic-card__copy,
       .grid-card .topic-card__copy {
-        width: 230px;
-        min-height: 250px;
-        padding: 20px 18px 16px;
+        padding: 18px 16px 14px;
       }
 
-      .topic-card__copy h2,
       .grid-card .topic-card__copy h2 {
-        margin-bottom: 12px;
-        font-size: 18px;
+        margin-bottom: 10px;
+        font-size: 16px;
       }
 
-      .topic-card__copy p,
       .grid-card .topic-card__copy p {
-        font-size: 15px;
-        line-height: 1.22;
+        font-size: 13px;
+        line-height: 1.2;
       }
 
-      .topic-card__button,
       .grid-card .topic-card__button {
-        bottom: 46px;
-        left: 98px;
-        padding: 6px 14px;
-        font-size: 0.84rem;
+        padding: 5px 12px;
+        font-size: 0.78rem;
       }
 
       .grid-card {
-        width: 100%;
-        max-width: 420px;
-      }
-
-      .banana-ration,
-      .grid-card .banana-ration {
-        top: 0;
-        left: 4px;
-        width: 160px;
-      }
-
-      .banana-bill,
-      .grid-card .banana-bill {
-        top: 70px;
-        left: 24px;
-        width: 132px;
-      }
-
-      .war-plate,
-      .grid-card .war-plate {
-        top: 8px;
-        left: 18px;
-        width: 112px;
-      }
-
-      .war-potato,
-      .grid-card .war-potato {
-        top: 92px;
-        left: 96px;
-        width: 102px;
-      }
-
-      .school-book-back,
-      .grid-card .school-book-back {
-        top: -2px;
-        left: -6px;
-        width: 208px;
-      }
-
-      .school-book-front,
-      .grid-card .school-book-front {
-        top: 6px;
-        left: 88px;
-        width: 122px;
-      }
-
-      .school-flag,
-      .grid-card .school-flag {
-        top: -10px;
-        right: -6px;
-        width: 66px;
-      }
-
-      .sookching-stamp,
-      .grid-card .sookching-stamp {
-        top: 34px;
-        left: 76px;
-        width: 100px;
+        max-width: 380px;
       }
 
       .follow-section {
@@ -1002,55 +1026,84 @@
         font-size: 0.98rem;
       }
 
-      .mobile-menu {
-        width: min(86vw, 300px);
-      }
-
       .page {
         padding-bottom: 0;
       }
 
-      .topic-card,
-      .topic-card.is-center,
-      .topic-card.is-left,
-      .topic-card.is-right,
-      .topic-card.is-hidden,
-      .topic-card.is-side,
-      .grid-card .topic-card {
-        height: 300px;
+      .carousel-section {
+        min-height: 225px;
       }
 
-      .topic-card__media,
-      .grid-card .topic-card__media {
-        top: 46px;
-        width: 68%;
-        height: 208px;
+      .carousel-track {
+        height: 215px;
       }
 
-      .topic-card__copy,
-      .grid-card .topic-card__copy {
-        width: 58%;
-        min-height: 300px;
-        padding: 18px 14px 14px;
+      .topic-card {
+        width: 88vw;
+        max-width: 300px;
+        height: 200px;
       }
 
-      .topic-card__copy h2,
-      .grid-card .topic-card__copy h2 {
-        font-size: 16px;
+      .topic-card.is-side {
+        width: 78vw;
+        max-width: 262px;
+        height: 180px;
       }
 
-      .topic-card__copy p,
-      .grid-card .topic-card__copy p {
+      .topic-card__copy h2 {
         font-size: 14px;
-        line-height: 1.25;
       }
 
-      .topic-card__button,
-      .grid-card .topic-card__button {
-        bottom: 30px;
-        left: 29%;
-        padding: 6px 10px;
-        font-size: 0.74rem;
+      .topic-card__copy p {
+        font-size: 12px;
+        -webkit-line-clamp: 6;
+      }
+
+      .topic-card__button {
+        font-size: 0.72rem;
+        padding: 5px 10px;
+      }
+
+      .topic-card.is-side .topic-card__copy h2 {
+        font-size: 13px;
+      }
+
+      .topic-card.is-side .topic-card__copy p {
+        font-size: 11px;
+        -webkit-line-clamp: 6;
+      }
+
+      .topic-card.is-left {
+        transform: translate(calc(-50% - 163px), -39%) scale(0.86);
+      }
+
+      .topic-card.is-right {
+        transform: translate(calc(-50% + 163px), -39%) scale(0.86);
+      }
+
+      .topic-card.is-hidden.left-out {
+        transform: translate(calc(-50% - 258px), -35%) scale(0.72);
+      }
+
+      .topic-card.is-hidden.right-out {
+        transform: translate(calc(-50% + 258px), -35%) scale(0.72);
+      }
+
+      .grid-card .topic-card {
+        max-width: 320px;
+        height: 230px;
+      }
+
+      .grid-card .topic-card__copy h2 {
+        font-size: 14px;
+      }
+
+      .grid-card .topic-card__copy p {
+        font-size: 12px;
+      }
+
+      .grid-card {
+        max-width: 320px;
       }
     }
   </style>
@@ -1058,88 +1111,43 @@
 
 <body>
   <header class="topbar">
-    <a class="brand" href="index.html">
-      not your History Textbook
-    </a>
+    <a class="brand" href="index.html">not your History Textbook</a>
 
     <button
-      class="menu-toggle"
-      id="menuToggle"
+      class="mobile-menu-btn"
+      id="mobileMenuBtn"
       type="button"
       aria-label="Open menu"
       aria-expanded="false"
-      aria-controls="mobileMenu"
+      aria-controls="mobileNavOverlay"
     >
-      <span></span>
-      <span></span>
-      <span></span>
+      <span class="mobile-menu-btn-bar"></span>
+      <span class="mobile-menu-btn-bar"></span>
+      <span class="mobile-menu-btn-bar"></span>
     </button>
   </header>
 
   <div class="divider"></div>
 
-  <nav class="desktop-nav" aria-label="Main navigation">
+  <nav class="navbar" aria-label="Main navigation">
     <a href="index.html" class="nav-link">Home</a>
-
-    <a href="cornersofthepast.html" class="nav-link">
-      Corners of the past
-    </a>
-
-    <a href="memorywall-reddit.html" class="nav-link">
-      Memory wall
-    </a>
-
-    <a href="interactivetimeline.html" class="nav-link">
-      Interactive timeline
-    </a>
-
-    <a
-      href="everydaylife.html"
-      class="nav-link active-link"
-      aria-current="page"
-    >
-      Everyday life
-    </a>
-
-    <a href="silentheroes.html" class="nav-link">
-      Our silent heroes
-    </a>
+    <a href="cornersofthepast.html" class="nav-link">Corners of the past</a>
+    <a href="memorywall-reddit.html" class="nav-link">Memory wall</a>
+    <a href="interactivetimeline.html" class="nav-link">Interactive timeline</a>
+    <a href="everydaylife.html" class="nav-link active-link" aria-current="page">Everyday life</a>
+    <a href="silentheroes.html" class="nav-link">Our silent heroes</a>
   </nav>
 
-  <div class="menu-overlay" id="menuOverlay"></div>
-
-  <nav
-    class="mobile-menu"
-    id="mobileMenu"
-    aria-label="Mobile navigation"
-    aria-hidden="true"
-  >
-    <a href="index.html" class="mobile-nav-link">Home</a>
-
-    <a href="cornersofthepast.html" class="mobile-nav-link">
-      Corners of the past
-    </a>
-
-    <a href="memorywall-reddit.html" class="mobile-nav-link">
-      Memory wall
-    </a>
-
-    <a href="interactivetimeline.html" class="mobile-nav-link">
-      Interactive timeline
-    </a>
-
-    <a
-      href="everydaylife.html"
-      class="mobile-nav-link active-link"
-      aria-current="page"
-    >
-      Everyday life
-    </a>
-
-    <a href="silentheroes.html" class="mobile-nav-link">
-      Our silent heroes
-    </a>
-  </nav>
+  <div class="mobile-nav-overlay" id="mobileNavOverlay" aria-hidden="true">
+    <div class="mobile-nav-group">
+      <a href="index.html" class="mobile-nav-link">Home</a>
+      <a href="cornersofthepast.html" class="mobile-nav-link">Corners of the past</a>
+      <a href="memorywall-reddit.html" class="mobile-nav-link">Memory wall</a>
+      <a href="interactivetimeline.html" class="mobile-nav-link">Interactive timeline</a>
+      <a href="everydaylife.html" class="mobile-nav-link active-link" aria-current="page">Everyday life</a>
+      <a href="silentheroes.html" class="mobile-nav-link">Our silent heroes</a>
+    </div>
+  </div>
 
   <main class="page">
     <div class="page-shell">
@@ -1518,177 +1526,229 @@
   </main>
 
   <script>
-    const cards = Array.from(
-      document.querySelectorAll("#carouselTrack .topic-card")
+  const cards = Array.from(
+    document.querySelectorAll("#carouselTrack .topic-card")
+  );
+
+  const carouselTrack = document.getElementById("carouselTrack");
+  const mobileMenuBtn = document.getElementById("mobileMenuBtn");
+  const mobileNavOverlay = document.getElementById("mobileNavOverlay");
+
+  let currentIndex = 0;
+  let carouselInterval;
+  let clickPauseTimeout;
+
+  const AUTO_DELAY = 3000;
+  const CLICK_DELAY = 8000;
+  const MOBILE_BREAKPOINT = 768;
+  const SWIPE_THRESHOLD = 40;
+
+  let touchStartX = 0;
+  let touchStartY = 0;
+  let touchEndX = 0;
+  let touchEndY = 0;
+  let isSwiping = false;
+
+  function isMobileView() {
+    return window.innerWidth <= MOBILE_BREAKPOINT;
+  }
+
+  function applyCarouselState() {
+    cards.forEach((card, index) => {
+      card.className = "topic-card";
+
+      const difference =
+        (index - currentIndex + cards.length) % cards.length;
+
+      if (difference === 0) {
+        card.classList.add("is-center");
+      } else if (difference === 1) {
+        card.classList.add("is-right", "is-side");
+      } else if (difference === cards.length - 1) {
+        card.classList.add("is-left", "is-side");
+      } else if (difference === 2) {
+        card.classList.add("is-hidden", "right-out");
+      } else {
+        card.classList.add("is-hidden", "left-out");
+      }
+    });
+  }
+
+  function startAutoCarousel() {
+    clearInterval(carouselInterval);
+
+    carouselInterval = setInterval(() => {
+      currentIndex = (currentIndex + 1) % cards.length;
+      applyCarouselState();
+    }, AUTO_DELAY);
+  }
+
+  function pauseAfterInteraction() {
+    clearInterval(carouselInterval);
+    clearTimeout(clickPauseTimeout);
+
+    clickPauseTimeout = setTimeout(() => {
+      startAutoCarousel();
+    }, CLICK_DELAY);
+  }
+
+  function goToSlide(index, fromInteraction = false) {
+    currentIndex = (index + cards.length) % cards.length;
+    applyCarouselState();
+
+    if (fromInteraction) {
+      pauseAfterInteraction();
+    }
+  }
+
+  function goToNextSlide() {
+    goToSlide(currentIndex + 1, true);
+  }
+
+  function goToPrevSlide() {
+    goToSlide(currentIndex - 1, true);
+  }
+
+  cards.forEach((card, index) => {
+    card.addEventListener("click", (event) => {
+      const clickedButton = event.target.closest(".topic-card__button");
+
+      if (clickedButton) {
+        return;
+      }
+
+      if (isMobileView()) {
+        return;
+      }
+
+      const isLeft = card.classList.contains("is-left");
+      const isRight = card.classList.contains("is-right");
+
+      if (isLeft || isRight) {
+        goToSlide(index, true);
+      }
+    });
+  });
+
+  if (carouselTrack) {
+    carouselTrack.addEventListener(
+      "touchstart",
+      (event) => {
+        if (!isMobileView()) return;
+
+        const touch = event.changedTouches[0];
+        touchStartX = touch.clientX;
+        touchStartY = touch.clientY;
+        touchEndX = touch.clientX;
+        touchEndY = touch.clientY;
+        isSwiping = true;
+      },
+      { passive: true }
     );
 
-    const menuToggle = document.getElementById("menuToggle");
-    const mobileMenu = document.getElementById("mobileMenu");
-    const menuOverlay = document.getElementById("menuOverlay");
+    carouselTrack.addEventListener(
+      "touchmove",
+      (event) => {
+        if (!isMobileView() || !isSwiping) return;
 
-    let currentIndex = 0;
-    let carouselInterval;
-    let clickPauseTimeout;
+        const touch = event.changedTouches[0];
+        touchEndX = touch.clientX;
+        touchEndY = touch.clientY;
+      },
+      { passive: true }
+    );
 
-    const AUTO_DELAY = 3000;
-    const CLICK_DELAY = 8000;
+    carouselTrack.addEventListener(
+      "touchend",
+      () => {
+        if (!isMobileView() || !isSwiping) return;
 
-    function applyCarouselState() {
-      cards.forEach((card, index) => {
-        card.className = "topic-card";
+        const deltaX = touchEndX - touchStartX;
+        const deltaY = touchEndY - touchStartY;
 
-        const difference =
-          (index - currentIndex + cards.length) % cards.length;
+        isSwiping = false;
 
-        if (difference === 0) {
-          card.classList.add("is-center");
-        } else if (difference === 1) {
-          card.classList.add("is-right", "is-side");
-        } else if (difference === cards.length - 1) {
-          card.classList.add("is-left", "is-side");
-        } else if (difference === 2) {
-          card.classList.add("is-hidden", "right-out");
-        } else {
-          card.classList.add("is-hidden", "left-out");
+        if (
+          Math.abs(deltaX) > SWIPE_THRESHOLD &&
+          Math.abs(deltaX) > Math.abs(deltaY)
+        ) {
+          if (deltaX < 0) {
+            goToNextSlide();
+          } else {
+            goToPrevSlide();
+          }
         }
+      },
+      { passive: true }
+    );
+  }
+
+  function startCarousel() {
+    clearInterval(carouselInterval);
+    clearTimeout(clickPauseTimeout);
+    applyCarouselState();
+    startAutoCarousel();
+  }
+
+  if (mobileMenuBtn && mobileNavOverlay) {
+    const closeMobileMenu = () => {
+      mobileNavOverlay.classList.remove("open");
+      mobileNavOverlay.setAttribute("aria-hidden", "true");
+      mobileMenuBtn.setAttribute("aria-expanded", "false");
+      mobileMenuBtn.setAttribute("aria-label", "Open menu");
+      document.body.classList.remove("mobile-nav-open");
+    };
+
+    const openMobileMenu = () => {
+      mobileNavOverlay.style.display = "block";
+      requestAnimationFrame(() => {
+        mobileNavOverlay.classList.add("open");
+        mobileNavOverlay.setAttribute("aria-hidden", "false");
+        mobileMenuBtn.setAttribute("aria-expanded", "true");
+        mobileMenuBtn.setAttribute("aria-label", "Close menu");
+        document.body.classList.add("mobile-nav-open");
       });
-    }
+    };
 
-    function startAutoCarousel() {
-      clearInterval(carouselInterval);
-
-      if (window.innerWidth <= 768) {
-        return;
-      }
-
-      carouselInterval = setInterval(() => {
-        currentIndex = (currentIndex + 1) % cards.length;
-        applyCarouselState();
-      }, AUTO_DELAY);
-    }
-
-    function pauseAfterClick() {
-      clearInterval(carouselInterval);
-      clearTimeout(clickPauseTimeout);
-
-      if (window.innerWidth <= 768) {
-        return;
-      }
-
-      clickPauseTimeout = setTimeout(() => {
-        startAutoCarousel();
-      }, CLICK_DELAY);
-    }
-
-    function goToSlide(index, fromClick = false) {
-      currentIndex = index;
-      applyCarouselState();
-
-      if (fromClick) {
-        pauseAfterClick();
-      }
-    }
-
-    cards.forEach((card, index) => {
-      card.addEventListener("click", (event) => {
-        if (window.innerWidth <= 768) {
-          return;
-        }
-
-        const clickedButton = event.target.closest(
-          ".topic-card__button"
-        );
-
-        if (clickedButton) {
-          return;
-        }
-
-        const isLeft = card.classList.contains("is-left");
-        const isRight = card.classList.contains("is-right");
-
-        if (isLeft || isRight) {
-          goToSlide(index, true);
-        }
-      });
-    });
-
-    function startCarousel() {
-      clearInterval(carouselInterval);
-      clearTimeout(clickPauseTimeout);
-
-      if (window.innerWidth <= 768) {
-        cards.forEach((card) => {
-          card.className = "topic-card";
-        });
-
-        return;
-      }
-
-      applyCarouselState();
-      startAutoCarousel();
-    }
-
-    function openMenu() {
-      mobileMenu.classList.add("open");
-      menuOverlay.classList.add("open");
-      menuToggle.classList.add("open");
-
-      mobileMenu.setAttribute("aria-hidden", "false");
-      menuToggle.setAttribute("aria-expanded", "true");
-      menuToggle.setAttribute("aria-label", "Close menu");
-
-      document.body.style.overflow = "hidden";
-    }
-
-    function closeMenu() {
-      mobileMenu.classList.remove("open");
-      menuOverlay.classList.remove("open");
-      menuToggle.classList.remove("open");
-
-      mobileMenu.setAttribute("aria-hidden", "true");
-      menuToggle.setAttribute("aria-expanded", "false");
-      menuToggle.setAttribute("aria-label", "Open menu");
-
-      document.body.style.overflow = "";
-    }
-
-    menuToggle.addEventListener("click", () => {
-      const isOpen = mobileMenu.classList.contains("open");
-
+    mobileMenuBtn.addEventListener("click", () => {
+      const isOpen = mobileNavOverlay.classList.contains("open");
       if (isOpen) {
-        closeMenu();
+        closeMobileMenu();
       } else {
-        openMenu();
+        openMobileMenu();
       }
     });
 
-    menuOverlay.addEventListener("click", closeMenu);
+    mobileNavOverlay.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => {
+        closeMobileMenu();
+      });
+    });
+
+    mobileNavOverlay.addEventListener("click", (event) => {
+      if (event.target === mobileNavOverlay) {
+        closeMobileMenu();
+      }
+    });
 
     document.addEventListener("keydown", (event) => {
-      if (
-        event.key === "Escape" &&
-        mobileMenu.classList.contains("open")
-      ) {
-        closeMenu();
+      if (event.key === "Escape" && mobileNavOverlay.classList.contains("open")) {
+        closeMobileMenu();
       }
-    });
-
-    document.querySelectorAll(".mobile-nav-link").forEach((link) => {
-      link.addEventListener("click", closeMenu);
     });
 
     window.addEventListener("resize", () => {
-      startCarousel();
-
-      if (
-        window.innerWidth > 768 &&
-        mobileMenu.classList.contains("open")
-      ) {
-        closeMenu();
+      if (window.innerWidth > 768) {
+        mobileNavOverlay.style.display = "";
+        closeMobileMenu();
       }
     });
+  }
 
-    startCarousel();
-  </script>
+  window.addEventListener("resize", startCarousel);
+
+  startCarousel();
+</script>
+
 </body>
 </html>

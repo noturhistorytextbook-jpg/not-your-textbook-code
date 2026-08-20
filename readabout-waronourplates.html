@@ -196,12 +196,19 @@
 
     .topbar{
       padding:18px 20px 14px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      position:relative;
+      z-index:80;
     }
 
     .brand{
       font-family:"Poppins",sans-serif;
       font-size:.92rem;
       color:var(--yellow);
+      line-height:1.2;
       white-space:nowrap;
     }
 
@@ -211,7 +218,7 @@
       width:100%;
     }
 
-    .navbar{
+    .desktop-nav{
       display:flex;
       gap:24px;
       flex-wrap:wrap;
@@ -236,6 +243,93 @@
     .nav-link:active,
     .nav-link.active-link{
       color:var(--yellow);
+    }
+
+    .menu-toggle{
+      width:44px;
+      height:44px;
+      display:none;
+      align-items:center;
+      justify-content:center;
+      flex-direction:column;
+      gap:5px;
+      z-index:90;
+    }
+
+    .menu-toggle span{
+      display:block;
+      width:24px;
+      height:2px;
+      background:var(--yellow);
+      transition:transform .2s ease, opacity .2s ease;
+    }
+
+    .menu-toggle.open span:nth-child(1){
+      transform:translateY(7px) rotate(45deg);
+    }
+
+    .menu-toggle.open span:nth-child(2){
+      opacity:0;
+    }
+
+    .menu-toggle.open span:nth-child(3){
+      transform:translateY(-7px) rotate(-45deg);
+    }
+
+    .menu-overlay{
+      position:fixed;
+      inset:0;
+      background:rgba(0,0,0,.45);
+      opacity:0;
+      visibility:hidden;
+      pointer-events:none;
+      transition:opacity .22s ease, visibility .22s ease;
+      z-index:70;
+    }
+
+    .menu-overlay.open{
+      opacity:1;
+      visibility:visible;
+      pointer-events:auto;
+    }
+
+    .mobile-menu{
+      position:fixed;
+      top:0;
+      right:0;
+      width:min(82vw, 320px);
+      height:100vh;
+      background:var(--blue);
+      border-left:1px solid rgba(242,242,235,.16);
+      padding:88px 22px 24px;
+      display:flex;
+      flex-direction:column;
+      gap:6px;
+      transform:translateX(100%);
+      transition:transform .25s ease;
+      z-index:80;
+    }
+
+    .mobile-menu.open{
+      transform:translateX(0);
+    }
+
+    .mobile-nav-link{
+      font-family:"Poppins",sans-serif;
+      font-size:1rem;
+      color:var(--white);
+      padding:14px 0;
+      border-bottom:1px solid rgba(242,242,235,.12);
+      transition:.18s ease;
+    }
+
+    .mobile-nav-link:hover{
+      color:var(--yellow);
+    }
+
+    .mobile-nav-link.active-link{
+      color:var(--yellow);
+      font-weight:600;
     }
 
     .page{
@@ -443,12 +537,8 @@
     }
 
     @media (max-width: 900px){
-      .navbar{
+      .desktop-nav{
         gap:18px;
-      }
-
-      .back-button-fixed{
-        left:24px;
       }
     }
 
@@ -462,9 +552,12 @@
         font-size:.8rem;
       }
 
-      .navbar{
-        gap:14px;
-        padding:16px 16px 0;
+      .desktop-nav{
+        display:none;
+      }
+
+      .menu-toggle{
+        display:flex;
       }
 
       .page{
@@ -512,8 +605,8 @@
       }
 
       .back-button-fixed{
-        left:24px;
-        bottom:24px;
+        left:20px;
+        bottom:20px;
         font-size:.7rem;
         padding:10px 13px;
       }
@@ -524,21 +617,8 @@
         font-size:.78rem;
       }
 
-      .navbar{
-        gap:12px;
-      }
-
-      .nav-link{
-        font-size:.95rem;
-      }
-
-      .back-button-fixed{
-        position:static;
-        margin:0 0 24px;
-      }
-
-      .page{
-        padding-top:28px;
+      .mobile-menu{
+        width:min(86vw, 300px);
       }
     }
   </style>
@@ -546,11 +626,17 @@
 <body>
   <header class="topbar">
     <a class="brand" href="index.html">not your History Textbook</a>
+
+    <button class="menu-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
   </header>
 
   <div class="divider"></div>
 
-  <nav class="navbar">
+  <nav class="desktop-nav">
     <a href="index.html" class="nav-link">Home</a>
     <a href="cornersofthepast.html" class="nav-link">Corners of the past</a>
     <a href="memorywall-reddit.html" class="nav-link">Memory wall</a>
@@ -559,9 +645,20 @@
     <a href="silentheroes.html" class="nav-link">Our silent heroes</a>
   </nav>
 
-  <main class="page">
-    <a href="everydaylife.html" class="back-button-fixed">Back</a>
+  <div class="menu-overlay" id="menu-overlay"></div>
 
+  <nav class="mobile-menu" id="mobile-menu" aria-label="Mobile navigation" aria-hidden="true">
+    <a href="index.html" class="mobile-nav-link">Home</a>
+    <a href="cornersofthepast.html" class="mobile-nav-link">Corners of the past</a>
+    <a href="memorywall-reddit.html" class="mobile-nav-link">Memory wall</a>
+    <a href="interactivetimeline.html" class="mobile-nav-link">Interactive timeline</a>
+    <a href="everydaylife.html" class="mobile-nav-link active-link">Everyday life</a>
+    <a href="silentheroes.html" class="mobile-nav-link">Our silent heroes</a>
+  </nav>
+
+  <a href="everydaylife.html" class="back-button-fixed">Back</a>
+
+  <main class="page">
     <article class="story-shell">
       <header class="story-hero">
         <h1>War on Our Plates: Rations, Scarcity and Survival</h1>
@@ -708,6 +805,56 @@
     refToggle.addEventListener("click", function () {
       const isOpen = refBox.classList.toggle("open");
       refToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+    });
+
+    const menuToggle = document.querySelector('.menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const menuOverlay = document.getElementById('menu-overlay');
+    const mobileLinks = document.querySelectorAll('.mobile-nav-link');
+
+    function closeMenu() {
+      menuToggle.classList.remove('open');
+      mobileMenu.classList.remove('open');
+      menuOverlay.classList.remove('open');
+      menuToggle.setAttribute('aria-expanded', 'false');
+      mobileMenu.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+
+    function openMenu() {
+      menuToggle.classList.add('open');
+      mobileMenu.classList.add('open');
+      menuOverlay.classList.add('open');
+      menuToggle.setAttribute('aria-expanded', 'true');
+      mobileMenu.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    }
+
+    menuToggle.addEventListener('click', () => {
+      const isOpen = mobileMenu.classList.contains('open');
+      if (isOpen) {
+        closeMenu();
+      } else {
+        openMenu();
+      }
+    });
+
+    menuOverlay.addEventListener('click', closeMenu);
+
+    mobileLinks.forEach(link => {
+      link.addEventListener('click', closeMenu);
+    });
+
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 768) {
+        closeMenu();
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closeMenu();
+      }
     });
   </script>
 </body>

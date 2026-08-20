@@ -230,6 +230,12 @@
 
    .topbar {
   padding: 18px 20px 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  position: relative;
+  z-index: 80;
 }
 
 .brand {
@@ -675,16 +681,11 @@
       .desktop-nav {
         gap: 18px;
       }
-
-      .back-button-fixed {
-        left: 24px;
-      }
     }
 
     @media (max-width: 768px) {
       .topbar {
-        width: calc(100% - 32px);
-        padding: 16px 0 12px;
+        padding: 16px 16px 12px;
       }
 
       .desktop-nav {
@@ -741,8 +742,8 @@
       }
 
       .back-button-fixed {
-        left: 24px;
-        bottom: 24px;
+        left: 20px;
+        bottom: 20px;
         font-size: 0.7rem;
         padding: 10px 13px;
       }
@@ -750,8 +751,7 @@
 
     @media (max-width: 560px) {
       .brand {
-        font-size: 0.98rem;
-        max-width: 220px;
+        font-size: 0.78rem;
       }
 
       .mobile-menu {

@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Silent Heroes</title>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Galindo&family=Gochi+Hand&family=Henny+Penny&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Vend+Sans:ital,wght@0,300..700;1,300..700&display=swap" rel="stylesheet" />
 
@@ -154,6 +154,7 @@
       font-style: normal;
       font-display: swap;
     }
+
 :root {
   --white: #F2F2EB;
   --yellow: #FAE3AC;
@@ -163,6 +164,7 @@
   --cream: #f1eee5;
   --cream-border: #ece2cb;
   --cream-text: #153f66;
+  --page-width: 1380px;
 }
 
 * {
@@ -280,7 +282,7 @@ a {
   flex-wrap: wrap;
   align-items: flex-start;
   padding: 18px 20px 0;
-  margin-bottom: 56px;
+  margin-bottom: 0;
   position: relative;
   z-index: 20;
 }
@@ -370,12 +372,17 @@ a {
 .page {
   width: 100%;
   min-height: 100vh;
-  padding: 0;
+  padding: 70px 20px 0;
+}
+
+.page-shell {
+  width: min(100%, var(--page-width));
+  margin: 0 auto;
 }
 
 .hero-section {
   text-align: center;
-  padding: 0 16px;
+  padding: 0;
 }
 
 .hero-section h1 {
@@ -383,12 +390,12 @@ a {
   color: var(--yellow);
   font-size: clamp(2.2rem, 4vw, 3.45rem);
   line-height: 1.08;
-  margin-bottom: 16px;
+  margin-bottom: 22px;
 }
 
 .hero-section p {
-  max-width: 760px;
-  margin: 0 auto 40px;
+  max-width: 1120px;
+  margin: 0 auto 48px;
   font-size: 1.05rem;
   line-height: 1.8;
   color: var(--white);
@@ -396,18 +403,19 @@ a {
 }
 
 .heroes-grid {
-  width: min(100%, 668px);
+  width: min(100%, 1000px);
   margin: 0 auto;
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 164px));
-  gap: 28px 44px;
-  justify-content: center;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 34px;
+  justify-items: center;
   align-items: start;
 }
 
 .hero-card {
   display: block;
-  width: 164px;
+  width: 100%;
+  max-width: 205px;
   text-decoration: none;
   color: inherit;
   position: relative;
@@ -416,12 +424,12 @@ a {
 }
 
 .hero-card--bottom {
-  grid-column: 1 / span 2;
+  grid-column: auto;
 }
 
 .hero-cardframe {
   position: relative;
-  width: 164px;
+  width: 100%;
   border: 1px solid var(--cream-border);
   border-bottom: none;
   overflow: hidden;
@@ -430,7 +438,7 @@ a {
 
 .hero-cardimage {
   width: 100%;
-  height: 228px;
+  height: 284px;
   object-fit: cover;
   display: block;
   filter: grayscale(100%);
@@ -438,20 +446,20 @@ a {
 }
 
 .hero-cardtitle-box {
-  width: 164px;
-  min-height: 82px;
+  width: 100%;
+  min-height: 90px;
   background: var(--cream);
   border: 1px solid var(--cream-border);
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 8px 5px;
+  padding: 10px 8px;
   text-align: center;
 }
 
 .hero-cardtitle {
   font-family: Poppins, sans-serif;
-  font-size: 0.82rem;
+  font-size: 0.92rem;
   line-height: 1.28;
   font-weight: 600;
   color: var(--cream-text);
@@ -465,9 +473,9 @@ a {
 
 .hero-cardtitle-sub {
   display: block;
-  margin-top: 3px;
-  font-size: 0.74rem;
-  line-height: 1.2;
+  margin-top: 4px;
+  font-size: 0.79rem;
+  line-height: 1.22;
   font-weight: 400;
   letter-spacing: 0.01em;
   opacity: 0.92;
@@ -542,7 +550,7 @@ a {
 }
 
 .updating-text {
-  margin-top: 32px;
+  margin-top: 40px;
   color: var(--light);
   font-size: 0.95rem;
   line-height: 1.2;
@@ -618,6 +626,22 @@ a {
   }
 }
 
+@media (max-width: 1100px) {
+  .heroes-grid {
+    width: min(100%, 720px);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 28px 30px;
+  }
+
+  .hero-card {
+    max-width: 185px;
+  }
+
+  .hero-cardimage {
+    height: 252px;
+  }
+}
+
 @media (max-width: 900px) {
   .heroes-grid {
     width: min(100%, 372px);
@@ -625,8 +649,35 @@ a {
     gap: 24px 24px;
   }
 
+  .hero-card {
+    max-width: none;
+  }
+
   .hero-card--bottom {
     grid-column: auto;
+  }
+
+  .hero-cardframe,
+  .hero-cardtitle-box {
+    width: 164px;
+  }
+
+  .hero-cardimage {
+    height: 228px;
+  }
+
+  .hero-cardtitle-box {
+    min-height: 82px;
+    padding: 8px 5px;
+  }
+
+  .hero-cardtitle {
+    font-size: 0.82rem;
+  }
+
+  .hero-cardtitle-sub {
+    font-size: 0.74rem;
+    margin-top: 3px;
   }
 }
 
@@ -739,6 +790,14 @@ a {
     border-color: rgba(250, 227, 172, 0.45);
   }
 
+  .page {
+    padding: 0;
+  }
+
+  .page-shell {
+    width: 100%;
+  }
+
   .hero-section {
     padding: 0 12px;
   }
@@ -794,7 +853,6 @@ a {
     width: min(220px, 100%);
   }
 
- 
   .hero-cardinfo {
     padding: 6px 10px 4px;
   }
@@ -810,8 +868,6 @@ a {
     line-height: 1.05;
     margin: 0;
   }
-}
-
 
   .hero-cardimage {
     height: 320px;
@@ -823,7 +879,7 @@ a {
     margin-top: 26px;
     font-size: 0.9rem;
   }
-
+}
 
 @media (max-width: 380px) {
   .hero-section h1 {
@@ -855,7 +911,6 @@ a {
     font-size: 0.71rem;
   }
 }
-
 </style>
 </head>
 <body>
@@ -900,121 +955,123 @@ a {
   </div>
 
   <main class="page">
-    <section class="hero-section">
-      <h1>Silent Heroes</h1>
-      <p>Not your usual big names, but those who made a quiet, yet profound impact in trying to preserve the land we now call home. This section is dedicated to those small giants.</p>
+    <div class="page-shell">
+      <section class="hero-section">
+        <h1>Silent Heroes</h1>
+        <p>Not your usual big names, but those who made a quiet, yet profound impact in trying to preserve the land we now call home. This section is dedicated to those small giants.</p>
 
-      <div class="heroes-grid">
-        <a class="hero-card" href="adnan.html">
-          <div class="hero-cardframe">
-            <img src="Adnan_Saidi_1942.jpg" alt="Lieutenant Adnan Saidi" class="hero-cardimage" loading="lazy" />
-            <div class="hero-cardoverlay">
-              <div class="hero-cardinfo">
-                <h3>Lieutenant Adnan Saidi</h3>
-                <p>14 August 1915 - <br />14 February 1942</p>
+        <div class="heroes-grid">
+          <a class="hero-card" href="adnan.html">
+            <div class="hero-cardframe">
+              <img src="Adnan_Saidi_1942.jpg" alt="Lieutenant Adnan Saidi" class="hero-cardimage" loading="lazy" />
+              <div class="hero-cardoverlay">
+                <div class="hero-cardinfo">
+                  <h3>Lieutenant Adnan Saidi</h3>
+                  <p>14 August 1915 - <br />14 February 1942</p>
+                </div>
               </div>
             </div>
-          </div>
-          <div class="hero-cardtitle-box">
-            <div class="hero-cardtitle">
-              <span class="hero-cardtitle-main">Lieutenant Adnan Saidi</span>
-              <span class="hero-cardtitle-sub">A Japanese’s Nightmare</span>
-            </div>
-          </div>
-        </a>
-
-        <a class="hero-card" href="limboseng.html">
-          <div class="hero-cardframe">
-            <img src="LimBoSeng-1930s.jpg" alt="Lim Bo Seng" class="hero-cardimage" loading="lazy" />
-            <div class="hero-cardoverlay">
-              <div class="hero-cardinfo">
-                <h3>Lim Bo Seng</h3>
-                <p>27 April 1909 - <br />29 June 1944</p>
+            <div class="hero-cardtitle-box">
+              <div class="hero-cardtitle">
+                <span class="hero-cardtitle-main">Lieutenant Adnan Saidi</span>
+                <span class="hero-cardtitle-sub">A Japanese’s Nightmare</span>
               </div>
             </div>
-          </div>
-          <div class="hero-cardtitle-box">
-            <div class="hero-cardtitle">
-              <span class="hero-cardtitle-main">Mr Lim Bo Seng</span>
-              <span class="hero-cardtitle-sub">A Rare Nepo Baby Done Right</span>
-            </div>
-          </div>
-        </a>
+          </a>
 
-        <a class="hero-card" href="shino.html">
-          <div class="hero-cardframe">
-            <img src="Shinozaki_Mamoru.jpg" alt="Mamoru Shinozaki" class="hero-cardimage" loading="lazy" />
-            <div class="hero-cardoverlay">
-              <div class="hero-cardinfo">
-                <h3>Mamoru Shinozaki</h3>
-                <p>1908 – 1991</p>
+          <a class="hero-card" href="limboseng.html">
+            <div class="hero-cardframe">
+              <img src="LimBoSeng-1930s.jpg" alt="Lim Bo Seng" class="hero-cardimage" loading="lazy" />
+              <div class="hero-cardoverlay">
+                <div class="hero-cardinfo">
+                  <h3>Lim Bo Seng</h3>
+                  <p>27 April 1909 - <br />29 June 1944</p>
+                </div>
               </div>
             </div>
-          </div>
-          <div class="hero-cardtitle-box">
-            <div class="hero-cardtitle">
-              <span class="hero-cardtitle-main">Mamoru Shinozaki</span>
-              <span class="hero-cardtitle-sub">The Guy Who Did Not Follow the Script</span>
-            </div>
-          </div>
-        </a>
-
-        <a class="hero-card hero-card--bottom" href="elizabeth.html">
-          <div class="hero-cardframe">
-            <img src="1_IieLvEs1Zo5I6tWoSvKmNA.jpg" alt="Elizabeth Choy" class="hero-cardimage" loading="lazy" />
-            <div class="hero-cardoverlay">
-              <div class="hero-cardinfo">
-                <h3>Elizabeth Choy</h3>
-                <p>29 November 1910 - <br />14 September 2006</p>
+            <div class="hero-cardtitle-box">
+              <div class="hero-cardtitle">
+                <span class="hero-cardtitle-main">Mr Lim Bo Seng</span>
+                <span class="hero-cardtitle-sub">A Rare Nepo Baby Done Right</span>
               </div>
             </div>
-          </div>
-          <div class="hero-cardtitle-box">
-            <div class="hero-cardtitle">
-              <span class="hero-cardtitle-main">Elizabeth Choy</span>
-              <span class="hero-cardtitle-sub">Not Just Beauty and Brains</span>
+          </a>
+
+          <a class="hero-card" href="shino.html">
+            <div class="hero-cardframe">
+              <img src="Shinozaki_Mamoru.jpg" alt="Mamoru Shinozaki" class="hero-cardimage" loading="lazy" />
+              <div class="hero-cardoverlay">
+                <div class="hero-cardinfo">
+                  <h3>Mamoru Shinozaki</h3>
+                  <p>1908 – 1991</p>
+                </div>
+              </div>
             </div>
-          </div>
-        </a>
-      </div>
+            <div class="hero-cardtitle-box">
+              <div class="hero-cardtitle">
+                <span class="hero-cardtitle-main">Mamoru Shinozaki</span>
+                <span class="hero-cardtitle-sub">The Guy Who Did Not Follow the Script</span>
+              </div>
+            </div>
+          </a>
 
-      <div class="updating-text">constantly updating..</div>
-    </section>
+          <a class="hero-card hero-card--bottom" href="elizabeth.html">
+            <div class="hero-cardframe">
+              <img src="1_IieLvEs1Zo5I6tWoSvKmNA.jpg" alt="Elizabeth Choy" class="hero-cardimage" loading="lazy" />
+              <div class="hero-cardoverlay">
+                <div class="hero-cardinfo">
+                  <h3>Elizabeth Choy</h3>
+                  <p>29 November 1910 - <br />14 September 2006</p>
+                </div>
+              </div>
+            </div>
+            <div class="hero-cardtitle-box">
+              <div class="hero-cardtitle">
+                <span class="hero-cardtitle-main">Elizabeth Choy</span>
+                <span class="hero-cardtitle-sub">Not Just Beauty and Brains</span>
+              </div>
+            </div>
+          </a>
+        </div>
 
-    <section class="follow-section">
-      <h2>Follow us</h2>
+        <div class="updating-text">constantly updating..</div>
+      </section>
 
-      <div class="social-banner">
-        <a
-          href="https://www.tiktok.com/@noturhistorytextbook?_r=1&_t=ZS-8wrIT5HhTdE"
-          aria-label="TikTok"
-          class="social-icon"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <svg width="48px" height="48px" viewBox="0 0 48 48" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-            <title>Tiktok</title>
-            <g id="Icon/Social/tiktok-color" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-              <g id="Group-7" transform="translate(8.000000, 6.000000)">
-                <path d="M29.5248245,9.44576327 C28.0821306,9.0460898 26.7616408,8.29376327 25.6826204,7.25637551 C25.5109469,7.09719184 25.3493143,6.92821224 25.1928245,6.75433469 C23.9066204,5.27833469 23.209151,3.38037551 23.2336408,1.42290612 L17.3560898,1.42290612 L17.3560898,23.7086204 C17.3560898,27.7935184 15.1520082,29.9535184 12.416498,29.9535184 C11.694049,29.9611102 10.9789469,29.8107429 10.3213959,29.5124571 C9.6636,29.2144163 9.07951837,28.7758041 8.60955918,28.2272327 C8.1398449,27.6789061 7.79551837,27.0340898 7.60180408,26.3385796 C7.4078449,25.6430694 7.36890612,24.9132735 7.48743673,24.2008653 C7.60596735,23.4884571 7.87902857,22.8105796 8.28751837,22.2154776 C8.69625306,21.6198857 9.23037551,21.1212735 9.85241633,20.7546612 C10.474702,20.3878041 11.1694776,20.1617633 11.8882531,20.0924571 C12.6070286,20.023151 13.3324163,20.1122939 14.0129878,20.3535184 L14.0129878,14.3584163 C13.4889061,14.2430694 12.9530694,14.1862531 12.416498,14.1894367 L12.3917633,14.1894367 C10.2542939,14.1943347 8.16604898,14.8325388 6.39127347,16.0234776 C4.61649796,17.2149061 3.23429388,18.9051918 2.41976327,20.8812735 C1.60523265,22.8578449 1.39486531,25.0310694 1.8151102,27.1269061 C2.2351102,29.2227429 3.2671102,31.1469061 4.78033469,32.6564571 C6.29380408,34.1660082 8.22066122,35.1933551 10.3174776,35.6082122 C12.4142939,36.0230694 14.5870286,35.8073143 16.561151,34.9878857 C18.5355184,34.1682122 20.2226204,32.7820898 21.409151,31.0041306 C22.5959265,29.2264163 23.2289878,27.136702 23.228498,24.9992327 L23.228498,12.8155592 C25.5036,14.392702 28.2244163,15.134498 31.1289061,15.1886204 L31.1289061,9.68551837 C30.5869469,9.66568163 30.049151,9.5851102 29.5248245,9.44576327" id="Fill-1" fill="#FE2C55"></path>
-                <path d="M25.195102,6.75428571 C24.7946939,6.47510204 24.4148571,6.1675102 24.0587755,5.83346939 C22.8210612,4.66016327 22.0062857,3.11020408 21.7420408,1.42530612 C21.6622041,0.954367347 21.6220408,0.47755102 21.6220408,0 L15.7444898,0 L15.7444898,22.6408163 C15.7444898,27.5069388 13.5404082,28.5183673 10.804898,28.5183673 C10.0829388,28.5262041 9.36783673,28.3758367 8.71028571,28.0773061 C8.0524898,27.7792653 7.46791837,27.3406531 6.99820408,26.7920816 C6.5282449,26.2437551 6.18440816,25.5989388 5.99044898,24.9034286 C5.7964898,24.2079184 5.75755102,23.4781224 5.87583673,22.7657143 C5.99461224,22.053551 6.26767347,21.3756735 6.67640816,20.7800816 C7.08489796,20.1847347 7.61902041,19.6861224 8.24106122,19.3195102 C8.86334694,18.952898 9.55787755,18.7266122 10.276898,18.6573061 C10.9959184,18.588 11.7208163,18.6773878 12.4016327,18.9183673 L12.4016327,12.9328163 C5.40489796,11.8236735 0,17.4783673 0,23.5760816 C0.00465306122,26.4426122 1.14514286,29.1898776 3.17191837,31.216898 C5.19869388,33.2434286 7.94595918,34.3839184 10.8124898,34.3885714 C16.7730612,34.3885714 21.6220408,30.7444898 21.6220408,23.5760816 L21.6220408,11.3924082 C23.8995918,12.9795918 26.6204082,13.7142857 29.524898,13.7632653 L29.524898,8.26040816 C27.9658776,8.18914286 26.4617143,7.66604082 25.195102,6.75428571" id="Fill-3" fill="#25F4EE"></path>
-                <path d="M21.6220653,23.5764245 L21.6220653,11.392751 C23.8996163,12.9794449 26.6204327,13.7141388 29.5251673,13.7633633 L29.5251673,9.44581224 C28.0822286,9.04613878 26.7617388,8.29381224 25.6824735,7.25617959 C25.5110449,7.09724082 25.3494122,6.92826122 25.1926776,6.75438367 C24.7922694,6.4752 24.4126776,6.16736327 24.056351,5.83356735 C22.8186367,4.66026122 22.0041061,3.11030204 21.7396163,1.42540408 L17.3730857,1.42540408 L17.3730857,23.7111184 C17.3730857,27.7957714 15.1690041,29.9560163 12.4334939,29.9560163 C11.6569224,29.9538122 10.8918612,29.7681796 10.2005143,29.414302 C9.50941224,29.0601796 8.91186122,28.5476082 8.45635102,27.9182204 C7.49071837,27.3946286 6.72712653,26.5636898 6.2865551,25.5571592 C5.84573878,24.5508735 5.75341224,23.4260571 6.02377959,22.3609959 C6.29390204,21.2959347 6.91177959,20.3516082 7.77896327,19.6771592 C8.64639184,19.0027102 9.71365714,18.6365878 10.8122694,18.6365878 C11.3564327,18.6412408 11.8961878,18.7362612 12.4090041,18.9182204 L12.4090041,14.1894857 C10.304351,14.1921796 8.24647347,14.8093224 6.48786122,15.9657306 C4.72924898,17.1221388 3.3470449,18.7666286 2.51047347,20.6978939 C1.67390204,22.6291592 1.41969796,24.7627102 1.77896327,26.8362612 C2.13822857,28.9098122 3.09553469,30.8334857 4.53308571,32.3704653 C6.36271837,33.6848327 8.55945306,34.3906286 10.8122694,34.3884296 C16.7730857,34.3884296 21.6220653,30.7445878 21.6220653,23.5764245" id="Fill-5" fill="#000000"></path>
+      <section class="follow-section">
+        <h2>Follow us</h2>
+
+        <div class="social-banner">
+          <a
+            href="https://www.tiktok.com/@noturhistorytextbook?_r=1&_t=ZS-8wrIT5HhTdE"
+            aria-label="TikTok"
+            class="social-icon"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <svg width="48px" height="48px" viewBox="0 0 48 48" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+              <title>Tiktok</title>
+              <g id="Icon/Social/tiktok-color" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                <g id="Group-7" transform="translate(8.000000, 6.000000)">
+                  <path d="M29.5248245,9.44576327 C28.0821306,9.0460898 26.7616408,8.29376327 25.6826204,7.25637551 C25.5109469,7.09719184 25.3493143,6.92821224 25.1928245,6.75433469 C23.9066204,5.27833469 23.209151,3.38037551 23.2336408,1.42290612 L17.3560898,1.42290612 L17.3560898,23.7086204 C17.3560898,27.7935184 15.1520082,29.9535184 12.416498,29.9535184 C11.694049,29.9611102 10.9789469,29.8107429 10.3213959,29.5124571 C9.6636,29.2144163 9.07951837,28.7758041 8.60955918,28.2272327 C8.1398449,27.6789061 7.79551837,27.0340898 7.60180408,26.3385796 C7.4078449,25.6430694 7.36890612,24.9132735 7.48743673,24.2008653 C7.60596735,23.4884571 7.87902857,22.8105796 8.28751837,22.2154776 C8.69625306,21.6198857 9.23037551,21.1212735 9.85241633,20.7546612 C10.474702,20.3878041 11.1694776,20.1617633 11.8882531,20.0924571 C12.6070286,20.023151 13.3324163,20.1122939 14.0129878,20.3535184 L14.0129878,14.3584163 C13.4889061,14.2430694 12.9530694,14.1862531 12.416498,14.1894367 L12.3917633,14.1894367 C10.2542939,14.1943347 8.16604898,14.8325388 6.39127347,16.0234776 C4.61649796,17.2149061 3.23429388,18.9051918 2.41976327,20.8812735 C1.60523265,22.8578449 1.39486531,25.0310694 1.8151102,27.1269061 C2.2351102,29.2227429 3.2671102,31.1469061 4.78033469,32.6564571 C6.29380408,34.1660082 8.22066122,35.1933551 10.3174776,35.6082122 C12.4142939,36.0230694 14.5870286,35.8073143 16.561151,34.9878857 C18.5355184,34.1682122 20.2226204,32.7820898 21.409151,31.0041306 C22.5959265,29.2264163 23.2289878,27.136702 23.228498,24.9992327 L23.228498,12.8155592 C25.5036,14.392702 28.2244163,15.134498 31.1289061,15.1886204 L31.1289061,9.68551837 C30.5869469,9.66568163 30.049151,9.5851102 29.5248245,9.44576327" id="Fill-1" fill="#FE2C55"></path>
+                  <path d="M25.195102,6.75428571 C24.7946939,6.47510204 24.4148571,6.1675102 24.0587755,5.83346939 C22.8210612,4.66016327 22.0062857,3.11020408 21.7420408,1.42530612 C21.6622041,0.954367347 21.6220408,0.47755102 21.6220408,0 L15.7444898,0 L15.7444898,22.6408163 C15.7444898,27.5069388 13.5404082,28.5183673 10.804898,28.5183673 C10.0829388,28.5262041 9.36783673,28.3758367 8.71028571,28.0773061 C8.0524898,27.7792653 7.46791837,27.3406531 6.99820408,26.7920816 C6.5282449,26.2437551 6.18440816,25.5989388 5.99044898,24.9034286 C5.7964898,24.2079184 5.75755102,23.4781224 5.87583673,22.7657143 C5.99461224,22.053551 6.26767347,21.3756735 6.67640816,20.7800816 C7.08489796,20.1847347 7.61902041,19.6861224 8.24106122,19.3195102 C8.86334694,18.952898 9.55787755,18.7266122 10.276898,18.6573061 C10.9959184,18.588 11.7208163,18.6773878 12.4016327,18.9183673 L12.4016327,12.9328163 C5.40489796,11.8236735 0,17.4783673 0,23.5760816 C0.00465306122,26.4426122 1.14514286,29.1898776 3.17191837,31.216898 C5.19869388,33.2434286 7.94595918,34.3839184 10.8124898,34.3885714 C16.7730612,34.3885714 21.6220408,30.7444898 21.6220408,23.5760816 L21.6220408,11.3924082 C23.8995918,12.9795918 26.6204082,13.7142857 29.524898,13.7632653 L29.524898,8.26040816 C27.9658776,8.18914286 26.4617143,7.66604082 25.195102,6.75428571" id="Fill-3" fill="#25F4EE"></path>
+                  <path d="M21.6220653,23.5764245 L21.6220653,11.392751 C23.8996163,12.9794449 26.6204327,13.7141388 29.5251673,13.7633633 L29.5251673,9.44581224 C28.0822286,9.04613878 26.7617388,8.29381224 25.6824735,7.25617959 C25.5110449,7.09724082 25.3494122,6.92826122 25.1926776,6.75438367 C24.7922694,6.4752 24.4126776,6.16736327 24.056351,5.83356735 C22.8186367,4.66026122 22.0041061,3.11030204 21.7396163,1.42540408 L17.3730857,1.42540408 L17.3730857,23.7111184 C17.3730857,27.7957714 15.1690041,29.9560163 12.4334939,29.9560163 C11.6569224,29.9538122 10.8918612,29.7681796 10.2005143,29.414302 C9.50941224,29.0601796 8.91186122,28.5476082 8.45635102,27.9182204 C7.49071837,27.3946286 6.72712653,26.5636898 6.2865551,25.5571592 C5.84573878,24.5508735 5.75341224,23.4260571 6.02377959,22.3609959 C6.29390204,21.2959347 6.91177959,20.3516082 7.77896327,19.6771592 C8.64639184,19.0027102 9.71365714,18.6365878 10.8122694,18.6365878 C11.3564327,18.6412408 11.8961878,18.7362612 12.4090041,18.9182204 L12.4090041,14.1894857 C10.304351,14.1921796 8.24647347,14.8093224 6.48786122,15.9657306 C4.72924898,17.1221388 3.3470449,18.7666286 2.51047347,20.6978939 C1.67390204,22.6291592 1.41969796,24.7627102 1.77896327,26.8362612 C2.13822857,28.9098122 3.09553469,30.8334857 4.53308571,32.3704653 C6.36271837,33.6848327 8.55945306,34.3906286 10.8122694,34.3884296 C16.7730857,34.3884296 21.6220653,30.7445878 21.6220653,23.5764245" id="Fill-5" fill="#000000"></path>
+                </g>
               </g>
-            </g>
-          </svg>
-        </a>
+            </svg>
+          </a>
 
-        <a
-          href="https://www.instagram.com/noturhistorytextbook?igsh=NnpwYzZxMnJqMDhr&utm_source=qr"
-          aria-label="Instagram"
-          class="social-icon"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <img src="Instagram_logo_2022.svg.png" alt="Instagram logo" />
-        </a>
-      </div>
-    </section>
+          <a
+            href="https://www.instagram.com/noturhistorytextbook?igsh=NnpwYzZxMnJqMDhr&utm_source=qr"
+            aria-label="Instagram"
+            class="social-icon"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img src="Instagram_logo_2022.svg.png" alt="Instagram logo" />
+          </a>
+        </div>
+      </section>
+    </div>
   </main>
 
   <script>
